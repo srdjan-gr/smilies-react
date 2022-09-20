@@ -8,12 +8,14 @@ import Contact from './pages/Contact/Contact';
 import About from './pages/About/About';
 import LoginSingein from './pages/LoginSignein/LoginSignein';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <Router>
       <div>
         <Navbar />
+        <Header />
 
         <Routes>
           <Route path='/' element={<Home />} />
