@@ -1,0 +1,65 @@
+import React from 'react'
+import './SplideCarusel.css';
+import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
+
+import img1 from '../../img/splide/C1-1600x1100.jpg'
+import img2 from '../../img/splide/C2-1600x1100.jpg';
+import img3 from '../../img/splide/C3-1600x1100.jpg';
+
+
+const SplideCarusel = () => {
+    return (
+        <div>
+
+
+            <Splide
+                options={{
+                    type: 'loop',
+                    autoplay: true,
+                    interval: 4500,
+                    speed: 500,
+                    height: 'auto',
+                    width: '100%',
+                    arrows: true,
+                    pagination: false,
+                    lazyLoad: true,
+                    mouseDrag: true,
+                    // easing: 'ease',
+
+                    breakpoints: {
+                        768: {
+                            height: '44rem',
+                        },
+                    }
+                }}
+
+                hasTrack={false} aria-label="Smilies slide images">
+
+
+
+                <SplideTrack>
+                    <SplideSlide>
+                        <img src={img1} alt="Image 1" />
+                    </SplideSlide>
+
+                    <SplideSlide>
+                        <img src={img2} alt="Image 2" />
+                    </SplideSlide>
+
+                    <SplideSlide>
+                        <img src={img3} alt="Image 2" />
+                    </SplideSlide>
+                </SplideTrack>
+
+                <div className="splide__progress">
+                    <div className="splide__progress__bar" />
+                </div>
+
+
+            </Splide>
+
+        </div >
+    )
+}
+
+export default SplideCarusel
