@@ -1,9 +1,12 @@
 import React from 'react'
-import './Header.css'
-import logo from '../../assets/img/logos/Logo100px.png';
 import { Link } from 'react-router-dom'
 
+import './Header.css'
+import logo from '../../assets/img/logos/Logo100px.png';
+import { kategorije } from '../../data';
+
 const Header = () => {
+
     return (
         <div>
             <div className="nav__logo">
@@ -14,11 +17,15 @@ const Header = () => {
 
                 <div className="menus">
                     <ul>
-                        <li><span id="Woman">Woman</span></li>
-                        <li><span id="Man">Man</span></li>
-                        <li className="active"><span id="New">New Collection</span></li>
+                        {kategorije.map((kategorija, idx) => {
+
+                            return (   
+                                <li><span id={kategorija.id}>{kategorija.ime_kategorije}</span></li> 
+                            )
+                        })}
                     </ul>
                 </div>
+
             </div>
         </div>
     )
