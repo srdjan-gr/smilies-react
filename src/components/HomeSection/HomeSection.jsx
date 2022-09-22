@@ -1,9 +1,15 @@
 import React from 'react'
 import './HomeSection.css'
-import ShowcaseImg1 from '../../img/home-sections/SmiliesSumer-01.jpg'
-import logo from '../../img/logos/s.png'
+// import ShowcaseImg1 from '../../assets/img/home-sections/SmiliesSumer-01.jpg'
+import logo from '../../assets/img/logos/s.png'
+
+import { showcase } from '../../data';
 
 const HomeSection = () => {
+
+    const { id, title, text, image } = showcase;
+
+
     return (
         <div className='my-5'>
             <section className='container'>
@@ -12,11 +18,8 @@ const HomeSection = () => {
                     <div className="text__content" data-aos="fade-left">
 
                         <div className="text__content-desc">
-                            <h2>Smilies <br />Summer</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Error vero odio ab mollitia modi
-                                delectus iste possimus, ipsa sequi veniam!
-                            </p>
+                            <h2> {title} <br /></h2>
+                            <p>{text}</p>
                         </div>
 
                         <div className="logo-img">
@@ -25,7 +28,7 @@ const HomeSection = () => {
                     </div>
 
                     <div className="img" data-aos="fade-right">
-                        <img src={ShowcaseImg1} alt="" />
+                        <img src={image} alt="" />
                     </div>
                 </div>
             </section>

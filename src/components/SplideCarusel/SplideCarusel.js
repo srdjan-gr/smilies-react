@@ -2,9 +2,9 @@ import React from 'react'
 import './SplideCarusel.css';
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 
-import img1 from '../../img/splide/C1-1600x1100.jpg'
-import img2 from '../../img/splide/C2-1600x1100.jpg';
-import img3 from '../../img/splide/C3-1600x1100.jpg';
+import img1 from '../../assets/img/splide/C1-1600x1100.jpg'
+import img2 from '../../assets/img/splide/C2-1600x1100.jpg';
+import img3 from '../../assets/img/splide/C3-1600x1100.jpg';
 
 
 const SplideCarusel = () => {
