@@ -16,7 +16,7 @@ const HomeSection = () => {
                 let podeljenTitle = showcase.title.split(' ');
 
                 return (
-                    <div className='my-5' >
+                    <div className='my-5' key={idx}>
                         <section className='container'>
                             <div className="showcase">
 

@@ -19,7 +19,7 @@ const Header = () => {
                         {kategorije.map((kategorija, idx) => {
 
                             return (   
-                                <li><span id={kategorija.id}>{kategorija.ime_kategorije}</span></li> 
+                                <li key={idx}><span id={kategorija.id}>{kategorija.ime_kategorije}</span></li> 
                             )
                         })}
                     </ul>
