@@ -13,6 +13,8 @@ const HomeSection = () => {
 
             {showcases.map((showcase, idx) => {
 
+                let podeljenTitle = showcase.title.split(' ');
+
                 return (
                     <div className='my-5' >
                         <section className='container'>
@@ -21,7 +23,7 @@ const HomeSection = () => {
                                 <div className="text__content" data-aos="fade-left">
 
                                     <div className="text__content-desc">
-                                        <h2> {showcase.title} <br /></h2>
+                                        <h2> {podeljenTitle[0]} <br /> {podeljenTitle[1]} {podeljenTitle[2]}</h2>
                                         <p>{showcase.text}</p>
                                     </div>
 

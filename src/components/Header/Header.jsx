@@ -12,7 +12,6 @@ const Header = () => {
             <div className="nav__logo">
                 <div className="logo">
                     <Link to='/'><img src={logo} alt="" /></Link>
-
                 </div>
 
                 <div className="menus">
