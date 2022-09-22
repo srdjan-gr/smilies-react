@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Contact from './pages/Contact/Contact';
 import About from './pages/About/About';
-import LoginSingein from './pages/LoginSignein/LoginSignein';
+import Login from './pages/Login/Login';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import Header from './components/Header/Header';
 
@@ -21,7 +21,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/Contact' element={<Contact />} />
           <Route path='/About' element={<About />} />
-          <Route path='/LoginSignein' element={<LoginSingein />} />
+          <Route path='/Login' element={<Login />} />
 
 
 

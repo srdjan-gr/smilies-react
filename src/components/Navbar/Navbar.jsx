@@ -38,7 +38,7 @@ const Navbar = () => {
 
                             <span className='bag__full'> <IoEllipseOutline style={iconsStyle} /></span>
 
-                            <li className="login"><Link to="/LoginSignein">Log in / Sign In</Link></li>
+                            <li className="login"><Link to="/Login">Log in / Sign In</Link></li>
 
                             <span className="mobile__menu" ><IoEllipsisVerticalOutline style={iconsStyle} /></span>
 

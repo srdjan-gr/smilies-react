@@ -17,7 +17,7 @@ const SplideCarusel = () => {
                     type: 'loop',
                     autoplay: true,
                     interval: 4500,
-                    speed: 500,
+                    speed: 1100,
                     height: 'auto',
                     width: '100%',
                     arrows: true,
@@ -25,6 +25,7 @@ const SplideCarusel = () => {
                     lazyLoad: true,
                     mouseDrag: true,
                     // easing: 'ease',
+                    pauseOnHover: false,
 
                     breakpoints: {
                         768: {

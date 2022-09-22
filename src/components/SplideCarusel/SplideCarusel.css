@@ -534,7 +534,7 @@
 .splide__progress__bar {
     background: #daa520;
     height: 4px;
-    transition: width 400ms ease;
+    /* transition: width 400ms ease; */
     width: 0;
 }
 
