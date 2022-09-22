@@ -16,7 +16,7 @@ const SplideCarusel = () => {
                 options={{
                     type: 'loop',
                     autoplay: true,
-                    interval: 4500,
+                    interval: 4000,
                     speed: 1100,
                     height: 'auto',
                     width: '100%',

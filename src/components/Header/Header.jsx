@@ -8,7 +8,7 @@ import { kategorije } from '../../data';
 const Header = () => {
 
     return (
-        <div>
+        <section>
             <div className="nav__logo">
                 <div className="logo">
                     <Link to='/'><img src={logo} alt="" /></Link>
@@ -18,15 +18,17 @@ const Header = () => {
                     <ul>
                         {kategorije.map((kategorija, idx) => {
 
-                            return (   
-                                <li key={idx}><span id={kategorija.id}>{kategorija.ime_kategorije}</span></li> 
+                            return (
+                                <li key={idx}>
+                                    <span  id={kategorija.id}>{kategorija.ime_kategorije}</span>
+                                </li>
                             )
                         })}
                     </ul>
                 </div>
 
             </div>
-        </div>
+        </section>
     )
 }
 

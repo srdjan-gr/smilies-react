@@ -46,8 +46,49 @@ export const kategorije = [
         id: 3,
         ime_kategorije: 'New Arivals',
     },
-    // {
-    //     id: 4,
-    //     ime_kategorije: 'Kids',
-    // },
 ]
+
+export const podKategorije = [
+
+    {
+        id: 1,
+        ime_podkategorije: 'W.Trousers',
+        kategorija_id: 1,
+    },
+    {
+        id: 2,
+        ime_podkategorije: 'W.Blazer',
+        kategorija_id: 1,
+    },
+    {
+        id: 3,
+        ime_podkategorije: 'W.Skirt',
+        kategorija_id: 1,
+    },
+    {
+        id: 4,
+        ime_podkategorije: 'W.Dress',
+        kategorija_id: 1,
+    },
+    {
+        id: 5,
+        ime_podkategorije: 'M.Trousers',
+        kategorija_id: 2,
+    },
+    {
+        id: 6,
+        ime_podkategorije: 'M.Jacket',
+        kategorija_id: 2,
+    },
+    {
+        id: 7,
+        ime_podkategorije: 'M.Trench',
+        kategorija_id: 2,
+    },
+
+
+]
+
+
+
+// Icons

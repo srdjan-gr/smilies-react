@@ -10,6 +10,7 @@ import About from './pages/About/About';
 import Login from './pages/Login/Login';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import Header from './components/Header/Header';
+import SubCategoryMenu from './components/SubCategoryMenu/SubCategoryMenu';
 
 
 
@@ -23,6 +24,7 @@ function App() {
       <div>
         <Navbar />
         <Header />
+        <SubCategoryMenu />
 
         <Routes>
           <Route path='/' element={<Home location={location} setLocation={setLocation} />} />
