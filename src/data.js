@@ -4,6 +4,11 @@ import ShowcaseImg2 from '../src/assets/img/home-sections/SmiliesBuisiness-01.jp
 import ShowcaseImg3 from '../src/assets/img/home-sections/SmiliesEveryday-01.jpg'
 import ShowcaseImg4 from '../src/assets/img/home-sections/SmilesWeding-01.jpg'
 
+
+import proizvodImgCela from '../src/assets/img/products/proizvod-1-1300x1625.jpg'
+import proizvodImgDetalj from '../src/assets/img/products/proizvod-2-1300x1625.jpg'
+
+
 export const showcases = [
     {
         id: 1,
@@ -87,6 +92,37 @@ export const podKategorije = [
     },
 
 
+]
+
+export const proizvodi = [
+    {
+        id: 1,
+        proizvod_naziv: 'Woman s slim trousers',
+        cena: '14990',
+        slika_cela: proizvodImgCela,
+        slika_detalj: proizvodImgDetalj,
+    },
+    {
+        id: 2,
+        proizvod_naziv: 'Woman s regular cut trousers',
+        cena: '16990',
+        slika_cela: '',
+        slika_detalj: '',
+    },
+    {
+        id: 3,
+        proizvod_naziv: 'Woman s regular cut silk trousers',
+        cena: '12990',
+        slika_cela: '',
+        slika_detalj: '',
+    },
+    {
+        id: 4,
+        proizvod_naziv: 'Woman s slim trousers',
+        cena: '16000',
+        slika_cela: '',
+        slika_detalj: '',
+    },
 ]
 
 
