@@ -1,5 +1,5 @@
 .my-5 {
-    margin: 5rem 0;
+    margin: 6rem 0;
 }
 
 section {
@@ -88,9 +88,21 @@ section {
   /* height: 60rem; */
 }
 
+@media (min-width: 1980px) {
+    .my-5 {
+        margin: 6rem 0rem;
+        padding: 0 10rem;
+    }
+}
 
 @media (max-width: 768px) {
-    .showcase .text__content {
+
+    .my-5 {
+        margin: 4rem 0;
+    }
+
+    .showcase .text__content,
+    .reverse .text__content {
         border-top: solid 1px rgba(192, 192, 192, 0.4); 
         width: 100%;
     }
@@ -105,12 +117,12 @@ section {
     }
 
     .showcase .img,
-    .reverse.img {
+    .reverse .img {
         width: 100%;
     }
 
     .showcase .img img,
-    .reverse.img img {
+    .reverse .img img {
         width: 100%;
     }
 

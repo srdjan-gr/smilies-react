@@ -13,8 +13,8 @@ const HomeSection = () => {
     Aos.init({
     duration: 1200,
     once: false,
-    delay: 1000,
-    offset: 300,
+    delay: 600,
+    // offset: 200,
     // throttleDelay: 1024,
   })
 

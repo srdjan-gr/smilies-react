@@ -1,4 +1,4 @@
-import React from 'react'
+import { React } from 'react'
 import './SubCategoryMenu.css'
 import { Link } from 'react-router-dom';
 
@@ -11,9 +11,11 @@ let iconStyle = {
     fontSize: '2.2rem',
 };
 
-const SubCategoryMenu = () => {
+const SubCategoryMenu = ({ subCategoryMenu }) => {
+
     return (
-        <section className='submenu'>
+        <section className={`${subCategoryMenu ? 'submenuActive' : ''} submenu`}>
+
             <div className="container">
                 <div className="submenu__container">
                     <span><IoCloseOutline style={iconStyle} /></span>

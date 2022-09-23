@@ -1,18 +1,15 @@
-section {
-    position: relative;
-    z-index: 10;
-}
-
 .nav__logo {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 12rem;
+    max-height: 12rem;
     padding: 2rem 0;
     background-color: #ffffff;
-    /* position: relative;
-    z-index: 10;  */
+    position: fixed;
+    top: 4rem;
+    width: 100%;
+    z-index: 10; 
 }
 
 .logo {

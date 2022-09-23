@@ -14,9 +14,6 @@ import Login from './pages/Login/Login';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import Products from './pages/Products/Products';
 
-import Aos from 'aos';
-import 'aos/dist/aos.css'
-
 
 function App() {
 
@@ -24,12 +21,13 @@ function App() {
   const [location, setLocation] = useState('/');
 
 
+
   return (
     <Router>
       <div>
         <Navbar />
         <Header />
-        <SubCategoryMenu />
+
 
         <Routes>
           <Route path='/' element={<Home location={location} setLocation={setLocation} />} />

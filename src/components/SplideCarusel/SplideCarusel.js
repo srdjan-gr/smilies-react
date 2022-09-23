@@ -9,8 +9,9 @@ import img3 from '../../assets/img/splide/C3-1600x1100.jpg';
 
 const SplideCarusel = () => {
     return (
-        <div>
 
+        <div>
+            <div className="devider"></div>
 
             <Splide
                 options={{
@@ -59,7 +60,7 @@ const SplideCarusel = () => {
 
             </Splide>
 
-        </div >
+        </div>
     )
 }
 
