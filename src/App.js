@@ -1,7 +1,11 @@
 import { React, useState } from 'react';
-import './App.css';
-import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import './App.css';
+
+import Navbar from './components/Navbar/Navbar';
+import Header from './components/Header/Header';
+import SubCategoryMenu from './components/SubCategoryMenu/SubCategoryMenu';
 
 import Home from './pages/Home/Home';
 import Contact from './pages/Contact/Contact';
@@ -10,12 +14,12 @@ import Login from './pages/Login/Login';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import Products from './pages/Products/Products';
 
-import Header from './components/Header/Header';
-import SubCategoryMenu from './components/SubCategoryMenu/SubCategoryMenu';
-
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 
 function App() {
+
 
   const [location, setLocation] = useState('/');
 
@@ -33,7 +37,10 @@ function App() {
           <Route path='/About' element={<About location={location} setLocation={setLocation} />} />
           <Route path='/Login' element={<Login location={location} setLocation={setLocation} />} />
 
-          <Route path='/Products' element={<Products location={location} setLocation={setLocation} />} />
+          <Route path='/Products' element={<Products location={location} setLocation={setLocation} />} >
+            <Route path=':singleid' element={<Products />} />
+          </Route>
+
 
 
 

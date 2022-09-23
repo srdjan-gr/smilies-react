@@ -26,7 +26,7 @@ const SubCategoryMenu = () => {
                         <ul>
                             {podKategorije.map((podKategorija, idx) => {
                                 return (
-                                    <li key={idx} id={podKategorija.kategorija_id}><Link to={`/product/${idx}`}>{podKategorija.ime_podkategorije}</Link></li>
+                                    <li key={idx} id={podKategorija.kategorija_id}><Link to={`/products/${idx}`}>{podKategorija.ime_podkategorije}</Link></li>
                                 )
                             })}
                         </ul>

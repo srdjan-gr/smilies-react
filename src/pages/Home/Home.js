@@ -1,10 +1,8 @@
 import { React, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-
 import HomeSection from '../../components/HomeSection/HomeSection';
 import SplideCarusel from '../../components/SplideCarusel/SplideCarusel';
-
 
 
 const styleShowcase = {

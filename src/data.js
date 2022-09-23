@@ -15,24 +15,28 @@ export const showcases = [
         title: 'Smilies Summer',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero odio ab mollitia modi delectus iste possimus, ipsa sequi veniam!',
         image: ShowcaseImg1,
+        image_description: 'Smilies summer collection',
     },
     {
         id: 2,
         title: 'Smilies Business',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero odio ab mollitia modi delectus iste possimus, ipsa sequi veniam!',
         image: ShowcaseImg2,
+        image_description: 'Smilies bussiness collection',
     },
     {
         id: 3,
         title: 'Smilies Every Day',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero odio ab mollitia modi delectus iste possimus, ipsa sequi veniam!',
         image: ShowcaseImg3,
+        image_description: 'Smilies every day collection',
     },
     {
         id: 4,
         title: 'Smilies Wedding',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero odio ab mollitia modi delectus iste possimus, ipsa sequi veniam!',
         image: ShowcaseImg4,
+        image_description: 'Smilies wedding collection',
     }
 ]
 
@@ -101,6 +105,7 @@ export const proizvodi = [
         cena: '14990',
         slika_cela: proizvodImgCela,
         slika_detalj: proizvodImgDetalj,
+        podKategorije_id: 1,
     },
     {
         id: 2,
@@ -108,6 +113,7 @@ export const proizvodi = [
         cena: '16990',
         slika_cela: '',
         slika_detalj: '',
+        podKategorije_id: 1,
     },
     {
         id: 3,
@@ -115,6 +121,7 @@ export const proizvodi = [
         cena: '12990',
         slika_cela: '',
         slika_detalj: '',
+        podKategorije_id: 1,
     },
     {
         id: 4,
@@ -122,6 +129,55 @@ export const proizvodi = [
         cena: '16000',
         slika_cela: '',
         slika_detalj: '',
+        podKategorije_id: 1,
+    },
+    {
+        id: 5,
+        proizvod_naziv: 'Womans Dress',
+        cena: '16990',
+        slika_cela: '',
+        slika_detalj: '',
+        podKategorije_id: 4,
+    },
+    {
+        id: 6,
+        proizvod_naziv: 'Womans Skirt',
+        cena: '12990',
+        slika_cela: '',
+        slika_detalj: '',
+        podKategorije_id: 3,
+    },
+    {
+        id: 7,
+        proizvod_naziv: 'Womans blazer',
+        cena: '16000',
+        slika_cela: '',
+        slika_detalj: '',
+        podKategorije_id: 2,
+    },
+    {
+        id: 8,
+        proizvod_naziv: 'Mens trousers',
+        cena: '16990',
+        slika_cela: '',
+        slika_detalj: '',
+        podKategorije_id: 5,
+    },
+    {
+        id: 9,
+        proizvod_naziv: 'Mens Jacket',
+        cena: '12990',
+        slika_cela: '',
+        slika_detalj: '',
+        podKategorije_id: 6,
+    },
+    {
+        id: 10,
+        proizvod_naziv: 'Mens trench coat',
+        cena: '16000',
+        slika_cela: '',
+        slika_detalj: '',
+        podKategorije_id: 7,
     },
 ]
 
