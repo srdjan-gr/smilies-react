@@ -29,10 +29,10 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
             </div>
             <div className="mobile-pages" id="mobilePages">
                 <ul>
-                    <li className="current"><Link to="/">Home</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
-                    <li><Link to="/About">About Us</Link></li>
-                    <li><Link to="/Login">Log in / Sign In</Link></li>
+                    <li className="current"><Link onClick={closeMobileMenu} to="/">Home</Link></li>
+                    <li><Link onClick={closeMobileMenu} to="/contact">Contact</Link></li>
+                    <li><Link onClick={closeMobileMenu} to="/About">About Us</Link></li>
+                    <li><Link onClick={closeMobileMenu} to="/Login">Log in / Sign In</Link></li>
                 </ul>
             </div>
             <div className="mobile-categories" id="mobileCategories">
@@ -59,7 +59,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
                                                     key={idx}
                                                     id={podKategorija.kategorija_id}>
 
-                                                    <Link to={`/ products / ${idx} `}>{podKategorija.ime_podkategorije}</Link>
+                                                    <Link to={`/products/${podKategorija.id} `}>{podKategorija.ime_podkategorije}</Link>
                                                 </li>
                                             )
                                         })}

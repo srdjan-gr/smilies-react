@@ -38,7 +38,7 @@ const Header = () => {
                 </div>
             </header>
             
-            <SubCategoryMenu subCategoryMenu={subCategoryMenu} />
+            <SubCategoryMenu subCategoryMenu={subCategoryMenu} setSubCategoryMenu={setSubCategoryMenu}/>
         </>
     )
 }

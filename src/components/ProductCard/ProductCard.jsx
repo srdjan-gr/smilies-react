@@ -4,7 +4,6 @@ import './ProductCard.css';
 import { useParams } from 'react-router-dom';
 
 import { IoBagAddOutline } from 'react-icons/io5';
-
 import { proizvodi } from '../../data';
 
 let iconStyle = {
@@ -19,6 +18,9 @@ const ProductCard = () => {
   return (
 
     <div>
+
+      <div className="devider"></div>
+      
       <div className="proizvodi__container">
 
         {proizvodi.map((proizvod, idx) => {

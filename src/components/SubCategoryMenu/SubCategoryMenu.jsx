@@ -11,14 +11,18 @@ let iconStyle = {
     fontSize: '2.2rem',
 };
 
-const SubCategoryMenu = ({ subCategoryMenu }) => {
+const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu }) => {
+
+    const closeSubcategoryMenu = () => {
+        setSubCategoryMenu(!subCategoryMenu);
+    };
 
     return (
         <section className={`${subCategoryMenu ? 'submenuActive' : ''} submenu`}>
 
             <div className="container">
                 <div className="submenu__container">
-                    <span><IoCloseOutline style={iconStyle} /></span>
+                    <span><IoCloseOutline style={iconStyle} onClick={closeSubcategoryMenu} /></span>
 
                     <div className="submenu__image">
                         <img src={submenuImg} alt="Smilies image" />
@@ -28,7 +32,7 @@ const SubCategoryMenu = ({ subCategoryMenu }) => {
                         <ul>
                             {podKategorije.map((podKategorija, idx) => {
                                 return (
-                                    <li key={idx} id={podKategorija.kategorija_id}><Link to={`/products/${idx}`}>{podKategorija.ime_podkategorije}</Link></li>
+                                    <li key={idx} id={podKategorija.kategorija_id}><Link to={`/products/${podKategorija.id}`} onClick={closeSubcategoryMenu}>{podKategorija.ime_podkategorije}</Link></li>
                                 )
                             })}
                         </ul>
