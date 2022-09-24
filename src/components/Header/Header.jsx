@@ -1,10 +1,12 @@
 import { React, useState } from 'react';
 import { Link } from 'react-router-dom'
 
+import { kategorije } from '../../data';
+
 import './Header.css'
 import logo from '../../assets/img/logos/Logo100px.png';
-import { kategorije } from '../../data';
 import SubCategoryMenu from '../SubCategoryMenu/SubCategoryMenu';
+
 
 const Header = () => {
 

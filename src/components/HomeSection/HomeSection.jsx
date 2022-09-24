@@ -20,7 +20,6 @@ const HomeSection = () => {
 
 
     return (
-
         <>
             <section className='container'>
 

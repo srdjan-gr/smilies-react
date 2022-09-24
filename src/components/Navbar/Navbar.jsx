@@ -1,10 +1,13 @@
-import React from 'react'
+import {React, useState} from 'react'
 import './Navbar.css'
+import '../MobileMenu/MobileMenu.css'
 import { IoSearchOutline, IoBagOutline, IoEllipseOutline, IoEllipsisVerticalOutline } from 'react-icons/io5'
 
 import { Link } from 'react-router-dom';
+import MobileMenu from '../MobileMenu/MobileMenu';
 
-let iconsStyle = {
+
+let iconStyle = {
     cursor: 'pointer',
     // transition: 'all 0.2s ease',
     fontSize: '1.8rem',
@@ -12,6 +15,13 @@ let iconsStyle = {
 };
 
 const Navbar = () => {
+
+    const [mobileMenu, setMobileMenu] = useState(false);
+
+    const addMobileMenuCLass = () => {
+        setMobileMenu(!mobileMenu);
+    };
+
     return (
         <div>
             <nav>
@@ -33,19 +43,23 @@ const Navbar = () => {
                         </div>
                         <div className="navbar__right">
 
-                            <span><IoSearchOutline style={iconsStyle} /></span>
-                            <span><IoBagOutline style={iconsStyle} /></span>
+                            <span><IoSearchOutline style={iconStyle} /></span>
+                            <span><IoBagOutline style={iconStyle} /></span>
 
-                            <span className='bag__full'> <IoEllipseOutline style={iconsStyle} /></span>
+                            <span className='bag__full'> <IoEllipseOutline style={iconStyle} /></span>
 
                             <li className="login"><Link to="/Login">Log in / Sign In</Link></li>
 
-                            <span className="mobile__menu" ><IoEllipsisVerticalOutline style={iconsStyle} /></span>
+                            <span className="mobile__menu" >
+                                <IoEllipsisVerticalOutline style={iconStyle} onClick={addMobileMenuCLass}/>
+                            </span>
 
                         </div>
                     </div>
                 </div>
             </nav>
+
+            <MobileMenu mobileMenu={mobileMenu} setMobileMenu={setMobileMenu}/>
         </div>
     )
 }

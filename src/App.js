@@ -5,7 +5,6 @@ import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
-import SubCategoryMenu from './components/SubCategoryMenu/SubCategoryMenu';
 
 import Home from './pages/Home/Home';
 import Contact from './pages/Contact/Contact';
@@ -13,6 +12,7 @@ import About from './pages/About/About';
 import Login from './pages/Login/Login';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import Products from './pages/Products/Products';
+
 
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
       <div>
         <Navbar />
         <Header />
+   
 
 
         <Routes>
