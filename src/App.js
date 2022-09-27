@@ -13,6 +13,7 @@ import Login from './pages/Login/Login';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import Products from './pages/Products/Products';
 import Devider from './components/Devider/Devider';
+import Message from './components/Message/Message';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Navbar />
         <Header />
         <Devider />
+        <Message />
 
 
 

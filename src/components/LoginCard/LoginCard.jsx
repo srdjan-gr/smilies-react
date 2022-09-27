@@ -2,6 +2,7 @@ import { React, useState } from 'react'
 import './LoginCard.css'
 import { IoPersonOutline, IoPersonAddOutline } from 'react-icons/io5'
 import Button from '../Button/Button'
+import Message from '../Message/Message';
 
 let iconStyle = {
     fontSize: '3.2rem',
@@ -53,7 +54,6 @@ const LoginCard = () => {
                 </div>
 
 
-
                 <div className={`${loginCard ? 'sigupActive' : ''} login-card signupCard `} id="">
 
                     <div className="login-card-header">
@@ -93,16 +93,7 @@ const LoginCard = () => {
                     </div>
                 </div>
             </div>
-
-
-            <div className="message" id="message">
-                <div className="message-container" id="message-container">
-
-                </div>
-            </div>
-
         </section>
-
     )
 }
 
