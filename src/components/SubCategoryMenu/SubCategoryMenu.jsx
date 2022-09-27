@@ -2,7 +2,7 @@ import { React } from 'react'
 import './SubCategoryMenu.css'
 import { Link } from 'react-router-dom';
 
-import { podKategorije } from '../../data';
+import { podKategorije, kategorije } from '../../data';
 import { IoCloseOutline } from 'react-icons/io5';
 import submenuImg from '../../assets/img/home-sections/SmiliesEveryday-01.jpg'
 
@@ -11,11 +11,13 @@ let iconStyle = {
     fontSize: '2.2rem',
 };
 
-const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu }) => {
+const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId }) => {
 
     const closeSubcategoryMenu = () => {
         setSubCategoryMenu(!subCategoryMenu);
     };
+
+    // console.log(categoryId)
 
     return (
         <section className={`${subCategoryMenu ? 'submenuActive' : ''} submenu`}>
@@ -30,10 +32,29 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu }) => {
 
                     <div className="submenu__subcategories">
                         <ul>
+
                             {podKategorije.map((podKategorija, idx) => {
-                                return (
-                                    <li key={idx} id={podKategorija.kategorija_id}><Link to={`/products/${podKategorija.id}`} onClick={closeSubcategoryMenu}>{podKategorija.ime_podkategorije}</Link></li>
-                                )
+
+                                if (categoryId == podKategorija.kategorija_id) {
+
+                                    // Mala slova za slanje u URL
+                                    let imePodkategorijeMala = podKategorija.ime_podkategorije;
+                                    let malaSlova = imePodkategorijeMala.toLowerCase();
+
+                                    // Podkategorija bez M i Z oznaka
+                                    let celoIme = podKategorija.ime_podkategorije;
+                                    let skracenoIme = celoIme.split('.');
+
+                                    return (
+                                        <li key={idx}
+                                            id={podKategorija.kategorija_id}
+                                            onClick={closeSubcategoryMenu}>
+
+                                            <Link to={`/products/${malaSlova}`} >{skracenoIme[1]}</Link>
+                                        </li>
+                                    )
+                                }
+
                             })}
                         </ul>
                     </div>

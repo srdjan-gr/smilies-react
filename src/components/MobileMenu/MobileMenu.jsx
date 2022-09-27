@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useState } from 'react'
 import './MobileMenu.css';
 
 import { Link } from 'react-router-dom';
@@ -19,18 +19,27 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
         setMobileMenu(!mobileMenu);
     };
 
+    const [openSubcategory, setOpenSubcategory] = useState(true);
+    const [submenuId, setSubmenuId] = useState('');
+
+    const openSubcategoryMenu = (id) => {
+
+        setOpenSubcategory(!openSubcategory)
+
+    };
+
     return (
         <div className={`${mobileMenu ? 'menuActive' : ''} mobile-menu`}>
 
             <span className='closeMobileMenu' onClick={closeMobileMenu}><IoCloseOutline style={iconStyle} /></span>
 
             <div className="mobile-logo">
-                <Link to='/'><img src={logo} alt="Smilies logo" /></Link>
+                <Link to='/'><img onClick={closeMobileMenu} src={logo} alt="Smilies logo" /></Link>
             </div>
             <div className="mobile-pages" id="mobilePages">
                 <ul>
                     <li className="current"><Link onClick={closeMobileMenu} to="/">Home</Link></li>
-                    <li><Link onClick={closeMobileMenu} to="/contact">Contact</Link></li>
+                    <li><Link onClick={closeMobileMenu} to="/Contact">Contact</Link></li>
                     <li><Link onClick={closeMobileMenu} to="/About">About Us</Link></li>
                     <li><Link onClick={closeMobileMenu} to="/Login">Log in / Sign In</Link></li>
                 </ul>
@@ -41,30 +50,45 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
                     {kategorije.map((kategorija, idx) => {
 
                         return (
-                            <li id="Woman">
+                            <li id={kategorija.id}>
+
                                 <div className="mobile-category-header" key={idx}>
                                     <span className="menuLink"
-                                        id={kategorija.id}>{kategorija.ime_kategorije}
+                                        onClick={() => openSubcategoryMenu(kategorija.id)}>{kategorija.ime_kategorije}
                                     </span>
-                                    <span
-                                        className="menu-icon"
-                                    ><IoChevronDownOutline /></span>
+
+                                    <span className="menu-icon"><IoChevronDownOutline /></span>
                                 </div>
 
-                                <div className="mobile-subcategories">
+                                <div className={`${openSubcategory ? 'subcategoryActive' : ''} mobile-subcategories`}>
                                     <ul>
                                         {podKategorije.map((podKategorija, idx) => {
-                                            return (
-                                                <li className="category-menu-item"
-                                                    key={idx}
-                                                    id={podKategorija.kategorija_id}>
 
-                                                    <Link to={`/products/${podKategorija.id} `}>{podKategorija.ime_podkategorije}</Link>
-                                                </li>
-                                            )
+                                            // {Provera da li je ID kategorije jednak KATEGORIJA_ID iz podkategorija}
+                                            if (kategorija.id == podKategorija.kategorija_id) {
+
+                                                // Mala slova za slanje u URL
+                                                let imePodkategorijeMala = podKategorija.ime_podkategorije;
+                                                let malaSlova = imePodkategorijeMala.toLowerCase();
+
+                                                // Podkategorija bez M i Z oznaka
+                                                let celoIme = podKategorija.ime_podkategorije;
+                                                let skracenoIme = celoIme.split('.');
+
+                                                return (
+                                                    <li className="category-menu-item"
+                                                        key={idx}
+                                                        id={podKategorija.kategorija_id}
+                                                        onClick={closeMobileMenu}>
+
+                                                        <Link to={`/products/${malaSlova} `}>{skracenoIme[1]}</Link>
+                                                    </li>
+                                                )
+                                            }
                                         })}
                                     </ul>
                                 </div>
+
                             </li>
                         )
                     })}

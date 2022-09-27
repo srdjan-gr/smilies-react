@@ -19,12 +19,12 @@
         border-top: 1px solid #daa520;
         border-bottom: 1px solid #daa520;
         transform: translateX(-100%);
-        transition: transform 0.25s linear;
+        transition: transform 0.25s ease-out;
         overflow-y: scroll; 
     }
 
     .menuActive {
-        transition: transform 0.25s linear;
+        transition: transform 0.25s ease-out;
         transform: translateX(0%);
     }
     
@@ -60,11 +60,14 @@
     
     .mobile-menu .mobile-categories li .mobile-subcategories {
         margin: 2rem;
-        padding: 0 3rem;
+        padding-left: 3rem;
         border-left: 1px solid #daa520;
-        display: flex;
         display: none;
         width: 80%; 
+    }
+
+    .mobile-menu .mobile-categories li .subcategoryActive {
+        display: block;
     }
     
     .mobile-menu .mobile-categories li .mobile-subcategories li:hover {

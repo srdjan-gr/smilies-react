@@ -94,8 +94,11 @@ export const podKategorije = [
         ime_podkategorije: 'M.Trench',
         kategorija_id: 2,
     },
-
-
+    {
+        id: 8,
+        ime_podkategorije: 'M.Shoes',
+        kategorija_id: 3,
+    },
 ]
 
 export const proizvodi = [

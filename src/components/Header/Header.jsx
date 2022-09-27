@@ -11,6 +11,8 @@ import SubCategoryMenu from '../SubCategoryMenu/SubCategoryMenu';
 const Header = () => {
 
     const [subCategoryMenu, setSubCategoryMenu] = useState(false);
+    const [categoryId, setCategoryId] = useState('');
+    const [subKategorijaId, setKategorijaId] = useState('');
 
     return (
         <>
@@ -27,8 +29,15 @@ const Header = () => {
                                 return (
                                     <li key={idx} >
                                         <span  
-                                            onClick={() => setSubCategoryMenu(!subCategoryMenu)}
+                                            onClick={() => 
+                                                [
+                                                    setSubCategoryMenu(!subCategoryMenu), 
+                                                    setCategoryId(kategorija.id)
+                                                ] 
+                                            }
+  
                                             id={kategorija.id}>{kategorija.ime_kategorije}</span>
+
                                     </li>
                                 )
                             })}
@@ -38,7 +47,7 @@ const Header = () => {
                 </div>
             </header>
             
-            <SubCategoryMenu subCategoryMenu={subCategoryMenu} setSubCategoryMenu={setSubCategoryMenu}/>
+            <SubCategoryMenu subCategoryMenu={subCategoryMenu} setSubCategoryMenu={setSubCategoryMenu} categoryId={categoryId}/>
         </>
     )
 }
