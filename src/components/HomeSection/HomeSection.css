@@ -42,7 +42,6 @@ section {
     padding-top: 0px;
     padding-bottom: 0px;
     /* margin-top: 20px; */
-
 }
 
 .logo-img{
@@ -79,7 +78,8 @@ section {
     flex-direction: column;
     width: 48rem;
     /* height: 0rem; */
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); */
+    box-shadow: 7px 7px 5px -5px rgba(0, 0, 0, 0.2);
 }
 
 .showcase .img img 

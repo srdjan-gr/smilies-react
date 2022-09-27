@@ -16,7 +16,7 @@ const About = ({ setLocation }) => {
 
             <div className="about__content">
 
-                <p>Modni salon Smilies je počeo sa radom daleke 1997 godine u Boru kada su jedan hobi i pasija uobličeni u profesiju.</p>
+                <p>Modni salon Smilies je počeo sa radom daleke 1997. godine u Boru kada su jedan hobi i pasija uobličeni u profesiju.</p>
 
             </div>
         </section>

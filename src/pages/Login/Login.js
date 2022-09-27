@@ -1,5 +1,6 @@
 import { React, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import LoginCard from '../../components/LoginCard/LoginCard';
 
 
 const LoginSignin = ({ setLocation }) => {
@@ -12,8 +13,7 @@ const LoginSignin = ({ setLocation }) => {
 
     return (
         <div className="container">
-            Login
-
+            <LoginCard />
         </div>
     )
 }
