@@ -17,44 +17,40 @@ const ProductCard = () => {
 
   return (
 
-    <div>
+    <div className="proizvodi__container">
 
-      <div className="devider"></div>
-      
-      <div className="proizvodi__container">
+      {proizvodi.map((proizvod, idx) => {
 
-        {proizvodi.map((proizvod, idx) => {
+        return (
 
-          return (
+          <div className="proizvodi__container-item" id="proizvodi" key={idx}>
+            <div className="proizvod">
 
-            <div className="proizvodi__container-item" id="proizvodi" key={idx}>
-              <div className="proizvod">
-
-                <div className="proizvod__image">
-                  <img src={proizvod.slika_detalj} alt="Smilies Slika proizvoda detalj" />
-                  <img src={proizvod.slika_cela} alt="" />
-                </div>
-
-                <div className="proizvod__opis">
-                  <div className="proizvod__opis-txt">
-                    <h1>{proizvod.proizvod_naziv}</h1>
-                    <h2>din. {proizvod.cena}</h2>
-                  </div>
-                  <div className="proizvod__opis-bag">
-                    <span>
-                      <IoBagAddOutline style={iconStyle} />
-                    </span>
-                  </div>
-                </div>
-
+              <div className="proizvod__image">
+                <img src={proizvod.slika_detalj} alt="Smilies Slika proizvoda detalj" />
+                <img src={proizvod.slika_cela} alt="" />
               </div>
+
+              <div className="proizvod__opis">
+                <div className="proizvod__opis-txt">
+                  <h1>{proizvod.proizvod_naziv}</h1>
+                  <h2>din. {proizvod.cena}</h2>
+                </div>
+                <div className="proizvod__opis-bag">
+                  <span>
+                    <IoBagAddOutline style={iconStyle} />
+                  </span>
+                </div>
+              </div>
+
             </div>
-          )
+          </div>
+        )
 
-        })}
+      })}
 
-      </div>
     </div>
+
   )
 }
 

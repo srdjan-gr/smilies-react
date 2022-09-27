@@ -20,47 +20,45 @@ const HomeSection = () => {
 
 
     return (
-        <>
-            <section className='container'>
+        <section className='container'>
 
-                {showcases.map((showcase, idx) => {
+            {showcases.map((showcase, idx) => {
 
-                let podeljenTitle = showcase.title.split(' ');
+            let podeljenTitle = showcase.title.split(' ');
 
-                let showcaseClass = '';
-                let dataAos = '';
+            let showcaseClass = '';
+            let dataAos = '';
 
-                if(showcase.id%2 == 0){
-                    showcaseClass = 'reverse  my-5';
-                    dataAos = 'fade-right';
-                }else {
-                    showcaseClass = 'showcase my-5';
-                    dataAos = 'fade-left';
-                }
+            if(showcase.id%2 == 0){
+                showcaseClass = 'reverse  my-5';
+                dataAos = 'fade-right';
+            }else {
+                showcaseClass = 'showcase my-5';
+                dataAos = 'fade-left';
+            }
 
-                return (
-                    <div className={showcaseClass} key={idx}>
+            return (
+                <div className={showcaseClass} key={idx}>
 
-                        <div className="text__content" data-aos={dataAos} >
-                            <div className="text__content-desc">
-                                <h2> {podeljenTitle[0]} <br /> {podeljenTitle[1]} {podeljenTitle[2]}</h2>
-                                <p>{showcase.text}</p>
-                            </div>
-
-                            <div className="logo-img">
-                                <img src={logo} alt="" />
-                            </div>
+                    <div className="text__content" data-aos={dataAos} >
+                        <div className="text__content-desc">
+                            <h2> {podeljenTitle[0]} <br /> {podeljenTitle[1]} {podeljenTitle[2]}</h2>
+                            <p>{showcase.text}</p>
                         </div>
 
-                        <div className="img" data-aos={dataAos} >
-                            <img src={showcase.image} alt={showcase.image_description} />
+                        <div className="logo-img">
+                            <img src={logo} alt="" />
                         </div>
-
                     </div>
-                    )
-                })}
-            </section>
-        </>
+
+                    <div className="img" data-aos={dataAos} >
+                        <img src={showcase.image} alt={showcase.image_description} />
+                    </div>
+
+                </div>
+                )
+            })}
+        </section>
     )
 }
 

@@ -12,22 +12,20 @@ import About from './pages/About/About';
 import Login from './pages/Login/Login';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import Products from './pages/Products/Products';
-
+import Devider from './components/Devider/Devider';
 
 
 function App() {
 
-
   const [location, setLocation] = useState('/');
-
-
 
   return (
     <Router>
       <div>
         <Navbar />
         <Header />
-   
+        <Devider />
+
 
 
         <Routes>

@@ -9,10 +9,7 @@ import img3 from '../../assets/img/splide/C3-1600x1100.jpg';
 
 const SplideCarusel = () => {
     return (
-
         <div>
-            <div className="devider"></div>
-
             <Splide
                 options={{
                     type: 'loop',
@@ -37,8 +34,6 @@ const SplideCarusel = () => {
 
                 hasTrack={false} aria-label="Smilies slide images">
 
-
-
                 <SplideTrack>
                     <SplideSlide>
                         <img src={img1} alt="Image 1" />
@@ -57,9 +52,7 @@ const SplideCarusel = () => {
                     <div className="splide__progress__bar" />
                 </div>
 
-
             </Splide>
-
         </div>
     )
 }

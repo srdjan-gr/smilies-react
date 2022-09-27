@@ -23,7 +23,6 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
     const [submenuId, setSubmenuId] = useState('');
 
     const openSubcategoryMenu = (id) => {
-
         setOpenSubcategory(!openSubcategory)
 
     };
@@ -50,9 +49,9 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
                     {kategorije.map((kategorija, idx) => {
 
                         return (
-                            <li id={kategorija.id}>
+                            <li id={kategorija.id} key={idx}>
 
-                                <div className="mobile-category-header" key={idx}>
+                                <div className="mobile-category-header" >
                                     <span className="menuLink"
                                         onClick={() => openSubcategoryMenu(kategorija.id)}>{kategorija.ime_kategorije}
                                     </span>
