@@ -1,11 +1,14 @@
 import { React, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// Styling
 import './App.css';
 
+// Components
 import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
 
+// Pages
 import Home from './pages/Home/Home';
 import Contact from './pages/Contact/Contact';
 import About from './pages/About/About';

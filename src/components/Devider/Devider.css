@@ -3,3 +3,9 @@
     height: 16rem;
     background-color: #0bf;
 }
+
+@media (max-width: 768px){
+    .devider {
+        height: 14rem;
+    }
+}

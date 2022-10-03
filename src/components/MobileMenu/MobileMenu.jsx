@@ -1,12 +1,15 @@
-import { React, useState } from 'react'
-import './MobileMenu.css';
-
+import { React, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { kategorije } from '../../data';
-import { podKategorije } from '../../data';
 
+// Styling
+import './MobileMenu.css';
 import logo from '../../assets/img/logos/Logo100px.png';
 import { IoChevronDownOutline, IoCloseOutline } from 'react-icons/io5';
+
+// Data
+import { podKategorije } from '../../data';
+import apiCategory from '../../api/category'
+
 
 let iconStyle = {
     cursor: 'pointer',
@@ -19,13 +22,39 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
         setMobileMenu(!mobileMenu);
     };
 
-    const [openSubcategory, setOpenSubcategory] = useState(true);
+    const [openSubcategory, setOpenSubcategory] = useState(false);
     const [submenuId, setSubmenuId] = useState('');
 
     const openSubcategoryMenu = (id) => {
         setOpenSubcategory(!openSubcategory)
-
     };
+
+    // API
+    const [kategorije, setKategorije] = useState([]);
+
+    useEffect(() => {
+        getKategorije();
+    }, []);
+
+
+    const getKategorije = async () => {
+
+        try {
+            const response = await apiCategory.get("/category");
+            setKategorije(response.data);
+
+        } catch (err) {
+            // Ako nije response sa statusom 200  
+            if (err.response) {
+                console.log(err.response.data);
+                console.log(err.response.status);
+                console.log(err.response.headers);
+            } else {
+                console.log(`Error: ${err.message}`)
+            }
+        }
+    }
+
 
     return (
         <div className={`${mobileMenu ? 'menuActive' : ''} mobile-menu`}>
@@ -49,11 +78,11 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
                     {kategorije.map((kategorija, idx) => {
 
                         return (
-                            <li id={kategorija.id} key={idx}>
+                            <li id={kategorija.kat_id} key={idx}>
 
                                 <div className="mobile-category-header" >
                                     <span className="menuLink"
-                                        onClick={() => openSubcategoryMenu(kategorija.id)}>{kategorija.ime_kategorije}
+                                        onClick={() => openSubcategoryMenu(kategorija.kat_id)}>{kategorija.kat_naziv_en}
                                     </span>
 
                                     <span className="menu-icon"><IoChevronDownOutline /></span>
@@ -64,7 +93,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
                                         {podKategorije.map((podKategorija, idx) => {
 
                                             // {Provera da li je ID kategorije jednak KATEGORIJA_ID iz podkategorija}
-                                            if (kategorija.id == podKategorija.kategorija_id) {
+                                            if (kategorija.kat_id == podKategorija.kategorija_id) {
 
                                                 // Mala slova za slanje u URL
                                                 let imePodkategorijeMala = podKategorija.ime_podkategorije;
@@ -78,8 +107,9 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
                                                     <li className="category-menu-item"
                                                         key={idx}
                                                         id={podKategorija.kategorija_id}
-                                                        onClick={closeMobileMenu}>
-
+                                                        onClick={closeMobileMenu}
+                                                        data-en={kategorija.kat_naziv_en} data-sr={kategorija.kat_naziv_sr}>
+                                                        
                                                         <Link to={`/products/${malaSlova} `}>{skracenoIme[1]}</Link>
                                                     </li>
                                                 )

@@ -41,21 +41,24 @@ export const showcases = [
 ]
 
 
-export const kategorije = [
+// export const kategorije = [
 
-    {
-        id: 1,
-        ime_kategorije: 'Woman',
-    },
-    {
-        id: 2,
-        ime_kategorije: 'Men',
-    },
-    {
-        id: 3,
-        ime_kategorije: 'New Arivals',
-    },
-]
+//     {
+//         kat_id: 1,
+//         kat_naziv_se: 'Ženska',
+//         kat_naziv_en: 'Woman',
+//     },
+//     {
+//         kat_id: 2,
+//         kat_naziv_se: 'Muška',
+//         kat_naziv_en: 'Men',
+//     },
+//     {
+//         kat_id: 3,
+//         kat_naziv_se: 'Nova-kolekcija',
+//         kat_naziv_en: 'New-Arivals',
+//     },
+// ]
 
 export const podKategorije = [
 
