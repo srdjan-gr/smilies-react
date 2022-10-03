@@ -1,8 +1,12 @@
-import { React } from 'react'
-import './SubCategoryMenu.css'
+import { React, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
-import { podKategorije, kategorije } from '../../data';
+// Data
+// import { podKategorije, kategorije } from '../../data';
+import apiSubCategory from '../../api/subCategory'
+
+// styling
+import './SubCategoryMenu.css'
 import { IoCloseOutline } from 'react-icons/io5';
 import submenuImg from '../../assets/img/home-sections/SmiliesEveryday-01.jpg'
 
@@ -11,11 +15,38 @@ let iconStyle = {
     fontSize: '2.2rem',
 };
 
+
+
 const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId }) => {
 
     const closeSubcategoryMenu = () => {
         setSubCategoryMenu(!subCategoryMenu);
     };
+
+    // API 
+    const [podKategorije, setPodKategorije] = useState([]);
+
+    useEffect(() => {
+        getPodKategorije();
+    }, []);
+
+    const getPodKategorije = async () => {
+
+        try {
+            const response = await apiSubCategory.get("/subCategory");
+            setPodKategorije(response.data);
+
+        } catch (err) {
+            // Ako nije response sa statusom 200  
+            if (err.response) {
+                console.log(err.response.data);
+                console.log(err.response.status);
+                console.log(err.response.headers);
+            } else {
+                console.log(`Error: ${err.message}`)
+            }
+        }
+    }
 
     // console.log(categoryId)
 
@@ -32,33 +63,34 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId }) =>
 
                     <div className="submenu__subcategories">
                         <ul>
+                            {
+                                podKategorije.map((podKategorija, idx) => {
 
-                            {podKategorije.map((podKategorija, idx) => {
+                                    if (categoryId == podKategorija.kategorija_kat_id) {
 
-                                if (categoryId == podKategorija.kategorija_id) {
+                                        // Mala slova za slanje u URL
+                                        let imePodkategorijeMala = podKategorija.podkat_naziv_en;
+                                        let malaSlova = imePodkategorijeMala.toLowerCase();
 
-                                    // Mala slova za slanje u URL
-                                    let imePodkategorijeMala = podKategorija.ime_podkategorije;
-                                    let malaSlova = imePodkategorijeMala.toLowerCase();
+                                        // Podkategorija bez M i Z oznaka
+                                        let celoIme = podKategorija.podkat_naziv_en;
+                                        let skracenoIme = celoIme.split('.');
 
-                                    // Podkategorija bez M i Z oznaka
-                                    let celoIme = podKategorija.ime_podkategorije;
-                                    let skracenoIme = celoIme.split('.');
+                                        return (
+                                            <li key={idx}
+                                                id={podKategorija.kategorija_kat_id}
+                                                onClick={closeSubcategoryMenu}
+                                                data-en={podKategorija.podkat_naziv_en} data-sr={podKategorija.podkat_naziv_sr}>
 
-                                    return (
-                                        <li key={idx}
-                                            id={podKategorija.kategorija_id}
-                                            onClick={closeSubcategoryMenu}>
+                                                <Link to={`/products/${malaSlova}`} >{skracenoIme[1]}</Link>
+                                            </li>
+                                        )
+                                    }
 
-                                            <Link to={`/products/${malaSlova}`} >{skracenoIme[1]}</Link>
-                                        </li>
-                                    )
-                                }
-
-                            })}
+                                })
+                            }
                         </ul>
                     </div>
-
                 </div>
             </div>
         </section>

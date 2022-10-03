@@ -47,6 +47,7 @@
     .mobile-menu .mobile-categories li {
         padding-bottom: 1rem;
         list-style-type: none; 
+        text-transform: capitalize;
     }
     
     .mobile-menu .mobile-categories li .mobile-category-header {

@@ -1,13 +1,14 @@
 import { React, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 
+// Data
+import apiCategory from '../../api/category'
+import SubCategoryMenu from '../SubCategoryMenu/SubCategoryMenu';
+
 // Styling
 import './Header.css'
 import logo from '../../assets/img/logos/Logo100px.png';
 
-// Data
-import apiCategory from '../../api/category'
-import SubCategoryMenu from '../SubCategoryMenu/SubCategoryMenu';
 
 
 const Header = () => {
