@@ -9,14 +9,9 @@ const Products = ({ location, setLocation }) => {
 
     let curentLocation = useLocation();
 
-
-    // console.log(params)
-
     useEffect(() => {
         setLocation(curentLocation.pathname);
     }, []);
-
-
 
     return (
         <div className='container'>

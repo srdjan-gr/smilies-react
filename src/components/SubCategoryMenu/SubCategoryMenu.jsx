@@ -48,7 +48,6 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId }) =>
         }
     }
 
-    // console.log(categoryId)
 
     return (
         <section className={`${subCategoryMenu ? 'submenuActive' : ''} submenu`}>
@@ -78,15 +77,16 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId }) =>
 
                                         return (
                                             <li key={idx}
-                                                id={podKategorija.kategorija_kat_id}
+                                                id={podKategorija.podkat_id}
+
+
                                                 onClick={closeSubcategoryMenu}
                                                 data-en={podKategorija.podkat_naziv_en} data-sr={podKategorija.podkat_naziv_sr}>
 
-                                                <Link to={`/products/${malaSlova}`} >{skracenoIme[1]}</Link>
+                                                <Link to={`/products/${podKategorija.podkat_id}`} >{skracenoIme[1]}</Link>
                                             </li>
                                         )
                                     }
-
                                 })
                             }
                         </ul>

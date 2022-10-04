@@ -17,6 +17,7 @@ import ErrorPage from './pages/ErrorPage/ErrorPage';
 import Products from './pages/Products/Products';
 import Devider from './components/Devider/Devider';
 import Message from './components/Message/Message';
+import Product from './pages/Product/Product';
 
 
 function App() {
@@ -43,6 +44,10 @@ function App() {
             <Route path=':singleid' element={<Products />} />
           </Route>
 
+          <Route path='/Product' element={<Product location={location} setLocation={setLocation} />} >
+            <Route path=':singleProduct' element={<Product />} />
+          </Route>
+
 
 
 
@@ -51,7 +56,7 @@ function App() {
         </Routes>
 
       </div>
-    </Router>
+    </Router >
   );
 }
 

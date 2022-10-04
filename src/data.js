@@ -10,13 +10,13 @@ import proizvodImgDetalj from '../src/assets/img/products/proizvod-2-1300x1625.j
 
 
 export const showcases = [
-    {
-        id: 1,
-        title: 'Smilies Summer',
-        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero odio ab mollitia modi delectus iste possimus, ipsa sequi veniam!',
-        image: ShowcaseImg1,
-        image_description: 'Smilies summer collection',
-    },
+    // {
+    //     id: 1,
+    //     title: 'Smilies Summer',
+    //     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero odio ab mollitia modi delectus iste possimus, ipsa sequi veniam!',
+    //     image: ShowcaseImg1,
+    //     image_description: 'Smilies summer collection',
+    // },
     {
         id: 2,
         title: 'Smilies Business',
@@ -111,7 +111,10 @@ export const proizvodi = [
         cena: '14990',
         slika_cela: proizvodImgCela,
         slika_detalj: proizvodImgDetalj,
-        podKategorije_id: 1,
+        slika_cela1: '',
+        slika_cela2: '',
+        slika_opis: 'Woman s slim trousers',
+        podk_id: 1,
     },
     {
         id: 2,
@@ -119,7 +122,10 @@ export const proizvodi = [
         cena: '16990',
         slika_cela: '',
         slika_detalj: '',
-        podKategorije_id: 1,
+        slika_cela1: '',
+        slika_cela2: '',
+        slika_opis: 'Woman s regular cut trousers',
+        podk_id: 1,
     },
     {
         id: 3,
@@ -127,7 +133,10 @@ export const proizvodi = [
         cena: '12990',
         slika_cela: '',
         slika_detalj: '',
-        podKategorije_id: 1,
+        slika_cela1: '',
+        slika_cela2: '',
+        slika_opis: 'Woman s regular cut silk trousers',
+        podk_id: 1,
     },
     {
         id: 4,
@@ -135,7 +144,10 @@ export const proizvodi = [
         cena: '16000',
         slika_cela: '',
         slika_detalj: '',
-        podKategorije_id: 1,
+        slika_cela1: '',
+        slika_cela2: '',
+        slika_opis: 'Woman s slim trousers',
+        podk_id: 1,
     },
     {
         id: 5,
@@ -143,7 +155,10 @@ export const proizvodi = [
         cena: '16990',
         slika_cela: '',
         slika_detalj: '',
-        podKategorije_id: 4,
+        slika_cela1: '',
+        slika_cela2: '',
+        slika_opis: 'Womans Dress',
+        podk_id: 4,
     },
     {
         id: 6,
@@ -151,7 +166,10 @@ export const proizvodi = [
         cena: '12990',
         slika_cela: '',
         slika_detalj: '',
-        podKategorije_id: 3,
+        slika_cela1: '',
+        slika_cela2: '',
+        slika_opis: 'Womans Skirt',
+        podk_id: 3,
     },
     {
         id: 7,
@@ -159,7 +177,10 @@ export const proizvodi = [
         cena: '16000',
         slika_cela: '',
         slika_detalj: '',
-        podKategorije_id: 2,
+        slika_cela1: '',
+        slika_cela2: '',
+        slika_opis: 'Womans blazer',
+        podk_id: 2,
     },
     {
         id: 8,
@@ -167,7 +188,10 @@ export const proizvodi = [
         cena: '16990',
         slika_cela: '',
         slika_detalj: '',
-        podKategorije_id: 5,
+        slika_cela1: '',
+        slika_cela2: '',
+        slika_opis: 'Mens trousers',
+        podk_id: 5,
     },
     {
         id: 9,
@@ -175,7 +199,10 @@ export const proizvodi = [
         cena: '12990',
         slika_cela: '',
         slika_detalj: '',
-        podKategorije_id: 6,
+        slika_cela1: '',
+        slika_cela2: '',
+        slika_opis: 'Mens Jacket',
+        podk_id: 6,
     },
     {
         id: 10,
@@ -183,7 +210,10 @@ export const proizvodi = [
         cena: '16000',
         slika_cela: '',
         slika_detalj: '',
-        podKategorije_id: 7,
+        slika_cela1: '',
+        slika_cela2: '',
+        slika_opis: 'Mens trench coat',
+        podk_id: 7,
     },
 ]
 
