@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 // Data
 import { proizvodi } from '../../data';
@@ -13,9 +13,7 @@ let iconStyle = {
   fontSize: '3.4rem',
 };
 
-const otvoriProizvod = () => {
 
-};
 
 const ProductCard = () => {
 
@@ -28,16 +26,17 @@ const ProductCard = () => {
       {
         proizvodi.map((proizvod, idx) => {
 
+          // Ako je ID iz usl(singleID) jednak ID-ju podkategorije onda renderovati podatke za sve proizvode iz te podtategorije ID-ja koji je poslat
           if (singleid == proizvod.podk_id) {
 
             return (
               <div className="proizvodi__container-item" id="proizvodi" key={idx}>
                 <div className="proizvod">
 
-                  <div className="proizvod__image" onClick={otvoriProizvod}>
+                  <div className="proizvod__image">
 
-                    <img src={proizvod.slika_detalj} alt={proizvod.slika_opis} />
-                    <img src={proizvod.slika_cela} alt="" />
+                    <img src={proizvod.slika_detalj} alt={proizvod.proizvod_naziv_en} />
+                    <Link to={`/product/${proizvod.id}`}> <img src={proizvod.slika_cela} alt={proizvod.proizvod_naziv_en} />  </Link>
                   </div>
 
                   <div className="proizvod__opis">

@@ -11,8 +11,6 @@ import './MobileMenu.css';
 import logo from '../../assets/img/logos/Logo100px.png';
 import { IoChevronDownOutline, IoCloseOutline } from 'react-icons/io5';
 
-
-
 let iconStyle = {
     cursor: 'pointer',
     fontSize: '2.4rem',
@@ -138,7 +136,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
                                                             onClick={closeMobileMenu}
                                                             data-en={podKategorije.kat_naziv_en} data-sr={podKategorije.kat_naziv_sr}>
                                                             
-                                                            <Link to={`/products/${malaSlova} `}>{skracenoIme[1]}</Link>
+                                                            <Link to={`/products/${podKategorija.podkat_id} `}>{skracenoIme[1]}</Link>
                                                         </li>
                                                     )
                                                 }
