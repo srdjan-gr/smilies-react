@@ -42,6 +42,10 @@ p {
     font-size: 1.8rem;
 }
 
+.accent {
+    color: #daa520;
+}
+
 @media (max-width: 768px) {
     .container {
         width: 90%;

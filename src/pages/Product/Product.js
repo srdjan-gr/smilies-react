@@ -1,6 +1,10 @@
 import { React, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
+import ProductDescription from '../../components/ProductDescription/ProductDescription';
 import SingleProduct from '../../components/SingleProduct/SingleProduct';
+
+import { proizvodi } from '../../data';
+
 
 const Product = ({ location, setLocation }) => {
 
@@ -10,12 +14,25 @@ const Product = ({ location, setLocation }) => {
         setLocation(curentLocation.pathname);
     }, []);
 
+    let { singleProduct } = useParams();
 
     return (
-        <div className='container'>
-            <SingleProduct />
+        <>
+            {
+                proizvodi.map((proizvod, idx) => {
 
-        </div>
+                    if (singleProduct == proizvod.id) {
+                        return (
+                            <div className='container'>
+                                <SingleProduct proizvod={proizvod} />
+                                <ProductDescription proizvod={proizvod} />
+
+                            </div>
+                        )
+                    }
+                })
+            }
+        </>
     )
 }
 

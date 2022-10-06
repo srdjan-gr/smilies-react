@@ -1,0 +1,133 @@
+.items-description{
+    margin: 4rem 0;
+}
+
+.items-description h1 {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 400;
+    border-bottom: 1px solid #d8d8d8f8; 
+}
+
+.items-description h2 {
+    font-size: 1.4rem;
+    padding: 0;
+    text-align: center;
+    margin: 0; 
+}
+
+.items-description-cont {
+    display: flex;
+    min-height: 44vh;
+    margin: 0 auto; 
+}
+
+.items-description-cont-1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 5rem; 
+}
+
+.items-description-cont-1-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4rem 0;
+    width: 100%; 
+}
+
+
+.items-description-cont-1-heading p {
+    color: #daa520;
+    cursor: pointer;
+    text-decoration: underline; 
+}
+
+.items-description-cont-1-single {
+    padding-bottom: 1rem;
+    text-align: start; 
+}
+
+.items-description-cont-1-content {
+    width: 100%; 
+}
+
+.items-description-cont-1-content table {
+    border: 1px solid #d8d8d8f8;
+    border-collapse: collapse;
+    width: 100%; 
+}
+
+.items-description-cont-1-content table th {
+    padding: .4rem; 
+}
+
+.items-description-cont-1-content table td {
+    border: 1px solid #d8d8d8f8;
+    width: 2rem;
+    padding: .4rem; 
+}
+
+.items-description-cont-1-content .wash {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding-top: .6rem; 
+}
+
+.items-description-cont-1-content .wash img {
+    max-width: 3rem;
+    margin-right: 1rem; 
+}
+
+@media (max-width: 900px) {
+
+    .items-description {
+        padding: 0 2rem; 
+    }
+
+    .items-description-cont {
+        min-height: 40vh; 
+    }
+
+    .items-description-cont-1 {
+        padding-left: 0;
+        padding-right: 1rem; 
+    }
+
+    .items-description-cont-1:last-child {
+        padding-right: 0;
+        padding-left: 1rem; 
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .items-description {
+        padding: 0rem !important; 
+        margin: 2rem 0 !important;
+    }
+
+    .items-description-cont {
+        flex-direction: column;
+        height: 80rem; 
+    }
+
+    .items-description-cont-1 {
+        padding: 0 !important; 
+    }
+
+    .items-description-cont-1-single {
+        padding-bottom: 1rem;
+        text-align: start; 
+    }
+
+    .items-description-cont-1-heading {
+        margin: 4rem 0 3rem;
+    }
+
+}
