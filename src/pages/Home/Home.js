@@ -1,5 +1,6 @@
 import { React, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer';
 
 import HomeSection from '../../components/HomeSection/HomeSection';
 import SplideCarusel from '../../components/SplideCarusel/SplideCarusel';
@@ -24,6 +25,7 @@ const Home = ({ location, setLocation }) => {
         <div>
             <SplideCarusel />
             <HomeSection />
+            <Footer />
 
         </div>
     )
