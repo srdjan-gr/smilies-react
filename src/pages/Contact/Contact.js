@@ -1,5 +1,6 @@
 import { React, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import ContactOptions from '../../components/ContactOptions/ContactOptions';
 
 const Contact = ({ setLocation }) => {
 
@@ -10,8 +11,8 @@ const Contact = ({ setLocation }) => {
 
 
     return (
-        <div className="container">
-            Contact
+        <div>
+            <ContactOptions />
 
         </div>
     )

@@ -8,11 +8,6 @@ import { proizvodi } from '../../data';
 import './ProductCard.css';
 import { IoBagAddOutline } from 'react-icons/io5';
 
-let iconStyle = {
-  cursor: 'pointer',
-  fontSize: '3.4rem',
-};
-
 
 const ProductCard = () => {
 
@@ -52,9 +47,7 @@ const ProductCard = () => {
                         <h2 data-en={zaokEur} data-sr={zaokDin}>{zaokEur} </h2>
                       </div>
                       <div className="proizvod__opis-bag">
-                        <span>
-                          <IoBagAddOutline style={iconStyle} />
-                        </span>
+                        <span><IoBagAddOutline className='icon--big'/></span>
                       </div>
                     </div>
 

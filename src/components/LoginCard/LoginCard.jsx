@@ -1,13 +1,11 @@
 import { React, useState } from 'react'
+
+// Styling
 import './LoginCard.css'
 import { IoPersonOutline, IoPersonAddOutline } from 'react-icons/io5'
 import Button from '../Button/Button'
 import Message from '../Message/Message';
 
-let iconStyle = {
-    fontSize: '3.2rem',
-    margin: '1rem',
-};
 
 const LoginCard = () => {
 
@@ -24,7 +22,7 @@ const LoginCard = () => {
                 <div className={`${loginCard ? 'loginActive' : ''} login-card loginCard `} id="">
 
                     <div className="login-card-header">
-                        <span><IoPersonOutline style={iconStyle} /></span>
+                        <span><IoPersonOutline className='icon--big'/></span>
                         <h1>Login</h1>
                     </div>
 
@@ -57,7 +55,7 @@ const LoginCard = () => {
                 <div className={`${loginCard ? 'sigupActive' : ''} login-card signupCard `} id="">
 
                     <div className="login-card-header">
-                        <span><IoPersonAddOutline style={iconStyle} /></span>
+                        <span><IoPersonAddOutline className='icon--big'/></span>
                         <h1>Signup</h1>
                     </div>
 

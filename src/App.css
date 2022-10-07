@@ -1,3 +1,6 @@
+
+
+
 .container {
     width: 85%;
     margin: 0 auto;
@@ -12,6 +15,11 @@
     cursor: pointer;
     color: grey;
     transition: all 0.2s ease; 
+}
+
+.icon--big {
+    font-size: 3.2rem;
+    margin: 1rem;
 }
 
 li {
