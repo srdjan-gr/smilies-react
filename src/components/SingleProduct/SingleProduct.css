@@ -27,6 +27,30 @@
     box-shadow: 7px 7px 5px -5px rgba(0, 0, 0, 0.2); 
 }
 
+.item-container-images-big span{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    z-index: 22;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #daa52000;
+    font-size: 2rem;
+    text-transform: uppercase;
+    transition: all .1s ease-out;
+}
+
+.item-container-images-big span:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #daa520;
+}
+
 .item-container-images-big .mainImage {
     max-height: 44rem;
     position: relative;

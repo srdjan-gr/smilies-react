@@ -23,7 +23,7 @@ const Product = ({ location, setLocation }) => {
 
                     if (singleProduct == proizvod.id) {
                         return (
-                            <div className='container'>
+                            <div className='container' key={idx}>
                                 <SingleProduct proizvod={proizvod} />
                                 <ProductDescription proizvod={proizvod} />
 

@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+import Modal from '../Modal/Modal';
 
 // Styling
 import './SingleProduct.css';
@@ -12,6 +13,10 @@ let iconStyle = {
 const SingleProduct = ({ proizvod }) => {
 
   const [modal, setModal] = useState('');
+
+  const openModal = () => {
+    setModal(!modal);
+  }
 
   const closeModal = () => {
     setModal(!modal);
@@ -41,6 +46,7 @@ const SingleProduct = ({ proizvod }) => {
         <div className="item-container-images" id="gallery">
           <div className="item-container-images-big" id="imageBig">
             {/*<p className="imgOverlay" onMouseOver="dosoMis()" onMouseLeave="otisoMis()">Show</p>*/}
+            <span data-en="Show" data-sr="Pogledaj" onClick={openModal}>Show</span>
             <img src={slika_cela} alt={proizvod_naziv_en} />
           </div>
 
@@ -80,6 +86,9 @@ const SingleProduct = ({ proizvod }) => {
         </div>
 
       </div>
+
+      <Modal modal={modal} setModal={setModal} />
+
     </section>
   )
 }
