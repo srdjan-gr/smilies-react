@@ -1,0 +1,72 @@
+.modal--content {
+    position: relative;
+    z-index: 31;
+    background-color: #fff;
+    padding: 2rem;
+    margin: 0 2rem;
+    width: 55rem;
+    height: 60rem;
+}
+
+.modal--content-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem; 
+}
+
+.modal--content h1 {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    margin: 0; 
+}
+
+.modal--content .inputs {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto; 
+    color: bisque;
+}
+
+.modal--content .inputs p {
+    text-align: center;
+    padding: .5rem 0;
+    font-weight: lighter;
+    font-size: 1.3rem;
+    color: var(--color-acent);
+    margin-bottom: 3.5rem; 
+}
+
+textarea::placeholder,
+input::placeholder{
+    color: #919191;
+}
+
+.modal--content .inputs input {
+    height: 3.2rem; 
+}
+
+.modal--content .inputs input,
+.modal--content .inputs textarea {
+    font-family: 'lato', sans-serif;
+    border: solid 1px var(--color-border);
+    width: 100%;
+    padding: .5rem;
+    font-size: 1.5rem;
+    margin-top: 2rem; 
+}
+
+.modal--content .inputs textarea {
+    resize: vertical; 
+}
+
+.modal--content .inputs textarea:focus,
+.modal--content .inputs input:focus {
+    outline: 1px solid var(--color-acent); 
+}

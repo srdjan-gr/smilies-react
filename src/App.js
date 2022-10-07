@@ -39,7 +39,13 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Home location={location} setLocation={setLocation} />} />
-          <Route path='/Contact' element={<Contact location={location} setLocation={setLocation} />} />
+
+          <Route path='/Contact' element={<Contact location={location} setLocation={setLocation} />} >
+            <Route path=':mail' element={<Contact />} />
+          </Route>
+
+
+
           <Route path='/About' element={<About location={location} setLocation={setLocation} />} />
           <Route path='/Login' element={<Login location={location} setLocation={setLocation} />} />
 

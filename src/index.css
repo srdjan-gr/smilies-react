@@ -2,9 +2,11 @@
 
 
 :root {
-  --shadow:  box-shadow: 7px 7px 5px -5px rgba(0, 0, 0, 0.2);
-  --transition-transform: transition: transform 0.2s ease-out;
-  --color-acent: color: #daa520;
+  --shadow: 7px 7px 5px -5px rgba(0, 0, 0, 0.2);
+  --transition: all 0.2s ease-out;
+  --color-acent: #daa520;
+  --color-font: #242424;
+  --color-border: #8888884d;
 }
 
 * {

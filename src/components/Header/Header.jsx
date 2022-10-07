@@ -68,7 +68,6 @@ const Header = () => {
                                             </span>
                                         </li>
                                     )
-
                                 })
                             }
                         </ul>
