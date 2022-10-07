@@ -54,18 +54,18 @@ const Footer = () => {
           <div className="privacy">
             <ul>
               <h2>Purchasing Information</h2>
-              <li> <Link to="" target="_blank">Terms of use</Link></li>
-              <li> <Link to="" target="_blank">Privacy Policy</Link></li>
-              <li> <Link to="" target="_blank">Cookies policy</Link></li>
+              <li> <Link to="/Terms" target="_blank">Terms of use</Link></li>
+              <li> <Link to="/Privacy" target="_blank">Privacy Policy</Link></li>
+              <li> <Link to="/Cookies" target="_blank">Cookies policy</Link></li>
             </ul>
           </div>
           <div className="privacy">
             <ul>
               <h2>Costumer Service</h2>
-              <li> <Link to="" target="_blank">Delivery</Link></li>
+           {/*   <li> <Link to="" target="_blank">Delivery</Link></li>
               <li> <Link to="" target="_blank">Complaints</Link></li>
-              <li> <Link to="" target="_blank">Rights of Withdrawal/Refund</Link></li>
-              <li> <Link to="" target="_blank">Cancelation form</Link></li>
+                  <li> <Link to="" target="_blank">Cancelation form</Link></li>*/}
+              <li> <Link to="/Refund" target="_blank">Rights of Withdrawal/Refund</Link></li>
             </ul>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { React, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer';
 
 import './About.css';
 
@@ -12,14 +13,18 @@ const About = ({ setLocation }) => {
 
 
     return (
-        <section className="container">
+        <div>
+            <section className="container">
 
-            <div className="about__content">
+                <div className="about__content">
 
-                <p>Modni salon Smilies je počeo sa radom daleke 1997. godine u Boru kada su jedan hobi i pasija uobličeni u profesiju.</p>
+                    <p>Kompinenta 1: Modni salon Smilies je počeo sa radom daleke 1997. godine u Boru kada su jedan hobi i pasija uobličeni u profesiju.</p>
 
-            </div>
-        </section>
+                    <h3>Komponenta2: Componenta sa galerijom sa radovima i revijama.</h3>
+                </div>
+            </section>
+            <Footer />
+        </div>
     )
 }
 
