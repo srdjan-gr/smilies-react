@@ -13,7 +13,7 @@ import proizvodImgDetalj from '../src/assets/img/products/proizvod-2-1300x1625.j
 import p1Cela from '../src/assets/img/products/IMGL9872-min.jpg'
 import p1Cela1 from '../src/assets/img/products/IMGL9888-min.jpg'
 import p1Cela2 from '../src/assets/img/products/IMGL9916-min.jpg'
-import p1Detalj from '../src/assets/img/products/IMGL9916-min.jpg'
+import p1Detalj from '../src/assets/img/products/IMGL9908-min.jpg'
 
 import p2Cela from '../src/assets/img/products/IN-6297-min.jpg'
 import p2Cela1 from '../src/assets/img/products/IN-6213-min.jpg'

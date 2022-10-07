@@ -1,5 +1,4 @@
 import { React } from 'react'
-import { useParams } from 'react-router-dom'
 
 //Styling
 import './Modal.css';
@@ -7,11 +6,7 @@ import { IoCloseOutline } from 'react-icons/io5';
 import ContactForm from '../ContactForm/ContactForm';
 import ContactPhone from '../ContactPhone/ContactPhone';
 
-
-
 const Modal = ({ modal, setModal, modalId }) => {
-
-    let { mail } = useParams();
 
     const closeModal = () => {
         setModal(!modal);
@@ -34,13 +29,7 @@ const Modal = ({ modal, setModal, modalId }) => {
                     <ContactPhone />
                 </div>
             )
-
-
-
-
-
     }
-
 }
 
 export default Modal

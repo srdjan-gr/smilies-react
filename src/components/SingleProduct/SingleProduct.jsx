@@ -1,28 +1,20 @@
 import { React, useState } from 'react'
-import Modal from '../Modal/Modal';
+import ProductGalery from '../ProductGalery/ProductGalery';
 
 // Styling
 import './SingleProduct.css';
-import { IoCloseOutline } from 'react-icons/io5';
-let iconStyle = {
-  cursor: 'pointer',
-  fontSize: '2.4rem',
-};
-
 
 const SingleProduct = ({ proizvod }) => {
 
-  const [modal, setModal] = useState('');
+  const [productGalery, setProductGalery] = useState(false);
+  const [proizvodId, setProizvodId] = useState('');
 
-  const openModal = () => {
-    setModal(!modal);
+  const openGalery = (id) => {
+    setProductGalery(!productGalery);
+    setProizvodId(id);
   }
 
-  const closeModal = () => {
-    setModal(!modal);
-  };
-
-  const { proizvod_naziv_en, proizvod_naziv_sr, proizvod_opis_en, proizvod_opis_sr, proizvod_velicina, proizvod_cena, slika_cela, slika_detalj, slika_cela1, slika_cela2 } = proizvod;
+  const { id, proizvod_naziv_en, proizvod_naziv_sr, proizvod_opis_en, proizvod_opis_sr, proizvod_velicina, proizvod_cena, slika_cela, slika_detalj, slika_cela1, slika_cela2 } = proizvod;
 
 
   // Preracunavanje cene u eur
@@ -45,7 +37,7 @@ const SingleProduct = ({ proizvod }) => {
 
         <div className="item-container-images" id="gallery">
           <div className="item-container-images-big" id="imageBig">
-            <span data-en="Show" data-sr="Pogledaj" onClick={openModal}>Show</span>
+            <span data-en="Show" data-sr="Pogledaj" onClick={() => openGalery(id)} >Show</span>
             <img src={slika_cela} alt={proizvod_naziv_en} />
           </div>
 
@@ -86,7 +78,17 @@ const SingleProduct = ({ proizvod }) => {
 
       </div>
 
-      <Modal modal={modal} setModal={setModal} />
+      <ProductGalery
+        productGalery={productGalery} 
+        setProductGalery={setProductGalery} 
+        
+        proizvodId={proizvodId} 
+        slika_cela={slika_cela}
+        slika_detalj={slika_detalj}
+        slika_cela1={slika_cela1}
+        slika_cela2={slika_cela2} />
+        
+
 
     </section>
   )

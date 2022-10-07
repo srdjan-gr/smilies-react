@@ -11,11 +11,10 @@ const ContactOptions = () => {
     const [modal, setModal] = useState(false);
     const [modalId, setModalId] = useState('');
 
-    const openModal = (id) => {
+    const openModal = () => {
         setModal(!modal);
-        console.log(id);
+        // console.log(id);
     }
-
 
 
     return (
@@ -32,7 +31,7 @@ const ContactOptions = () => {
                         <button id="modalBtnPhone" className="btn"
                             onClick={() =>
                                 [
-                                    openModal('phone'),
+                                    openModal(),
                                     setModalId('phone')
                                 ]
                             }
@@ -50,7 +49,7 @@ const ContactOptions = () => {
                         <button id="modalBtnMail" className="btn"
                             onClick={() =>
                                 [
-                                    openModal('mail'),
+                                    openModal(),
                                     setModalId('mail')
                                 ]
                             }
