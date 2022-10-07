@@ -95,7 +95,7 @@ section {
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .showcase .img img,
     .reverse .img img {
         width: 48rem;
