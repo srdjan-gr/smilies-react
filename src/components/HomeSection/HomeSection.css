@@ -82,7 +82,7 @@ section {
     box-shadow: 7px 7px 5px -5px rgba(0, 0, 0, 0.2);
 }
 
-.showcase .img img 
+.showcase .img img, 
 .reverse .img img {
   width: 48rem;
   /* height: 60rem; */
@@ -92,6 +92,33 @@ section {
     .my-5 {
         margin: 6rem 0rem;
         padding: 0 10rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .showcase .img img,
+    .reverse .img img {
+        width: 48rem;
+        /* height: 60rem; */
+    }
+
+    .showcase .text__content,
+    .reverse .text__content {
+        border-top: solid 1px rgba(192, 192, 192, 0.4); 
+        width: 100%;
+    }
+
+    .logo-img{
+        display: none;
+    }
+
+    .showcase,
+    .reverse {
+        height: 82rem;
+    }
+
+    .text__content-desc{
+        height: 22rem;
     }
 }
 
@@ -124,10 +151,6 @@ section {
     .showcase .img img,
     .reverse .img img {
         width: 100%;
-    }
-
-    .text__content-desc{
-        height: 22rem;
     }
 
     .showcase .text__content-desc h2,

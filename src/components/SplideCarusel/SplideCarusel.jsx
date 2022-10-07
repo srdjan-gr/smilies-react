@@ -26,6 +26,10 @@ const SplideCarusel = () => {
                     pauseOnHover: false,
 
                     breakpoints: {
+                        1920: {
+                            height: '88rem'
+                        },
+
                         768: {
                             height: '44rem',
                         },
