@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Styling
-import './App.css';
+// import './App.css';
 
 // Components
 import Navbar from './components/Navbar/Navbar';

@@ -17,7 +17,7 @@ let iconStyle = {
 
 
 
-const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId }) => {
+const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId, setAccentColor }) => {
 
     const closeSubcategoryMenu = () => {
         setSubCategoryMenu(!subCategoryMenu);
@@ -54,7 +54,13 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId }) =>
 
             <div className="container">
                 <div className="submenu__container">
-                    <span><IoCloseOutline style={iconStyle} onClick={closeSubcategoryMenu} /></span>
+                    <span><IoCloseOutline style={iconStyle} 
+                    onClick={() =>
+                        [
+                            closeSubcategoryMenu(), 
+                            setAccentColor()
+                        ]
+                    } /></span>
 
                     <div className="submenu__image">
                         <img src={submenuImg} alt="Smilies image" />

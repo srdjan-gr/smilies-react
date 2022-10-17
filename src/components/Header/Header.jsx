@@ -1,14 +1,13 @@
 import { React, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
+import SubCategoryMenu from '../SubCategoryMenu/SubCategoryMenu';
 
 // Data
 import apiCategory from '../../api/category'
-import SubCategoryMenu from '../SubCategoryMenu/SubCategoryMenu';
 
 // Styling
 import './Header.css'
 import logo from '../../assets/img/logos/Logo100px.png';
-
 
 
 const Header = () => {
@@ -28,7 +27,7 @@ const Header = () => {
         try {
             const response = await apiCategory.get("/category");
             setKategorije(response.data);
-
+            
         } catch (err) {
             // Ako nije response sa statusom 200  
             if (err.response) {
@@ -38,6 +37,24 @@ const Header = () => {
             } else {
                 console.log(`Error: ${err.message}`)
             }
+        }
+    }
+    
+    // Funkcija koja otvara subMenu klikom na Kategoriju. 
+    // Ako je submenu otvoren klikom na drugu kkategoriju odmah ce da ucite podkategorije iz kliknute kategorije bez zatvaranja subMenu. 
+    // Ako se klikne drugi put na katefgoriju koja je otvorena funkcija ce da zatvori subMenu
+
+    const [accentColor, setAccentColor ] = useState(false);
+
+    const accentColorLink = () => {   
+        setAccentColor(accentColor => !accentColor);  
+    }
+
+    const loadSubMenu = (katId) => {
+        if(!subCategoryMenu || katId == categoryId){
+
+            setSubCategoryMenu(!subCategoryMenu);
+            accentColorLink(!accentColor);
         }
     }
 
@@ -55,16 +72,18 @@ const Header = () => {
                             {
                                 kategorije.map((kategorija, idx) => {
                                     return (
-                                        <li key={idx}>
-                                            <span
+                                        <li key={idx} >
+                                            <span className={`${accentColor ? ' accent' : ''}`}
                                                 onClick={() =>
                                                     [
-                                                        setSubCategoryMenu(!subCategoryMenu),
-                                                        setCategoryId(kategorija.kat_id)
+                                                        loadSubMenu(kategorija.kat_id),
+                                                        setCategoryId(kategorija.kat_id),
                                                     ]
                                                 }
 
-                                                data-en={kategorija.kat_naziv_en} data-sr={kategorija.kat_naziv_sr} id={kategorija.kat_id}> {kategorija.kat_naziv_en}
+                                                data-en={kategorija.kat_naziv_en} 
+                                                data-sr={kategorija.kat_naziv_sr} 
+                                                id={kategorija.kat_id}> {kategorija.kat_naziv_en}
                                             </span>
                                         </li>
                                     )
@@ -75,7 +94,7 @@ const Header = () => {
                 </div>
             </header>
 
-            <SubCategoryMenu subCategoryMenu={subCategoryMenu} setSubCategoryMenu={setSubCategoryMenu} categoryId={categoryId} />
+            <SubCategoryMenu subCategoryMenu={subCategoryMenu} setSubCategoryMenu={setSubCategoryMenu} categoryId={categoryId} accentColorLink={accentColor} setAccentColor={setAccentColor}/>
         </>
     )
 }

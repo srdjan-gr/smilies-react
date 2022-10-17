@@ -81,15 +81,12 @@ const SingleProduct = ({ proizvod }) => {
       <ProductGalery
         productGalery={productGalery} 
         setProductGalery={setProductGalery} 
-        
-        proizvodId={proizvodId} 
+
         slika_cela={slika_cela}
         slika_detalj={slika_detalj}
         slika_cela1={slika_cela1}
         slika_cela2={slika_cela2} />
         
-
-
     </section>
   )
 }

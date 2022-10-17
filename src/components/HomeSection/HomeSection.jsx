@@ -15,7 +15,7 @@ const HomeSection = () => {
     Aos.init({
         duration: 1200,
         once: false,
-        delay: 600,
+        delay: 0,
         // startEvent: 'DOMContentLoaded',
         // debounceDelay: 50,
         // offset: 200,

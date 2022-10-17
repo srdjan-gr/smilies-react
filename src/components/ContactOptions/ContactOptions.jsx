@@ -16,7 +16,6 @@ const ContactOptions = () => {
         // console.log(id);
     }
 
-
     return (
         <div className='container'>
             <section>
@@ -28,7 +27,7 @@ const ContactOptions = () => {
                         </div>
                         <p>Our Cosutumer Care team is available for any assistance you may need.</p>
 
-                        <button id="modalBtnPhone" className="btn"
+                        <button className="btn"
                             onClick={() =>
                                 [
                                     openModal(),
@@ -46,7 +45,7 @@ const ContactOptions = () => {
                         </div>
                         <p>Contact us by filling out our simple contact form.</p>
 
-                        <button id="modalBtnMail" className="btn"
+                        <button className="btn"
                             onClick={() =>
                                 [
                                     openModal(),

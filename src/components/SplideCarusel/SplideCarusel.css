@@ -331,7 +331,7 @@
 }
 
 .splide__arrow svg {
-    fill: #daa520;
+    fill: var(--color-acent);
     height: 1.2em;
     width: 1.2em
 }
