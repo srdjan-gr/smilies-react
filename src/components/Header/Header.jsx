@@ -1,4 +1,5 @@
-import { React, useEffect, useState } from 'react';
+import React from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import SubCategoryMenu from '../SubCategoryMenu/SubCategoryMenu';
 
@@ -14,8 +15,6 @@ const Header = () => {
 
     const [subCategoryMenu, setSubCategoryMenu] = useState(false);
     const [categoryId, setCategoryId] = useState('');
-
-    const [search, setSearch] = useState(false);
 
     // API
     const [kategorije, setKategorije] = useState([]);
@@ -53,7 +52,7 @@ const Header = () => {
     }
 
     const loadSubMenu = (katId) => {
-        if(!subCategoryMenu || katId == categoryId){
+        if(!subCategoryMenu || katId === categoryId){
 
             setSubCategoryMenu(!subCategoryMenu);
             accentColorLink(!accentColor);

@@ -1,4 +1,5 @@
-import {React, useState} from 'react'
+import React from 'react';
+import {useState} from 'react'
 import './Navbar.css'
 import '../MobileMenu/MobileMenu.css'
 import { IoSearchOutline, IoBagOutline, IoEllipseOutline, IoEllipsisVerticalOutline } from 'react-icons/io5'

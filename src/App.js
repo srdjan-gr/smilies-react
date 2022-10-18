@@ -1,8 +1,6 @@
-import { React, useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-// Styling
-// import './App.css';
 
 // Components
 import Navbar from './components/Navbar/Navbar';
@@ -22,7 +20,6 @@ import Terms from './pages/Terms/Terms';
 import Privacy from './pages/Privacy/Privacy';
 import Cookies from './pages/Cookies/Cookies';
 import Refund from './pages/Refund/Refund';
-import Search from './components/Search/Search';
 
 
 function App() {
@@ -66,7 +63,7 @@ function App() {
         </Routes>
 
       </div>
-    </Router >
+    </Router>
   );
 }
 

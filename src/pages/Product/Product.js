@@ -1,4 +1,5 @@
-import { React, useEffect } from 'react'
+import React from 'react';
+import { useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import Footer from '../../components/Footer/Footer';
 import ProductDescription from '../../components/ProductDescription/ProductDescription';

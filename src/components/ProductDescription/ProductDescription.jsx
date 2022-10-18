@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import React from 'react';
 
 // Styling
 import './ProductDescription.css';
@@ -11,8 +11,6 @@ const ProductDescription = ({ proizvod }) => {
     return (
 
         <section>
-
-
 
             <div className="items-description" >
                 <h1>Description</h1>
@@ -141,8 +139,6 @@ const ProductDescription = ({ proizvod }) => {
                     </div>
                 </div>
             </div>
-
-
 
         </section>
 

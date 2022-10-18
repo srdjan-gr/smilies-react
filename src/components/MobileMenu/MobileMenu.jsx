@@ -1,8 +1,8 @@
-import { React, useState, useEffect } from 'react'
+import React from 'react';
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 // Data
-import { podKategorije } from '../../data';
 import apiSubCategory from '../../api/subCategory'
 import apiCategory from '../../api/category'
 

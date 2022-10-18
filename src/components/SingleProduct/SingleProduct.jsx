@@ -1,4 +1,5 @@
-import { React, useState } from 'react'
+import React from 'react';
+import { useState } from 'react'
 import ProductGalery from '../ProductGalery/ProductGalery';
 
 // Styling
@@ -7,14 +8,25 @@ import './SingleProduct.css';
 const SingleProduct = ({ proizvod }) => {
 
   const [productGalery, setProductGalery] = useState(false);
-  const [proizvodId, setProizvodId] = useState('');
+  const [proizvodiId, setProizvodId] = useState('');
 
   const openGalery = (id) => {
     setProductGalery(!productGalery);
     setProizvodId(id);
   }
 
-  const { id, proizvod_naziv_en, proizvod_naziv_sr, proizvod_opis_en, proizvod_opis_sr, proizvod_velicina, proizvod_cena, slika_cela, slika_detalj, slika_cela1, slika_cela2 } = proizvod;
+  const { 
+    id, 
+    proizvod_naziv_en, 
+    proizvod_naziv_sr, 
+    proizvod_opis_en, 
+    proizvod_opis_sr, 
+    proizvod_velicina, 
+    proizvod_cena, 
+    slika_cela, 
+    slika_detalj, 
+    slika_cela1, 
+    slika_cela2 } = proizvod;
 
 
   // Preracunavanje cene u eur
@@ -28,12 +40,6 @@ const SingleProduct = ({ proizvod }) => {
     <section >
 
       <div className="item-container">
-
-        {/*Popup prozor koji na klik otvara velike slike na celom ekranu*/}
-        {/*<div className="popup" id="popup">
-                  <span className='closeMobileMenu' onClick={closeModal}><IoCloseOutline style={iconStyle} /></span>
-                  <div className="buttonsDiv" id="buttonsDiv"></div>
-                </div>*/}
 
         <div className="item-container-images" id="gallery">
           <div className="item-container-images-big" id="imageBig">

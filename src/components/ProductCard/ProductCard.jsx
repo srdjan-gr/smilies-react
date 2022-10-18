@@ -32,7 +32,6 @@ const ProductCard = () => {
             if (singleid == proizvod.podk_id) {
 
               return (
-
                 <div className="proizvodi__container-item" id="proizvodi" key={idx}>
                   <div className="proizvod">
 

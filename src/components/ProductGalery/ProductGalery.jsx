@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FsLightbox from 'fslightbox-react';
 
 const ProductGalery = ({ productGalery, slika_cela, slika_detalj, slika_cela1, slika_cela2 }) => {
