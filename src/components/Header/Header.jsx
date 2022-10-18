@@ -15,6 +15,8 @@ const Header = () => {
     const [subCategoryMenu, setSubCategoryMenu] = useState(false);
     const [categoryId, setCategoryId] = useState('');
 
+    const [search, setSearch] = useState(false);
+
     // API
     const [kategorije, setKategorije] = useState([]);
 
@@ -95,6 +97,7 @@ const Header = () => {
             </header>
 
             <SubCategoryMenu subCategoryMenu={subCategoryMenu} setSubCategoryMenu={setSubCategoryMenu} categoryId={categoryId} accentColorLink={accentColor} setAccentColor={setAccentColor}/>
+            
         </>
     )
 }

@@ -85,6 +85,7 @@ p {
   color: var(--color-acent);
 }
 
+
 @media (max-width: 768px) {
   .container {
       width: 90%;

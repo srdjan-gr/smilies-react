@@ -35,7 +35,7 @@
 }
 
 span:hover {
-    color:#daa520;
+    color: var(--color-acent);
 }
 
 .submenu__image {
@@ -75,7 +75,7 @@ span:hover {
 }
 
 .submenu__subcategories li:hover {
-    color: #daa520;
+    color: var(--color-acent);
 }
 
 @media (max-width: 768px){
