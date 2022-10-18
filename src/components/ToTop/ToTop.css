@@ -1,0 +1,24 @@
+.toTop {
+    font-size: 6rem;
+    transition: var(--transition);
+    color: #dadada; 
+    z-index: 10000;
+}
+
+.toTop:hover {
+    color: var(--color-acent); 
+}
+
+@media (max-width: 1024px) {
+    .to-top {
+      bottom: 5rem;
+      right: 92%;
+    }  
+}
+
+@media (max-width: 768px) {
+    .to-top {
+      bottom: 5rem;
+      right: 92%;
+    }  
+}
