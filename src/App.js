@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
 import Devider from './components/Devider/Devider';
 import Message from './components/Message/Message';
+import Totop from './components/ToTop/Totop';
 
 // Pages
 import Home from './pages/Home/Home';
@@ -20,7 +21,6 @@ import Terms from './pages/Terms/Terms';
 import Privacy from './pages/Privacy/Privacy';
 import Cookies from './pages/Cookies/Cookies';
 import Refund from './pages/Refund/Refund';
-import Totop from './components/ToTop/Totop';
 
 
 function App() {

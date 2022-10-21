@@ -6,7 +6,6 @@ import Footer from '../../components/Footer/Footer';
 import ProductCard from '../../components/ProductCard/ProductCard';
 
 
-
 const Products = ({ location, setLocation }) => {
 
     let curentLocation = useLocation();

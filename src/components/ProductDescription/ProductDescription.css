@@ -1,12 +1,14 @@
 .items-description{
-    margin: 4rem 0;
+    margin-bottom: 4rem;
+    min-height: 40rem;
 }
 
 .items-description h1 {
     text-transform: uppercase;
     font-size: 1.8rem;
     font-weight: 400;
-    border-bottom: 1px solid #d8d8d8f8; 
+    border-bottom: var(--border); 
+    margin-bottom: 3rem; 
 }
 
 .items-description h2 {
@@ -16,9 +18,13 @@
     margin: 0; 
 }
 
+.items-description label {
+    font-size: 1.6rem;
+    font-weight: bold; 
+}
+
 .items-description-cont {
     display: flex;
-    min-height: 44vh;
     margin: 0 auto; 
 }
 
@@ -34,19 +40,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 4rem 0;
+    margin-bottom: 2rem;
     width: 100%; 
 }
 
 
 .items-description-cont-1-heading p {
-    color: #daa520;
+    color: var(--color-acent);
     cursor: pointer;
     text-decoration: underline; 
 }
 
 .items-description-cont-1-single {
-    padding-bottom: 1rem;
+    padding-bottom: 1.2rem;
     text-align: start; 
 }
 
@@ -65,7 +71,7 @@
 }
 
 .items-description-cont-1-content table td {
-    border: 1px solid #d8d8d8f8;
+    border: var(--border);
     width: 2rem;
     padding: .4rem; 
 }
@@ -83,15 +89,8 @@
     margin-right: 1rem; 
 }
 
-@media (max-width: 900px) {
 
-    .items-description {
-        padding: 0 2rem; 
-    }
-
-    .items-description-cont {
-        min-height: 40vh; 
-    }
+@media (max-width: 960px) {
 
     .items-description-cont-1 {
         padding-left: 0;
@@ -102,23 +101,22 @@
         padding-right: 0;
         padding-left: 1rem; 
     }
-
 }
 
 
 @media (max-width: 768px) {
     .items-description {
         padding: 0rem !important; 
-        margin: 2rem 0 !important;
+        margin: 4rem 0 !important;
     }
 
     .items-description-cont {
-        flex-direction: column;
-        height: 80rem; 
+        flex-direction: column; 
     }
 
     .items-description-cont-1 {
         padding: 0 !important; 
+        width: 100%;
     }
 
     .items-description-cont-1-single {
@@ -127,7 +125,7 @@
     }
 
     .items-description-cont-1-heading {
-        margin: 4rem 0 3rem;
+        margin: 0rem 0 2rem;
     }
 
 }

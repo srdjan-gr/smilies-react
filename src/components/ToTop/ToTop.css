@@ -3,6 +3,7 @@
     transition: var(--transition);
     color: #dadada; 
     z-index: 10000;
+    position: relative;
 }
 
 .toTop:hover {

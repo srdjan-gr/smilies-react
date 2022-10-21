@@ -24,7 +24,6 @@
 
 .item-container-images-big img{
     max-height: 44rem;
-    /* box-shadow: var(--shadow);  */
     box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2); 
     -webkit-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.2);
     -moz-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.2);
@@ -131,25 +130,6 @@
         width: 100%;
         margin: 4rem 0 0 0; 
     }
-
-    .items-description {
-        padding: 0 2rem; 
-    }
-
-    .items-description-cont {
-        min-height: 40vh; 
-    }
-
-    .items-description-cont-1 {
-        padding-left: 0;
-        padding-right: 1rem; 
-    }
-
-    .items-description-cont-1:last-child {
-        padding-right: 0;
-        padding-left: 1rem; 
-    }
-
 }
 
 @media (max-width: 768px) {
@@ -181,27 +161,21 @@
     }
 
     .item-container-text {
+        height: 48rem;
+    } 
+
+    .item-container-text select {
+        height: 4rem;
+        margin-top: 1rem;
+    }
+
+    .item-container-text button {
+        margin-top: 2rem;
+    }
+
+    .item-container-text {
         width: 100%;
         height: 34rem;
         margin: 4rem 0 0 0; 
     }
-
-    .items-description {
-        padding: 2.6rem; 
-    }
-
-    .items-description-cont {
-        flex-direction: column;
-        height: 80rem; 
-    }
-
-    .items-description-cont-1 {
-        padding: 0 !important; 
-    }
-
-    .items-description-cont-1-single {
-        padding-bottom: 1rem;
-        text-align: start; 
-    }
-
 }

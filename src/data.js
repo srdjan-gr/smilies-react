@@ -159,7 +159,7 @@ export const proizvodi = [
     },
     {
         id: 3,
-        proizvod_naziv: 'Woman s regular cut silk trousers',
+        proizvod_naziv_en: 'Woman s regular cut silk trousers',
         velicina: '38',
         cena: '12990',
         slika_cela: proizvodImgCela,
@@ -171,7 +171,7 @@ export const proizvodi = [
     },
     {
         id: 4,
-        proizvod_naziv: 'Woman s slim trousers',
+        proizvod_naziv_en: 'Woman s slim trousers',
         velicina: '38',
         cena: '16000',
         slika_cela: proizvodImgCela,
@@ -183,7 +183,7 @@ export const proizvodi = [
     },
     {
         id: 5,
-        proizvod_naziv: 'Womans Dress',
+        proizvod_naziv_en: 'Womans Dress',
         velicina: '38',
         cena: '16990',
         slika_cela: proizvodImgCela,
@@ -195,7 +195,7 @@ export const proizvodi = [
     },
     {
         id: 6,
-        proizvod_naziv: 'Womans Skirt',
+        proizvod_naziv_en: 'Womans Skirt',
         velicina: '38',
         cena: '12990',
         slika_cela: proizvodImgCela,
@@ -207,7 +207,7 @@ export const proizvodi = [
     },
     {
         id: 7,
-        proizvod_naziv: 'Womans blazer',
+        proizvod_naziv_en: 'Womans blazer',
         proizvod_velicina: '38',
         cena: '16000',
         slika_cela: '',
@@ -219,7 +219,7 @@ export const proizvodi = [
     },
     {
         id: 8,
-        proizvod_naziv: 'Mens trousers',
+        proizvod_naziv_en: 'Mens trousers',
         velicina: '50',
         cena: '16990',
         slika_cela: '',
@@ -245,7 +245,7 @@ export const proizvodi = [
     },
     {
         id: 10,
-        proizvod_naziv: 'Mens trench coat',
+        proizvod_naziv_en: 'Mens trench coat',
         velicina: '50',
         cena: '16000',
         slika_cela: '',

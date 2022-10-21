@@ -37,7 +37,7 @@ const ProductCard = () => {
 
                     <div className="proizvod__image">
                       <img src={proizvod.slika_detalj} alt={proizvod.proizvod_naziv_en} />
-                      <Link to={`/product/${proizvod.id}`}> <img src={proizvod.slika_cela} alt={proizvod.proizvod_naziv_en} />  </Link>
+                      <Link to={`/product/${proizvod.id}`}> <img src={proizvod.slika_cela} alt={proizvod.proizvod_naziv_en} singleid={singleid}/>  </Link>
                     </div>
 
                     <div className="proizvod__opis">

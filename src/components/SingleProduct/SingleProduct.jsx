@@ -57,18 +57,18 @@ const SingleProduct = ({ proizvod }) => {
         <div className="item-container-text">
           <h1 data-en={proizvod_naziv_en} data-sr={proizvod_naziv_sr}>{proizvod_naziv_en}</h1>
 
-          <div className="item-size">
+          <div className="item-size mt-1">
             <label htmlFor="" data-en="Size" data-sr="Veličina">Size:</label>
             <h2>{proizvod_velicina}</h2>
             <p className="accent" data-en="Pišite nam da poručite svoju veličinu." data-sr="Text us to order your size.">Text us to order your size.</p>
           </div>
 
-          <div className="item-description">
+          <div className="item-description mt-1">
             <label htmlFor="" data-en="Item description" data-sr="Opis proizvoda">Item description:</label>
             <p data-en={proizvod_opis_en} data-sr={proizvod_opis_sr}>{proizvod_opis_en}</p>
           </div>
 
-          <div className="item-price">
+          <div className="item-price ">
             <label htmlFor="" data-en="Item price" data-sr="Cena proizvoda">Item price:</label>
             <h2 data-sr={zaokDin} data-en={zaokEur}>{zaokEur}</h2>
           </div>
