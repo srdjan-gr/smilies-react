@@ -20,7 +20,6 @@ const SimilarProducts = ({ proizvod }) => {
         // setRandomData(proizvodi);
     })
 
-
     return (
         <section>
             <div className="similar-items">

@@ -8,6 +8,7 @@
   --color-font: #242424;
   --color-border: #8888884d;
   --border: 1px solid #d8d8d8f8;
+  --border-accent: 1px solid #daa520;
 }
 
 * {
@@ -88,6 +89,10 @@ p {
 
 .accent {
   color: var(--color-acent);
+}
+
+.text-bold {
+  font-weight: bold;
 }
 
 

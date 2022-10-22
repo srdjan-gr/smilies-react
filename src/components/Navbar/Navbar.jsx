@@ -1,12 +1,14 @@
 import React from 'react';
 import {useState} from 'react'
+import { Link } from 'react-router-dom';
+
+import MobileMenu from '../MobileMenu/MobileMenu';
+import Search from '../Search/Search';
+import Bag from '../Bag/Bag';
+
 import './Navbar.css'
 import '../MobileMenu/MobileMenu.css'
 import { IoSearchOutline, IoBagOutline, IoEllipseOutline, IoEllipsisVerticalOutline } from 'react-icons/io5'
-
-import { Link } from 'react-router-dom';
-import MobileMenu from '../MobileMenu/MobileMenu';
-import Search from '../Search/Search';
 let iconStyle = {
     cursor: 'pointer',
     // transition: 'all 0.2s ease',
@@ -18,6 +20,7 @@ const Navbar = () => {
 
     const [mobileMenu, setMobileMenu] = useState(false);
     const [search, setSearch] = useState(false);
+    const [bag, setBag] = useState(false);
 
     const addMobileMenuCLass = () => {
         setMobileMenu(!mobileMenu);
@@ -25,6 +28,10 @@ const Navbar = () => {
 
     const openSearch = () => {
         setSearch(!search);
+    }
+
+    const openBag = () => {
+        setBag(!bag);
     }
 
     return (
@@ -49,7 +56,7 @@ const Navbar = () => {
                         <div className="navbar__right">
 
                             <span><IoSearchOutline style={iconStyle} onClick={openSearch} /></span>
-                            <span><IoBagOutline style={iconStyle} /></span>
+                            <span><IoBagOutline style={iconStyle} onClick={openBag}/></span>
 
                             <span className='bag__full'> <IoEllipseOutline style={iconStyle} /></span>
 
@@ -66,6 +73,8 @@ const Navbar = () => {
 
             <MobileMenu mobileMenu={mobileMenu} setMobileMenu={setMobileMenu}/>
             <Search search={search} setSearch={setSearch}/>
+
+            <Bag bag={bag} setBag={setBag} />
         </div>
     )
 }
