@@ -59,7 +59,7 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId, setA
                     onClick={() =>
                         [
                             closeSubcategoryMenu(), 
-                            setAccentColor()
+                            // setAccentColor()
                         ]
                     } /></span>
 
@@ -90,7 +90,7 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId, setA
                                                 onClick={closeSubcategoryMenu}
                                                 data-en={podKategorija.podkat_naziv_en} data-sr={podKategorija.podkat_naziv_sr}>
 
-                                                <Link to={`/products/${podKategorija.podkat_id}`} >{skracenoIme[1]}</Link>
+                                                <Link to={`/products/${podKategorija.podkat_id}`}>{skracenoIme[1]}</Link>
                                             </li>
                                         )
                                     }

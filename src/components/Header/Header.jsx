@@ -55,7 +55,7 @@ const Header = () => {
         if(!subCategoryMenu || katId === categoryId){
 
             setSubCategoryMenu(!subCategoryMenu);
-            accentColorLink(!accentColor);
+            // accentColorLink(!accentColor);
         }
     }
 

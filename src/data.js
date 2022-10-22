@@ -182,6 +182,18 @@ export const proizvodi = [
         podk_id: 1,
     },
     {
+        id: 44,
+        proizvod_naziv_en: 'Woman overisize trousers',
+        velicina: '38',
+        cena: '16000',
+        slika_cela: proizvodImgCela,
+        slika_detalj: proizvodImgDetalj,
+        slika_cela1: proizvodImgCela1,
+        slika_cela2: proizvodImgCela2,
+        slika_opis: 'Woman s slim trousers',
+        podk_id: 1,
+    },
+    {
         id: 5,
         proizvod_naziv_en: 'Womans Dress',
         velicina: '38',
@@ -260,3 +272,26 @@ export const proizvodi = [
 
 
 // Icons
+
+
+// <div className="similar-items-category-cont" >
+// <h2 data-en={randomData.proizvod_naziv_en} data-sr={randomData.proizvod_naziv_sr}>{randomData.proizvod_naziv_en}</h2>
+// <img src={randomData.slika_cela} alt={randomData.proizvod_naziv_en} />
+// <button className="btn" type="button">Check</button>
+// </div>
+
+
+
+// {
+//     randomData.map((dataPro, idx) => {
+
+//         if (dataPro.podk_id == podk_id && dataPro.id != id)
+//             return (
+//                 <div className="similar-items-category-cont" key={idx}>
+//                     <h2 data-en={dataPro.proizvod_naziv_en} data-sr={dataPro.proizvod_naziv_sr}>{dataPro.proizvod_naziv_en}</h2>
+//                     <img src={dataPro.slika_cela} alt={dataPro.proizvod_naziv_en} />
+//                     <button className="btn" type="button">Check</button>
+//                 </div>
+//             )
+//     })
+// }

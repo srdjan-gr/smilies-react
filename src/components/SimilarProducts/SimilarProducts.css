@@ -69,20 +69,10 @@
         margin: 0; 
     }
 
-    .similar-items-category-cont {
-        transition: transform 0.3s;
-        margin-bottom: 2rem;
-        padding: 1rem; 
-    }
-
     .similar-items-category-cont:nth-child(4) {
         display: none; 
     }
 
-    .similar-items-category img {
-        height: 15rem;
-        padding: 0rem; 
-    }
 }
 
 @media (max-width: 540px) {
@@ -94,4 +84,15 @@
     .similar-items-category-cont:nth-child(4) {
       display: none; 
     } 
+  }
+
+@media (max-width: 400px) {
+
+    .similar-items-category {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
   }

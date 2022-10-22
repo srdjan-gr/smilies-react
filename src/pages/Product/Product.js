@@ -27,20 +27,18 @@ const Product = ({ location, setLocation }) => {
                         if (singleProduct == proizvod.id) {
                             return (
                                 <div className='container' key={idx}>
-                                    <SingleProduct proizvod={proizvod} />
+                                    <SingleProduct proizvod={proizvod} idx={idx} />
                                     <ProductDescription proizvod={proizvod} />
+
+
+                                    <SimilarProducts proizvod={proizvod} />
                                 </div>
                             )
                         }
-
-
                     })
                 }
             </div>
 
-            <div className="container">
-                <SimilarProducts />
-            </div>
             <Footer />
         </div>
     )

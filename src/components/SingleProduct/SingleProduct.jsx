@@ -27,20 +27,37 @@ const SingleProduct = ({ proizvod }) => {
     slika_cela, 
     slika_detalj, 
     slika_cela1, 
-    slika_cela2 } = proizvod;
+    slika_cela2,
+    podk_id } = proizvod;
       
     // Menjanje velike slike
-    const [trenutnaSlika, setTrenutnaSlika] = useState(slika_cela);
-    const promeniVelikuSliku = (slika) => {
-      setTrenutnaSlika(slika);
-    }
+
+    // const slike = [
+    //   {ids:0, value:slika_cela},
+    //   {ids:1, value:slika_detalj},
+    //   {ids:2, value:slika_cela1},
+    //   {ids:3, value:slika_cela2},
+    // ];
+    
+    // const [trenutnaSlika, setTrenutnaSlika] = useState(slika_cela);
+    // const [prethodnaSlika, setPrethodnaSlika] = useState([]);
+    // const [sledecaSlika, setSledecaSlika] = useState([]);
+
+    // const promeniVelikuSliku = (slika) => {
+    //   setTrenutnaSlika(slika);
+      
+      
+    //   if(slika){
+    //     setPrethodnaSlika(trenutnaSlika);
+    //   }
+
+    // }
 
     // Preracunavanje cene u eur
     const cenaDin = proizvod_cena;
     const cenaEur = cenaDin / 117.5;
     const zaokEur = Math.round(cenaEur) + ' eur.';
     const zaokDin = cenaDin + ' din.';
-
 
   return (
     <section >
@@ -50,13 +67,13 @@ const SingleProduct = ({ proizvod }) => {
         <div className="item-container-images" id="gallery">
           <div className="item-container-images-big" id="imageBig">
             <span data-en="Show" data-sr="Pogledaj" onClick={() => openGalery(id)} >Show</span>
-            <img src={trenutnaSlika} alt={proizvod_naziv_en} />
+            <img src={slika_cela} alt={proizvod_naziv_en} />
           </div>
 
           <div className="item-container-images-small" id="imageSmall">
-            <img src={slika_detalj} alt={proizvod_naziv_en} onClick={() => promeniVelikuSliku(slika_detalj)}/>
-            <img src={slika_cela1} alt={proizvod_naziv_en} onClick={() => promeniVelikuSliku(slika_cela1)}/>
-            <img src={slika_cela2} alt={proizvod_naziv_en} onClick={() => promeniVelikuSliku(slika_cela2)}/>
+            <img src={slika_detalj} alt={proizvod_naziv_en} />
+            <img src={slika_cela1} alt={proizvod_naziv_en} />
+            <img src={slika_cela2} alt={proizvod_naziv_en} />
           </div>
         </div>
 
@@ -94,7 +111,7 @@ const SingleProduct = ({ proizvod }) => {
         productGalery={productGalery} 
         setProductGalery={setProductGalery} 
 
-        slika_cela={trenutnaSlika}
+        slika_cela={slika_cela}
         slika_detalj={slika_detalj}
         slika_cela1={slika_cela1}
         slika_cela2={slika_cela2} />
