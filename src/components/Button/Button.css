@@ -27,7 +27,7 @@
     background: #242424; 
 }
 
-@media (max-width: 960px) {
+/* @media (max-width: 960px) {
     .btn {
         width: 16rem !important;
     }
@@ -38,4 +38,4 @@
     .btn {
         width: 100% !important;
     }
-}
+} */

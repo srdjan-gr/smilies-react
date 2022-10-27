@@ -21,11 +21,19 @@ import Terms from './pages/Terms/Terms';
 import Privacy from './pages/Privacy/Privacy';
 import Cookies from './pages/Cookies/Cookies';
 import Refund from './pages/Refund/Refund';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
 
   const [location, setLocation] = useState('/');
+  const [message, setMessage] = useState('');
+  // const [message, setMessage] = useState({
+  //   visible: '',
+  //   content: '',
+  //   duration: 0,
+  //   color: '',
+  // });
 
   return (
     <Router>
@@ -33,15 +41,15 @@ function App() {
         <Navbar />
         <Header />
         <Devider />
-        <Message />
         <Totop />
+        <ToastContainer autoClose={2000} />
 
 
         <Routes>
           <Route path='/' element={<Home location={location} setLocation={setLocation} />} />
           <Route path='/Contact' element={<Contact location={location} setLocation={setLocation} />} />
           <Route path='/About' element={<About location={location} setLocation={setLocation} />} />
-          <Route path='/Login' element={<Login location={location} setLocation={setLocation} />} />
+          <Route path='/Login' element={<Login location={location} setLocation={setLocation} message={message} setMessage={setMessage} />} />
 
 
           <Route path='/Terms' element={<Terms location={location} setLocation={setLocation} />} />

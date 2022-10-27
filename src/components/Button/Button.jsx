@@ -5,7 +5,7 @@ const Button = () => {
   return (
 
     <div className="inputs ">
-        <button type="button" name="loginButton" className="btn" id="loginButton">Login</button>
+        <button type="submit" name="loginButton" className="btn" id="loginButton">Login</button>
     </div>
 
   )

@@ -17,7 +17,11 @@
     height: 44rem;
     background-color: #f5f5f5;
     box-shadow: 7px 7px 5px -5px rgba(0, 0, 0, 0.2);
-    padding: 3rem 2rem 5rem 2rem; 
+    padding: 3rem 2rem; 
+}
+
+.login-container .signup {
+    height: 50rem;
 }
 
 .login-container .login-card-header {
@@ -50,8 +54,12 @@ input::placeholder {
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 2rem; 
+    margin-top: 1rem; 
 }
+
+/* .login-container .login-card form button {
+    min-width: 100%;
+} */
 
 .login-container .login-card form .form-imputs {
     width: 100%;

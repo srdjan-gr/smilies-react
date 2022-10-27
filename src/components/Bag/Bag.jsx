@@ -18,15 +18,15 @@ const Bag = ({ bag, setBag }) => {
                     <span><IoCloseOutline onClick={closeBag} /></span>
                 </div>
 
-                <div class="item">
-                    <div class="item__image">
+                <div className="item">
+                    <div className="item__image">
                         <img src={image} alt="" />
                     </div>
 
                     <div className="item__content">
                         <span><IoTrashOutline /></span>
-                        <label for="desc" class="desc" data-en="Item" data-sr="Odevni predmet:">Item:</label>
-                        <div class="item__description" id="desc">
+                        <label htmlFor="desc" class="desc" data-en="Item" data-sr="Odevni predmet:">Item:</label>
+                        <div className="item__description" id="desc">
                             <p>Dress</p>
                             <p>Size: 36</p>
                             <p>Color: Red</p>
@@ -34,8 +34,8 @@ const Bag = ({ bag, setBag }) => {
                             <p className='text-bold'>18000,00 rsd</p>
                         </div>
 
-                        <label for="quant" data-en="Quantity:" data-sr="Količina:">Quantity:</label>
-                        <div class="item__content-quantity" id="quant">
+                        <label htmlFor="quant" data-en="Quantity:" data-sr="Količina:">Quantity:</label>
+                        <div className="item__content-quantity" id="quant">
                             <select name="Quantity" id="quantity">
                                 <optgroup label="">
                                     <option value="1">1</option>
@@ -50,7 +50,8 @@ const Bag = ({ bag, setBag }) => {
             </div>
 
             <h3>Total: 24000,00 rsd</h3>
-            <button class="btn" data-en="Go to purchase" data-sr="Idi na plaćanje">Go to purchas page</button>
+            <button className="btn" data-en="Go to purchase" data-sr="Idi na plaćanje">Go to purchas page</button>
+
         </section>
 
     )

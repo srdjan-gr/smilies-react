@@ -1,17 +1,62 @@
 import React from 'react'
 import './Message.css';
 
-const Message = () => {
-    return (
-        <div className="message " id="message">
-            <div className="message__color messageInfo" id="message-container"></div>
+const Message = ({ success, info, error }) => {
 
-            <div className="message__txt" id="message-container">
-                <h3>Ups!!!</h3>
-                <p>Vasa korpa je prazna</p>
+    if (success) {
+        return (
+            <div>
+                <div className="message__txt" id="message-container" >
+                    <h3>Bravo!!!</h3>
+                    <p>{success}</p>
+                </div>
             </div>
-        </div>
-    )
+        )
+    } else if (error) {
+        return (
+            <div className="message__txt" id="message-container" >
+                <h3>Ups!!!</h3>
+                <p>{error}</p>
+            </div>
+        )
+    } else if (info) {
+        return (
+            <div className="message__txt" id="message-container" >
+                <h3>Polako!!!</h3>
+                <p>{info}</p>
+            </div>
+        )
+    }
+
+
+    // switch (poruka) {
+    //     case success:
+    //         return (
+    //             <div className="message__txt" id="message-container" >
+    //                 <h3>Bravo!!!</h3>
+    //                 <p>{success}</p>
+    //             </div>
+    //         )
+    //         break;
+    //     case error:
+    //         return (
+    //             <div className="message__txt" id="message-container" >
+    //                 <h3>Ups!!!</h3>
+    //                 <p>{error}</p>
+    //             </div>
+    //         )
+    //         break;
+    //     case info:
+    //         return (
+    //             <div className="message__txt" id="message-container" >
+    //                 <h3>Polako!!!</h3>
+    //                 <p>{info}</p>
+    //             </div>
+    //         )
+    //         break;
+    //     default:
+    // }
+
 }
 
 export default Message
