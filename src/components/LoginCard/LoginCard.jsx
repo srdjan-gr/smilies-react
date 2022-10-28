@@ -54,24 +54,27 @@ const LoginCard = () => {
                 setLoginCard(!loginCard);
                 notifySuccess(response.data.uspesno);
                 setData({ first_name: '', last_name: '', email: '', password: '' })
-            } else {
+
+            } else if(response.data.greska){
                 notifyError(response.data.greska);
+                
+            }else if(response.data.info){
+                notifyInfo(response.data.info);
             }
         })
     }
 
     // 4. Poruke za prikaz 
-    const notifyError = (poruka) => {
-        toast.error(<Message error={poruka} />)
-        // toast.error(poruka);
+    const notifyError = (odgovor) => {
+        toast.error(<Message error={odgovor} />)
     }
 
-    const notifySuccess = (poruka) => {
-        toast.success(<Message success={poruka} />);
+    const notifySuccess = (odgovor) => {
+        toast.success(<Message success={odgovor} />);
     }
 
-    const notifyInfo = (poruka) => {
-        toast.info(<Message info={poruka} />);
+    const notifyInfo = (odgovor) => {
+        toast.info(<Message info={odgovor} />);
     }
 
     return (
