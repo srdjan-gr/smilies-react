@@ -28,12 +28,6 @@ function App() {
 
   const [location, setLocation] = useState('/');
   const [message, setMessage] = useState('');
-  // const [message, setMessage] = useState({
-  //   visible: '',
-  //   content: '',
-  //   duration: 0,
-  //   color: '',
-  // });
 
   return (
     <Router>
@@ -42,7 +36,7 @@ function App() {
         <Header />
         <Devider />
         <Totop />
-        <ToastContainer autoClose={2000} />
+        <ToastContainer autoClose={2500} />
 
 
         <Routes>
@@ -73,7 +67,7 @@ function App() {
         </Routes>
 
       </div>
-    </Router>
+    </Router >
   );
 }
 

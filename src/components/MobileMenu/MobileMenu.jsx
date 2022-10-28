@@ -123,7 +123,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
 
                                                     // Mala slova za slanje u URL
                                                     let imePodkategorijeMala = podKategorija.podkat_naziv_en;
-                                                    let malaSlova = imePodkategorijeMala.toLowerCase();
+                                                    // let malaSlova = imePodkategorijeMala.toLowerCase();
 
                                                     // Podkategorija bez M i Z oznaka
                                                     let celoIme = podKategorija.podkat_naziv_en;

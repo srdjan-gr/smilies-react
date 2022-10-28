@@ -1,5 +1,5 @@
 .message__txt{
-    width: 100%;
+    min-width: 36rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -7,22 +7,18 @@
     color: gray;
     height: 100%;
     margin-left: .4rem;
+    white-space: pre;
 }
 
 .message__txt h3 {
     font-size: 1.4rem;
+    width: 100%;
 }
 
 .message__txt p {
     font-size: 1.5rem;
+    width: 100%;
 }
-
-/* Activna klasa */
-.messageActive {
-    transform: translateY(13.8rem);
-    transition: var(--transition);
-}
-
 
 @media (max-width: 480px) {
     .message__txt{

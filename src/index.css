@@ -9,6 +9,7 @@
   --color-border: #8888884d;
   --border: 1px solid #d8d8d8f8;
   --border-accent: 1px solid #daa520;
+
 }
 
 * {
@@ -94,6 +95,16 @@ p {
 .text-bold {
   font-weight: bold;
 }
+
+.Toastify__toast-container {
+  min-width: 37rem;
+}
+
+.Toastify__toast-body {
+  min-width: 33rem;
+}
+
+
 
 
 @media (max-width: 768px) {

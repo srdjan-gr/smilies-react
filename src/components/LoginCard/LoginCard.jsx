@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom';
-import apiSignup from '../../api/signup'
+// import apiSignup from '../../api/signup'
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Button from '../Button/Button'
 
 // Styling
@@ -48,17 +48,17 @@ const LoginCard = () => {
             password: data.password
         }
 
-        axios.post('http://localhost:8080/srdjan/sapi/signup.php', sendData).then((response) => {
+        axios.post('http://localhost:8080/srdjan/sapi/api/signup.php', sendData).then((response) => {
 
-            if (response.data.uspesno) {
+            if (response.data.success) {
                 setLoginCard(!loginCard);
-                notifySuccess(response.data.uspesno);
+                notifySuccess(response.data.success);
                 setData({ first_name: '', last_name: '', email: '', password: '' })
 
             } else if(response.data.greska){
-                notifyError(response.data.greska);
+                notifyError(response.data.greska);   
                 
-            }else if(response.data.info){
+            } else if(response.data.info){
                 notifyInfo(response.data.info);
             }
         })
