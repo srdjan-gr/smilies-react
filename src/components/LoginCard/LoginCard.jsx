@@ -50,15 +50,15 @@ const LoginCard = () => {
 
         axios.post('http://localhost:8080/srdjan/sapi/api/signup.php', sendData).then((response) => {
 
-            if (response.data.success) {
+            if (response.data.uspesno) {
                 setLoginCard(!loginCard);
-                notifySuccess(response.data.success);
+                notifySuccess(response.data.uspesno);
                 setData({ first_name: '', last_name: '', email: '', password: '' })
 
-            } else if(response.data.greska){
-                notifyError(response.data.greska);   
-                
-            } else if(response.data.info){
+            } else if (response.data.greska) {
+                notifyError(response.data.greska);
+
+            } else if (response.data.info) {
                 notifyInfo(response.data.info);
             }
         })
@@ -104,7 +104,7 @@ const LoginCard = () => {
                         </div>
 
                         <div className="login-button">
-                            <Button />
+                            <Button text='Sign in' />
                         </div>
                     </form>
 
@@ -141,7 +141,7 @@ const LoginCard = () => {
                             </div>
                             <div className="inputs">
                                 <input type="checkbox" id="remember" className="remember" />
-                                <label htmlFor="remember">I agree with terms of use</label>
+                                <label htmlFor="remember">I agree with terms and conditions of use.</label>
                             </div>
                         </div>
 
@@ -149,7 +149,7 @@ const LoginCard = () => {
                             {/*<div className="inputs">
                                 <p>This site is protected by reCAPTCHA, the Google Privacy Policy <br /> and Terms of Service apply.</p>
                             </div>*/}
-                            <Button />
+                            <Button text='Sign up' />
                         </div>
                     </form>
 

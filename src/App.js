@@ -8,6 +8,7 @@ import Header from './components/Header/Header';
 import Devider from './components/Devider/Devider';
 import Message from './components/Message/Message';
 import Totop from './components/ToTop/Totop';
+import Button from './components/Button/Button';
 
 // Pages
 import Home from './pages/Home/Home';
@@ -36,6 +37,7 @@ function App() {
         <Header />
         <Devider />
         <Totop />
+
         <ToastContainer autoClose={2500} />
 
 
@@ -67,7 +69,7 @@ function App() {
         </Routes>
 
       </div>
-    </Router >
+    </Router>
   );
 }
 

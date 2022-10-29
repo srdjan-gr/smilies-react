@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './SimilarProducts.css'
+import Button from '../Button/Button'
 
 // Data iz baze koji moraju ovde da se ucitaju zbog opcije Slicni Proizvodi
 import { proizvodi } from '../../data';
@@ -28,7 +29,8 @@ const SimilarProducts = ({ proizvod }) => {
                     <div className="similar-items-category-cont" >
                         <h2 data-en={randomData.proizvod_naziv_en} data-sr={randomData.proizvod_naziv_sr}>{randomData.proizvod_naziv_en}</h2>
                         <img src={randomData.slika_cela} alt={randomData.proizvod_naziv_en} />
-                        <button className="btn" type="button">Check</button>
+                        
+                        <Button text='Check'/>
                     </div>
                 </div>
             </div>

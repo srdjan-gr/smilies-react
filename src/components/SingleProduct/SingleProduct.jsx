@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
+import Button from '../Button/Button';
 import ProductGalery from '../ProductGalery/ProductGalery';
 
 // Styling
@@ -102,7 +103,7 @@ const SingleProduct = ({ proizvod }) => {
             <option defaultValue={"3"}>3</option>
           </select>
 
-          <button className="btn" type="button">Add to cart</button>
+          <Button text='Add to bag'/>
         </div>
 
       </div>
