@@ -22,7 +22,7 @@ const LoginCard = () => {
     };
 
     // Slanje Sign up podataka 
-    let redirection = useNavigate();
+    // let redirection = useNavigate();
     // 1. kreiranje stanja sa praznim objektom
     const [data, setData] = useState({
         first_name: '',
@@ -30,6 +30,7 @@ const LoginCard = () => {
         email: '',
         password: '',
         // repeat_password: '',
+        terms: false
     })
 
     // 2. Hendlovanje submit eventa - spredujemo sve Data zapise i dodajemo nove Value iz Name atributa
@@ -45,7 +46,8 @@ const LoginCard = () => {
             first_name: data.first_name,
             last_name: data.last_name,
             email: data.email,
-            password: data.password
+            password: data.password,
+            terms: data.terms
         }
 
         axios.post('http://localhost:8080/srdjan/sapi/api/signup.php', sendData).then((response) => {
@@ -63,8 +65,47 @@ const LoginCard = () => {
             }
         })
     }
+    // ==========================================================
 
-    // 4. Poruke za prikaz 
+    // Login
+    const [user, setUser] = useState({
+        emailLogin: '',
+        passwordLogin: '',
+    })
+
+    const handleChangeLogin = (e) => {
+        setUser({ ...user, [e.target.name]: e.target.value });
+    }
+
+
+
+    const submitLogin = (e) => {
+        e.preventDefault();
+
+        const sendData = {
+            emailLogin: user.emailLogin,
+            passwordLogin: user.passwordLogin
+        }
+
+        axios.post('http://localhost:8080/srdjan/sapi/api/login.php', sendData).then((response) => {
+
+            if (response.data.uspesno) {
+                setLoginCard(!loginCard);
+                notifySuccess(response.data.uspesno);
+                setUser({ emailLogin: '', passwordLogin: '' })
+
+            } else if (response.data.greska) {
+                notifyError(response.data.greska);
+
+            } else if (response.data.info) {
+                notifyInfo(response.data.info);
+            }
+        })
+    }
+    // ==========================================================
+
+    // 4. Prikaz poruka iz JSON-a za Login i Logout. 
+    // Message je stilizovana komponenta
     const notifyError = (odgovor) => {
         toast.error(<Message error={odgovor} />)
     }
@@ -77,6 +118,8 @@ const LoginCard = () => {
         toast.info(<Message info={odgovor} />);
     }
 
+
+
     return (
         <section>
             <div className="login-container">
@@ -88,17 +131,17 @@ const LoginCard = () => {
                         <h1>Login</h1>
                     </div>
 
-                    <form id="myForm" action="" method="POST" autoComplete="off">
+                    <form autoComplete="off" onSubmit={submitLogin}>
 
                         <div className="form-imputs">
                             <div className="inputs">
-                                <input type="email" name="emailLogin" id="emailLogin" placeholder="Email" />
+                                <input type="email" name="emailLogin" id="emailLogin" placeholder="Email" onChange={handleChangeLogin} value={user.emailLogin} />
                             </div>
                             <div className="inputs">
-                                <input type="password" name="passwordLogin" id="passwordLogin" placeholder="Password" />
+                                <input type="password" name="passwordLogin" id="passwordLogin" placeholder="Password" onChange={handleChangeLogin} value={user.passwordLogin} />
                             </div>
                             <div className="inputs">
-                                <input type="checkbox" id="remember" className="remember" />
+                                <input type="checkbox" name="rememberme" id="remember" className="remember" />
                                 <label htmlFor="remember">Remember me on these device</label>
                             </div>
                         </div>
@@ -140,8 +183,8 @@ const LoginCard = () => {
                                 <input type="password" name="password" placeholder="Repeat password" />
                             </div>
                             <div className="inputs">
-                                <input type="checkbox" id="remember" className="remember" />
-                                <label htmlFor="remember">I agree with terms and conditions of use.</label>
+                                <input type="checkbox" name="terms" className="remember" onChange={handleChange} checked={data.terms} />
+                                <label htmlFor="remember">I agree with terms and conditions.</label>
                             </div>
                         </div>
 
