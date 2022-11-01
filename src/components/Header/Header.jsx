@@ -11,6 +11,7 @@ import { getCategories } from "../../redux/features/categories/categorySlice";
 // Styling
 import './Header.css'
 import logo from '../../assets/img/logos/Logo100px.png';
+import Loader from '../Loader/Loader';
 
 
 const Header = () => {
@@ -62,7 +63,7 @@ const Header = () => {
                     <div className="menus">
 
                         {
-                            loading ? <h3>loading ...</h3> : data.greska ? <h3>{notifyError(data.greska)}</h3> :
+                            loading ? <Loader /> : data.greska ? <h3>{notifyError(data.greska)}</h3> :
                                 <ul>
                                     {
                                         data.map((kategorija, idx) => {
