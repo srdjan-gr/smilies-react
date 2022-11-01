@@ -71,7 +71,7 @@ const Navbar = () => {
                 </div>
             </nav>
 
-           { <MobileMenu mobileMenu={mobileMenu} setMobileMenu={setMobileMenu}/>}
+           {/* <MobileMenu mobileMenu={mobileMenu} setMobileMenu={setMobileMenu}/>*/}
             <Search search={search} setSearch={setSearch}/>
 
             <Bag bag={bag} setBag={setBag} />
