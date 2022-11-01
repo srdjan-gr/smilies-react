@@ -7,7 +7,7 @@
     position: absolute;
     top: calc(50% - 5rem);
     left: calc(50% - 5rem);
-    z-index: 10000;
+    z-index: 50;
   }
   
    .loader p{
@@ -17,15 +17,6 @@
     z-index: 10000;
     font-weight: 600;
     font-size: 1.2rem;
-  }
-  
-  .loader img {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    z-index: 9999;
-    transform: scale(0.2);
-    /* opacity: .3; */
   }
   
   .loader {

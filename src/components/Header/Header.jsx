@@ -51,7 +51,6 @@ const Header = () => {
     //     setAccentColor(accentColor => !accentColor);  
     // }
 
-
     return (
         <div>
             <header>
@@ -63,7 +62,7 @@ const Header = () => {
                     <div className="menus">
 
                         {
-                            loading ? <Loader /> : data.greska ? <h3>{notifyError(data.greska)}</h3> :
+                            loading ? <p>Loading...</p> : data.greska ? <h3>{notifyError(data.greska)}</h3> :
                                 <ul>
                                     {
                                         data.map((kategorija, idx) => {
@@ -93,6 +92,7 @@ const Header = () => {
             </header>
 
             {/*<SubCategoryMenu subCategoryMenu={subCategoryMenu} setSubCategoryMenu={setSubCategoryMenu} categoryId={categoryId} accentColorLink={accentColor} setAccentColor={setAccentColor} />*/}
+
         </div>
     )
 }
