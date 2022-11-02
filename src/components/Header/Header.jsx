@@ -5,13 +5,14 @@ import SubCategoryMenu from '../SubCategoryMenu/SubCategoryMenu';
 import { toast } from 'react-toastify';
 import Message from '../Message/Message';
 
+// Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { getCategories } from "../../redux/features/categories/categorySlice";
 
 // Styling
 import './Header.css'
 import logo from '../../assets/img/logos/Logo100px.png';
-import Loader from '../Loader/Loader';
+
 
 
 const Header = () => {
@@ -28,7 +29,6 @@ const Header = () => {
         dispatch(getCategories());
     }, [dispatch]);
 
-
     // Poruke
     const notifyError = (odgovor) => {
         toast.error(<Message error={odgovor} />)
@@ -43,7 +43,6 @@ const Header = () => {
             // accentColorLink(!accentColor);
         }
     }
-
 
     // Funkcija koja treba da oboji akcent bojom meni ciji je subMenu aktivan(otvoren)
     const [accentColor, setAccentColor] = useState(false);
@@ -91,7 +90,7 @@ const Header = () => {
                 </div>
             </header>
 
-            {/*<SubCategoryMenu subCategoryMenu={subCategoryMenu} setSubCategoryMenu={setSubCategoryMenu} categoryId={categoryId} accentColorLink={accentColor} setAccentColor={setAccentColor} />*/}
+            {<SubCategoryMenu subCategoryMenu={subCategoryMenu} setSubCategoryMenu={setSubCategoryMenu} categoryId={categoryId} accentColorLink={accentColor} setAccentColor={setAccentColor} />}
 
         </div>
     )

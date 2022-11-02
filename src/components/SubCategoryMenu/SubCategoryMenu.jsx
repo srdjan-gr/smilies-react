@@ -1,10 +1,16 @@
 import React from 'react';
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import Message from '../Message/Message';
 
+
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import { getSubCategories } from "../../redux/features/subcategories/subCategorySlice";
 // Data
 // import { podKategorije, kategorije } from '../../data';
-import apiSubCategory from '../../api/subCategory'
+// import apiSubCategory from '../../api/subCategory'
 
 // styling
 import './SubCategoryMenu.css'
@@ -24,31 +30,19 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId, setA
         setSubCategoryMenu(!subCategoryMenu);
     };
 
-    // API 
-    const [podKategorije, setPodKategorije] = useState([]);
+    // Redux
+    const subCategoryList = useSelector((state) => state.subCategoryList)
+    const { data, loading, message } = subCategoryList;
 
+    const dispatch = useDispatch();
     useEffect(() => {
-        getPodKategorije();
-    }, []);
+        dispatch(getSubCategories());
+    }, [dispatch]);
 
-    const getPodKategorije = async () => {
-
-        try {
-            const response = await apiSubCategory.get("/subCategory");
-            setPodKategorije(response.data);
-
-        } catch (err) {
-            // Ako nije response sa statusom 200  
-            if (err.response) {
-                console.log(err.response.data);
-                console.log(err.response.status);
-                console.log(err.response.headers);
-            } else {
-                console.log(`Error: ${err.message}`)
-            }
-        }
+    // Poruke
+    const notifyError = (odgovor) => {
+        toast.error(<Message error={odgovor} />)
     }
-
 
     return (
         <section className={`${subCategoryMenu ? 'submenuActive' : ''} submenu`}>
@@ -68,28 +62,32 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId, setA
                     </div>
 
                     <div className="submenu__subcategories">
+
+                    {
+                        loading ? <p>Loading...</p> : data.greska ? <h3>Greška prilikom učitavanja!</h3> :
+
                         <ul>
                             {
-                                podKategorije.map((podKategorija, idx) => {
-
+                                data.map((podKategorija, idx) => {
+    
                                     if (categoryId == podKategorija.kategorija_kat_id) {
-
+    
                                         // Mala slova za slanje u URL
                                         let imePodkategorijeMala = podKategorija.podkat_naziv_en;
                                         let malaSlova = imePodkategorijeMala.toLowerCase();
-
+    
                                         // Podkategorija bez M i Z oznaka
                                         let celoIme = podKategorija.podkat_naziv_en;
                                         let skracenoIme = celoIme.split('.');
-
+    
                                         return (
                                             <li key={idx}
                                                 id={podKategorija.podkat_id}
-
-
+    
+    
                                                 onClick={closeSubcategoryMenu}
                                                 data-en={podKategorija.podkat_naziv_en} data-sr={podKategorija.podkat_naziv_sr}>
-
+    
                                                 <Link to={`/products/${podKategorija.podkat_id}`}>{skracenoIme[1]}</Link>
                                             </li>
                                         )
@@ -97,6 +95,8 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId, setA
                                 })
                             }
                         </ul>
+                    }
+
                     </div>
                 </div>
             </div>
