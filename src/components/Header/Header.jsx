@@ -9,10 +9,10 @@ import Message from '../Message/Message';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCategories } from "../../redux/features/categories/categorySlice";
 
+
 // Styling
 import './Header.css'
 import logo from '../../assets/img/logos/Logo100px.png';
-
 
 
 const Header = () => {

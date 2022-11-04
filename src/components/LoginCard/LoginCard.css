@@ -72,9 +72,16 @@ input::placeholder {
 .login-container .login-card form .inputs {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin: 0 auto;
     width: 100%;
     margin-top: 2rem; 
+}
+
+.login-container .login-card form .check {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .login-container .login-card form .inputs p {
@@ -106,6 +113,10 @@ input::placeholder {
     line-height: 1.5rem;
 }
 
+.inputs .btn {
+    width: 50%;
+}
+
 .login-container .login-card .switch {
     position: absolute;
     top: 1rem;
@@ -115,6 +126,7 @@ input::placeholder {
 .login-container .login-card .switch span {
     color: var(--color-acent); 
     cursor: pointer;
+    text-decoration: underline;
 }
 
 .loginCard {

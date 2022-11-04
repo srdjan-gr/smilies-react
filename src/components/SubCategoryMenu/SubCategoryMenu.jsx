@@ -1,16 +1,10 @@
 import React from 'react';
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import Message from '../Message/Message';
-
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { getSubCategories } from "../../redux/features/subcategories/subCategorySlice";
-// Data
-// import { podKategorije, kategorije } from '../../data';
-// import apiSubCategory from '../../api/subCategory'
 
 // styling
 import './SubCategoryMenu.css'
@@ -21,7 +15,6 @@ let iconStyle = {
     cursor: 'pointer',
     fontSize: '2.2rem',
 };
-
 
 
 const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId, setAccentColor }) => {
@@ -38,11 +31,6 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId, setA
     useEffect(() => {
         dispatch(getSubCategories());
     }, [dispatch]);
-
-    // Poruke
-    const notifyError = (odgovor) => {
-        toast.error(<Message error={odgovor} />)
-    }
 
     return (
         <section className={`${subCategoryMenu ? 'submenuActive' : ''} submenu`}>
