@@ -1,0 +1,98 @@
+.icon-main {
+    font-size: 2rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.icon-dash-custom {
+    font-size: 2rem;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.icon-dash-green {
+    color: $dash-success;
+}
+
+.icon-dash-apsoluth {
+    position: absolute;
+    transform: translateX(16rem)
+}
+
+// .btn__big {
+//     width: 15rem;
+//     height: 3.6rem;
+//     padding: .6rem 1rem;
+//     border: none;
+//     border-radius: 30rem;
+//     cursor: pointer;
+//     background-color: $accent;
+//     color: $txt-different;
+//     font-size: 1.4rem;
+//     font-weight: bold;
+//     transition: $transition-015;
+//     @include flex-row-center-center;
+
+//     &:hover {
+//         background-color: $hover;
+//     }
+// }
+
+.menu__button {
+    @include flex-row-center-center;
+
+    position: absolute;
+    right: 0;
+    top: 1rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: $dash-accent;
+    border-radius: 30rem 0 0 30rem;
+    transition: $dash-transition-015;
+    color: $dash-txt-different;
+
+    &:hover {
+        background-color: $dash-hover;
+        cursor: pointer;
+    }
+
+
+    .iconRotate {
+        transform: rotate(180deg);
+        transition: $dash-transition-03;
+    }
+}
+
+.switcher {
+    @include flex-row-center-center;
+
+    position: relative;
+    min-width: 3.6rem;
+    height: 2.5rem;
+    background-color: $dash-main;
+    border-radius: 10rem;
+    margin: 0 1.5rem;
+    border: $dash-border;
+
+    &__slider {
+        position: absolute;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 10rem;
+        transform: translateX(.5rem);
+        background: $dash-accent;
+        transition: $dash-transition-015;
+        margin: 0 !important;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+
+    // .slider-move {
+    //     transform: translateX(-.5rem);
+    // }
+}

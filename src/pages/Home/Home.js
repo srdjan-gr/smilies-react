@@ -1,11 +1,14 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Footer from '../../components/Footer/Footer';
 
 import HomeSection from '../../components/HomeSection/HomeSection';
 import SplideCarusel from '../../components/SplideCarusel/SplideCarusel';
 
+import Navbar from '../../components/Navbar/Navbar';
+import Header from '../../components/Header/Header';
+import Devider from '../../components/Devider/Devider';
+import Footer from '../../components/Footer/Footer';
 
 const styleShowcase = {
     display: 'flex',
@@ -24,6 +27,10 @@ const Home = ({ location, setLocation }) => {
 
     return (
         <div>
+            <Navbar />
+            <Header />
+            <Devider />
+
             <SplideCarusel />
             <HomeSection />
             <Footer />

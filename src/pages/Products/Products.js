@@ -4,6 +4,9 @@ import { useLocation } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 
 import ProductCard from '../../components/ProductCard/ProductCard';
+import Navbar from '../../components/Navbar/Navbar';
+import Header from '../../components/Header/Header';
+import Devider from '../../components/Devider/Devider';
 
 
 const Products = ({ location, setLocation }) => {
@@ -16,6 +19,10 @@ const Products = ({ location, setLocation }) => {
 
     return (
         <div>
+            <Navbar />
+            <Header />
+            <Devider />
+
             <ProductCard />
             <Footer />
 

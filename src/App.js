@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+
 // Components
 import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
@@ -9,6 +10,7 @@ import Devider from './components/Devider/Devider';
 import Message from './components/Message/Message';
 import Totop from './components/ToTop/Totop';
 import Button from './components/Button/Button';
+import { ToastContainer } from 'react-toastify';
 
 // Pages
 import Home from './pages/Home/Home';
@@ -22,7 +24,7 @@ import Terms from './pages/Terms/Terms';
 import Privacy from './pages/Privacy/Privacy';
 import Cookies from './pages/Cookies/Cookies';
 import Refund from './pages/Refund/Refund';
-import { ToastContainer } from 'react-toastify';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 
 function App() {
@@ -33,11 +35,13 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar />
+
+        {/*     <Navbar />
         <Header />
         <Devider />
-        <Totop />
+        <Totop />*/}
 
+        <Totop />
         <ToastContainer autoClose={2500} />
 
 
@@ -59,6 +63,11 @@ function App() {
 
           <Route path='/Product' element={<Product location={location} setLocation={setLocation} />} >
             <Route path=':singleProduct' element={<Product />} />
+          </Route>
+
+          
+          <Route path='/Dashboard' element={<Dashboard location={location} setLocation={setLocation} />} >
+            <Route path=':page' element={<Dashboard />} />
           </Route>
 
 

@@ -4,6 +4,10 @@ import { useLocation } from 'react-router-dom';
 import LoginCard from '../../components/LoginCard/LoginCard';
 import SigninCard from '../../components/SigninCard/SigninCard';
 
+import Navbar from '../../components/Navbar/Navbar';
+import Header from '../../components/Header/Header';
+import Devider from '../../components/Devider/Devider';
+
 
 const LoginSignin = ({ setLocation }) => {
 
@@ -22,10 +26,19 @@ const LoginSignin = ({ setLocation }) => {
 
 
     return (
-        <div className="container">
-            <div className="login-container">
-                <LoginCard loginCard={loginCard} setLoginCard={setLoginCard} />
-                <SigninCard loginCard={loginCard} setLoginCard={setLoginCard} />
+
+        <div>
+
+            <Navbar />
+            <Header />
+            <Devider />
+
+
+            <div className="container">
+                <div className="login-container">
+                    <LoginCard loginCard={loginCard} setLoginCard={setLoginCard} />
+                    <SigninCard loginCard={loginCard} setLoginCard={setLoginCard} />
+                </div>
             </div>
         </div>
     )

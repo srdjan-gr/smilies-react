@@ -1,6 +1,10 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+
+import Navbar from '../../components/Navbar/Navbar';
+import Header from '../../components/Header/Header';
+import Devider from '../../components/Devider/Devider';
 import Footer from '../../components/Footer/Footer';
 
 import './About.css';
@@ -15,8 +19,11 @@ const About = ({ setLocation }) => {
 
     return (
         <div>
-            <section className="container">
+            <Navbar />
+            <Header />
+            <Devider />
 
+            <section className="container">
                 <div className="about__content">
 
                     <p>Kompinenta 1: Modni salon Smilies je počeo sa radom daleke 1997. godine u Boru kada su jedan hobi i pasija uobličeni u profesiju.</p>

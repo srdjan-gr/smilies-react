@@ -19,6 +19,13 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
         setLoginCard(!loginCard);
     };
 
+    const navigate = useNavigate();
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        navigate('/Dashboard');
+    }
+
 
     return (
 
@@ -45,7 +52,7 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
                 </div>
 
                 <div className="inputs">
-                <button type='submit' className="btn" >Login</button>
+                <button type='submit' className="btn" onClick={handleClick}>Login</button>
                 </div>
             </form>
 

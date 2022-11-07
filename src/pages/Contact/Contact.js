@@ -3,6 +3,10 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import ContactOptions from '../../components/ContactOptions/ContactOptions';
 
+import Navbar from '../../components/Navbar/Navbar';
+import Header from '../../components/Header/Header';
+import Devider from '../../components/Devider/Devider';
+
 const Contact = ({ setLocation }) => {
 
     let curentLocation = useLocation();
@@ -13,6 +17,10 @@ const Contact = ({ setLocation }) => {
 
     return (
         <div>
+            <Navbar />
+            <Header />
+            <Devider />
+
             <ContactOptions />
 
         </div>

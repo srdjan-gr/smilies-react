@@ -8,5 +8,5 @@
 }
 
 .error h2 {
-       text-transform: capitalize;
+       text-transform: none;
 }
