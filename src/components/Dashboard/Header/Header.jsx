@@ -1,8 +1,23 @@
 import React from 'react'
+import { RiMenuLine, RiMore2Line, RiCloseLine, RiAddLine } from 'react-icons/ri'
 
 const Header = () => {
   return (
-    <div>Header</div>
+    <header id="header" className="header">
+
+      <div className="header__left">
+        <span ><RiMenuLine className="icon-main hamburger" /></span>
+        <span ><RiCloseLine className="icon-main close-menu" /></span>
+        <img className="logoMobile" src="" alt="" />
+        <img className="logoDesktop" src="" alt="" />
+      </div>
+
+      <div className="header__right" >
+        <button className="btn__dash-big "><RiAddLine className="icon-main mr-05" /> Add New Task</button>
+        <span><RiMore2Line className="icon-main " /></span>
+      </div>
+
+    </header>
   )
 }
 

@@ -37,9 +37,6 @@ const Navbar = () => {
         }
     }, [asideMenu])
 
-
-    console.log(asideMenu);
-
     return (
         <aside className={`${asideMenu ? 'closeAside' : ''} aside__menu`}>
             <div className="aside__menu-top" id="asideTop">
@@ -57,7 +54,7 @@ const Navbar = () => {
                 <div className="aside__menu-bottom-content group-hover">
                     <div className="group">
                         <div className='group-header'>
-                            <RiShoppingCartLine className="icon-dash-custom icon-dash-green ml-2 " />
+                            <RiShoppingCartLine className="icon-main icon-dash-green ml-2 " />
                             <p >Porudzbine</p>
                         </div>
                     </div>
@@ -68,15 +65,15 @@ const Navbar = () => {
                 <div className="aside__menu-bottom-content group-hover">
                     <div className={`${group ? 'toggleHeader' : ''} group `}>
                         <div className='group-header' onClick={() => toggleGroup()} id='pro'>
-                            <RiTShirt2Line className="icon-dash-custom ml-2" />
-                            <p ><RiArrowDownSLine className="icon-dash-custom icon-dash-apsoluth" />Proizvodi</p>
+                            <RiTShirt2Line className="icon-main ml-2" />
+                            <p ><RiArrowDownSLine className="icon-main icon-dash-apsoluth" />Proizvodi</p>
                         </div>
                         <div className="group-content">
                             <ul>
-                                <li ><RiAddLine className="icon-dash-custom mr-1" /> <span>Dodaj proizvod</span></li>
-                                <li ><RiEditBoxLine className="icon-dash-custom mr-1" /> <span>Izmeni proizvod</span></li>
-                                <li ><RiDeleteBinLine className="icon-dash-custom mr-1" /> <span>Obrisi proizvod</span></li>
-                                <li ><RiLoginCircleLine className="icon-dash-custom mr-1" /> <span>Log proizvodi</span></li>
+                                <li ><RiAddLine className="icon-small mr-1" /> <span>Dodaj proizvod</span></li>
+                                <li ><RiEditBoxLine className="icon-small mr-1" /> <span>Izmeni proizvod</span></li>
+                                <li ><RiDeleteBinLine className="icon-small mr-1" /> <span>Obrisi proizvod</span></li>
+                                <li ><RiLoginCircleLine className="icon-small mr-1" /> <span>Log proizvodi</span></li>
                             </ul>
                         </div>
                     </div>
@@ -85,7 +82,7 @@ const Navbar = () => {
                 <div className="aside__menu-bottom-content group-hover">
                     <div className="group">
                         <div className='group-header'>
-                            <RiApps2Line className="icon-dash-custom ml-2" />
+                            <RiApps2Line className="icon-main ml-2" />
                             <p >Kategorije</p>
                         </div>
                     </div>
@@ -94,7 +91,7 @@ const Navbar = () => {
                 <div className="aside__menu-bottom-content group-hover">
                     <div className="group">
                         <div className='group-header'>
-                            <RiAppsLine className="icon-dash-custom ml-2" />
+                            <RiAppsLine className="icon-main ml-2" />
                             <p >Podkategorije</p>
                         </div>
                     </div>
@@ -103,14 +100,14 @@ const Navbar = () => {
                 <div className="aside__menu-bottom-content group-hover">
                     <div className={`${group ? 'toggleHeader' : ''} group `}>
                         <div className='group-header' onClick={() => toggleGroup()} id='kor'>
-                            <RiUserLine className="icon-dash-custom ml-2" />
-                            <p ><RiArrowDownSLine className="icon-dash-custom icon-dash-apsoluth" />Korisnici</p>
+                            <RiUserLine className="icon-main ml-2" />
+                            <p ><RiArrowDownSLine className="icon-main icon-dash-apsoluth" />Korisnici</p>
                         </div>
                         <div className="group-content">
                             <ul>
-                                <li ><RiUserAddLine className="icon-dash-custom mr-1" /> <span>Dodaj korisnika</span></li>
-                                <li ><RiUserSettingsLine className="icon-dash-custom mr-1" /> <span>Lista korisnika</span></li>
-                                <li ><RiLoginCircleLine className="icon-dash-custom mr-1" /> <span>Log кorisnici</span></li>
+                                <li ><RiUserAddLine className="icon-small mr-1" /> <span>Dodaj korisnika</span></li>
+                                <li ><RiUserSettingsLine className="icon-small mr-1" /> <span>Lista korisnika</span></li>
+                                <li ><RiLoginCircleLine className="icon-small mr-1" /> <span>Log кorisnici</span></li>
                             </ul>
                         </div>
                     </div>
@@ -120,7 +117,7 @@ const Navbar = () => {
                 <div className="aside__menu-bottom-content group-hover">
                     <div className="group">
                         <div className='group-header'>
-                            <RiLineChartLine className="icon-dash-custom ml-2" />
+                            <RiLineChartLine className="icon-main ml-2" />
                             <p >Statistika</p>
                         </div>
                     </div>

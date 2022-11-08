@@ -4,12 +4,10 @@
     cursor: pointer;
 }
 
-
-.icon-dash-custom {
-    font-size: 2rem;
+.icon-small {
+    font-size: 1.8rem;
     text-align: center;
     cursor: pointer;
-
 }
 
 .icon-dash-green {
@@ -18,27 +16,27 @@
 
 .icon-dash-apsoluth {
     position: absolute;
-    transform: translateX(16rem)
+    transform: translateX(12rem)
 }
 
-// .btn__big {
-//     width: 15rem;
-//     height: 3.6rem;
-//     padding: .6rem 1rem;
-//     border: none;
-//     border-radius: 30rem;
-//     cursor: pointer;
-//     background-color: $accent;
-//     color: $txt-different;
-//     font-size: 1.4rem;
-//     font-weight: bold;
-//     transition: $transition-015;
-//     @include flex-row-center-center;
+.btn__dash-big {
+    width: 15rem;
+    height: 3.6rem;
+    padding: .6rem 1rem;
+    border: none;
+    border-radius: 30rem;
+    cursor: pointer;
+    background-color: $dash-accent;
+    color: $dash-button-txt;
+    font-size: 1.4rem;
+    font-weight: bold;
+    transition: $dash-transition-015;
+    @include flex-row-center-center;
 
-//     &:hover {
-//         background-color: $hover;
-//     }
-// }
+    &:hover {
+        background-color: $dash-hover;
+    }
+}
 
 .menu__button {
     @include flex-row-center-center;
@@ -51,17 +49,15 @@
     background-color: $dash-accent;
     border-radius: 30rem 0 0 30rem;
     transition: $dash-transition-015;
-    color: $dash-txt-different;
+    color: $dash-button-txt;
 
     &:hover {
         background-color: $dash-hover;
         cursor: pointer;
     }
 
-
     .iconRotate {
         transform: rotate(180deg);
-        transition: $dash-transition-03;
     }
 }
 
@@ -70,7 +66,7 @@
 
     position: relative;
     min-width: 3.6rem;
-    height: 2.5rem;
+    height: 2.6rem;
     background-color: $dash-main;
     border-radius: 10rem;
     margin: 0 1.5rem;
@@ -81,7 +77,7 @@
         width: 1.8rem;
         height: 1.8rem;
         border-radius: 10rem;
-        transform: translateX(.5rem);
+        transform: translate(.5rem, -.03rem);
         background: $dash-accent;
         transition: $dash-transition-015;
         margin: 0 !important;

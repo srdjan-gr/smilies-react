@@ -8,7 +8,7 @@ const Dashboard = () => {
 
             <Navbar />
 
-            <div className="dashbopard__main">
+            <div className="dashboard__main">
                 <Header />
 
             </div>
