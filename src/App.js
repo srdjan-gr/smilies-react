@@ -25,6 +25,7 @@ import Privacy from './pages/Privacy/Privacy';
 import Cookies from './pages/Cookies/Cookies';
 import Refund from './pages/Refund/Refund';
 import Dashboard from './pages/Dashboard/Dashboard';
+import DashCategories from './pages/Dashboard/DashCategories';
 
 
 function App() {
@@ -65,10 +66,14 @@ function App() {
             <Route path=':singleProduct' element={<Product />} />
           </Route>
 
-          
-          <Route path='/Dashboard' element={<Dashboard location={location} setLocation={setLocation} />} >
+
+          {/*   <Route path='/Dashboard' element={<Dashboard location={location} setLocation={setLocation} />} >
             <Route path=':page' element={<Dashboard />} />
-          </Route>
+      </Route>*/}
+
+
+          <Route path='/Dashboard' element={<Dashboard location={location} setLocation={setLocation} />} />
+          <Route path='/DashCategories' element={<DashCategories location={location} setLocation={setLocation} />} />
 
 
 

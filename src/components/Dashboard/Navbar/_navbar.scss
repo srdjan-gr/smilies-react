@@ -57,7 +57,24 @@
                     cursor: pointer;
                     position: relative;
 
+                    .link-style {
+
+                        font-size: 1.6rem;
+                        position: absolute;
+                        margin-left: 3rem;
+                        color: $dash-txt;
+                        display: flex;
+                        align-items: center;
+                        opacity: 1;
+
+                        &:hover {
+                            color: $dash-txt;
+
+                        }
+                    }
+
                     p {
+
                         font-size: 1.6rem;
                         position: absolute;
                         margin-left: 6rem;
@@ -65,7 +82,14 @@
                         display: flex;
                         align-items: center;
                         opacity: 1;
+
+                        &:hover {
+                            color: $dash-txt;
+
+                        }
                     }
+
+
                 }
 
                 &-content {
@@ -127,9 +151,12 @@
     transition: $dash-transition-03;
 }
 
-.closeAside.group-content .aside__menu-bottom>p {
-    opacity: 0;
-    overflow: hidden;
+.aside__menu.closeAside .aside__menu-top .aside__menu-top-left {
+    // background: url(../assets/img/logos/Smilies-White-2022.svg);
+    background: url(../assets/img/logos/Smilies-S-White-2022.svg);
+    background-position: left;
+    background-size: 2.4rem;
+    background-repeat: no-repeat;
 }
 
 .toggleHeader {
@@ -157,11 +184,16 @@
     border-bottom: 1px dotted #757575;
     width: 18rem;
     margin-bottom: 2.2rem;
-    margin-left: 2rem;
-
+    transform: translateX(2rem);
+    transition: transform .3s ease-in-out;
 }
 
-.closedDevider {
+.aside__menu.closeAside .aside__menu-bottom .devider__aside {
     margin-left: 0rem !important;
-    width: 100% !important;
+    transform: translateX(0rem);
 }
+
+// .closedDevider {
+//     margin-left: 0rem !important;
+//     width: 100% !important;
+// }

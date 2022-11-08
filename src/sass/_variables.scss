@@ -1,5 +1,7 @@
 $dash-main: #2c2c38;
 $dash-second: #242430;
+$dash-third: #383846;
+
 $dash-txt: #8d8d8d;
 $dash-txt-different: #8d8d8d;
 $dash-button-txt: #f5f5f5;
@@ -11,7 +13,7 @@ $dash-accent: #daa520;
 $dash-hover: #343442;
 $dash-transition-015: all 0.15s ease-in-out;
 $dash-transition-03: all 0.3s ease-in-out;
-$dash-box-shadow: 0px 1px 5px 1px #0000001e;
+$dash-box-shadow: 0px 1px 7px 5px rgba(0, 0, 0, 0.068);
 $dash-border: 1px solid #3b3b3b;
 $dash-modal: rgba(0, 0, 0, .5);
 
@@ -19,6 +21,7 @@ $dash-modal: rgba(0, 0, 0, .5);
 // Light Theme
 // $dash-main: #f6f7fb;
 // $dash-second: #fff;
+// $dash-third: #fff;
 // $dash-txt: #4e4e4e;
 // $dash-txt-different: #4e4e4e;
 // $dash-hover: #c9c9c977;
@@ -28,3 +31,4 @@ $dash-modal: rgba(0, 0, 0, .5);
 
 
 $dash-success: rgb(0, 170, 113);
+$dash-success-hover: rgba(0, 170, 113, 0.541);

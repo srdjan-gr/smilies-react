@@ -9,3 +9,7 @@
     margin-left: $marginl;
     margin-right: $marginr;
 }
+
+@mixin radius ($a, $b, $c, $d) {
+    border-radius: $a, $b, $c, $d;
+}

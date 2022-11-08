@@ -104,7 +104,7 @@ const LoginCard = () => {
     // ==========================================================
 
     // 4. Prikaz poruka iz JSON-a za Login i Logout. 
-    // Message je stilizovana komponenta
+    // Message je stilizovana komponenta Unutar Toast-a
     const notifyError = (odgovor) => {
         toast.error(<Message error={odgovor} />)
     }

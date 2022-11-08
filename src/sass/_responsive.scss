@@ -37,7 +37,9 @@
     //     display: block !important;
     // }
 
-
+    .category__layout-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 
 }
 
@@ -55,19 +57,16 @@
         display: none;
     }
 
+    .category__layout-grid {
+        grid-template-columns: 1fr;
+    }
+
 }
 
 @media screen and (max-width:460px) {
 
-
-
     .mainSection {
         grid-template-columns: repeat(1, 1fr);
-    }
-
-    .main {
-        width: 100vw;
-        z-index: 20;
     }
 
 

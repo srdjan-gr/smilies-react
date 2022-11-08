@@ -17,7 +17,7 @@ const ErrorPage = () => {
             <div className="container">
                 <div className="error">
                     {/*<h2 >Error!!! These page does not exists.</h2>*/}
-                    <h2>Greška!!! Stranica ne postoji.</h2>
+                    <h2>404 Stranica ne postoji.</h2>
                 </div>
             </div>
 

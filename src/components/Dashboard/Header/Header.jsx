@@ -13,7 +13,6 @@ const Header = () => {
       </div>
 
       <div className="header__right" >
-        <button className="btn__dash-big "><RiAddLine className="icon-main mr-05" /> Add New Task</button>
         <span><RiMore2Line className="icon-main " /></span>
       </div>
 

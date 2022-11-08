@@ -14,9 +14,23 @@
     color: $dash-success;
 }
 
+.icon-dash-green-hover {
+    &:hover {
+        background-color: $dash-success-hover;
+    }
+}
+
 .icon-dash-apsoluth {
     position: absolute;
     transform: translateX(12rem)
+}
+
+// React LINK  stylinga for icons in Menu
+.link-style-icon {
+    font-size: 1.6rem;
+    color: $dash-txt;
+    display: flex;
+    align-items: center;
 }
 
 .btn__dash-big {
@@ -26,15 +40,29 @@
     border: none;
     border-radius: 30rem;
     cursor: pointer;
-    background-color: $dash-accent;
     color: $dash-button-txt;
     font-size: 1.4rem;
     font-weight: bold;
     transition: $dash-transition-015;
     @include flex-row-center-center;
+}
+
+.btn__dash-regular {
+    @include flex-row-center-center;
+    // width: 16rem;
+    height: 4rem;
+    padding: .6rem 1.4rem;
+    margin: 1rem 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: $dash-success;
+    color: $dash-button-txt;
+    font-size: 1.6rem;
+    transition: $dash-transition-015;
 
     &:hover {
-        background-color: $dash-hover;
+        background-color: $dash-success-hover;
     }
 }
 
