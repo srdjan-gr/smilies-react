@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import { RiCopyleftLine, RiArrowLeftSLine, RiArrowDownSLine, RiUserLine, RiSunLine, RiMoonLine, RiAddLine, RiDeleteBinLine, RiEditBoxLine, RiTShirt2Line, RiUserAddLine, RiUserUnfollowLine, RiUserSettingsLine, RiLineChartLine, RiLoginCircleLine, FcLowPriority, RiShoppingCartLine, RiFolderSettingsLine, RiApps2Line, RiAppsLine } from 'react-icons/ri'
 import { Link } from 'react-router-dom';
 
@@ -12,17 +13,32 @@ const Navbar = () => {
 
     const clickHandler = () => {
         setAsideMenu(!asideMenu)
+        if (!asideMenu) {
+            localStorage.setItem('sidebar', 'closed')
+        } else {
+            localStorage.setItem('sidebar', null)
+        }
+
         setIconRotate(!iconRotate)
         setSpanText(!spanText)
         setDevider(!devider)
     }
+
 
     const toggleGroup = (id) => {
         setGroup(!group);
         console.log(id)
     }
 
+    useEffect(() => {
+        const asideMenuStorage = localStorage.getItem('sidebar');
+        if (asideMenuStorage === 'closed') {
+            setAsideMenu(true);
+        }
+    }, [asideMenu])
 
+
+    console.log(asideMenu);
 
     return (
         <aside className={`${asideMenu ? 'closeAside' : ''} aside__menu`}>
@@ -67,22 +83,6 @@ const Navbar = () => {
                 </div>
 
                 <div className="aside__menu-bottom-content group-hover">
-                    <div className={`${group ? 'toggleHeader' : ''} group `}>
-                        <div className='group-header' onClick={() => toggleGroup()} id='kor'>
-                            <RiUserLine className="icon-dash-custom ml-2" />
-                            <p ><RiArrowDownSLine className="icon-dash-custom icon-dash-apsoluth" />Korisnici</p>
-                        </div>
-                        <div className="group-content">
-                            <ul>
-                                <li ><RiUserAddLine className="icon-dash-custom mr-1" /> <span>Dodaj korisnika</span></li>
-                                <li ><RiUserSettingsLine className="icon-dash-custom mr-1" /> <span>Lista korisnika</span></li>
-                                <li ><RiLoginCircleLine className="icon-dash-custom mr-1" /> <span>Log кorisnici</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="aside__menu-bottom-content group-hover">
                     <div className="group">
                         <div className='group-header'>
                             <RiApps2Line className="icon-dash-custom ml-2" />
@@ -99,6 +99,23 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
+
+                <div className="aside__menu-bottom-content group-hover">
+                    <div className={`${group ? 'toggleHeader' : ''} group `}>
+                        <div className='group-header' onClick={() => toggleGroup()} id='kor'>
+                            <RiUserLine className="icon-dash-custom ml-2" />
+                            <p ><RiArrowDownSLine className="icon-dash-custom icon-dash-apsoluth" />Korisnici</p>
+                        </div>
+                        <div className="group-content">
+                            <ul>
+                                <li ><RiUserAddLine className="icon-dash-custom mr-1" /> <span>Dodaj korisnika</span></li>
+                                <li ><RiUserSettingsLine className="icon-dash-custom mr-1" /> <span>Lista korisnika</span></li>
+                                <li ><RiLoginCircleLine className="icon-dash-custom mr-1" /> <span>Log кorisnici</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
 
                 <div className="aside__menu-bottom-content group-hover">
                     <div className="group">
@@ -120,7 +137,7 @@ const Navbar = () => {
                     <RiMoonLine className="icon-main" />
                 </div>
             </div>
-        </aside >
+        </aside>
     )
 }
 

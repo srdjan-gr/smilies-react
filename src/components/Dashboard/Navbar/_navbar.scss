@@ -30,7 +30,7 @@
             .group {
                 height: 3.8rem;
                 overflow: hidden;
-                margin-bottom: .2rem;
+                // margin-bottom: .2rem;
 
                 &-header {
                     display: flex;
@@ -48,6 +48,7 @@
                         color: $dash-txt;
                         display: flex;
                         align-items: center;
+                        opacity: 1;
                     }
                 }
 
@@ -106,6 +107,11 @@
 .closeAside {
     width: 6rem !important;
     transition: $dash-transition-03;
+}
+
+.closeAside.group-content .aside__menu-bottom>p {
+    opacity: 0;
+    overflow: hidden;
 }
 
 .toggleHeader {
