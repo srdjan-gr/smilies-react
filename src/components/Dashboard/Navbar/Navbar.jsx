@@ -39,7 +39,7 @@ const Navbar = () => {
 
     return (
         <aside className={`${asideMenu ? 'closeAside' : ''} aside__menu`}>
-            <div className="aside__menu-top" id="asideTop">
+            <div className="aside__menu-top mb-3" id="asideTop">
                 <div className="aside__menu-top-left">
 
                 </div>
@@ -54,18 +54,18 @@ const Navbar = () => {
                 <div className="aside__menu-bottom-content group-hover">
                     <div className="group">
                         <div className='group-header'>
-                            <RiShoppingCartLine className="icon-main icon-dash-green ml-2 " />
+                            <RiShoppingCartLine className="icon-main icon-dash-green ml-18 " />
                             <p >Porudzbine</p>
                         </div>
                     </div>
                 </div>
 
-                {<div className={`${devider ? 'closedDevider' : ''} devider__aside`}></div>}
+                <div className={`${devider ? 'closedDevider' : ''} devider__aside`}></div>
 
                 <div className="aside__menu-bottom-content group-hover">
                     <div className={`${group ? 'toggleHeader' : ''} group `}>
                         <div className='group-header' onClick={() => toggleGroup()} id='pro'>
-                            <RiTShirt2Line className="icon-main ml-2" />
+                            <RiTShirt2Line className="icon-main ml-18" />
                             <p ><RiArrowDownSLine className="icon-main icon-dash-apsoluth" />Proizvodi</p>
                         </div>
                         <div className="group-content">
@@ -82,7 +82,7 @@ const Navbar = () => {
                 <div className="aside__menu-bottom-content group-hover">
                     <div className="group">
                         <div className='group-header'>
-                            <RiApps2Line className="icon-main ml-2" />
+                            <RiApps2Line className="icon-main ml-18" />
                             <p >Kategorije</p>
                         </div>
                     </div>
@@ -91,7 +91,7 @@ const Navbar = () => {
                 <div className="aside__menu-bottom-content group-hover">
                     <div className="group">
                         <div className='group-header'>
-                            <RiAppsLine className="icon-main ml-2" />
+                            <RiAppsLine className="icon-main ml-18" />
                             <p >Podkategorije</p>
                         </div>
                     </div>
@@ -100,7 +100,7 @@ const Navbar = () => {
                 <div className="aside__menu-bottom-content group-hover">
                     <div className={`${group ? 'toggleHeader' : ''} group `}>
                         <div className='group-header' onClick={() => toggleGroup()} id='kor'>
-                            <RiUserLine className="icon-main ml-2" />
+                            <RiUserLine className="icon-main ml-18" />
                             <p ><RiArrowDownSLine className="icon-main icon-dash-apsoluth" />Korisnici</p>
                         </div>
                         <div className="group-content">
@@ -117,22 +117,20 @@ const Navbar = () => {
                 <div className="aside__menu-bottom-content group-hover">
                     <div className="group">
                         <div className='group-header'>
-                            <RiLineChartLine className="icon-main ml-2" />
+                            <RiLineChartLine className="icon-main ml-18" />
                             <p >Statistika</p>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
-
-
-                <div className="theme__switch" >
-                    <RiSunLine className="icon-dash-custom" />
-                    <div className="switcher" >
-                        <span className="switcher__slider slider-move "></span>
-                    </div>
-                    <RiMoonLine className="icon-main" />
+            <div className="theme__switch" >
+                <RiSunLine className="icon-dash-custom" />
+                <div className="switcher" >
+                    <span className="switcher__slider slider-move "></span>
                 </div>
+                <RiMoonLine className="icon-main" />
             </div>
         </aside>
     )

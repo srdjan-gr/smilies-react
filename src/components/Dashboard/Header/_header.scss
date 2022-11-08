@@ -1,4 +1,7 @@
 .header {
+    position: sticky;
+    top: 0;
+    left: 0;
     background-color: $dash-main;
     min-width: 100%;
     height: 5rem;
@@ -25,6 +28,10 @@
     }
 
     .close-menu {
+        display: none;
+    }
+
+    .hamburger {
         display: none;
     }
 }

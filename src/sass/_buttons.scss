@@ -58,6 +58,7 @@
 
     .iconRotate {
         transform: rotate(180deg);
+        transition: $dash-transition-015;
     }
 }
 
