@@ -45,10 +45,6 @@
 
 @media screen and (max-width:768px) {
 
-    .mainSection {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
     .hamburger {
         display: block !important;
     }
@@ -63,11 +59,4 @@
 
 }
 
-@media screen and (max-width:460px) {
-
-    .mainSection {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-
-}
+@media screen and (max-width:460px) {}

@@ -14,9 +14,32 @@
     color: $dash-success;
 }
 
+.icon-dash-danger {
+    color: $dash-danger;
+}
+
+.icon-dash-info {
+    color: $dash-info;
+}
+
 .icon-dash-green-hover {
     &:hover {
-        background-color: $dash-success-hover;
+        color: $dash-success-hover;
+        cursor: pointer;
+    }
+}
+
+.icon-dash-danger-hover {
+    &:hover {
+        color: $dash-danger-hover;
+        cursor: pointer;
+    }
+}
+
+.icon-dash-info-hover {
+    &:hover {
+        color: $dash-info-hover;
+        cursor: pointer;
     }
 }
 
@@ -52,7 +75,6 @@
     // width: 16rem;
     height: 4rem;
     padding: .6rem 1.4rem;
-    margin: 1rem 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;

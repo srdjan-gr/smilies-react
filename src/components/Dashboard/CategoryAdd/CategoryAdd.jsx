@@ -67,13 +67,15 @@ const Categories = () => {
         <div className="category__container-inputs-content">
 
           <form onSubmit={handleSubmit}>
+
             <label htmlFor="">Ime Kategorije Srpski</label>
             <input type="text" placeholder='Unesite ime kategorije na Srpskom' name="kategorija_sr" value={data.kategorija_sr} onChange={handleChange} />
 
             <label htmlFor="">Ime Kategorije Engleski</label>
             <input type="text" placeholder='Unesite ime kategorije na Engleskom' name="kategorija_en" value={data.kategorija_en} onChange={handleChange} />
 
-            <button className='btn__dash-regular icon-dash-green icon-dash-green-hover'>Dodaj Kategoriju</button>
+            <button className='btn__dash-regular icon-dash-green icon-dash-green-hover mt-2'>Dodaj Kategoriju</button>
+
           </form>
         </div>
 

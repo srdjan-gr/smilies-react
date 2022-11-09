@@ -1,0 +1,64 @@
+.table {
+
+    table {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        tr {
+            display: flex;
+            border-bottom: $dash-border;
+            padding: .4rem 0;
+            width: 100%;
+
+
+            th,
+            td {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                // width: 100%;
+                // width: 10rem;
+            }
+
+            &:hover {
+                background-color: $dash-hover;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .id {
+        width: 8rem;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .name {
+        width: 15rem;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .date {
+        width: 20rem;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .user {
+        width: 20rem;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .option {
+        width: 8rem;
+        padding: 0 1rem;
+    }
+
+    .t-align {
+        text-align: center;
+
+    }
+}

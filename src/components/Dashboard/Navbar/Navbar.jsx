@@ -41,7 +41,7 @@ const Navbar = () => {
         <aside className={`${asideMenu ? 'closeAside' : ''} aside__menu`}>
             <div className="aside__menu-top mb-3" id="asideTop">
                 <div className="aside__menu-top-left">
-                    <Link to="/dashboard" ></Link>
+
                 </div>
                 <div className="menu__button" id="menuSwitch" onClick={clickHandler}>
                     <RiArrowLeftSLine className={`${iconRotate ? 'iconRotate' : ''} icon-main`} />
@@ -65,7 +65,7 @@ const Navbar = () => {
                 <div className="aside__menu-bottom-content group-hover">
                     <div className="group">
                         <div className='group-header'>
-                            <Link to="/dashsubcategories" className='link-style-icon'><RiDashboardLine className="icon-main ml-18" /></Link>
+                            <Link to="/dashboard" className='link-style-icon'><RiDashboardLine className="icon-main ml-18" /></Link>
                             <span className='link-style'><Link to="/dashboard" className='link-style'>Dashboard</Link></span>
                         </div>
                     </div>
