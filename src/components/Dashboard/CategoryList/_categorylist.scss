@@ -2,4 +2,40 @@
     min-height: 100%;
     width: 100%;
 
+    .category__container-inputs {
+        // margin: 2rem 1rem;
+        padding: 1rem;
+
+        .list__search {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            height: 5%;
+            margin: 1rem 0;
+
+            .search-input {
+                border: $dash-border;
+                display: flex;
+                align-items: center;
+                width: 20rem;
+                margin-bottom: 1rem;
+                padding-left: 1rem;
+            }
+
+            input[type=text] {
+
+                height: 3.3rem;
+                background-color: transparent;
+                border: none;
+                color: $dash-txt;
+                margin: 0rem;
+                padding: 0rem;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+
 }
