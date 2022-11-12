@@ -99,13 +99,17 @@
     position: absolute;
     left: 0;
     top: 1rem;
-    width: 2.5rem;
-    height: 3rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    margin-left: 1rem;
     background-color: $dash-accent;
-    border-radius: 0 30rem 30rem 0;
+    border-radius: 50%;
     transition: $dash-transition-015;
     color: $dash-button-txt;
 
+    // width: 2.5rem;
+    // height: 3rem;
+    // border-radius: 0 30rem 30rem 0;
     &:hover {
         background-color: $dash-hover;
         cursor: pointer;

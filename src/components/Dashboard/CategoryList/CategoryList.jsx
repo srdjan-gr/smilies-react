@@ -1,7 +1,6 @@
-import React from 'react'
-import { RiDeleteBinLine, RiEditBoxLine, RiSearch2Line } from 'react-icons/ri'
-import { useEffect } from 'react';
+import React, {useEffect, useState} from 'react'
 import axios from "axios";
+import { RiDeleteBinLine, RiEditBoxLine, RiSearch2Line } from 'react-icons/ri'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Message from '../../Message/Message';
@@ -9,11 +8,11 @@ import Message from '../../Message/Message';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getDashCategories, getUpdateDashCategories } from "../../../redux/features/categoriesDash/categoriesDashSlice";
-import { useState } from 'react';
 
 
 const CategoryList = () => {
 
+    // Inicijalno stanje za brisanje kategorije
     const [brisanjeKategorije, setBrisanjeKategorije] = useState({
         id_kat: '',
         ime_kat_sr: '',
@@ -134,7 +133,8 @@ const CategoryList = () => {
 
                                             <td className='column-small options'>
                                                 <RiEditBoxLine onClick={() => updateCategory(item.kat_id)} className='icon-dash-info icon-dash-info-hover icon-small' />
-                                                <RiDeleteBinLine className='icon-dash-danger icon-dash-danger-hover icon-small' onClick={() => deleteCategory(item.kat_id, item.kat_naziv_sr, item.kat_naziv_en)} />
+                                                <RiDeleteBinLine className='icon-dash-danger icon-dash-danger-hover icon-small'
+                                                    onClick={() => deleteCategory(item.kat_id, item.kat_naziv_sr, item.kat_naziv_en)} />
                                             </td>
                                         </tr>
                                     )
@@ -146,6 +146,11 @@ const CategoryList = () => {
             </div>
         </div>
     )
+
+
+
+
+
 }
 
 export default CategoryList

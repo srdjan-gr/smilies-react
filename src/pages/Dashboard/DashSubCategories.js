@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import AddSubCategory from '../../components/Dashboard/AddSubCategory/AddSubCategory'
 import Header from '../../components/Dashboard/Header/Header'
 import Navbar from '../../components/Dashboard/Navbar/Navbar'
-import CategoryAdd from '../../components/Dashboard/CategoryAdd/CategoryAdd'
-import CategoryList from '../../components/Dashboard/CategoryList/CategoryList'
+
+import SubCategoryList from '../../components/Dashboard/SubCategoryList/SubCategoryList'
 
 
-const Categories = () => {
+const DashSubCategories = () => {
 
     const [asideMenu, setAsideMenu] = useState(false);
     const [devider, setDevider] = useState(false);
@@ -27,8 +28,8 @@ const Categories = () => {
 
                 <div className="main__section category__layout-grid">
                     {/*Ovde idu komponente svake stranice. iznad divovi ostaju isti na svakoj stranici*/}
-                    <CategoryAdd />
-                    <CategoryList />
+                    <AddSubCategory />
+                    <SubCategoryList />
 
 
                 </div>
@@ -37,4 +38,4 @@ const Categories = () => {
     )
 }
 
-export default Categories
+export default DashSubCategories

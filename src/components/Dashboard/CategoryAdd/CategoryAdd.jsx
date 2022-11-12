@@ -133,7 +133,6 @@ const Categories = () => {
   }
 
 
-
   return (
     <div className='category__container'>
       <div className="category__container-header">
@@ -183,6 +182,7 @@ const Categories = () => {
       </div>
     </div>
   )
+
 }
 
 export default Categories
