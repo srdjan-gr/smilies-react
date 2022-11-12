@@ -1,10 +1,70 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from "axios";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Message from '../../Message/Message';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { getDashSubCategory } from "../../../redux/features/subcategoriesdash/subCategoriesDahsSlice";
+import { getDashCategories } from "../../../redux/features/categoriesDash/categoriesDashSlice";
 
 const AddSubCategory = () => {
 
+    // Redux subcategory state
+    // const subCategoryList = useSelector((state) => state.subCategoryDashList)
+    const categoryList = useSelector((state) => state.categoryDashList)
+    const { loading, data, message } = categoryList;
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getDashCategories());
+    }, [dispatch]);
+
+
+    // Initial data for subcategory create
+    const [subcategorySr, setSubcategorySr] = useState('');
+    const [subcategoryEn, setSubcategoryEn] = useState('');
+    const [category, setCategory] = useState('');
+
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const sendSubcategoryData = {
+            subcat_sr: subcategorySr,
+            subcat_en: subcategoryEn,
+            category: category,
+        }
+
+        axios.post('http://localhost:8080/srdjan/sapi/api/subCategoryDashAdd.php', sendSubcategoryData).then((response) => {
+
+            if (response.data.uspesno) {
+                notifySuccess(response.data.uspesno);
+                setSubcategorySr('');
+                setSubcategoryEn('');
+                dispatch(getDashSubCategory());
+
+            } else if (response.data.greska) {
+                notifyError(response.data.greska);
+
+            } else if (response.data.info) {
+                notifyInfo(response.data.info);
+            }
+        })
     }
+
+    // Message je stilizovana komponenta Unutar Toast-a
+    const notifyError = (odgovor) => {
+        toast.error(<Message error={odgovor} />)
+    }
+    const notifySuccess = (odgovor) => {
+        toast.success(<Message success={odgovor} />);
+    }
+    const notifyInfo = (odgovor) => {
+        toast.info(<Message info={odgovor} />);
+    }
+
+
+
 
     return (
         <div className='category__container container-height'>
@@ -16,17 +76,22 @@ const AddSubCategory = () => {
 
                 <form form form form onSubmit={handleSubmit} >
                     <label htmlFor="">Ime Podkategorije Srpski</label>
-                    <input type="text" placeholder='Ime Podkategorije na Srpskom' name="podkat_sr" />
+                    <input type="text" placeholder='Ime Podkategorije na Srpskom' name="subcat_sr" value={subcategorySr} onChange={(e) => setSubcategorySr(e.target.value)} />
 
                     <label htmlFor="">Ime Podkategorije Engleski</label>
-                    <input type="text" placeholder='Ime Podkategorije na Engleskom' name="podkat_en" />
+                    <input type="text" placeholder='Ime Podkategorije na Engleskom' name="subcat_en" value={subcategoryEn} onChange={(e) => setSubcategoryEn(e.target.value)} />
 
                     <div className="select-input">
                         <label htmlFor="selectInputs">Kategorija kojoj pripada</label>
-                        <select id='selectInputs'>
+                        <select id='selectInputs' name="category" onChange={(e) => setCategory(e.target.value)} >
                             <option value="0">-- Odaberite kategoriju --</option>
-                            <option value="grapefruit">Grapefruit</option>
-
+                            {
+                                data.map((item, idx) => {
+                                    return (
+                                        <option key={idx} value={item.kat_id}>{item.kat_naziv_sr}</option>
+                                    )
+                                })
+                            }
                         </select>
                     </div>
 

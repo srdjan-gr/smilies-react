@@ -364,6 +364,9 @@
   width: 10rem;
   padding: 0 1rem;
 }
+.table .info-cell {
+  color: rgba(45, 178, 255, 0.541);
+}
 
 .aside__menu {
   position: fixed;

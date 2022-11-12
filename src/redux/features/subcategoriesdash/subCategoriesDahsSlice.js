@@ -33,9 +33,9 @@ export const getDashSubCategory = createAsyncThunk("DASH_SUBCATEGORIES/GET_ALL_S
 
 
 const initialState = {
-    data: [],
-    loading: false,
-    message: '',
+    subData: [],
+    subLoading: false,
+    subMessage: '',
 }
 
 export const subCategoryDashSlice = createSlice({
@@ -45,15 +45,15 @@ export const subCategoryDashSlice = createSlice({
     extraReducers: {
 
         [getDashSubCategory.pending]: (state, action) => {
-            state.loading = true;
+            state.subLoading = true;
         },
         [getDashSubCategory.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.data = action.payload;
+            state.subLoading = false;
+            state.subData = action.payload;
         },
         [getDashSubCategory.rejected]: (state, action) => {
-            state.loading = false;
-            state.message = action.payload;
+            state.subLoading = false;
+            state.subMessage = action.payload;
         },
 
 

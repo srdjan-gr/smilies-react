@@ -11,7 +11,7 @@ import { getDashSubCategory } from "../../../redux/features/subcategoriesdash/su
 const SubCategoryList = () => {
 
     const subCategoryList = useSelector((state) => state.subCategoryDashList)
-    const { loading, data, message } = subCategoryList;
+    const { subLoading, subData, subMessage } = subCategoryList;
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -55,14 +55,14 @@ const SubCategoryList = () => {
 
                         <tbody>
                             {
-                                data.map((item, idx) => {
+                                subData.map((item, idx) => {
 
                                     return (
                                         <tr key={idx}>
                                             <td className='column-x-small'>{item.podkat_id}</td>
                                             <td className='column-medium'>{item.podkat_naziv_sr}</td>
                                             <td className='column-medium'>{item.podkat_naziv_en}</td>
-                                            <td className='column-medium'>{item.kat_naziv_sr}</td>
+                                            <td className='column-medium info-cell'>{item.kat_naziv_sr}</td>
                                             <td className='column-large'>{item.podkat_dkreiranja}</td>
                                             <td className='column-medium'>{item.korisnik_ime} {item.korisnik_prezime}</td>
                                             {/*<td className='option '><RiEditBoxLine className='icon-dash-info icon-dash-info-hover icon-small ml-15' onClick={() => setIdKat(item.kat_id)} /></td>*/}
