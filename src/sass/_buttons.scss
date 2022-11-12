@@ -22,27 +22,6 @@
     color: $dash-info;
 }
 
-.icon-dash-green-hover {
-    &:hover {
-        color: $dash-success-hover;
-        cursor: pointer;
-    }
-}
-
-.icon-dash-danger-hover {
-    &:hover {
-        color: $dash-danger-hover;
-        cursor: pointer;
-    }
-}
-
-.icon-dash-info-hover {
-    &:hover {
-        color: $dash-info-hover;
-        cursor: pointer;
-    }
-}
-
 .icon-dash-apsoluth {
     position: absolute;
     transform: translateX(12rem)
@@ -56,6 +35,9 @@
     align-items: center;
 }
 
+
+// =======================================
+// Buttons Start
 .btn__dash-big {
     width: 15rem;
     height: 3.6rem;
@@ -78,13 +60,36 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: $dash-success;
+    // background-color: $dash-success;
     color: $dash-button-txt;
     font-size: 1.6rem;
     transition: $dash-transition-015;
+}
+
+.dash-button-success {
+    background-color: $dash-success;
 
     &:hover {
         background-color: $dash-success-hover;
+        cursor: pointer;
+    }
+}
+
+.dash-button-danger {
+    background-color: $dash-danger;
+
+    &:hover {
+        background-color: $dash-danger-hover;
+        cursor: pointer;
+    }
+}
+
+.dash-button-info {
+    background-color: $dash-info;
+
+    &:hover {
+        background-color: $dash-info-hover;
+        cursor: pointer;
     }
 }
 
@@ -92,12 +97,12 @@
     @include flex-row-center-center;
 
     position: absolute;
-    right: 0;
+    left: 0;
     top: 1rem;
-    width: 3rem;
+    width: 2.5rem;
     height: 3rem;
     background-color: $dash-accent;
-    border-radius: 30rem 0 0 30rem;
+    border-radius: 0 30rem 30rem 0;
     transition: $dash-transition-015;
     color: $dash-button-txt;
 
@@ -143,3 +148,6 @@
     //     transform: translateX(-.5rem);
     // }
 }
+
+// Buttons End
+// =======================================

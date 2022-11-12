@@ -3,27 +3,26 @@
     width: 100%;
 
     .category__container-inputs {
-        // margin: 2rem 1rem;
         padding: 1rem;
+        width: 100%;
 
         .list__search {
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            height: 5%;
-            margin: 1rem 0;
+            height: 4rem;
+            margin-bottom: 1rem;
+            width: 100%;
 
             .search-input {
                 border: $dash-border;
                 display: flex;
                 align-items: center;
-                width: 20rem;
-                margin-bottom: 1rem;
+                width: 25rem;
                 padding-left: 1rem;
             }
 
             input[type=text] {
-
                 height: 3.3rem;
                 background-color: transparent;
                 border: none;
@@ -37,5 +36,4 @@
             }
         }
     }
-
 }

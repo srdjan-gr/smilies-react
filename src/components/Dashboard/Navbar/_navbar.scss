@@ -13,21 +13,18 @@
 
     &-top {
         height: 6rem;
-        background-color: $dash-main;
         display: flex;
         align-items: center;
         justify-content: flex-start;
 
-        &-left {
-            width: 75%;
-            height: 100%;
-            margin-left: 1.8rem;
-            cursor: pointer;
-            background: url(../assets/img/logos/Smilies-White-2022.svg);
-            background-position: left;
-            background-size: 11rem;
-            background-repeat: no-repeat;
-        }
+        margin-left: 1.8rem;
+        margin-bottom: 3rem;
+        cursor: pointer;
+        background: url(../assets/img/logos/Smilies-White-2022.svg);
+        background-position: left;
+        background-size: 11rem;
+        background-repeat: no-repeat;
+
     }
 
     &-bottom {
@@ -97,6 +94,7 @@
                     border-left: $dash-border;
                     margin: 0 0 0 1.8rem;
                     padding-left: .5rem;
+                    overflow-y: hidden;
 
                     & li {
                         margin: .5rem 0;
@@ -151,8 +149,7 @@
     transition: $dash-transition-03;
 }
 
-.aside__menu.closeAside .aside__menu-top .aside__menu-top-left {
-    // background: url(../assets/img/logos/Smilies-White-2022.svg);
+.aside__menu.closeAside .aside__menu-top {
     background: url(../assets/img/logos/Smilies-S-White-2022.svg);
     background-position: left;
     background-size: 2.4rem;

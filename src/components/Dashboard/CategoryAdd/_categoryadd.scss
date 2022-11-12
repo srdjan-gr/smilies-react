@@ -5,10 +5,9 @@
     background-color: $dash-main;
     border-radius: .5rem;
     box-shadow: $dash-box-shadow;
-
+    // margin-bottom: 2rem;
 
     &-header {
-
         height: 3.5rem;
         background-color: $dash-third;
         border-radius: .5rem .5rem 0 0;
@@ -24,27 +23,23 @@
     }
 
     &-inputs {
-
         height: calc(100% - 4rem);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
 
-        &-content {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
+        form {
             width: 100%;
-            // height: 100%;
+        }
 
-            form {
-                // height: 100%;
-                width: 100%;
-            }
-
+        &-buttons {
+            display: flex;
         }
 
         label {
             font-size: 1.6rem;
-            // margin-bottom: .2rem;
         }
 
         input[type=text] {

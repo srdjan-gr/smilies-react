@@ -1,50 +1,24 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { RiCopyleftLine, RiArrowLeftSLine, RiArrowDownSLine, RiUserLine, RiSunLine, RiMoonLine, RiAddLine, RiDeleteBinLine, RiEditBoxLine, RiTShirt2Line, RiUserAddLine, RiUserUnfollowLine, RiUserSettingsLine, RiLineChartLine, RiLoginCircleLine, FcLowPriority, RiShoppingCartLine, RiFolderSettingsLine, RiApps2Line, RiAppsLine, RiDashboardLine } from 'react-icons/ri'
+import { RiArrowDownSLine, RiUserLine, RiSunLine, RiMoonLine, RiAddLine, RiDeleteBinLine, RiEditBoxLine, RiTShirt2Line, RiUserAddLine, RiUserUnfollowLine, RiUserSettingsLine, RiLineChartLine, RiLoginCircleLine, FcLowPriority, RiShoppingCartLine, RiFolderSettingsLine, RiApps2Line, RiAppsLine, RiDashboardLine } from 'react-icons/ri'
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({asideMenu, setAsideMenu }) => {
 
-    const [asideMenu, setAsideMenu] = useState(false);
-    const [iconRotate, setIconRotate] = useState(false);
-    const [spanText, setSpanText] = useState(false);
+    const [devider, setDevider] = useState(false);    
     const [group, setGroup] = useState(false);
-    const [devider, setDevider] = useState(false);
-
-    const clickHandler = () => {
-        setAsideMenu(!asideMenu)
-        if (!asideMenu) {
-            localStorage.setItem('sidebar', 'closed')
-        } else {
-            localStorage.setItem('sidebar', null)
-        }
-
-        setIconRotate(!iconRotate)
-        setSpanText(!spanText)
-        setDevider(!devider)
-    }
-
 
     const toggleGroup = (id) => {
         setGroup(!group);
-        console.log(id)
     }
 
-    useEffect(() => {
-        const asideMenuStorage = localStorage.getItem('sidebar');
-        if (asideMenuStorage === 'closed') {
-            setAsideMenu(true);
-        }
-    }, [asideMenu])
 
     return (
         <aside className={`${asideMenu ? 'closeAside' : ''} aside__menu`}>
-            <div className="aside__menu-top mb-3" id="asideTop">
+
+            <div className="aside__menu-top" >
                 <div className="aside__menu-top-left">
 
-                </div>
-                <div className="menu__button" id="menuSwitch" onClick={clickHandler}>
-                    <RiArrowLeftSLine className={`${iconRotate ? 'iconRotate' : ''} icon-main`} />
                 </div>
             </div>
 

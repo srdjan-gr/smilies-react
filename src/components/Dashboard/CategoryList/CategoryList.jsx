@@ -8,9 +8,9 @@ import Message from '../../Message/Message';
 
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getDashCategories } from "../../../redux/features/categoriesDash/categoriesDashSlice";
+import { getDashCategories, getUpdateDashCategories } from "../../../redux/features/categoriesDash/categoriesDashSlice";
 import { useState } from 'react';
-import { configure } from '@testing-library/react';
+
 
 const CategoryList = () => {
 
@@ -19,6 +19,10 @@ const CategoryList = () => {
         ime_kat_sr: '',
         ime_kat_en: '',
     });
+
+    // Stanje za Update kategorije
+    const [idKat, setIdKat] = useState({ id_kat: '', })
+
 
     // Redux
     const categoryList = useSelector((state) => state.categoryDashList)
@@ -53,6 +57,7 @@ const CategoryList = () => {
                     if (response.data.uspesno) {
                         notifySuccess(response.data.uspesno);
                         setBrisanjeKategorije({ id_kat: '', })
+                        dispatch(getDashCategories());
 
                     } else if (response.data.greska) {
                         notifyError(response.data.greska);
@@ -64,39 +69,13 @@ const CategoryList = () => {
         }
     }
 
-    // Uppdate kategorije
+    // Update kategorije
     const updateCategory = (id) => {
 
-        const sendData = {
+        dispatch(getUpdateDashCategories({
             id_kat: id,
-        }
-
-        axios({
-            method: 'post',
-            url: 'http://localhost:8080/srdjan/sapi/api/categoryDash.php',
-            data: sendData,
-            config: { headers: { 'Content-Type': 'multipart/form-data' } },
-
-
-        })
-            .then((response) => {
-                console.log(sendData);
-
-                if (response.data.uspesno) {
-                    notifySuccess(response.data.uspesno);
-                    setBrisanjeKategorije({ id_kat: '', })
-
-                } else if (response.data.greska) {
-                    notifyError(response.data.greska);
-
-                } else if (response.data.info) {
-                    notifyInfo(response.data.info);
-                }
-            })
-
-
+        }, [dispatch]))
     }
-
 
 
 
@@ -127,18 +106,16 @@ const CategoryList = () => {
                     </div>
                 </div>
 
-
                 <div className="table">
-                    <table>
+                    <table >
                         <thead>
                             <tr>
-                                <th className='id'>Id</th>
-                                <th className='name'>Naziv Sr</th>
-                                <th className='name'>Naziv En</th>
-                                <th className='date'>Kreirana</th>
-                                <th className='user'>Kreirao</th>
-                                <th className='option'>Izmeni</th>
-                                <th className='option'>Obriši</th>
+                                <th className='column-x-small'>Id</th>
+                                <th className='column-medium'>Naziv Sr</th>
+                                <th className='column-medium'>Naziv En</th>
+                                <th className='column-large'>Kreirana</th>
+                                <th className='column-large'>Kreirao</th>
+                                <th className='column-small options'>Opcije</th>
                             </tr>
                         </thead>
 
@@ -147,25 +124,27 @@ const CategoryList = () => {
                                 data.map((item, idx) => {
                                     return (
                                         <tr key={idx}>
-                                            <td className='id'>{item.kat_id}</td>
-                                            <td className='name'>{item.kat_naziv_sr}</td>
-                                            <td className='name'>{item.kat_naziv_en}</td>
-                                            <td className='date'>{item.kat_dkreiranja}</td>
-                                            <td className='user'>{item.korisnici_korisnik_id}</td>
-                                            <td className='option '><RiEditBoxLine className='icon-dash-info icon-dash-info-hover icon-small ml-15' onClick={() => updateCategory(item.kat_id)} /></td>
-                                            <td className='option'><RiDeleteBinLine className='icon-dash-danger icon-dash-danger-hover icon-small ml-15' onClick={() => deleteCategory(item.kat_id, item.kat_naziv_sr, item.kat_naziv_en)} /></td>
+                                            <td className='column-x-small'>{item.kat_id}</td>
+                                            <td className='column-medium'>{item.kat_naziv_sr}</td>
+                                            <td className='column-medium'>{item.kat_naziv_en}</td>
+                                            <td className='column-large'>{item.kat_dkreiranja}</td>
+                                            <td className='column-large'>{item.korisnik_ime} {item.korisnik_prezime}</td>
+                                            {/*<td className='option '><RiEditBoxLine className='icon-dash-info icon-dash-info-hover icon-small ml-15' onClick={() => setIdKat(item.kat_id)} /></td>*/}
 
+
+                                            <td className='column-small options'>
+                                                <RiEditBoxLine onClick={() => updateCategory(item.kat_id)} className='icon-dash-info icon-dash-info-hover icon-small' />
+                                                <RiDeleteBinLine className='icon-dash-danger icon-dash-danger-hover icon-small' onClick={() => deleteCategory(item.kat_id, item.kat_naziv_sr, item.kat_naziv_en)} />
+                                            </td>
                                         </tr>
                                     )
                                 })
                             }
                         </tbody>
-
                     </table>
                 </div>
-
             </div>
-        </div >
+        </div>
     )
 }
 

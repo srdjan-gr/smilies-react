@@ -28,7 +28,6 @@
             padding: .4rem 0;
             width: 100%;
 
-
             th,
             td {
                 display: flex;
@@ -37,36 +36,37 @@
                 // width: 100%;
                 // width: 10rem;
             }
-
         }
     }
 
-    .id {
-        width: 8rem;
+    .column-x-small {
+        width: 7rem;
         padding: 0 1rem;
         text-align: center;
     }
 
-    .name {
+    .column-small {
+        width: 10rem;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .column-medium {
         width: 15rem;
         padding: 0 1rem;
         text-align: center;
     }
 
-    .date {
+    .column-large {
         width: 20rem;
         padding: 0 1rem;
         text-align: center;
     }
 
-    .user {
-        width: 20rem;
-        padding: 0 1rem;
-        text-align: center;
-    }
+    .options {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
 
-    .option {
-        width: 8rem;
-        padding: 0 1rem;
     }
 }
