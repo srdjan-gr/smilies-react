@@ -16,10 +16,18 @@
 
 .icon-dash-danger {
     color: $dash-danger;
+
+    &:hover {
+        color: $dash-danger-hover;
+    }
 }
 
 .icon-dash-info {
     color: $dash-info;
+
+    &:hover {
+        color: $dash-info-hover;
+    }
 }
 
 .icon-dash-apsoluth {

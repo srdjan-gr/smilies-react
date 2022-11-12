@@ -16,7 +16,7 @@
         justify-content: flex-start;
 
         & h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             text-transform: capitalize;
             margin-left: 2rem;
         }
@@ -42,7 +42,8 @@
             font-size: 1.6rem;
         }
 
-        input[type=text] {
+        input[type=text],
+        select {
             width: 100%;
             height: 3.6rem;
             padding: 0 1rem;
@@ -50,6 +51,11 @@
             display: flex;
             align-items: center;
             margin-bottom: 1rem;
+        }
+
+        .select-input {
+            display: flex;
+            flex-direction: column;
         }
     }
 }
@@ -67,39 +73,7 @@
 }
 
 
-// {
-//     dataUpdate ?
-
-//       dataUpdate.map((item, idx) => {
-//         return (
-//           <form onSubmit={handleUpdate} key={idx} className='updateCard'>
-
-//             <label htmlFor="">Novo Ime Kategorije Srpski</label>
-//             <input type="text" placeholder={item.kat_naziv_sr} name="kat_sr" value={katSrUpdate} onChange={(e) => setKatSrUpdate(e.target.value)} />
-
-//             <label htmlFor="">Novo Ime Kategorije Engleski</label>
-//             <input type="text" placeholder={item.kat_naziv_en} name="kat_en" value={katEnUpdate} onChange={(e) => setKatEnUpdate(e.target.value)} />
-
-//             <div className="category__container-inputs-content-buttons">
-//               <button className='btn__dash-regular dash-button-info  mt-2' onClick={() => setKatIdUpdate(item.kat_id)}>Izmeni Kategoriju</button>
-//             </div>
-
-//           </form>
-//         )
-//       })
-
-//       :
-
-//       <form onSubmit={handleSubmit} className='addCard'>
-//         <label htmlFor="">Ime Kategorije Srpski</label>
-//         <input type="text" placeholder='Ime kategorije na Srpskom' name="kategorija_sr" value={dataK.kategorija_sr} onChange={handleChange} />
-
-//         <label htmlFor="">Ime Kategorije Engleski</label>
-//         <input type="text" placeholder='Ime kategorije na Engleskom' name="kategorija_en" value={dataK.kategorija_en} onChange={handleChange} />
-
-//         <div className="category__container-inputs-content-buttons">
-//           <button className='btn__dash-regular dash-button-success  mt-2 mr-1'>Dodaj Kategoriju</button>
-//         </div>
-//       </form>
-
-//   }
+// Conteiner height for AddSubCategory component
+.container-height {
+    height: 35rem;
+}

@@ -27,7 +27,7 @@ const SubCategoryList = () => {
     return (
         <div className='category__container category-list'>
             <div className="category__container-header">
-                <h2>Lista Kategorija</h2>
+                <h2>Lista Podkategorija</h2>
             </div>
 
             <div className="category__container-inputs">
@@ -69,8 +69,8 @@ const SubCategoryList = () => {
 
 
                                             <td className='column-small options'>
-                                                <RiEditBoxLine onClick={() => updateSubcategory(item.podkat_id)} className='icon-dash-info icon-dash-info-hover icon-small' />
-                                                <RiDeleteBinLine className='icon-dash-danger icon-dash-danger-hover icon-small'
+                                                <RiEditBoxLine onClick={() => updateSubcategory(item.podkat_id)} className='icon-dash-info icon-small' />
+                                                <RiDeleteBinLine className='icon-dash-danger icon-small'
                                                 />
                                             </td>
                                         </tr>
