@@ -12,6 +12,12 @@ import { getDashCategories, getUpdateDashCategories } from "../../../redux/featu
 
 const Categories = () => {
 
+  // Initial state for creating category
+    const [dataK, setDataK] = useState({
+      kategorija_sr: '',
+      kategorija_en: '',
+    });
+
   const categoryList = useSelector((state) => state.categoryDashList)
   // Redux Get category data
   // Redux Get Update category from state - datat send from CategoryList Component
@@ -22,11 +28,6 @@ const Categories = () => {
     dispatch(getDashCategories());
   }, [dispatch]);
 
-
-  const [dataK, setDataK] = useState({
-    kategorija_sr: '',
-    kategorija_en: '',
-  });
 
   // Update category initial state
   const [katIdUpdate, setKatIdUpdate] = useState('');
@@ -92,34 +93,6 @@ const Categories = () => {
       }
     })
   }
-
-
-  // Update kategorije
-  // const handleUpdate = (e) => {
-  //   e.preventDefault();
-
-  //   dispatch(putUpdateDashCategories({
-  //     kat_id: katIdUpdate,
-  //     kat_sr: katSrUpdate,
-  //     kat_en: katEnUpdate,
-
-  //   }, [dispatch]))
-
-  //   // if (dataUpdated.greska) {
-  //   //   notifyError(dataUpdated.greska)
-
-  //   // } else if (dataUpdated.uspesno) {
-
-  //   //   notifySuccess(dataUpdated.uspesno)
-
-  //   //   setKatIdUpdate({ kat_id: '' });
-  //   //   setKatSrUpdate({ kat_sr: '' });
-  //   //   setKatEnUpdate({ kat_en: '' });
-  //   // }
-  //   dispatch(getDashCategories());
-
-
-  // }
 
   // Message je stilizovana komponenta Unutar Toast-a
   const notifyError = (odgovor) => {

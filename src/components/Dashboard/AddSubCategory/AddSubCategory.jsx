@@ -5,8 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Message from '../../Message/Message';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getDashSubCategory } from "../../../redux/features/subcategoriesdash/subCategoriesDahsSlice";
-import { getDashCategories, getUpdateDashSubCategories } from "../../../redux/features/categoriesDash/categoriesDashSlice";
+import { getDashSubCategory, getUpdateDashSubCategories } from "../../../redux/features/subcategoriesdash/subCategoriesDahsSlice";
+import { getDashCategories } from "../../../redux/features/categoriesDash/categoriesDashSlice";
 
 const AddSubCategory = () => {
 
@@ -15,13 +15,14 @@ const AddSubCategory = () => {
     const [subcategoryEn, setSubcategoryEn] = useState('');
     const [category, setCategory] = useState('');
 
+    const subCategoryList = useSelector((state) => state.subCategoryDashList)
+    const { subLoadingU, subDataU, subMessageU } = subCategoryList;
+
     // Redux subcategory state
     // const subCategoryList = useSelector((state) => state.subCategoryDashList)
     const categoryList = useSelector((state) => state.categoryDashList)
     const { loading, data, message } = categoryList;
 
-    const subCategoryList = useSelector((state) => state.subCategoryDashList)
-    const { subLoadingU, subDataU, subMessageU } = subCategoryList;
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -106,16 +107,14 @@ const AddSubCategory = () => {
                 {
                     subDataU ? <h2>Izmeni Podkategoriju</h2> : <h2>Dodaj Podkategoriju</h2>
                 }
-
             </div>
 
             <div className="category__container-inputs p-2">
-
                 {
                     subDataU ?
 
-                    subDataU.map((item, idx) => {
-                            return(
+                        subDataU.map((item, idx) => {
+                            return (
                                 <form onSubmit={handleUpdate} key={idx}>
                                     <label htmlFor="">Ime Podkategorije Srpski</label>
                                     <input type="text" placeholder={item.podkat_naziv_sr} name="subkat_sr" value={subkatSrUpdate} onChange={(e) => setsubkatSrUpdate(e.target.value)} />
@@ -144,37 +143,34 @@ const AddSubCategory = () => {
                             )
                         })
 
-                    :
-                    
-                    <form form form form onSubmit={handleSubmit} >
-                        <label htmlFor="">Ime Podkategorije Srpski</label>
-                        <input type="text" placeholder='Ime Podkategorije na Srpskom' name="subcat_sr" value={subcategorySr} onChange={(e) => setSubcategorySr(e.target.value)} />
+                        :
 
-                        <label htmlFor="">Ime Podkategorije Engleski</label>
-                        <input type="text" placeholder='Ime Podkategorije na Engleskom' name="subcat_en" value={subcategoryEn} onChange={(e) => setSubcategoryEn(e.target.value)} />
+                        <form form form form onSubmit={handleSubmit} >
+                            <label htmlFor="">Ime Podkategorije Srpski</label>
+                            <input type="text" placeholder='Ime Podkategorije na Srpskom' name="subcat_sr" value={subcategorySr} onChange={(e) => setSubcategorySr(e.target.value)} />
 
-                        <div className="select-input">
-                            <label htmlFor="selectInputs">Kategorija kojoj pripada</label>
-                            <select id='selectInputs' name="category" onChange={(e) => setCategory(e.target.value)} >
-                                <option value='' placeholder='test'></option>
-                                {
-                                    data.map((item, idx) => {
-                                        return (
-                                            <option key={idx} value={item.kat_id}>{item.kat_naziv_sr}</option>
-                                        )
-                                    })
-                                }
-                            </select>
-                        </div>
+                            <label htmlFor="">Ime Podkategorije Engleski</label>
+                            <input type="text" placeholder='Ime Podkategorije na Engleskom' name="subcat_en" value={subcategoryEn} onChange={(e) => setSubcategoryEn(e.target.value)} />
 
-                        <div className="category__container-inputs-content-buttons">
-                            <button className='btn__dash-regular dash-button-success  mt-2 mr-1'>Dodaj Podkategoriju</button>
-                        </div>
-                    </form>
+                            <div className="select-input">
+                                <label htmlFor="selectInputs">Kategorija kojoj pripada</label>
+                                <select id='selectInputs' name="category" onChange={(e) => setCategory(e.target.value)} >
+                                    <option value=''>-- Odaberite kategoriju --</option>
+                                    {
+                                        data.map((item, idx) => {
+                                            return (
+                                                <option key={idx} value={item.kat_id}>{item.kat_naziv_sr}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
 
+                            <div className="category__container-inputs-content-buttons">
+                                <button className='btn__dash-regular dash-button-success  mt-2 mr-1'>Dodaj Podkategoriju</button>
+                            </div>
+                        </form>
                 }
-
-
             </div>
         </div>
     )

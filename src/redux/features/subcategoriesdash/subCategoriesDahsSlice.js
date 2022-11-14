@@ -34,10 +34,6 @@ const initialState = {
     subData: [],
     subLoading: false,
     subMessage: '',
-
-    subDataU: [],
-    subLoadingU: false,
-    subMessageU: '',
 }
 
 export const subCategoryDashSlice = createSlice({
