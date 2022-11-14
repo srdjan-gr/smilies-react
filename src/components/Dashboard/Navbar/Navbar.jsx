@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { RiArrowDownSLine, RiUserLine, RiSunLine, RiMoonLine, RiAddLine, RiDeleteBinLine, RiEditBoxLine, RiTShirt2Line, RiUserAddLine, RiUserUnfollowLine, RiUserSettingsLine, RiLineChartLine, RiLoginCircleLine, FcLowPriority, RiShoppingCartLine, RiFolderSettingsLine, RiApps2Line, RiAppsLine, RiDashboardLine } from 'react-icons/ri'
+import { RiArrowDownSLine, RiFileList2Line, RiUserLine, RiSunLine, RiMoonLine, RiAddLine, RiDeleteBinLine, RiEditBoxLine, RiTShirt2Line, RiUserAddLine, RiUserUnfollowLine, RiUserSettingsLine, RiLineChartLine, RiLoginCircleLine, FcLowPriority, RiShoppingCartLine, RiFolderSettingsLine, RiApps2Line, RiAppsLine, RiDashboardLine } from 'react-icons/ri'
 import { Link } from 'react-router-dom';
 
-const Navbar = ({asideMenu, setAsideMenu }) => {
+const Navbar = ({ asideMenu, setAsideMenu }) => {
 
-    const [devider, setDevider] = useState(false);    
-    const [group, setGroup] = useState(false);
-
-    const toggleGroup = (id) => {
-        setGroup(!group);
-    }
+    const [devider, setDevider] = useState(false);
+    const [groupProducts, setGroupProducts] = useState(false);
+    const [groupUsers, setGroupUsers] = useState(false);
 
 
     return (
@@ -64,27 +61,35 @@ const Navbar = ({asideMenu, setAsideMenu }) => {
                 </div>
 
                 <div className="aside__menu-bottom-content group-hover">
-                    <div className={`${group ? 'toggleHeader' : ''} group `}>
-                        <div className='group-header' onClick={() => toggleGroup()} id='pro'>
+                    <div className={`${groupProducts ? 'toggleHeader' : ''} group `}>
+                        <div className='group-header' onClick={() => setGroupProducts(!groupProducts)} >
                             <RiTShirt2Line className="icon-main ml-18" />
-                            <p ><RiArrowDownSLine className="icon-main icon-dash-apsoluth" />Proizvodi</p>
+                            <p ><RiArrowDownSLine className="icon-main icon-dash-submenu" />Proizvodi</p>
                         </div>
-                        <div className="group-content">
+                        <div className="group-content" >
                             <ul>
-                                <li ><RiAddLine className="icon-small mr-1" /> <span>Dodaj proizvod</span></li>
-                                <li ><RiEditBoxLine className="icon-small mr-1" /> <span>Izmeni proizvod</span></li>
-                                <li ><RiDeleteBinLine className="icon-small mr-1" /> <span>Obrisi proizvod</span></li>
-                                <li ><RiLoginCircleLine className="icon-small mr-1" /> <span>Log proizvodi</span></li>
+                                <div className='group-header'>
+                                    <Link to="/dashaddproduct" className='link-style-icon'><RiAddLine className="icon-main" /></Link>
+                                    <span className='link-style'><Link to="/addproduct" className='link-style-group'>Dodaj proizvod</Link></span>
+                                </div>
+                                <div className='group-header'>
+                                    <Link to="/dashaddproduct" className='link-style-icon'><RiFileList2Line className="icon-main" /></Link>
+                                    <span className='link-style'><Link to="/productlist" className='link-style-group'>Lista proizvoda</Link></span>
+                                </div>
+                                <div className='group-header'>
+                                    <Link to="/dashaddproduct" className='link-style-icon'><RiLoginCircleLine className="icon-main" /></Link>
+                                    <span className='link-style'><Link to="/productlog" className='link-style-group'>Log proizvodi</Link></span>
+                                </div>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div className="aside__menu-bottom-content group-hover">
-                    <div className={`${group ? 'toggleHeader' : ''} group `}>
-                        <div className='group-header' onClick={() => toggleGroup()} id='kor'>
+                    <div className={`${groupUsers ? 'toggleHeader' : ''} group `}>
+                        <div className='group-header' onClick={() => setGroupUsers(!groupUsers)}>
                             <RiUserLine className="icon-main ml-18" />
-                            <p ><RiArrowDownSLine className="icon-main icon-dash-apsoluth" />Korisnici</p>
+                            <p ><RiArrowDownSLine className="icon-main icon-dash-submenu" />Korisnici</p>
                         </div>
                         <div className="group-content">
                             <ul>

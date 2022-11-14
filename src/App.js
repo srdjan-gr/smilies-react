@@ -27,6 +27,8 @@ import Refund from './pages/Refund/Refund';
 import Dashboard from './pages/Dashboard/Dashboard';
 import DashCategories from './pages/Dashboard/DashCategories';
 import DashSubCategories from './pages/Dashboard/DashSubCategories';
+import DashAddProduct from './pages/Dashboard/DashCreateProduct';
+import DashProductList from './pages/Dashboard/DashProductList';
 
 
 function App() {
@@ -76,6 +78,9 @@ function App() {
           <Route path='/Dashboard' element={<Dashboard location={location} setLocation={setLocation} />} />
           <Route path='/DashCategories' element={<DashCategories location={location} setLocation={setLocation} />} />
           <Route path='/DashSubCategories' element={<DashSubCategories location={location} setLocation={setLocation} />} />
+          <Route path='/AddProduct' element={<DashAddProduct location={location} setLocation={setLocation} />} />
+          <Route path='/productlist' element={<DashProductList location={location} setLocation={setLocation} />} />
+          <Route path='/productlog' element={<DashAddProduct location={location} setLocation={setLocation} />} />
 
 
 

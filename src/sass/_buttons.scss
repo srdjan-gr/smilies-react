@@ -30,9 +30,14 @@
     }
 }
 
-.icon-dash-apsoluth {
+.icon-dash-submenu {
     position: absolute;
-    transform: translateX(12rem)
+    transform: translateX(12rem) rotate(0deg);
+    transition: $dash-transition-03;
+}
+
+.group.toggleHeader .icon-dash-submenu {
+    transform: translateX(12rem) rotate(180deg);
 }
 
 // React LINK  stylinga for icons in Menu
