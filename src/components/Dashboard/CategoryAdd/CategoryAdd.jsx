@@ -136,7 +136,9 @@ const Categories = () => {
   return (
     <div className='category__container'>
       <div className="category__container-header">
-        <h2>Dodaj Kategoriju</h2>
+        {
+          dataUpdate ? <h2>Izmeni Kategoriju</h2> : <h2>Dodaj Kategoriju</h2>
+        }
       </div>
 
       <div className="category__container-inputs p-2">

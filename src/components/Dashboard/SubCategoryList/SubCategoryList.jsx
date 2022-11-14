@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Message from '../../Message/Message';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getDashSubCategory } from "../../../redux/features/subcategoriesdash/subCategoriesDahsSlice";
+import { getDashSubCategory, getUpdateDashSubCategories  } from "../../../redux/features/subcategoriesdash/subCategoriesDahsSlice";
 
 const SubCategoryList = () => {
 
@@ -18,9 +18,70 @@ const SubCategoryList = () => {
         dispatch(getDashSubCategory());
     }, [dispatch]);
 
+    // Inicijalno stanje za brisanje podkategorije
+    const [brisanjePodkategorije, setBrisanjePodkategorije] = useState({
+        id_podkat: '',
+        ime_podkat_sr: '',
+        ime_podkat_en: '',
+    });
 
-    const updateSubcategory = () => {
 
+    // Stanje za Update kategorije
+    const [idSubkat, setIdSubkat] = useState({ podkat_id: '', })
+    
+    const updateSubcategory = (id) => {
+        dispatch(getUpdateDashSubCategories({
+            podkat_id: id,
+        }, [dispatch]))
+    }
+
+    const deleteSubcategory = (id, ime_sr, ime_en) => {
+
+        if (window.confirm(`Da li ste sigurni da želite da obrišete podkategoriju '${ime_sr}'?`)) {
+
+            const sendData = {
+                id_podkat: id,
+                ime_podkat_sr: ime_sr,
+                ime_podkat_en: ime_en,
+            }
+
+            axios({
+                method: 'post',
+                url: 'http://localhost:8080/srdjan/sapi/api/subCategoryDashDelete.php',
+                data: sendData,
+                config: { headers: { 'Content-Type': 'multipart/form-data' } }
+
+            })
+                .then((response) => {
+
+                    if (response.data.uspesno) {
+                        notifySuccess(response.data.uspesno);
+                        // setBrisanjeKategorije({ id_kat: '', })
+                        dispatch(getDashSubCategory());
+
+                    } else if (response.data.greska) {
+                        notifyError(response.data.greska);
+
+                    } else if (response.data.info) {
+                        notifyInfo(response.data.info);
+                    }
+                })
+        }
+    }
+
+    const search = () => {
+
+    }
+
+    // Message je stilizovana komponenta Unutar Toast-a
+    const notifyError = (odgovor) => {
+        toast.error(<Message error={odgovor} />)
+    }
+    const notifySuccess = (odgovor) => {
+        toast.success(<Message success={odgovor} />);
+    }
+    const notifyInfo = (odgovor) => {
+        toast.info(<Message info={odgovor} />);
     }
 
 
@@ -35,7 +96,7 @@ const SubCategoryList = () => {
                 <div className="list__search">
                     <div className="search-input">
                         <RiSearch2Line className='icon-small mr-1' />
-                        <input type="text" />
+                        <input type="text" onChange={search}/>
                     </div>
                 </div>
 
@@ -70,7 +131,7 @@ const SubCategoryList = () => {
 
                                             <td className='column-small options'>
                                                 <RiEditBoxLine onClick={() => updateSubcategory(item.podkat_id)} className='icon-dash-info icon-small' />
-                                                <RiDeleteBinLine className='icon-dash-danger icon-small'
+                                                <RiDeleteBinLine onClick={() => deleteSubcategory(item.podkat_id, item.podkat_naziv_sr, item.podkat_naziv_en)} className='icon-dash-danger icon-small'
                                                 />
                                             </td>
                                         </tr>

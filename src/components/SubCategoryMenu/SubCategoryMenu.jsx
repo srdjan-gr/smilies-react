@@ -65,18 +65,19 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId, setA
                                         let malaSlova = imePodkategorijeMala.toLowerCase();
     
                                         // Podkategorija bez M i Z oznaka
-                                        let celoIme = podKategorija.podkat_naziv_en;
-                                        let skracenoIme = celoIme.split('.');
+                                        let celoImeEn = podKategorija.podkat_naziv_en;
+                                        let skracenoImeEn = celoImeEn.split('.');
+                                        let celoImenSr = podKategorija.podkat_naziv_sr;
+                                        let skracenoImeSr = celoImenSr.split('.');
     
                                         return (
                                             <li key={idx}
                                                 id={podKategorija.podkat_id}
-    
-    
                                                 onClick={closeSubcategoryMenu}
-                                                data-en={podKategorija.podkat_naziv_en} data-sr={podKategorija.podkat_naziv_sr}>
+                                                data-en={skracenoImeEn} data-sr={skracenoImeSr}>
     
-                                                <Link to={`/products/${podKategorija.podkat_id}`}>{skracenoIme[1]}</Link>
+                                                <Link to={`/products/${podKategorija.podkat_id}`}>{skracenoImeSr[1]}</Link>
+                                                {/*<Link to={`/products/${podKategorija.podkat_id}`}>{skracenoIme[1]}</Link>*/}
                                             </li>
                                         )
                                     }
