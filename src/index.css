@@ -138,34 +138,6 @@ p {
 }
 
 /* ================================================== */
-
-/* ================================================== */
-/* Dashboard */
-.lightTheme{
-
-  --primary-color-dash: #d1d1d1;
-  --secondary-color-dash: #3b3b3b11;
-
-  --primary-color-container: #f5f5f5;
-  
-  --primary-color-80: rgba(18, 18, 18, 0.6);
-  --background-logo-overlay-color: rgba(237, 237, 237, 0.5);
-
-  --background-color: #eeeeee;
-  --background-overlay-60: rgba(26, 26, 26, 0.1);
-
-  --border-fade: rgba(88, 84, 105, 0.45);
- 
-  --hover-background-color: #dfdfdf;
-
-  /* Fonts */
-  --font-color-main: #585469;
-  --font-color-faid: #585469;
-  --font-color-accent: #585469;
-
-  --border: 1px solid var(--border-fade);
-}
-
 /* Start of Custom Utiliy Classes */
 
 .mt-10{

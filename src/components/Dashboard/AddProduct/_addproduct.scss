@@ -1,0 +1,117 @@
+.product {
+    box-shadow: $dash-box-shadow;
+    background-color: $dash-main;
+    border-radius: .5rem;
+
+    .category__container-header {
+        background-color: $dash-third;
+        border-radius: .5rem .5rem 0 0;
+
+    }
+
+    .product__container {
+        width: 100%;
+        height: calc(100vh - 6rem - 3rem - 4rem);
+        position: relative;
+        display: grid;
+        grid-template-columns: 2fr 2fr 3fr;
+        // display: flex;
+        // flex-direction: row;
+
+
+        &-inputs {
+
+            input[type=text],
+            select {
+                width: 100%;
+                height: 3.6rem;
+                padding: 0 1rem;
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
+            }
+
+            textarea {
+                width: 100%;
+                margin-bottom: 1rem;
+                padding: 1rem;
+                resize: none;
+            }
+
+            input[type=file] {
+                display: none;
+                width: 100%;
+            }
+
+            label {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1.6rem;
+            }
+
+            .image-preview {
+                margin-top: 2rem;
+
+                .image__thumbnail {
+
+                    width: 100%;
+                    height: 19rem;
+                    background-color: $dash-second;
+                    border-radius: $dash-radius;
+                    border: $dash-border;
+                    padding: 1px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 2rem;
+                    position: relative;
+
+                    img {
+                        width: 8rem;
+                        transition: $dash-transition-03;
+
+                        &:hover {
+                            scale: 3.6;
+                            transform: translate(-20%, 20%);
+                        }
+                    }
+                }
+            }
+        }
+
+        button {
+            position: absolute;
+            bottom: 2rem;
+            right: 3rem;
+        }
+    }
+}
+
+
+
+.input-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-success {
+    color: $dash-success-muted;
+}
+
+.label-danger {
+    color: $dash-danger-muted;
+}
+
+.input-file-styling {
+    width: 100%;
+    height: 3.6rem;
+    background-color: $dash-input;
+    border-radius: $dash-radius;
+    border: $dash-border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

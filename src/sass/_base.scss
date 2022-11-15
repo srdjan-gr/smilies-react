@@ -17,7 +17,7 @@
         background-color: $dash-second;
         padding: 2rem;
         overflow-y: scroll;
-        color: $dash-txt-different;
+        color: $dash-txt;
     }
 }
 
@@ -33,7 +33,29 @@
     gap: 2rem
 }
 
+.color-danger {
+    color: $dash-danger;
+}
 
+.color-success {
+    color: $dash-success;
+}
+
+.color-info {
+    color: $dash-info;
+}
+
+.color-danger-muted {
+    color: $dash-danger-muted;
+}
+
+.color-success-muted {
+    color: $dash-success-muted;
+}
+
+.color-info-muted {
+    color: $dash-info-muted;
+}
 
 .mt-1 {
     margin-top: 1rem;
@@ -101,4 +123,22 @@
 
 .p-2 {
     padding: 2rem;
+}
+
+textarea,
+input,
+select,
+option {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 1.6rem;
+    background-color: $dash-input;
+    border: $dash-border;
+    border-radius: $dash-radius;
+    color: $dash-txt-different;
+
+    &:focus {
+        outline: none;
+    }
 }

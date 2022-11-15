@@ -1,36 +1,41 @@
+// Brand Accent
+$dash-accent: #daa520;
+
+// Dark theme
 $dash-main: #2c2c38;
 $dash-second: #242430;
 $dash-third: #383846;
-
 $dash-txt: #8d8d8d;
-$dash-txt-different: #8d8d8d;
-$dash-button-txt: #f5f5f5;
-// $dash-txt: #f5f5f5;
-// $dash-txt-different: #f5f5f5;
-$dash-txt-paragraph: rgb(146, 146, 146);
-$dash-accent: #daa520;
+$dash-txt-different: #f5f5f5;
 $dash-hover: #343442;
-$dash-transition-015: all 0.15s ease-in-out;
-$dash-transition-03: all 0.3s ease-in-out;
-$dash-box-shadow: 0px 1px 7px 5px rgba(0, 0, 0, 0.068);
 $dash-border: 1px solid #3b3b3b;
-$dash-modal: rgba(0, 0, 0, .5);
-
-// $dash-table-head: #40404b;
+$dash-txt-paragraph: rgb(146, 146, 146);
 $dash-table-head: rgba(95, 45, 95, 0.192);
+// $dash-input:#f5f5f5;
+$dash-input:#242430;
+$dash-box-shadow: 0px 1px 5px 1px #0000001e;
 
 
 // Light Theme
 // $dash-main: #f6f7fb;
 // $dash-second: #fff;
-// $dash-third: #fff;
+// $dash-third: #ddc4dd4b;
 // $dash-txt: #4e4e4e;
-// $dash-txt-different: #4e4e4e;
+// $dash-txt-different:#252525;
 // $dash-hover: #c9c9c977;
 // $dash-border: 1px solid #d8d8d8;
+// $dash-table-head: rgba(218, 191, 218, 0.212);
+// $dash-input:rgba(221, 196, 221, 0.13);
+// $dash-input:#fff;
+// $dash-box-shadow: 0px 1px 5px 3px rgba(48, 48, 48, 0.068);
 
 
-
+// Modifiers
+$dash-button-txt: #e2e2e2;
+$dash-transition-015: all 0.15s ease-in-out;
+$dash-transition-03: all 0.3s ease-in-out;
+$dash-modal: rgba(0, 0, 0, .5);
+$dash-radius: 4px;
 
 $dash-success: rgb(0, 170, 113);
 $dash-success-hover: rgba(0, 170, 113, 0.541);
@@ -41,4 +46,6 @@ $dash-danger-hover: rgba(255, 82, 82, 0.548);
 $dash-info: rgb(45, 178, 255);
 $dash-info-hover: rgba(45, 178, 255, 0.541);
 
-$dash-info-muted: rgba(45, 178, 255, 0.541);
+$dash-success-muted: rgba(0, 170, 113, 0.6);
+$dash-danger-muted: rgba(255, 82, 82, 0.6);
+$dash-info-muted: rgba(45, 178, 255, 0.6);

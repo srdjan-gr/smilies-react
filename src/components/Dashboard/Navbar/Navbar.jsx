@@ -9,7 +9,6 @@ const Navbar = ({ asideMenu, setAsideMenu }) => {
     const [groupProducts, setGroupProducts] = useState(false);
     const [groupUsers, setGroupUsers] = useState(false);
 
-
     return (
         <aside className={`${asideMenu ? 'closeAside' : ''} aside__menu`}>
 

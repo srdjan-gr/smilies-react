@@ -22,7 +22,7 @@ const DashProductList = () => {
             <div className="dashboard__main">
                 <Header asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
 
-                <div className="main__section category__layout-grid">
+                <div className="main__section ">
                     {/*Ovde idu komponente svake stranice. iznad divovi ostaju isti na svakoj stranici*/}
                     <ProductList />
                 </div>

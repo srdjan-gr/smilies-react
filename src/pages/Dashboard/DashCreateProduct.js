@@ -3,7 +3,6 @@ import AddProduct from '../../components/Dashboard/AddProduct/AddProduct';
 import Header from '../../components/Dashboard/Header/Header'
 import Navbar from '../../components/Dashboard/Navbar/Navbar'
 
-
 const Categories = () => {
 
     const [asideMenu, setAsideMenu] = useState(false);
@@ -24,7 +23,7 @@ const Categories = () => {
             <div className="dashboard__main">
                 <Header asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
 
-                <div className="main__section category__layout-grid">
+                <div className="main__section ">
                     {/*Ovde idu komponente svake stranice. iznad divovi ostaju isti na svakoj stranici*/}
                     <AddProduct />
 

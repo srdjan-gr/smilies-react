@@ -18,8 +18,6 @@ const AddSubCategory = () => {
     const subCategoryList = useSelector((state) => state.subCategoryDashList)
     const { subLoadingU, subDataU, subMessageU } = subCategoryList;
 
-    // Redux subcategory state
-    // const subCategoryList = useSelector((state) => state.subCategoryDashList)
     const categoryList = useSelector((state) => state.categoryDashList)
     const { loading, data, message } = categoryList;
 
@@ -145,7 +143,7 @@ const AddSubCategory = () => {
 
                         :
 
-                        <form form form form onSubmit={handleSubmit} >
+                        <form  onSubmit={handleSubmit} >
                             <label htmlFor="">Ime Podkategorije Srpski</label>
                             <input type="text" placeholder='Ime Podkategorije na Srpskom' name="subcat_sr" value={subcategorySr} onChange={(e) => setSubcategorySr(e.target.value)} />
 
