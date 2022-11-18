@@ -68,7 +68,7 @@ const Navbar = ({ asideMenu, setAsideMenu }) => {
                         <div className="group-content" >
                             <ul>
                                 <div className='group-header'>
-                                    <Link to="/dashaddproduct" className='link-style-icon'><RiAddLine className="icon-main" /></Link>
+                                    <Link to="/addproduct" className='link-style-icon'><RiAddLine className="icon-main" /></Link>
                                     <span className='link-style'><Link to="/addproduct" className='link-style-group'>Dodaj proizvod</Link></span>
                                 </div>
                                 <div className='group-header'>

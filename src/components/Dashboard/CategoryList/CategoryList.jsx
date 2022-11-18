@@ -5,6 +5,9 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Message from '../../Message/Message';
 
+// import api from '../../../api/dash/categoryDelete'
+import apiUrl from '../../../api/api'
+
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getDashCategories, getUpdateDashCategories } from "../../../redux/features/categoriesDash/categoriesDashSlice";
@@ -47,6 +50,7 @@ const CategoryList = () => {
             axios({
                 method: 'post',
                 url: 'http://localhost:8080/srdjan/sapi/api/categoryDashDelete.php',
+                // url: apiUrl,
                 data: sendData,
                 config: { headers: { 'Content-Type': 'multipart/form-data' } }
 
@@ -146,10 +150,6 @@ const CategoryList = () => {
             </div>
         </div>
     )
-
-
-
-
 
 }
 

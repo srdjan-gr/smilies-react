@@ -3,6 +3,8 @@ import axios from "axios";
 import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify';
 
+import urlAPI from '../../../api/dash/categoryAdd'
+
 import 'react-toastify/dist/ReactToastify.css';
 import Message from '../../Message/Message';
 
@@ -29,11 +31,6 @@ const Categories = () => {
   }, [dispatch]);
 
 
-  // Update category initial state
-  const [katIdUpdate, setKatIdUpdate] = useState('');
-  const [katSrUpdate, setKatSrUpdate] = useState('');
-  const [katEnUpdate, setKatEnUpdate] = useState('');
-
   const [card, setCard] = useState(false);
 
 
@@ -49,8 +46,13 @@ const Categories = () => {
       kategorija_en: dataK.kategorija_en,
     }
 
-    axios.post('http://localhost:8080/srdjan/sapi/api/categoryAdd.php', sendData).then((response) => {
-
+    axios({ 
+        method: 'post',
+        url: "http://localhost:8080/srdjan/sapi/api/categoryAdd.php",
+        data: sendData,
+      })
+    
+    .then((response) => {
 
       if (response.data.uspesno) {
         notifySuccess(response.data.uspesno);
@@ -66,6 +68,12 @@ const Categories = () => {
     })
   }
 
+  
+  // Update category initial state
+  const [katIdUpdate, setKatIdUpdate] = useState('');
+  const [katSrUpdate, setKatSrUpdate] = useState('');
+  const [katEnUpdate, setKatEnUpdate] = useState('');
+
   const handleUpdate = (e) => {
     e.preventDefault();
 
@@ -75,8 +83,12 @@ const Categories = () => {
       kat_en: katEnUpdate,
     }
 
-    axios.post('http://localhost:8080/srdjan/sapi/api/categoryDashUpdate.php', sendData).then((response) => {
-
+    axios({
+      method: 'post',
+      url: 'http://localhost:8080/srdjan/sapi/api/categoryDashUpdate.php',
+      data: sendData,
+    })
+      .then((response) => {
 
       if (response.data.uspesno) {
         notifySuccess(response.data.uspesno);
@@ -139,7 +151,7 @@ const Categories = () => {
 
             :
 
-            <form form form form onSubmit={handleSubmit} >
+            <form onSubmit={handleSubmit} >
               <label htmlFor="">Ime Kategorije Srpski</label>
               <input type="text" placeholder='Ime kategorije na Srpskom' name="kategorija_sr" value={dataK.kategorija_sr} onChange={handleChange} />
 

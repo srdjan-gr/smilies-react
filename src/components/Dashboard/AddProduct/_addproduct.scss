@@ -1,7 +1,9 @@
 .product {
+    position: relative;
     box-shadow: $dash-box-shadow;
     background-color: $dash-main;
     border-radius: .5rem;
+    height: calc(100vh - 9rem);
 
     .category__container-header {
         background-color: $dash-third;
@@ -10,9 +12,8 @@
     }
 
     .product__container {
+
         width: 100%;
-        height: calc(100vh - 6rem - 3rem - 4rem);
-        position: relative;
         display: grid;
         grid-template-columns: 2fr 2fr 3fr;
         // display: flex;
@@ -20,6 +21,9 @@
 
 
         &-inputs {
+
+            // min-height: 100%;
+            padding: 2rem;
 
             input[type=text],
             select {
@@ -61,22 +65,32 @@
                     background-color: $dash-second;
                     border-radius: $dash-radius;
                     border: $dash-border;
-                    padding: 1px;
-                    display: flex;
-                    align-items: center;
+                    padding: 1rem;
+
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
                     justify-content: center;
                     gap: 2rem;
-                    position: relative;
 
-                    img {
-                        width: 8rem;
-                        transition: $dash-transition-03;
+                    .image__thumbnail-images {
 
-                        &:hover {
-                            scale: 3.6;
-                            transform: translate(-20%, 20%);
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        img {
+                            width: 8rem;
+                            transition: $dash-transition-03;
+                            margin-bottom: 2rem;
+
+                            &:hover {
+                                scale: 3.6;
+                                transform: translate(-20%, 20%);
+                            }
                         }
                     }
+
                 }
             }
         }
@@ -84,9 +98,12 @@
         button {
             position: absolute;
             bottom: 2rem;
-            right: 3rem;
+            right: 2rem;
+            // left: 100%;
+            // margin: 0 2rem;
         }
     }
+
 }
 
 
