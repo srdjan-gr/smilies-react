@@ -15,14 +15,7 @@ const AddProduct = () => {
   const subCategoryList = useSelector((state) => state.subCategoryDashList)
   const { subLoading, subData, subMessage } = subCategoryList;
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getDashSubCategory());
-  }, [dispatch]);
-
-
-
-  const [slike, setSlike] = useState('');
+  const [slike, setSlike] = useState([]);
   const [imeSr, setImeSr] = useState('');
   const [imeEn, setImeEn] = useState('');
   const [podkatpr, setPodkatpr] = useState('');
@@ -31,8 +24,55 @@ const AddProduct = () => {
   const [opisSr, setOpisSr] = useState('');
   const [opisEn, setOpisEn] = useState('');
 
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getDashSubCategory());
+  }, [dispatch]);
+
+
+  // =====================================================================================
+  // const [imageThumbnail, setImageThumbnail] = useState([]);
+  // const handleImages = (e) => {
+  //   setSlike([]);
+  //   if (e.target.files) {
+
+  //     // const selektovane = e.target.files;
+  //     // const selektovaneSlikeNiz = Array.from(e.target.files);
+  //     const sveSlike = Array.from(e.target.files).map((slika) => {
+  //       return URL.createObjectURL(slika);
+  //     });
+
+  //     setSlike((prethodna) => prethodna.concat(sveSlike));
+
+  //     Array.from(e.target.files).map((slike) => {
+  //       return URL.revokeObjectURL(slike);
+  //     });
+  //   }
+  // };
+
+  // const imagesValidation = (images) => {
+  //   if (images > 0 && images > 4) {
+  //     return (
+  //       <p className='color-danger-muted'>Odabrali ste više slika od maksimuma. Obrišite {images - 4}</p>
+  //     )
+  //   } else if (images == 4) {
+  //     return (
+  //       <RiCheckboxCircleLine className='color-info-success icon-main mt-1 color-success-muted' />
+  //     )
+  //   } else {
+  //     return (
+  //       <p className='color-info-muted'>Niste odabrali slike za proizvod.</p>
+  //     )
+  //   }
+  // }
+  // =====================================================================================
+
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
 
     const formData = new FormData();
     for (let i = 0; i < slike.length; i++) {
@@ -55,13 +95,23 @@ const AddProduct = () => {
 
     axios({
       method: 'post',
-      url: 'http://localhost:8080/srdjan/sapi/api/addproduct.php',
+      url: 'http://localhost:8080/srdjan/sapi/api/productAdd.php',
       data: formData,
     })
       .then((response) => {
 
         if (response.data.uspesno) {
           notifySuccess(response.data.uspesno);
+
+          setSlike([]);
+          setImeSr('');
+          setImeEn('');
+          setPodkatpr('');
+          setCenapr('');
+          setSnizenaCena('');
+          setOpisSr('');
+          setOpisEn('');
+
         } else if (response.data.greska) {
           notifyError(response.data.greska);
         } else if (response.data.info) {
@@ -154,8 +204,7 @@ const AddProduct = () => {
           </div>
 
           <div className="image__thumbnails-names">
-
-
+            {/*imagesValidation(imageThumbnail.length)*/}
           </div>
 
         </div>

@@ -82,11 +82,11 @@
                         img {
                             width: 8rem;
                             transition: $dash-transition-03;
-                            margin-bottom: 2rem;
+                            margin-bottom: 1rem;
 
                             &:hover {
-                                scale: 3.6;
-                                transform: translate(-20%, 20%);
+                                scale: 4;
+                                transform: translate(-40%, 0%);
                             }
                         }
                     }

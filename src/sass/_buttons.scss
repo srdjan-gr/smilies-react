@@ -36,6 +36,14 @@
     }
 }
 
+.icon-dash-success {
+    color: $dash-success;
+
+    &:hover {
+        color: $dash-success-hover;
+    }
+}
+
 .icon-dash-submenu {
     position: absolute;
     transform: translateX(12rem) rotate(0deg);

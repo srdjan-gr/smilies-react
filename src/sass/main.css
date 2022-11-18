@@ -180,6 +180,13 @@ option:focus {
   color: rgba(45, 178, 255, 0.541);
 }
 
+.icon-dash-success {
+  color: rgb(0, 170, 113);
+}
+.icon-dash-success:hover {
+  color: rgba(0, 170, 113, 0.541);
+}
+
 .icon-dash-submenu {
   position: absolute;
   transform: translateX(12rem) rotate(0deg);
@@ -816,11 +823,11 @@ option:focus {
 .product .product__container-inputs .image-preview .image__thumbnail .image__thumbnail-images img {
   width: 8rem;
   transition: all 0.3s ease-in-out;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .product .product__container-inputs .image-preview .image__thumbnail .image__thumbnail-images img:hover {
-  scale: 3.6;
-  transform: translate(-20%, 20%);
+  scale: 4;
+  transform: translate(-40%, 0%);
 }
 .product .product__container button {
   position: absolute;

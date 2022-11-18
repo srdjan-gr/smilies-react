@@ -7,6 +7,8 @@ import subCategoryDashSliceReducer from './redux/features/subcategoriesdash/subC
 
 import registerUserReducer from './redux/features/registerSlice/registerSlice';
 
+import productsSlice from './redux/features/products/productsSlice';
+
 // import { getDashCategories, editDashCategories } from './redux/features/categoriesDash/categoriesDashSlice';
 
 export const store = configureStore({
@@ -20,6 +22,7 @@ export const store = configureStore({
 
         categoryDashList: categoryDashSliceReducer,
         subCategoryDashList: subCategoryDashSliceReducer,
+        productsList: productsSlice,
     }
 })
 
