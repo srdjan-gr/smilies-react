@@ -30,29 +30,7 @@ const SingleProduct = ({ proizvod }) => {
     slika_cela1, 
     slika_cela2,
     podk_id } = proizvod;
-      
-    // Menjanje velike slike
-
-    // const slike = [
-    //   {ids:0, value:slika_cela},
-    //   {ids:1, value:slika_detalj},
-    //   {ids:2, value:slika_cela1},
-    //   {ids:3, value:slika_cela2},
-    // ];
     
-    // const [trenutnaSlika, setTrenutnaSlika] = useState(slika_cela);
-    // const [prethodnaSlika, setPrethodnaSlika] = useState([]);
-    // const [sledecaSlika, setSledecaSlika] = useState([]);
-
-    // const promeniVelikuSliku = (slika) => {
-    //   setTrenutnaSlika(slika);
-      
-      
-    //   if(slika){
-    //     setPrethodnaSlika(trenutnaSlika);
-    //   }
-
-    // }
 
     // Preracunavanje cene u eur
     const cenaDin = proizvod_cena;

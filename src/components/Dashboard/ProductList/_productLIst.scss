@@ -1,0 +1,32 @@
+.table {
+    table {
+
+
+        tbody {
+
+
+            tr {
+
+                td {
+                    position: relative;
+
+                    img {
+                        height: 5rem;
+                        padding: .5rem;
+                        transition: $dash-transition-015;
+
+                        &:hover {
+                            cursor: pointer;
+                            scale: 6;
+                            position: absolute;
+                            z-index: 50;
+                            top: 0;
+                            left: 0;
+                            transform: translate(0%, 30%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

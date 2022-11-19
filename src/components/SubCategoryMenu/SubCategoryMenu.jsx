@@ -51,40 +51,7 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId, setA
 
                     <div className="submenu__subcategories">
 
-                    {
-                        loading ? <p>Loading...</p> : data.greska ? <h3>Greška prilikom učitavanja!</h3> :
 
-                        <ul>
-                            {
-                                data.map((podKategorija, idx) => {
-    
-                                    if (categoryId == podKategorija.kategorija_kat_id) {
-    
-                                        // Mala slova za slanje u URL
-                                        let imePodkategorijeMala = podKategorija.podkat_naziv_en;
-                                        let malaSlova = imePodkategorijeMala.toLowerCase();
-    
-                                        // Podkategorija bez M i Z oznaka
-                                        let celoImeEn = podKategorija.podkat_naziv_en;
-                                        let skracenoImeEn = celoImeEn.split('.');
-                                        let celoImenSr = podKategorija.podkat_naziv_sr;
-                                        let skracenoImeSr = celoImenSr.split('.');
-    
-                                        return (
-                                            <li key={idx}
-                                                id={podKategorija.podkat_id}
-                                                onClick={closeSubcategoryMenu}
-                                                data-en={skracenoImeEn} data-sr={skracenoImeSr}>
-    
-                                                <Link to={`/products/${podKategorija.podkat_id}`}>{skracenoImeSr[1]}</Link>
-                                                {/*<Link to={`/products/${podKategorija.podkat_id}`}>{skracenoIme[1]}</Link>*/}
-                                            </li>
-                                        )
-                                    }
-                                })
-                            }
-                        </ul>
-                    }
 
                     </div>
                 </div>

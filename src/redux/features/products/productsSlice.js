@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const getProductsApi = 'http://localhost:8080/srdjan/sapi/api/productGet.php';
+const getProductsApi = 'http://localhost:8080/srdjan/smilies/sapi/api/productGet.php';
 
 export const getProducts = createAsyncThunk("GET_PRODUCTS/GET_ALL_PRODUCTS", async () => {
 

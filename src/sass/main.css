@@ -392,6 +392,7 @@ option:focus {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 }
 .table table thead {
   background-color: rgba(95, 45, 95, 0.192);
@@ -858,4 +859,22 @@ option:focus {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.table table tbody tr td {
+  position: relative;
+}
+.table table tbody tr td img {
+  height: 5rem;
+  padding: 0.5rem;
+  transition: all 0.15s ease-in-out;
+}
+.table table tbody tr td img:hover {
+  cursor: pointer;
+  scale: 6;
+  position: absolute;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  transform: translate(0%, 30%);
 }/*# sourceMappingURL=main.css.map */

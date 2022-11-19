@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const apiCategory = "http://localhost:8080/srdjan/sapi/api/categoryDash.php";
-const apiUpdateCategory = "http://localhost:8080/srdjan/sapi/api/categoryGetDashUpdate.php";
-// const apiPutsUpdateCategory = "http://localhost:8080/srdjan/sapi/api/categoryDashUpdate.php";
+const apiCategory = "http://localhost:8080/srdjan/smilies/sapi/api/categoryDash.php";
+const apiUpdateCategory = "http://localhost:8080/srdjan/smilioes/sapi/api/categoryGetDashUpdate.php";
+// const apiPutsUpdateCategory = "http://localhost:8080/srdjan/smilies/sapi/api/categoryDashUpdate.php";
 
 export const getDashCategories = createAsyncThunk("DASH_CATEGORIES/GET_ALL_CATEGORIES", async () => {
     try {

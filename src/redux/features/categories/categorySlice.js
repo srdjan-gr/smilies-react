@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const apiCategory = "http://localhost:8080/srdjan/sapi/api/category.php";
+const apiCategory = "http://localhost:8080/srdjan/smilies/sapi/api/category.php";
 
 export const getCategories = createAsyncThunk("categories/getCategories", async () => {
     try {

@@ -72,7 +72,7 @@ const Navbar = ({ asideMenu, setAsideMenu }) => {
                                     <span className='link-style'><Link to="/addproduct" className='link-style-group'>Dodaj proizvod</Link></span>
                                 </div>
                                 <div className='group-header'>
-                                    <Link to="/dashaddproduct" className='link-style-icon'><RiFileList2Line className="icon-main" /></Link>
+                                    <Link to="/productlist" className='link-style-icon'><RiFileList2Line className="icon-main" /></Link>
                                     <span className='link-style'><Link to="/productlist" className='link-style-group'>Lista proizvoda</Link></span>
                                 </div>
                                 <div className='group-header'>
