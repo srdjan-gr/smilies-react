@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from "axios";
+import api from '../../../api/api';
 import { RiDeleteBinLine, RiEditBoxLine, RiSearch2Line } from 'react-icons/ri'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,14 +18,7 @@ const SubCategoryList = () => {
         dispatch(getDashSubCategory());
     }, [dispatch]);
 
-    // Inicijalno stanje za brisanje podkategorije
-    const [brisanjePodkategorije, setBrisanjePodkategorije] = useState({
-        id_podkat: '',
-        ime_podkat_sr: '',
-        ime_podkat_en: '',
-    });
-
-
+    
     // Stanje za Update kategorije
     const [idSubkat, setIdSubkat] = useState({ podkat_id: '', })
     
@@ -34,7 +27,14 @@ const SubCategoryList = () => {
             podkat_id: id,
         }, [dispatch]))
     }
-
+    
+    // Inicijalno stanje za brisanje podkategorije
+    const [brisanjePodkategorije, setBrisanjePodkategorije] = useState({
+        id_podkat: '',
+        ime_podkat_sr: '',
+        ime_podkat_en: '',
+    });
+    
     const deleteSubcategory = (id, ime_sr, ime_en) => {
 
         if (window.confirm(`Da li ste sigurni da želite da obrišete podkategoriju '${ime_sr}'?`)) {
@@ -45,9 +45,9 @@ const SubCategoryList = () => {
                 ime_podkat_en: ime_en,
             }
 
-            axios({
+            api({
                 method: 'post',
-                url: 'http://localhost:8080/srdjan/sapi/api/subCategoryDashDelete.php',
+                url: 'subCategoryDashDelete.php',
                 data: sendData,
                 config: { headers: { 'Content-Type': 'multipart/form-data' } }
 

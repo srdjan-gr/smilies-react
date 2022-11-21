@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import axios from "axios";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Message from '../../Message/Message';
+
+import api from '../../../api/api';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getDashSubCategory, getUpdateDashSubCategories } from "../../../redux/features/subcategoriesdash/subCategoriesDahsSlice";
@@ -37,7 +38,7 @@ const AddSubCategory = () => {
             category: category,
         }
 
-        axios.post('http://localhost:8080/srdjan/sapi/api/subCategoryDashAdd.php', sendCreateData).then((response) => {
+        api.post('subCategoryDashAdd.php', sendCreateData).then((response) => {
 
             if (response.data.uspesno) {
                 notifySuccess(response.data.uspesno);
@@ -70,7 +71,7 @@ const AddSubCategory = () => {
             category_update: categoryUpdate,
         }
 
-        axios.post('http://localhost:8080/srdjan/sapi/api/subcategoryDashUpdate.php', sendUpdateData).then((response) => {
+        api.post('subcategoryDashUpdate.php', sendUpdateData).then((response) => {
 
             if (response.data.uspesno) {
                 notifySuccess(response.data.uspesno);

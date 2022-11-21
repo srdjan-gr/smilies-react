@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from "axios";
+import api from '../../../api/api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Message from '../../Message/Message';
@@ -93,9 +93,9 @@ const AddProduct = () => {
       formData.append(kljuc, sendData[kljuc]);
     }
 
-    axios({
+    api({
       method: 'post',
-      url: 'http://localhost:8080/srdjan/sapi/api/productAdd.php',
+      url: 'productAdd.php',
       data: formData,
     })
       .then((response) => {

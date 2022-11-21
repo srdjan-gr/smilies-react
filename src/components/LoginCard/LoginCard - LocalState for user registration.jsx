@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom';
-import axios from "axios";
+import api from '../../api/api';
 import { toast } from 'react-toastify';
 import Button from '../Button/Button'
 
@@ -49,7 +49,7 @@ const LoginCard = () => {
             terms: data.terms
         }
 
-        axios.post('http://localhost:8080/srdjan/sapi/api/signup.php', sendData).then((response) => {
+        api.post('signup.php', sendData).then((response) => {
 
             if (response.data.uspesno) {
                 setLoginCard(!loginCard);
@@ -86,7 +86,7 @@ const LoginCard = () => {
             passwordLogin: user.passwordLogin
         }
 
-        axios.post('http://localhost:8080/srdjan/sapi/api/login.php', sendData).then((response) => {
+        api.post('login.php', sendData).then((response) => {
 
             if (response.data.uspesno) {
                 setLoginCard(!loginCard);

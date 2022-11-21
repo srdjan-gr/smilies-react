@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from "axios";
+import api from '../../../api/api';
 import { RiDeleteBinLine, RiEditBoxLine, RiSearch2Line, RiEyeLine } from 'react-icons/ri'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,7 +8,7 @@ import Message from '../../Message/Message';
 import { useSelector, useDispatch } from 'react-redux';
 import { getProducts } from "../../../redux/features/products/productsSlice"
 
-const putanjaSlika = "http://localhost:8080/srdjan/smilies/sapi/img/products/";
+import slike from '../../../api/images';
 
 const ProductList = () => {
 
@@ -21,25 +21,57 @@ const ProductList = () => {
     dispatch(getProducts());
   }, [dispatch]);
 
+  // Inicijalno stanje za brisanje kategorije
+  const [productDelete, setproductDelete] = useState({
+    id_pr: '',
+    ime_pr_sr: '',
+    ime_pr_en: '',
+  });
+  const deleteProduct = (id, ime_sr, ime_en) => {
+      if (window.confirm(`Da li ste sigurni da želite da obrišete proizvod '${ime_sr}'?`)) {
 
-  // const pregledSlika = () => {
+          const sendData = {
+              id_pr: id,
+              ime_pr_sr: ime_sr,
+              ime_pr_en: ime_en,
+          }
 
+          api({
+              method: 'post',
+              url: 'productDelete.php',
+              data: sendData,
+              config: { headers: { 'Content-Type': 'multipart/form-data' } }
 
-  //   data.map((slika, idx) =>{
-  //     return (
+          })
+              .then((response) => {
 
-  //       <img className='column-small'>{slika.slika_ime} />
+                  if (response.data.uspesno) {
+                      notifySuccess(response.data.uspesno);
+                      setproductDelete({ id_kat: '', })
+                      dispatch(getProducts());
 
-  //     )
-  //   })
+                  } else if (response.data.greska) {
+                      notifyError(response.data.greska);
 
-
-
-  // }
-
-  const deleteProduct = () => {
-
+                  } else if (response.data.info) {
+                      notifyInfo(response.data.info);
+                  }
+              })
+      }
   }
+
+  // Message je stilizovana komponenta Unutar Toast-a
+  const notifyError = (odgovor) => {
+      toast.error(<Message error={odgovor} />)
+  }
+  const notifySuccess = (odgovor) => {
+      toast.success(<Message success={odgovor} />);
+  }
+  const notifyInfo = (odgovor) => {
+      toast.info(<Message info={odgovor} />);
+  }
+
+
   return (
 
     <div className='category__container category-list'>
@@ -79,8 +111,6 @@ const ProductList = () => {
                   let sveSlike = product.slika_ime;
                   let splitSlike = sveSlike.split(',');
 
-                  console.log(splitSlike[0])
-
                   return (
                     <tr key={idx}>
                       <td className='column-x-small'>{product.proizvod_id}</td>
@@ -90,13 +120,13 @@ const ProductList = () => {
                       <td className='column-large'>{product.proizvod_opis_en}</td>
                       <td className='column-large'>{product.proizvod_vreme_dodat}</td>
                       <td className='column-small'>{product.proizvod_cena}</td>
-                      <td className='column-small'><img src={putanjaSlika + splitSlike[0]} alt="" /></td>
+                      <td className='column-small'><img src={slike.putanjaSlika + splitSlike[0]} alt={product.proizvod_naziv_sr} /></td>
 
                       <td className='column-small options'>
                         <RiEyeLine className='icon-dash-success icon-small' />
                         <RiEditBoxLine className='icon-dash-info icon-small' />
                         <RiDeleteBinLine className='icon-dash-danger  icon-small'
-                          onClick={() => deleteProduct()} />
+                          onClick={() => deleteProduct(product.proizvod_id, product.proizvod_naziv_sr, product.proizvod_naziv_en)} />
                       </td>
                     </tr>
                   )

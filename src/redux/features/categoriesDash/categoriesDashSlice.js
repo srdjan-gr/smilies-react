@@ -2,8 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const apiCategory = "http://localhost:8080/srdjan/smilies/sapi/api/categoryDash.php";
-const apiUpdateCategory = "http://localhost:8080/srdjan/smilioes/sapi/api/categoryGetDashUpdate.php";
-// const apiPutsUpdateCategory = "http://localhost:8080/srdjan/smilies/sapi/api/categoryDashUpdate.php";
+const apiUpdateCategory = "http://localhost:8080/srdjan/smilies/sapi/api/categoryGetDashUpdate.php";
 
 export const getDashCategories = createAsyncThunk("DASH_CATEGORIES/GET_ALL_CATEGORIES", async () => {
     try {
@@ -13,7 +12,6 @@ export const getDashCategories = createAsyncThunk("DASH_CATEGORIES/GET_ALL_CATEG
         return error.message;
     }
 });
-
 
 export const getUpdateDashCategories = createAsyncThunk("DASH_CATEGORIES/GET_UPDATE", async (body) => {
 
@@ -29,30 +27,11 @@ export const getUpdateDashCategories = createAsyncThunk("DASH_CATEGORIES/GET_UPD
 });
 
 
-// export const putUpdateDashCategories = createAsyncThunk("DASH_CATEGORIES/SEND_UPDATE", async (body) => {
-
-//     const res = await fetch(apiPutsUpdateCategory, {
-//         method: 'post',
-//         headers: {
-//             Accept: 'application/json',
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(body),
-//     })
-//     return await res.json();
-// });
-
-
-
 const initialState = {
     data: [],
     // isSuccess: false,
     loading: false,
     message: '',
-
-    // dataUpdated: [],
-    // loadingUpdated: false,
-    // messageUpdated: '',
 }
 
 export const categoryDashSlice = createSlice({
@@ -86,26 +65,7 @@ export const categoryDashSlice = createSlice({
             state.loadingUpdate = false;
             state.messageUpdate = action.payload;
         },
-
-
-        // [putUpdateDashCategories.pending]: (state, action) => {
-        //     state.loadingUpdated = true;
-        // },
-        // [putUpdateDashCategories.fulfilled]: (state, action) => {
-        //     state.loadingUpdated = false;
-        //     state.dataUpdated = action.payload;
-        // },
-        // [putUpdateDashCategories.rejected]: (state, action) => {
-        //     state.loadingUpdated = false;
-        //     state.messageUpdated = action.payload;
-        // },
-
-
-
-
     },
 });
-
-// export const allData = (state) => state.categories.data;
 
 export default categoryDashSlice.reducer;

@@ -1,9 +1,7 @@
 import React from 'react'
-import axios from "axios";
+import api from '../../../api/api';
 import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify';
-
-import urlAPI from '../../../api/dash/categoryAdd'
 
 import 'react-toastify/dist/ReactToastify.css';
 import Message from '../../Message/Message';
@@ -46,9 +44,9 @@ const Categories = () => {
       kategorija_en: dataK.kategorija_en,
     }
 
-    axios({ 
+    api({ 
         method: 'post',
-        url: "http://localhost:8080/srdjan/sapi/api/categoryAdd.php",
+        url: "categoryAdd.php",
         data: sendData,
       })
     
@@ -83,9 +81,9 @@ const Categories = () => {
       kat_en: katEnUpdate,
     }
 
-    axios({
+    api({
       method: 'post',
-      url: 'http://localhost:8080/srdjan/sapi/api/categoryDashUpdate.php',
+      url: 'categoryDashUpdate.php',
       data: sendData,
     })
       .then((response) => {

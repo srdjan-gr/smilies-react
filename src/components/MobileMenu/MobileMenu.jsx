@@ -3,18 +3,13 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 // Data
-import apiSubCategory from '../../api/subCategory'
-import apiCategory from '../../api/category'
+// import apiSubCategory from '../../api/subCategory'
+// import apiCategory from '../../api/category'
 
 // Styling
 import './MobileMenu.css';
 import logo from '../../assets/img/logos/Logo100px.png';
 import { IoChevronDownOutline, IoCloseOutline } from 'react-icons/io5';
-
-let iconStyle = {
-    cursor: 'pointer',
-    fontSize: '2.4rem',
-};
 
 const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
 
@@ -39,20 +34,20 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
 
     const getKategorije = async () => {
 
-        try {
-            const response = await apiCategory.get("/category");
-            setKategorije(response.data);
+        // try {
+        //     const response = await apiCategory.get("/category");
+        //     setKategorije(response.data);
 
-        } catch (err) {
-            // Ako nije response sa statusom 200  
-            if (err.response) {
-                console.log(err.response.data);
-                console.log(err.response.status);
-                console.log(err.response.headers);
-            } else {
-                console.log(`Error: ${err.message}`)
-            }
-        }
+        // } catch (err) {
+        //     // Ako nije response sa statusom 200  
+        //     if (err.response) {
+        //         console.log(err.response.data);
+        //         console.log(err.response.status);
+        //         console.log(err.response.headers);
+        //     } else {
+        //         console.log(`Error: ${err.message}`)
+        //     }
+        // }
     }
 
     // API subcategory
@@ -64,27 +59,27 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
 
     const getPodKategorije = async () => {
 
-        try {
-            const response = await apiSubCategory.get("/subCategory");
-            setPodKategorije(response.data);
+        // try {
+        //     const response = await apiSubCategory.get("/subCategory");
+        //     setPodKategorije(response.data);
 
-        } catch (err) {
-            // Ako nije response sa statusom 200  
-            if (err.response) {
-                console.log(err.response.data);
-                console.log(err.response.status);
-                console.log(err.response.headers);
-            } else {
-                console.log(`Error: ${err.message}`)
-            }
-        }
+        // } catch (err) {
+        //     // Ako nije response sa statusom 200  
+        //     if (err.response) {
+        //         console.log(err.response.data);
+        //         console.log(err.response.status);
+        //         console.log(err.response.headers);
+        //     } else {
+        //         console.log(`Error: ${err.message}`)
+        //     }
+        // }
     }
 
 
     return (
         <div className={`${mobileMenu ? 'menuActive' : ''} mobile-menu`}>
 
-            <span className='closeMobileMenu' onClick={closeMobileMenu}><IoCloseOutline style={iconStyle} /></span>
+            <span className='closeMobileMenu' onClick={closeMobileMenu}><IoCloseOutline className='icon-main' /></span>
 
             <div className="mobile-logo">
                 <Link to='/'><img onClick={closeMobileMenu} src={logo} alt="Smilies logo" /></Link>
@@ -99,7 +94,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
             </div>
             <div className="mobile-categories" id="mobileCategories">
                 <ul>
-                    {
+                    {/*
                         kategorije.map((kategorija, idx) => {
 
                             return (
@@ -147,7 +142,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
                                 </li>
                             )
                         })
-                    }
+                    */}
                 </ul>
             </div>
         </div>

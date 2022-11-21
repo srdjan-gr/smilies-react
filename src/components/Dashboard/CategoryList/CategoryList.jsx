@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import axios from "axios";
+import api from '../../../api/api';
 import { RiDeleteBinLine, RiEditBoxLine, RiSearch2Line } from 'react-icons/ri'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Message from '../../Message/Message';
-
-// import api from '../../../api/dash/categoryDelete'
-import apiUrl from '../../../api/api'
 
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -47,10 +44,9 @@ const CategoryList = () => {
                 ime_kat_en: ime_en,
             }
 
-            axios({
+            api({
                 method: 'post',
-                url: 'http://localhost:8080/srdjan/sapi/api/categoryDashDelete.php',
-                // url: apiUrl,
+                url: 'categoryDashDelete.php',
                 data: sendData,
                 config: { headers: { 'Content-Type': 'multipart/form-data' } }
 
@@ -79,8 +75,6 @@ const CategoryList = () => {
             id_kat: id,
         }, [dispatch]))
     }
-
-
 
     // Message je stilizovana komponenta Unutar Toast-a
     const notifyError = (odgovor) => {
