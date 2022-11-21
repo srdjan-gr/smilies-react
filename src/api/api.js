@@ -10,7 +10,6 @@ const baseURL = process.env.BACKEND_URL;
 // });
 const api = axios.create({
     baseURL: 'http://localhost:8080/srdjan/smilies/sapi/api/',
-    // headers,
 });
 
 export default api

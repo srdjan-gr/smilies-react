@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import Button from '../Button/Button';
 import ProductGalery from '../ProductGalery/ProductGalery';
 
+import slike from '../../api/images';
+
 // Styling
 import './SingleProduct.css';
 
@@ -16,20 +18,17 @@ const SingleProduct = ({ proizvod }) => {
     setProizvodId(id);
   }
     
-
   const { 
-    id, 
+    proizvod_id, 
     proizvod_naziv_en, 
     proizvod_naziv_sr, 
     proizvod_opis_en, 
     proizvod_opis_sr, 
-    proizvod_velicina, 
-    proizvod_cena, 
-    slika_cela, 
-    slika_detalj, 
-    slika_cela1, 
-    slika_cela2,
-    podk_id } = proizvod;
+    // proizvod_velicina, 
+    proizvod_cena,
+    proizvod_cena_snizena,
+    slika_ime,
+    podkategorija_podkat_id } = proizvod;
     
 
     // Preracunavanje cene u eur
@@ -38,40 +37,51 @@ const SingleProduct = ({ proizvod }) => {
     const zaokEur = Math.round(cenaEur) + ' eur.';
     const zaokDin = cenaDin + ' din.';
 
+    // Niz sa slikama
+    let sveSlike = slika_ime;
+    let splitSlike = sveSlike.split(',');
+
+    let slika_cela = splitSlike[0];
+    let slika_detalj = splitSlike[1];
+    let slika_cela1 = splitSlike[2];
+    let slika_cela2 = splitSlike[3];
+
+
   return (
+
     <section >
 
       <div className="item-container">
 
         <div className="item-container-images" id="gallery">
           <div className="item-container-images-big" id="imageBig">
-            <span data-en="Show" data-sr="Pogledaj" onClick={() => openGalery(id)} >Show</span>
-            <img src={slika_cela} alt={proizvod_naziv_en} />
+            <span data-en="Show" data-sr="Pogledaj" onClick={() => openGalery(proizvod_id)} >Show</span>
+            <img src={slike.putanjaSlika + slika_cela} alt={proizvod_opis_sr} />
           </div>
 
           <div className="item-container-images-small" id="imageSmall">
-            <img src={slika_detalj} alt={proizvod_naziv_en} />
-            <img src={slika_cela1} alt={proizvod_naziv_en} />
-            <img src={slika_cela2} alt={proizvod_naziv_en} />
+            <img src={slike.putanjaSlika + slika_detalj} alt={proizvod_opis_sr} />
+            <img src={slike.putanjaSlika + slika_cela1} alt={proizvod_opis_sr} />
+            <img src={slike.putanjaSlika + slika_cela2} alt={proizvod_opis_sr} />
           </div>
         </div>
 
         <div className="item-container-text">
-          <h1 data-en={proizvod_naziv_en} data-sr={proizvod_naziv_sr}>{proizvod_naziv_en}</h1>
+          <h1 data-en={proizvod_naziv_en} data-sr={proizvod_naziv_sr}>{proizvod_naziv_sr}</h1>
 
           <div className="item-size mt-1">
-            <label htmlFor="" data-en="Size" data-sr="Veličina">Size:</label>
-            <h2>{proizvod_velicina}</h2>
-            <p className="accent" data-en="Pišite nam da poručite svoju veličinu." data-sr="Text us to order your size.">Text us to order your size.</p>
+            <label htmlFor="" data-en="Size" data-sr="Veličina">Veličina:</label>
+            <h2></h2>
+            <p className="accent" data-en="Text us to order your size." data-sr="Pišite nam da poručite svoju veličinu.">Pišite nam da poručite svoju veličinu.</p>
           </div>
 
           <div className="item-description mt-1">
-            <label htmlFor="" data-en="Item description" data-sr="Opis proizvoda">Item description:</label>
-            <p data-en={proizvod_opis_en} data-sr={proizvod_opis_sr}>{proizvod_opis_en}</p>
+            <label htmlFor="" data-en="Item description" data-sr="Opis proizvoda">Opis proizvoda:</label>
+            <p data-en={proizvod_opis_en} data-sr={proizvod_opis_sr}>{proizvod_opis_sr}</p>
           </div>
 
           <div className="item-price ">
-            <label htmlFor="" data-en="Item price" data-sr="Cena proizvoda">Item price:</label>
+            <label htmlFor="" data-en="Item price" data-sr="Cena proizvoda">Cena proizvoda:</label>
             <h2 data-sr={zaokDin} data-en={zaokEur}>{zaokEur}</h2>
           </div>
 
@@ -90,10 +100,10 @@ const SingleProduct = ({ proizvod }) => {
         productGalery={productGalery} 
         setProductGalery={setProductGalery} 
 
-        slika_cela={slika_cela}
-        slika_detalj={slika_detalj}
-        slika_cela1={slika_cela1}
-        slika_cela2={slika_cela2} />
+        slika_cela={slike.putanjaSlika + slika_cela}
+        slika_detalj={slike.putanjaSlika + slika_detalj}
+        slika_cela1={slike.putanjaSlika + slika_cela1}
+        slika_cela2={slike.putanjaSlika + slika_cela2} />
         
     </section>
   )

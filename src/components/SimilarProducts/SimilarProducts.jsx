@@ -24,7 +24,7 @@ const SimilarProducts = ({ proizvod }) => {
     return (
         <section>
             <div className="similar-items">
-                <h1>Similar products</h1>
+                <h1 data-en='Similar products' data-sr='Povezani porizvodi'>Povezani proizvodi</h1>
                 <div className="similar-items-category">
                     <div className="similar-items-category-cont" >
                         <h2 data-en={randomData.proizvod_naziv_en} data-sr={randomData.proizvod_naziv_sr}>{randomData.proizvod_naziv_en}</h2>
