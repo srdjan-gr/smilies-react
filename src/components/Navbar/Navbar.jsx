@@ -7,7 +7,6 @@ import Search from '../Search/Search';
 import Bag from '../Bag/Bag';
 
 import './Navbar.css'
-import '../MobileMenu/MobileMenu.css'
 import { IoSearchOutline, IoBagOutline, IoEllipseOutline, IoEllipsisVerticalOutline } from 'react-icons/io5'
 let iconStyle = {
     cursor: 'pointer',
@@ -71,7 +70,7 @@ const Navbar = () => {
                 </div>
             </nav>
 
-           {/* <MobileMenu mobileMenu={mobileMenu} setMobileMenu={setMobileMenu}/>*/}
+            <MobileMenu mobileMenu={mobileMenu} setMobileMenu={setMobileMenu}/>
             <Search search={search} setSearch={setSearch}/>
 
             <Bag bag={bag} setBag={setBag} />

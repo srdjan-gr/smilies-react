@@ -35,7 +35,7 @@ const SingleProduct = ({ proizvod }) => {
     const cenaDin = proizvod_cena;
     const cenaEur = cenaDin / 117.5;
     const zaokEur = Math.round(cenaEur) + ' eur.';
-    const zaokDin = cenaDin + ' din.';
+    const zaokDin = cenaDin + ',00 din.';
 
     // Niz sa slikama
     let sveSlike = slika_ime;
@@ -82,7 +82,7 @@ const SingleProduct = ({ proizvod }) => {
 
           <div className="item-price ">
             <label htmlFor="" data-en="Item price" data-sr="Cena proizvoda">Cena proizvoda:</label>
-            <h2 data-sr={zaokDin} data-en={zaokEur}>{zaokEur}</h2>
+            <h2 data-sr={zaokDin} data-en={zaokEur}>{zaokDin}</h2>
           </div>
 
           <select name="Quantity" id="quantity">
@@ -91,7 +91,7 @@ const SingleProduct = ({ proizvod }) => {
             <option defaultValue={"3"}>3</option>
           </select>
 
-          <Button text='Add to bag'/>
+          <Button text='Dodaj u korpu'/>
         </div>
 
       </div>

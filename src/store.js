@@ -17,9 +17,6 @@ export const store = configureStore({
         subCategoryList: subCategorySliceReducer,
         registerUser: registerUserReducer,
 
-
-        // editDashCategory: categoryDashSliceReducer
-
         categoryDashList: categoryDashSliceReducer,
         subCategoryDashList: subCategoryDashSliceReducer,
         productsList: productsSlice,

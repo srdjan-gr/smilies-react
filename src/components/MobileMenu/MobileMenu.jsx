@@ -2,150 +2,121 @@ import React from 'react';
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
-// Data
-// import apiSubCategory from '../../api/subCategory'
-// import apiCategory from '../../api/category'
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import { getCategories } from "../../redux/features/categories/categorySlice";
+import { getSubCategories } from "../../redux/features/subcategories/subCategorySlice";
+
 
 // Styling
-import './MobileMenu.css';
-import logo from '../../assets/img/logos/Logo100px.png';
+import logo from '../../assets/img/logos/Smilies-Black-2022.svg';
 import { IoChevronDownOutline, IoCloseOutline } from 'react-icons/io5';
 
 const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
+
+    // Redux
+    const categoryList = useSelector((state) => state.categoryList)
+    const { loading, data, message } = categoryList;
+    const subCategoryList = useSelector((state) => state.subCategoryList)
+    const { subData, subLoading, subMessage } = subCategoryList;
+
+    const dispatch = useDispatch();
+
+    const [openSubcategory, setOpenSubcategory] = useState(false);
+    const [clickedMenu, setClickedMenu] = useState('');
+
+    useEffect(() => {
+        dispatch(getSubCategories());
+        dispatch(getCategories());
+    }, [dispatch]);
+
 
     const closeMobileMenu = () => {
         setMobileMenu(!mobileMenu);
     };
 
-    const [openSubcategory, setOpenSubcategory] = useState(false);
-    const [submenuId, setSubmenuId] = useState('');
-
-    const openSubcategoryMenu = (id) => {
+    const openSubcategoryMenu = () => {
         setOpenSubcategory(!openSubcategory)
     };
 
-    // API category
-    const [kategorije, setKategorije] = useState([]);
-
-    useEffect(() => {
-        getKategorije();
-    }, []);
-
-
-    const getKategorije = async () => {
-
-        // try {
-        //     const response = await apiCategory.get("/category");
-        //     setKategorije(response.data);
-
-        // } catch (err) {
-        //     // Ako nije response sa statusom 200  
-        //     if (err.response) {
-        //         console.log(err.response.data);
-        //         console.log(err.response.status);
-        //         console.log(err.response.headers);
-        //     } else {
-        //         console.log(`Error: ${err.message}`)
-        //     }
-        // }
-    }
-
-    // API subcategory
-    const [podKategorije, setPodKategorije] = useState([]);
-
-    useEffect(() => {
-        getPodKategorije();
-    }, []);
-
-    const getPodKategorije = async () => {
-
-        // try {
-        //     const response = await apiSubCategory.get("/subCategory");
-        //     setPodKategorije(response.data);
-
-        // } catch (err) {
-        //     // Ako nije response sa statusom 200  
-        //     if (err.response) {
-        //         console.log(err.response.data);
-        //         console.log(err.response.status);
-        //         console.log(err.response.headers);
-        //     } else {
-        //         console.log(`Error: ${err.message}`)
-        //     }
-        // }
-    }
 
 
     return (
-        <div className={`${mobileMenu ? 'menuActive' : ''} mobile-menu`}>
+        <aside className={`${mobileMenu ? 'menuActive' : ''} mobile-menu`}>
 
-            <span className='closeMobileMenu' onClick={closeMobileMenu}><IoCloseOutline className='icon-main' /></span>
-
+            <span className='closeMobileMenu' onClick={closeMobileMenu}><IoCloseOutline className='icon-xl' /></span>
             <div className="mobile-logo">
-                <Link to='/'><img onClick={closeMobileMenu} src={logo} alt="Smilies logo" /></Link>
+                <img src={logo} alt="Smilies logo" />
             </div>
-            <div className="mobile-pages" id="mobilePages">
+
+            <div className="mobile-pages">
                 <ul>
-                    <li className="current"><Link onClick={closeMobileMenu} to="/">Home</Link></li>
+                    <li><Link onClick={closeMobileMenu} to="/">Home</Link></li>
                     <li><Link onClick={closeMobileMenu} to="/Contact">Contact</Link></li>
                     <li><Link onClick={closeMobileMenu} to="/About">About Us</Link></li>
                     <li><Link onClick={closeMobileMenu} to="/Login">Log in / Sign In</Link></li>
                 </ul>
             </div>
-            <div className="mobile-categories" id="mobileCategories">
-                <ul>
-                    {/*
-                        kategorije.map((kategorija, idx) => {
 
-                            return (
-                                <li id={kategorija.kat_id} key={idx}>
+            {
+                data.map((kategorija, idx) => {
+                    if (kategorija.kat_id == clickedMenu) {
 
-                                    <div className="mobile-category-header" >
-                                        <span className="menuLink"
-                                            data-en={kategorija.kat_naziv_en} data-sr={kategorija.kat_naziv_sr}
-                                            onClick={() => openSubcategoryMenu(kategorija.kat_id)}>{kategorija.kat_naziv_en}
-                                        </span>
+                        return (
+                            <article className={`${openSubcategory ? 'subcategoryActive' : ''} mobile__categories`} >
+                                <div className='category__title' onClick={() => [openSubcategoryMenu(), setClickedMenu(kategorija.kat_id)]}>
+                                    <span data-en={kategorija.kat_naziv_en} data-sr={kategorija.kat_naziv_sr}>{kategorija.kat_naziv_sr}</span>
+                                    <IoChevronDownOutline className="icon-small icon-rotate" />
+                                </div>
 
-                                        <span className="menu-icon"><IoChevronDownOutline /></span>
-                                    </div>
+                                <div className='subcategories'>
+                                    <ul>
+                                        {
+                                            subData.map((podKat, idx) => {
 
-                                    <div className={`${openSubcategory ? 'subcategoryActive' : ''} mobile-subcategories`}>
-                                        <ul>
-                                            {podKategorije.map((podKategorija, idx) => {
+                                                let podkat = podKat.kategorija_kat_id
 
-                                                // {Provera da li je ID kategorije jednak KATEGORIJA_ID iz podkategorija}
-                                                if (kategorija.kat_id == podKategorija.kategorija_kat_id) {
-
+                                                if (kategorija.kat_id == podKat.kategorija_kat_id) {
                                                     // Mala slova za slanje u URL
-                                                    let imePodkategorijeMala = podKategorija.podkat_naziv_en;
-                                                    // let malaSlova = imePodkategorijeMala.toLowerCase();
+                                                    let imePodkategorijeMala = podKat.podkat_naziv_en;
+                                                    let malaSlova = imePodkategorijeMala.toLowerCase();
 
                                                     // Podkategorija bez M i Z oznaka
-                                                    let celoIme = podKategorija.podkat_naziv_en;
-                                                    let skracenoIme = celoIme.split('.');
-
+                                                    let celoImeEn = podKat.podkat_naziv_en;
+                                                    let skracenoImeEn = celoImeEn.split('.');
+                                                    let celoImeSr = podKat.podkat_naziv_sr;
+                                                    let skracenoImeSr = celoImeSr.split('.');
                                                     return (
-                                                        <li className="category-menu-item"
-                                                            key={idx}
-                                                            id={podKategorija.kategorija_id}
-                                                            onClick={closeMobileMenu}
-                                                            data-en={podKategorije.kat_naziv_en} data-sr={podKategorije.kat_naziv_sr}>
-                                                            
-                                                            <Link to={`/products/${podKategorija.podkat_id} `}>{skracenoIme[1]}</Link>
+                                                        <li key={idx}
+                                                            id={podKat.podkat_id}
+                                                            data-en={skracenoImeEn} data-sr={skracenoImeSr}>
+
+                                                            <Link to={`/products/${podKat.podkat_id}`}>{skracenoImeSr[1]}</Link>
                                                         </li>
                                                     )
                                                 }
-                                            })}
-                                        </ul>
-                                    </div>
+                                            })
+                                        }
+                                    </ul>
+                                </div>
+                            </article>
+                        )
+                    } else {
+                        return (
+                            <article className={`${openSubcategory ? 'subcategoryActive' : ''} mobile__categories`} >
+                                <div className='category__title' onClick={() => [openSubcategoryMenu(), setClickedMenu(kategorija.kat_id)]}>
+                                    <span data-en={kategorija.kat_naziv_en} data-sr={kategorija.kat_naziv_sr}>{kategorija.kat_naziv_sr}</span>
+                                    <IoChevronDownOutline className="icon-small" />
+                                </div>
+                            </article>
+                        )
+                    }
 
-                                </li>
-                            )
-                        })
-                    */}
-                </ul>
-            </div>
-        </div>
+
+                })
+            }
+
+        </aside>
     )
 }
 

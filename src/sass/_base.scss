@@ -19,6 +19,24 @@
         overflow-y: scroll;
         color: $dash-txt;
     }
+
+    textarea,
+    input,
+    select,
+    option {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 400;
+        text-decoration: none;
+        font-size: 1.6rem;
+        background-color: $dash-input;
+        border: $dash-border;
+        border-radius: $dash-radius;
+        color: $dash-txt-different;
+
+        &:focus {
+            outline: none;
+        }
+    }
 }
 
 .category__layout-grid {
@@ -123,22 +141,4 @@
 
 .p-2 {
     padding: 2rem;
-}
-
-textarea,
-input,
-select,
-option {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 400;
-    text-decoration: none;
-    font-size: 1.6rem;
-    background-color: $dash-input;
-    border: $dash-border;
-    border-radius: $dash-radius;
-    color: $dash-txt-different;
-
-    &:focus {
-        outline: none;
-    }
 }

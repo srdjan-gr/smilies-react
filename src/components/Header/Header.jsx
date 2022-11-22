@@ -12,7 +12,7 @@ import { getCategories } from "../../redux/features/categories/categorySlice";
 
 // Styling
 import './Header.css'
-import logo from '../../assets/img/logos/Logo100px.png';
+import logo from '../../assets/img/logos/Smilies-Black-2022.svg';
 
 
 const Header = () => {

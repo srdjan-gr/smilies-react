@@ -20,7 +20,7 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId, setA
 
     // Redux
     const subCategoryList = useSelector((state) => state.subCategoryList)
-    const { data, loading, message } = subCategoryList;
+    const { subData, subLoading, subMessage } = subCategoryList;
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -47,7 +47,7 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId, setA
                     <div className="submenu__subcategories">
                         <ul>
                             {
-                                data.map((podKategorija, idx) => {
+                                subData.map((podKategorija, idx) => {
 
                                     if (categoryId == podKategorija.kategorija_kat_id) {
 

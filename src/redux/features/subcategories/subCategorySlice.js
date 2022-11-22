@@ -13,10 +13,9 @@ export const getSubCategories = createAsyncThunk("subCategories/getSubCategories
 });
 
 const initialState = {
-    data: [],
-    // isSuccess: false,
-    loading: false,
-    message: '',
+    subData: [],
+    subLoading: false,
+    subMessage: '',
 }
 
 export const subCategorySlice = createSlice({
@@ -25,16 +24,16 @@ export const subCategorySlice = createSlice({
     reducers: {},
     extraReducers: {
         [getSubCategories.pending]: (state, action) => {
-            state.loading = true;
+            state.subLoading = true;
         },
         [getSubCategories.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.data = action.payload;
+            state.subLoading = false;
+            state.subData = action.payload;
             // state.isSuccess = true;
         },
         [getSubCategories.rejected]: (state, action) => {
-            state.message = action.payload;
-            state.loading = false;
+            state.subMessage = action.payload;
+            state.subLoading = false;
             // state.isSuccess = false;
         },
     },
