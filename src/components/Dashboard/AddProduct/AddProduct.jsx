@@ -16,6 +16,8 @@ const AddProduct = () => {
   const { subLoading, subData, subMessage } = subCategoryList;
 
   const [slike, setSlike] = useState([]);
+  const [odrzavanje, setOdrzavanje] = useState([]);
+
   const [imeSr, setImeSr] = useState('');
   const [imeEn, setImeEn] = useState('');
   const [podkatpr, setPodkatpr] = useState('');
@@ -24,7 +26,6 @@ const AddProduct = () => {
   const [opisSr, setOpisSr] = useState('');
   const [opisEn, setOpisEn] = useState('');
 
-  const [odrzavanje, setOdrzavanje] = useState([]);
   const [velicina, setVelicina] = useState('36');
   const [materijalSr, setMaterijalSr] = useState('');
   const [materijalEn, setMaterijalEn] = useState('');
@@ -86,6 +87,10 @@ const AddProduct = () => {
     for (let i = 0; i < slike.length; i++) {
       formData.append('slike[]', slike[i]);
     }
+    for (let a = 0; a < odrzavanje.length; a++) {
+      formData.append('odrzavanje[]', odrzavanje[a]);
+    }
+
 
     const sendData = {
       imeSr: imeSr,
@@ -95,12 +100,18 @@ const AddProduct = () => {
       snizenaCena: snizenaCena,
       opisSr: opisSr,
       opisEn: opisEn,
+
+      velicina: velicina,
+      materijalSr: materijalSr,
+      materijalEn: materijalEn,
+      kolicina: kolicina,
+      bojaSr: bojaSr,
+      bojaEn: bojaEn,
     }
 
     for (let kljuc in sendData) {
       formData.append(kljuc, sendData[kljuc]);
     }
-
     api({
       method: 'post',
       url: 'productAdd.php',
@@ -119,6 +130,14 @@ const AddProduct = () => {
           setSnizenaCena('');
           setOpisSr('');
           setOpisEn('');
+          setOdrzavanje([]);
+          setVelicina('');
+          setMaterijalSr('');
+          setMaterijalSr('');
+          setMaterijalEn('');
+          setKolicina('');
+          setBojaSr('');
+          setBojaEn('');
 
         } else if (response.data.greska) {
           notifyError(response.data.greska);
@@ -190,6 +209,8 @@ const AddProduct = () => {
                 <option value="40">40</option>
                 <option value="42">42</option>
                 <option value="44">44</option>
+                <option value="50">50</option>
+                <option value="52">52</option>
               </select>
             </div>
 
@@ -211,13 +232,13 @@ const AddProduct = () => {
 
             <div className="select__group-content">
               <label htmlFor="">Boja En</label>
-              <input type="text" placeholder='Boja En' name="bojaEn" value={bojaEn} onChange={(e) => setBojaSr(e.target.value)} />
+              <input type="text" placeholder='Boja En' name="bojaEn" value={bojaEn} onChange={(e) => setBojaEn(e.target.value)} />
             </div>
           </div>
 
         </div>
 
-        
+
         <div className="product__container-inputs p-2">
           <label htmlFor="">Materijal proizvoda Sr</label>
           <input type="text" placeholder='Materijal proizvoda Sr' name="materijalSr" value={materijalSr} onChange={(e) => setMaterijalSr(e.target.value)} />
@@ -256,11 +277,10 @@ const AddProduct = () => {
 
           <div className='mt-2'>
             <label htmlFor="" >Slike održavanja proizvoda</label>
-            <label htmlFor='image' className='input-file-styling'>
+            <label htmlFor='odrzavanje' className='input-file-styling'>
               <RiCameraLine className='icon-xl' />
-              <input id='image' type="file" accept="image/jpg" multiple name="odrzavanje" onChange={(e) => setOdrzavanje(e.target.files)} />
+              <input id='odrzavanje' type="file" accept="image/jpg" multiple name="odrzavanje" onChange={(e) => setOdrzavanje(e.target.files)} />
             </label>
-            <label className='color-info-muted' htmlFor="">Maksimalno 4 slike.</label>
           </div>
         </div>
 

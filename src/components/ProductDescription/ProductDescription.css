@@ -80,13 +80,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    /* gap: .3rem; */
     width: 100%;
     padding-top: .6rem; 
 }
 
 .items-description-cont-1-content .wash img {
-    max-width: 3rem;
-    margin-right: 1rem; 
+    height: 6rem;
 }
 
 

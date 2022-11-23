@@ -26,6 +26,7 @@ const SingleProduct = ({ proizvod }) => {
     proizvod_opis_sr, 
     // proizvod_velicina, 
     proizvod_cena,
+    proizvod_velicina,
     proizvod_cena_snizena,
     slika_ime,
     podkategorija_podkat_id } = proizvod;
@@ -70,7 +71,7 @@ const SingleProduct = ({ proizvod }) => {
           <h1 data-en={proizvod_naziv_en} data-sr={proizvod_naziv_sr}>{proizvod_naziv_sr}</h1>
 
           <div className="item-size mt-1">
-            <label htmlFor="" data-en="Size" data-sr="Veličina">Veličina:</label>
+            <label htmlFor="" data-en="Size" data-sr="Veličina">Veličina: {proizvod_velicina}</label>
             <h2></h2>
             <p className="accent" data-en="Text us to order your size." data-sr="Pišite nam da poručite svoju veličinu.">Pišite nam da poručite svoju veličinu.</p>
           </div>
@@ -85,11 +86,7 @@ const SingleProduct = ({ proizvod }) => {
             <h2 data-sr={zaokDin} data-en={zaokEur}>{zaokDin}</h2>
           </div>
 
-          <select name="Quantity" id="quantity">
-            <option defaultValue={"1"}>1</option>
-            <option defaultValue={"2"}>2</option>
-            <option defaultValue={"3"}>3</option>
-          </select>
+          <input type="number" id="quantity" name="quantity" min="1" max="5"></input>
 
           <Button text='Dodaj u korpu'/>
         </div>

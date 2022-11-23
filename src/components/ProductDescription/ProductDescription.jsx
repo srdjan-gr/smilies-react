@@ -1,12 +1,32 @@
 import React from 'react';
 
+import slike from '../../api/images';
+
 // Styling
 import './ProductDescription.css';
 
 
 const ProductDescription = ({ proizvod }) => {
 
-    const { proizvod_opis_sr, proizvod_opis_en } = proizvod;
+    const { 
+        proizvod_opis_sr, 
+        proizvod_opis_en, 
+        proizvod_materijal_sr, 
+        proizvod_materijal_en, 
+        proizvod_boja_sr, 
+        proizvod_boja_en, 
+        odrzavanje_slike,
+    } = proizvod;
+
+    // Niz sa slikama
+    let sveSlike = odrzavanje_slike;
+    let splitSlike = sveSlike.split(',');
+
+    let slika1 = splitSlike[0];
+    let slika2 = splitSlike[1];
+    let slika3 = splitSlike[2];
+    let slika4 = splitSlike[3];
+    let slika5 = splitSlike[4];
 
     return (
 
@@ -24,21 +44,21 @@ const ProductDescription = ({ proizvod }) => {
                         </div>
                         <div className="items-description-cont-1-single">
                             <label htmlFor="" data-en='Fabrick:' data-sr='Materijal:'>Materijal:</label>
-                            <p>100% Cotton </p>
-                            <p>Non strech fabrick</p>
+                            <p data-en={proizvod_materijal_en} data-sr={proizvod_materijal_sr}>{proizvod_materijal_sr}</p>
+                            {/*<p>Non strech fabrick</p>*/}
                         </div>
                         <div className="items-description-cont-1-single">
                             <label htmlFor="itemColor" data-en='Color:' data-sr='Boja:'>Boja:</label>
-                            <p id='itemColor'>Lorem, ipsum.</p>
+                            <p id='itemColor' data-en={proizvod_boja_en} data-sr={proizvod_boja_sr}>{proizvod_boja_sr}</p>
                         </div>
                         <div className="items-description-cont-1-single">
                             <label htmlFor="wash" data-en='Wash symbols::' data-sr='Način održavanja:'>Način odrzavanja:</label>
                             <div className="wash" id="wash">
-                                <img src="../img/wash/4.png" alt="" />
-                                <img src="../img/wash/7.png" alt="" />
-                                <img src="../img/wash/N.png" alt="" />
-                                <img src="../img/wash/Q.png" alt="" />
-                                <img src="../img/wash/V.png" alt="" />
+                                <img src={slike.putanjaOdrzavanje + slika1}  alt="" />
+                                <img src={slike.putanjaOdrzavanje + slika2}  alt="" />
+                                <img src={slike.putanjaOdrzavanje + slika3}  alt="" />
+                                <img src={slike.putanjaOdrzavanje + slika4}  alt="" />
+                                <img src={slike.putanjaOdrzavanje + slika5}  alt="" />
                             </div>
                         </div>
                         <div className="items-description-cont-1-single">
