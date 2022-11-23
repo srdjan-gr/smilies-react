@@ -16,7 +16,7 @@ const Modal = ({ modal, setModal, modalId }) => {
         case 'mail':
             return (
                 <div className={`${modal ? 'modalActive' : ''} modal`} >
-                    <span><IoCloseOutline className='icon--big' onClick={closeModal} /></span>
+                    <span><IoCloseOutline className='icon-xl' onClick={closeModal} /></span>
 
                     <ContactForm />
                 </div>
@@ -24,7 +24,7 @@ const Modal = ({ modal, setModal, modalId }) => {
         case 'phone':
             return (
                 <div className={`${modal ? 'modalActive' : ''} modal`} >
-                    <span><IoCloseOutline className='icon--big' onClick={closeModal} /></span>
+                    <span><IoCloseOutline className='icon-xl' onClick={closeModal} /></span>
 
                     <ContactPhone />
                 </div>

@@ -22,8 +22,8 @@ const ContactOptions = () => {
             <section>
                 <div className="card__container">
                     <div className="card">
-                        <div className="contact__card--header">
-                            <span><IoCallOutline className='icon--big' /></span>
+                        <div className="contact__card-header">
+                            <span><IoCallOutline className='icon-xl' /></span>
                             <h2>Phone</h2>
                         </div>
                         <p>Our Cosutumer Care team is available for any assistance you may need.</p>
@@ -40,8 +40,8 @@ const ContactOptions = () => {
                     </div>
 
                     <div className="card">
-                        <div className="contact__card--header" >
-                            <span><IoMailOutline className='icon--big' /></span>
+                        <div className="contact__card-header" >
+                            <span><IoMailOutline className='icon-xl' /></span>
                             <h2>Email</h2>
                         </div>
                         <p>Contact us by filling out our simple contact form.</p>

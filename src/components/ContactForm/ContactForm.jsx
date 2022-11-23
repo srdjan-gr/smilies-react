@@ -8,7 +8,7 @@ const ContactForm = () => {
     return (
         <div className="modal--content">
             <div className="modal--content-header">
-                <IoMailOutline className='icon--big' />
+                <IoMailOutline className='icon-xl' />
                 <h1>Enter your informations</h1>
             </div>
 

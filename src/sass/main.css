@@ -774,6 +774,14 @@
 .product .product__container-inputs {
   padding: 2rem;
 }
+.product .product__container-inputs .select__group {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+.product .product__container-inputs .select__group-content {
+  width: 50%;
+}
 .product .product__container-inputs input[type=text],
 .product .product__container-inputs select {
   width: 100%;
@@ -800,7 +808,7 @@
   font-size: 1.6rem;
 }
 .product .product__container-inputs .image-preview {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 .product .product__container-inputs .image-preview .image__thumbnail {
   width: 100%;

@@ -24,6 +24,14 @@ const AddProduct = () => {
   const [opisSr, setOpisSr] = useState('');
   const [opisEn, setOpisEn] = useState('');
 
+  const [odrzavanje, setOdrzavanje] = useState([]);
+  const [velicina, setVelicina] = useState('36');
+  const [materijalSr, setMaterijalSr] = useState('');
+  const [materijalEn, setMaterijalEn] = useState('');
+  const [kolicina, setKolicina] = useState('1');
+  const [bojaSr, setBojaSr] = useState('');
+  const [bojaEn, setBojaEn] = useState('');
+
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -144,7 +152,6 @@ const AddProduct = () => {
 
       <form className='product__container product__layout-grid' onSubmit={handleSubmit} encType="multipart/form-data">
 
-
         <div className="product__container-inputs p-2">
 
           <label htmlFor="">Naziv proizvoda Sr</label>
@@ -173,20 +180,60 @@ const AddProduct = () => {
           <label className='color-danger-muted' htmlFor="">Snižena cena proizvoda * cena bez ,00</label>
           <input type="text" placeholder='Snižena cena proizvoda' name="snizenaCena" value={snizenaCena} onChange={(e) => setSnizenaCena(e.target.value)} />
 
+
+          <div className='select__group'>
+            <div className="select__group-content">
+              <label htmlFor="">Veličina proizvoda</label>
+              <select id='selectInputs' name="velicina" value={velicina} onChange={(e) => setVelicina(e.target.value)} >
+                <option value="36">36</option>
+                <option value="38" selected>38</option>
+                <option value="40">40</option>
+                <option value="42">42</option>
+                <option value="44">44</option>
+              </select>
+            </div>
+
+            <div className="select__group-content">
+              <label htmlFor="">Količina</label>
+              <select id='selectInputs' name="kolicina" value={kolicina} onChange={(e) => setKolicina(e.target.value)} >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+          </div>
+
+          <div className='select__group'>
+            <div className="select__group-content">
+              <label htmlFor="">Boja Sr</label>
+              <input type="text" placeholder='Boja Sr' name="bojaSr" value={bojaSr} onChange={(e) => setBojaSr(e.target.value)} />
+            </div>
+
+            <div className="select__group-content">
+              <label htmlFor="">Boja En</label>
+              <input type="text" placeholder='Boja En' name="bojaEn" value={bojaEn} onChange={(e) => setBojaSr(e.target.value)} />
+            </div>
+          </div>
+
         </div>
 
-
+        
         <div className="product__container-inputs p-2">
+          <label htmlFor="">Materijal proizvoda Sr</label>
+          <input type="text" placeholder='Materijal proizvoda Sr' name="materijalSr" value={materijalSr} onChange={(e) => setMaterijalSr(e.target.value)} />
+
+          <label htmlFor="">Materijal proizvoda En</label>
+          <input type="text" placeholder='Materijal proizvoda En' name="materijalEn" value={materijalEn} onChange={(e) => setMaterijalEn(e.target.value)} />
+
           <label htmlFor="">Opis proizvoda Sr</label>
-          <textarea name="opis_en" id="" cols="50" rows="8" name="opisSr" value={opisSr} onChange={(e) => setOpisSr(e.target.value)} ></textarea>
+          <textarea name="opis_en" id="" cols="40" rows="6" name="opisSr" value={opisSr} onChange={(e) => setOpisSr(e.target.value)} ></textarea>
 
           <label htmlFor="">Opis proizvoda En</label>
-          <textarea name="opis_en" id="" cols="50" rows="8" name="opisEn" value={opisEn} onChange={(e) => setOpisEn(e.target.value)}></textarea>
+          <textarea name="opis_en" id="" cols="40" rows="6" name="opisEn" value={opisEn} onChange={(e) => setOpisEn(e.target.value)}></textarea>
         </div>
 
 
         <div className="product__container-inputs p-2">
-
           <div>
             <label htmlFor="">Slike proizvoda</label>
             <label htmlFor='image' className='input-file-styling'>
@@ -207,6 +254,14 @@ const AddProduct = () => {
             {/*imagesValidation(imageThumbnail.length)*/}
           </div>
 
+          <div className='mt-2'>
+            <label htmlFor="" >Slike održavanja proizvoda</label>
+            <label htmlFor='image' className='input-file-styling'>
+              <RiCameraLine className='icon-xl' />
+              <input id='image' type="file" accept="image/jpg" multiple name="odrzavanje" onChange={(e) => setOdrzavanje(e.target.files)} />
+            </label>
+            <label className='color-info-muted' htmlFor="">Maksimalno 4 slike.</label>
+          </div>
         </div>
 
         <button className='btn__dash-regular dash-button-success'>Dodaj Proizvod</button>

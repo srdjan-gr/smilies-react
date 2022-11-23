@@ -25,6 +25,16 @@
             // min-height: 100%;
             padding: 2rem;
 
+            .select__group {
+                display: flex;
+                width: 100%;
+                gap: 1rem;
+
+                &-content {
+                    width: 50%;
+                }
+            }
+
             input[type=text],
             select {
                 width: 100%;
@@ -56,7 +66,7 @@
             }
 
             .image-preview {
-                margin-top: 2rem;
+                margin-top: 1rem;
 
                 .image__thumbnail {
 

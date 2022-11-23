@@ -8,7 +8,7 @@ const ContactPhone = () => {
         <div class="modalP--content">
 
             <div class="modalP--content-card">
-                <IoCallOutline className='icon--big' />
+                <IoCallOutline className='icon-xl' />
                 <h2>Phone</h2>
                 <p class="clickCall">Click on the phone number for <br /> Direct Call</p>
             </div>
