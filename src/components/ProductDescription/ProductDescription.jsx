@@ -1,6 +1,7 @@
 import React from 'react';
 
 import slike from '../../api/images';
+import SizeChart from '../SizeChart/SizeChart';
 
 // Styling
 import './ProductDescription.css';
@@ -16,6 +17,7 @@ const ProductDescription = ({ proizvod }) => {
         proizvod_boja_sr, 
         proizvod_boja_en, 
         odrzavanje_slike,
+        proizvod_tabela_mera
     } = proizvod;
 
     // Niz sa slikama
@@ -67,91 +69,7 @@ const ProductDescription = ({ proizvod }) => {
                     </div>
                 </div>
 
-                <div className="items-description-cont-1">
-                    <div className="items-description-cont-1-heading">
-                        <label htmlFor="sizeChart" data-en='Size chart' data-sr='Tabela mera:'>Tabela mera</label>
-                        <p className="openPicto" id="openPicto" data-en='How to measure' data-sr='Kako meriti'>Kako meriti</p>
-                    </div>
-                    <div className="items-description-cont-1-content" id='sizeChart'>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <td></td>
-                                    <td>36</td>
-                                    <td>38</td>
-                                    <td>40</td>
-                                    <td>42</td>
-                                    <td>44</td>
-                                    <td>46</td>
-                                    <td>48</td>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>Chest</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Waist</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Hip</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Shoulder width</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Sleve lenght</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Crotch</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <SizeChart tabela={proizvod_tabela_mera}/>
             </div>
         </div>
     )

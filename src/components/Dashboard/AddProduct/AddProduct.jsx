@@ -32,6 +32,7 @@ const AddProduct = () => {
   const [kolicina, setKolicina] = useState('1');
   const [bojaSr, setBojaSr] = useState('');
   const [bojaEn, setBojaEn] = useState('');
+  const [tabela, setTabela] = useState('zenska');
 
 
   const dispatch = useDispatch();
@@ -107,6 +108,7 @@ const AddProduct = () => {
       kolicina: kolicina,
       bojaSr: bojaSr,
       bojaEn: bojaEn,
+      tabela: tabela,
     }
 
     for (let kljuc in sendData) {
@@ -131,13 +133,14 @@ const AddProduct = () => {
           setOpisSr('');
           setOpisEn('');
           setOdrzavanje([]);
-          setVelicina('');
+          setVelicina('36');
           setMaterijalSr('');
           setMaterijalSr('');
           setMaterijalEn('');
-          setKolicina('');
+          setKolicina('1');
           setBojaSr('');
           setBojaEn('');
+          setTabela('zenska');
 
         } else if (response.data.greska) {
           notifyError(response.data.greska);
@@ -202,7 +205,7 @@ const AddProduct = () => {
 
           <div className='select__group'>
             <div className="select__group-content">
-              <label htmlFor="">Veličina proizvoda</label>
+              <label htmlFor="">Veličina</label>
               <select id='selectInputs' name="velicina" value={velicina} onChange={(e) => setVelicina(e.target.value)} >
                 <option value="36">36</option>
                 <option value="38" selected>38</option>
@@ -220,6 +223,14 @@ const AddProduct = () => {
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
+              </select>
+            </div>
+
+            <div className="select__group-content">
+              <label htmlFor="">Tabela Mera</label>
+              <select id='selectInputs' name="tabela" value={tabela} onChange={(e) => setTabela(e.target.value)} >
+                <option value="zenska">zenska</option>
+                <option value="muska">muska</option>
               </select>
             </div>
           </div>
