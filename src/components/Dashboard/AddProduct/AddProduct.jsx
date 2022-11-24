@@ -231,6 +231,7 @@ const AddProduct = () => {
               <select id='selectInputs' name="tabela" value={tabela} onChange={(e) => setTabela(e.target.value)} >
                 <option value="zenska">zenska</option>
                 <option value="muska">muska</option>
+                <option value="">nista</option>
               </select>
             </div>
           </div>

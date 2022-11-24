@@ -2,16 +2,27 @@ import React from 'react';
 import { useState, useEffect } from 'react'
 import Button from '../Button/Button';
 import ProductGalery from '../ProductGalery/ProductGalery';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Message from '../Message/Message';
 
-import slike from '../../api/images';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/features/cart/cartSlice';
 
 // Styling
 import './SingleProduct.css';
 
-const SingleProduct = ({ proizvod }) => {
+
+const SingleProduct = ({ proizvod, slike }) => {
 
   const [productGalery, setProductGalery] = useState(false);
   const [proizvodiId, setProizvodId] = useState('');
+
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   setSmiliesKorpa([])
+  // }, [])
 
   const openGalery = (id) => {
     setProductGalery(!productGalery);
@@ -24,7 +35,6 @@ const SingleProduct = ({ proizvod }) => {
     proizvod_naziv_sr,
     proizvod_opis_en,
     proizvod_opis_sr,
-    // proizvod_velicina, 
     proizvod_cena,
     proizvod_velicina,
     proizvod_kolicina,
@@ -51,13 +61,47 @@ const SingleProduct = ({ proizvod }) => {
   const cenaProizvoda = () => {
     if (proizvod_kolicina != 0) {
       return (
-        <input type="number" id="quantity" name="quantity" defaultValue='1' min="1" max={proizvod_kolicina}></input>
+        <div className="item-container-single ">
+          <label htmlFor="quantity" data-en="Quantity" data-sr="Količina:">Količina:</label>
+
+          <input type="number" onKeyDown={(e) => {
+            e.preventDefault();
+          }} id="quantity" name="quantity" defaultValue='1' min="1" max={proizvod_kolicina}></input>
+        </div>
       )
     } else {
       return (
-        <p className="accent" data-en="Product is not avilable. Text us for ordering." data-sr="Artikal nije dostupan. Pišite nam za poručivanje.">Artikal nije dostupan. Pišite nam za poručivanje.</p>
+        <div className="item-container-single ">
+          <p className="accent" data-en="Product is not avilable. Text us for ordering." data-sr="Artikal nije dostupan. Pišite nam za poručivanje.">Artikal nije dostupan. Pišite nam za poručivanje.</p>
+        </div>
       )
     }
+  }
+
+  const handleAddToCart = (proizvod) => {
+
+    dispatch(addToCart(proizvod));
+
+    // if (dispatch(addToCart(proizvod))) {
+    //   notifySuccess(`${proizvod.proizvod_naziv} je dodat u korpu!`)
+    // }
+
+    // const poslatiId = localStorage.setItem('SmiliesKorpa', id);
+
+    // if (localStorage.getItem('SmiliesKorpa') == id) {
+    //   notifyInfo("Proizvod već postoji u korpi!");
+    // }
+  }
+
+  // Message je stilizovana komponenta Unutar Toast-a
+  const notifyError = (odgovor) => {
+    toast.error(<Message error={odgovor} />)
+  }
+  const notifySuccess = (odgovor) => {
+    toast.success(<Message success={odgovor} />);
+  }
+  const notifyInfo = (odgovor) => {
+    toast.info(<Message info={odgovor} />);
   }
 
 
@@ -99,12 +143,12 @@ const SingleProduct = ({ proizvod }) => {
             <h2 data-sr={zaokDin} data-en={zaokEur}>{zaokDin}</h2>
           </div>
 
-          <div className="item-container-single ">
-            <label htmlFor="quantity" data-en="Quantity" data-sr="Količina:">Količina:</label>
-            {cenaProizvoda()}
-          </div>
 
-          <Button text='Dodaj u korpu' />
+          {cenaProizvoda()}
+
+          <div className="inputs ">
+            <button type="button" name="addToBag" className="btn" onClick={() => handleAddToCart(proizvod, slike)}>Dodaj u korpu</button>
+          </div>
         </div>
 
       </div>

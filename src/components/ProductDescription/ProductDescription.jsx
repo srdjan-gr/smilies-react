@@ -1,13 +1,12 @@
 import React from 'react';
 
-import slike from '../../api/images';
 import SizeChart from '../SizeChart/SizeChart';
 
 // Styling
 import './ProductDescription.css';
 
 
-const ProductDescription = ({ proizvod }) => {
+const ProductDescription = ({ proizvod, slike }) => {
 
     const { 
         proizvod_opis_sr, 

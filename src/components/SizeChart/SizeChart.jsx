@@ -167,7 +167,17 @@ const SizeChart = ({ tabela }) => {
                 </div>
             )
             break;
-        default: return (<p>Tabela mera ne postoji.</p>)
+            
+        default: return (
+            <div className="items-description-cont-1">
+                <div className="items-description-cont-1-heading">
+                    <label htmlFor="sizeChart" data-en='Size chart' data-sr='Tabela mera:'>Tabela mera</label>
+                </div>
+                <div className="items-description-cont-1-content">
+                    <p>Tabelela mera ne postoji.</p>
+                </div>
+            </div>
+        )
     }
 
 }

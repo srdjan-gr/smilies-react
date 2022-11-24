@@ -124,6 +124,36 @@ p {
   min-width: 33rem;
 }
 
+
+
+/* ======================================== */
+/* Input polje u ovoj komponenti */
+input[type=number]{
+  width: 4.5rem;
+  height: 3rem;
+  padding: 0;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+input[type=number]:focus {
+  outline: none;
+}
+
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+  margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+appearance: textfield;
+margin: 0;
+}
+/* ======================================== */
+
 /* ================================================== */
 /* Start of Custom Utiliy Classes */
 

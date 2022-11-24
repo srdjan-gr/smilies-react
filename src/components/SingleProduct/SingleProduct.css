@@ -87,22 +87,8 @@
    color: var(--color-acent);
 }
 
-.item-container-text input[type=number] {
-    width: 5rem; 
-    height: 3rem;
-    padding-left: 1rem;
-    /* margin-top: .6rem; */
-}
 
-.item-container-text input[type=number]:focus {
-    outline: none;
-}
 
-input[type=number] { 
-    /* -moz-appearance: textfield; */
-    /* appearance: textfield; */
-    /* margin: 0;  */
-}
 
 .item-container-text button {
     width: 100%; 

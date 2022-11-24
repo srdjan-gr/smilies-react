@@ -36,13 +36,7 @@ const Bag = ({ bag, setBag }) => {
 
                         <label htmlFor="quant" data-en="Quantity:" data-sr="Količina:">Quantity:</label>
                         <div className="item__content-quantity" id="quant">
-                            <select name="Quantity" id="quantity">
-                                <optgroup label="">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </optgroup>
-                            </select>
+                            <input type="number" defaultValue='1' min="1" max="3" />
                         </div>
                     </div>
                 </div>

@@ -107,7 +107,7 @@
 @media (max-width: 768px) {
     .items-description {
         padding: 0rem !important; 
-        margin: 2rem 0 !important;
+        margin: rem 0 !important;
     }
 
     .items-description-cont {

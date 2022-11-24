@@ -103,7 +103,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
                         )
                     } else {
                         return (
-                            <article className={`${openSubcategory ? 'subcategoryActive' : ''} mobile__categories`} >
+                            <article key={idx}  className={`${openSubcategory ? 'subcategoryActive' : ''} mobile__categories`} >
                                 <div className='category__title' onClick={() => [openSubcategoryMenu(), setClickedMenu(kategorija.kat_id)]}>
                                     <span data-en={kategorija.kat_naziv_en} data-sr={kategorija.kat_naziv_sr}>{kategorija.kat_naziv_sr}</span>
                                     <IoChevronDownOutline className="icon-small" />
