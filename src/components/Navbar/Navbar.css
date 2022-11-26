@@ -53,6 +53,7 @@ nav {
     justify-content: flex-end;
     width: 60rem;
     height: 4rem;
+    position: relative;
 }
 
 .navbar__right li {
@@ -64,8 +65,31 @@ nav {
 }
 
 .bag__full {
-    display: none;
+    position: absolute;
+    top: 1.8rem;
+    right: 11.7rem;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.bag__full label{
+    color: white;
+    z-index: 51;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50rem;
+
+    font-size: 1.4rem;
+    display: flex;;
+    align-items: center;
+    justify-content: center;
+    padding: .9rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 
 span{
     display: flex;
@@ -88,6 +112,10 @@ span:hover{
 
     .mobile__menu {
         display: flex;
+    }
+
+    .bag__full {
+        right: 3rem;
     }
     
 }

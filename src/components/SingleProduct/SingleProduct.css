@@ -87,9 +87,6 @@
    color: var(--color-acent);
 }
 
-
-
-
 .item-container-text button {
     width: 100%; 
 }
@@ -116,6 +113,34 @@
 
 .item-container-text p {
     font-size: 1.6rem; 
+}
+
+.item-container-text article {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.4rem;
+}
+
+.item-container-text article .quantity__change{
+    display: flex;
+    gap: 1rem;
+}
+.item-container-text article button {
+    background-color: #242424;
+    border: 1px solid #242424;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    border-radius: 2px;
+    transition: 0.2s linear background-color; 
+}
+
+.item-container-text article button:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #242424;
 }
 
 .item-container-text .item-container-single {

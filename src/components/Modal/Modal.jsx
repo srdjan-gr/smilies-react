@@ -5,6 +5,7 @@ import './Modal.css';
 import { IoCloseOutline } from 'react-icons/io5';
 import ContactForm from '../ContactForm/ContactForm';
 import ContactPhone from '../ContactPhone/ContactPhone';
+import ConfirmPopup from '../ConfirmPopup/ConfirmPopup';
 
 const Modal = ({ modal, setModal, modalId }) => {
 

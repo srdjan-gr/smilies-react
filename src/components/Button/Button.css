@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #242424;
     background-color: #242424;
     color: #ffffff;
     text-transform: uppercase;
@@ -14,17 +13,46 @@
     width: 12rem;
     height: 4rem;
     text-decoration: none; 
+    transition: 0.2s linear background-color; 
 }
 
 .btn:hover {
     cursor: pointer;
     background-color: #ffffff;
     color: #242424;
-    transition: 0.25s linear background-color; 
 }
 
 .btn:active {
     background: #242424; 
+}
+
+.btn-oposite {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #242424;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    padding: 1.0rem 1.5rem;
+    text-align: center;
+    border: 1px solid #242424;
+    outline: none;
+    width: 12rem;
+    height: 4rem;
+    text-decoration: none; 
+    transition: 0.2s linear background-color; 
+}
+
+.btn-oposite:hover {
+    cursor: pointer;
+    background-color: #242424;
+    color: #fff;
+    border: 1px solid #242424;
+}
+
+.btn-oposite:active {
+    background: #fff; 
 }
 
 /* @media (max-width: 960px) {

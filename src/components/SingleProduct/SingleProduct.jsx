@@ -8,6 +8,7 @@ import Message from '../Message/Message';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/features/cart/cartSlice';
+import { IoAddOutline, IoRemoveOutline } from 'react-icons/io5'
 
 // Styling
 import './SingleProduct.css';
@@ -17,6 +18,8 @@ const SingleProduct = ({ proizvod, slike }) => {
 
   const [productGalery, setProductGalery] = useState(false);
   const [proizvodiId, setProizvodId] = useState('');
+
+  const [kolicina, setKolicina] = useState('')
 
   const dispatch = useDispatch();
 
@@ -58,39 +61,60 @@ const SingleProduct = ({ proizvod, slike }) => {
   let slika_cela1 = splitSlike[2];
   let slika_cela2 = splitSlike[3];
 
-  const cenaProizvoda = () => {
-    if (proizvod_kolicina != 0) {
+  const kolicinaProizvoda = () => {
+
+    if (proizvod_kolicina == 1) {
       return (
         <div className="item-container-single ">
-          <label htmlFor="quantity" data-en="Quantity" data-sr="Količina:">Količina:</label>
+          <label className='mb-05' htmlFor="quantity" data-en="Quantity" data-sr="Količina:">Količina:</label>
 
           <input type="number" onKeyDown={(e) => {
             e.preventDefault();
           }} id="quantity" name="quantity" defaultValue='1' min="1" max={proizvod_kolicina}></input>
         </div>
       )
-    } else {
+    } else if (proizvod_kolicina > 1) {
+      return (
+        <article>
+          <div className="item-container-single ">
+            <label className='mb-05' htmlFor="quantity" data-en="Quantity" data-sr="Količina:">Količina:</label>
+
+            <input type="number" onKeyDown={(e) => {
+              e.preventDefault();
+            }} id="quantity" name="quantity" defaultValue='1' min="1" max={proizvod_kolicina}></input>
+          </div>
+
+          <div className='quantity__change'>
+            <button className="plus">
+              <IoAddOutline className='icon-main' onClick={addQuantity} />
+            </button>
+            <button className="minus">
+              <IoRemoveOutline className='icon-main' onClick={removeQuantity} />
+            </button>
+          </div>
+
+        </article>
+      )
+    } else if (proizvod_kolicina == 0) {
       return (
         <div className="item-container-single ">
           <p className="accent" data-en="Product is not avilable. Text us for ordering." data-sr="Artikal nije dostupan. Pišite nam za poručivanje.">Artikal nije dostupan. Pišite nam za poručivanje.</p>
         </div>
       )
     }
+
+  }
+
+  const addQuantity = () => {
+
+  }
+
+  const removeQuantity = () => {
+
   }
 
   const handleAddToCart = (proizvod) => {
-
     dispatch(addToCart(proizvod));
-
-    // if (dispatch(addToCart(proizvod))) {
-    //   notifySuccess(`${proizvod.proizvod_naziv} je dodat u korpu!`)
-    // }
-
-    // const poslatiId = localStorage.setItem('SmiliesKorpa', id);
-
-    // if (localStorage.getItem('SmiliesKorpa') == id) {
-    //   notifyInfo("Proizvod već postoji u korpi!");
-    // }
   }
 
   // Message je stilizovana komponenta Unutar Toast-a
@@ -144,7 +168,7 @@ const SingleProduct = ({ proizvod, slike }) => {
           </div>
 
 
-          {cenaProizvoda()}
+          {kolicinaProizvoda()}
 
           <div className="inputs ">
             <button type="button" name="addToBag" className="btn" onClick={() => handleAddToCart(proizvod, slike)}>Dodaj u korpu</button>

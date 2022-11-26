@@ -111,6 +111,10 @@
   margin-bottom: 2rem;
 }
 
+.mb-05 {
+  margin-bottom: 0.5rem;
+}
+
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -159,6 +163,10 @@
   font-size: 2.8rem;
   text-align: center;
   cursor: pointer;
+}
+
+.icon-bag {
+  background-color: rgb(255, 82, 82);
 }
 
 .icon-dash-green {
@@ -986,4 +994,32 @@
 
 .mobile__categories.subcategoryActive .subcategories {
   max-height: 30rem;
+}
+
+.confirm__message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.confirm__message .confirm__message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 16rem;
+  width: 46rem;
+  background-color: #fff;
+  padding: 1rem;
+  margin: 0 auto;
+}
+.confirm__message-buttons {
+  display: flex;
+  gap: 1rem;
 }/*# sourceMappingURL=main.css.map */

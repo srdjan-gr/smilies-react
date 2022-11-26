@@ -14,7 +14,6 @@ const ContactOptions = () => {
 
     const openModal = () => {
         setModal(!modal);
-        // console.log(id);
     }
 
     return (

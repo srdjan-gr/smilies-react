@@ -32,7 +32,7 @@ const AddProduct = () => {
   const [kolicina, setKolicina] = useState('1');
   const [bojaSr, setBojaSr] = useState('');
   const [bojaEn, setBojaEn] = useState('');
-  const [tabela, setTabela] = useState('zenska');
+  const [tabela, setTabela] = useState('z');
 
 
   const dispatch = useDispatch();
@@ -140,7 +140,7 @@ const AddProduct = () => {
           setKolicina('1');
           setBojaSr('');
           setBojaEn('');
-          setTabela('zenska');
+          setTabela('z');
 
         } else if (response.data.greska) {
           notifyError(response.data.greska);
@@ -229,9 +229,9 @@ const AddProduct = () => {
             <div className="select__group-content">
               <label htmlFor="">Tabela Mera</label>
               <select id='selectInputs' name="tabela" value={tabela} onChange={(e) => setTabela(e.target.value)} >
-                <option value="zenska">zenska</option>
-                <option value="muska">muska</option>
-                <option value="">nista</option>
+                <option value="z">zenska</option>
+                <option value="m">muska</option>
+                <option value="n">nema</option>
               </select>
             </div>
           </div>

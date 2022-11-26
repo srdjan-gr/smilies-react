@@ -7,7 +7,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Header from '../../components/Header/Header';
 import Devider from '../../components/Devider/Devider';
 
-const Contact = ({ setLocation }) => {
+const Contact = ({ setLocation, modal, setModal, modalId, setModalId }) => {
 
     let curentLocation = useLocation();
     useEffect(() => {

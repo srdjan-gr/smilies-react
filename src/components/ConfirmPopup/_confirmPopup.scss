@@ -1,0 +1,31 @@
+.confirm__message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .confirm__message-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 16rem;
+        width: 46rem;
+        background-color: #fff;
+        // border-radius: 5px;
+        padding: 1rem;
+        margin: 0 auto;
+    }
+
+    &-buttons {
+        display: flex;
+        gap: 1rem;
+    }
+
+}

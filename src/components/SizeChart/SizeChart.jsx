@@ -3,7 +3,7 @@ import React from 'react'
 const SizeChart = ({ tabela }) => {
 
     switch (tabela) {
-        case 'zenska':
+        case 'z':
             return (
                 <div className="items-description-cont-1 tm-mobile">
                     <div className="items-description-cont-1-heading">
@@ -85,7 +85,7 @@ const SizeChart = ({ tabela }) => {
                 </div>
             )
             break;
-        case 'muska':
+        case 'm':
             return (
                 <div className="items-description-cont-1">
                     <div className="items-description-cont-1-heading">
@@ -167,7 +167,19 @@ const SizeChart = ({ tabela }) => {
                 </div>
             )
             break;
-            
+        case 'n':
+            return (
+                <div className="items-description-cont-1">
+                    <div className="items-description-cont-1-heading">
+                        <label htmlFor="sizeChart" data-en='Size chart' data-sr='Tabela mera:'>Tabela mera</label>
+                    </div>
+                    <div className="items-description-cont-1-content">
+                        <p>Tabelela mera ne postoji.</p>
+                    </div>
+                </div>
+            )
+            break;
+
         default: return (
             <div className="items-description-cont-1">
                 <div className="items-description-cont-1-heading">

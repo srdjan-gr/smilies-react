@@ -37,19 +37,24 @@ export const cartSlice = createSlice({
 
             if (itemIndex < 0) {
                 state.cartData.push(action.payload);
-                notifySuccess(`Proizvod '${action.payload.proizvod_naziv_sr}'\n je uspešno dodat u korpu.`);
+                notifySuccess(`Proizvod '${action.payload.proizvod_naziv_sr}'\n je dodat u korpu.`);
             } else if (itemIndex >= 0) {
                 notifyInfo(`Proizvod '${action.payload.proizvod_naziv_sr}'\n već postoji u korpi!`);
             }
 
             localStorage.setItem('SmiliesBag', JSON.stringify(state.cartData));
         },
-        // removeFromCart(state, action) {
-        //     state.cartData.filter(action.payload);
-        // }
+        removeFromCart(state, action) {
+            const newItemsAray = state.cartData.filter(
+                (item) => item.proizvod_id !== action.payload.proizvod_id
+            );
+
+            state.cartData = newItemsAray;
+            localStorage.setItem('SmiliesBag', JSON.stringify(state.cartData))
+        }
 
     },
 });
 
-export const { addToCart } = cartSlice.actions
+export const { addToCart, removeFromCart } = cartSlice.actions
 export default cartSlice.reducer;
