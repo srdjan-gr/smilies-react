@@ -29,3 +29,10 @@
     }
 
 }
+
+@media (max-width: 720px) {
+
+    .confirm__message {
+        align-items: flex-start;
+    }
+}

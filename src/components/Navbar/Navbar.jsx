@@ -34,11 +34,9 @@ const Navbar = () => {
     }
 
     const bagFull = () => {
-        if (cart.cartData.length === 0) {
+        if (cart.cartTotalQuantity === 0) {
             return (
-                <span className='bag__full'>
-
-                </span>
+                <span className='bag__full'></span>
             )
         } else {
             return (

@@ -1,7 +1,9 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// Redux
+import { useDispatch } from 'react-redux';
+import { countTotal } from './redux/features/cart/cartSlice';
 
 // Components
 import Navbar from './components/Navbar/Navbar';
@@ -36,7 +38,11 @@ function App() {
   const [location, setLocation] = useState('/');
   const [message, setMessage] = useState('');
 
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(countTotal());
+  }, [dispatch]);
 
   return (
     <Router>

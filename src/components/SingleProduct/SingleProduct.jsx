@@ -7,7 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Message from '../Message/Message';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart } from '../../redux/features/cart/cartSlice';
+import { addToCart, countTotal } from '../../redux/features/cart/cartSlice';
+
 import { IoAddOutline, IoRemoveOutline } from 'react-icons/io5'
 
 // Styling
@@ -22,10 +23,6 @@ const SingleProduct = ({ proizvod, slike }) => {
   const [kolicina, setKolicina] = useState('')
 
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   setSmiliesKorpa([])
-  // }, [])
 
   const openGalery = (id) => {
     setProductGalery(!productGalery);
@@ -113,8 +110,10 @@ const SingleProduct = ({ proizvod, slike }) => {
 
   }
 
+  // Adding product to shoping card
   const handleAddToCart = (proizvod) => {
     dispatch(addToCart(proizvod));
+    dispatch(countTotal());
   }
 
   // Message je stilizovana komponenta Unutar Toast-a

@@ -40,6 +40,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
     };
 
 
+
     return (
         <aside className={`${mobileMenu ? 'menuActive' : ''} mobile-menu`}>
 
@@ -58,13 +59,12 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
             </div>
 
             {
-
                 data.map((kategorija, idx) => {
                     if (kategorija.kat_id == clickedMenu) {
 
                         return (
                             <article key={idx} className={`${openSubcategory ? 'subcategoryActive' : ''} mobile__categories`} >
-                                <div  className='category__title' onClick={() => [openSubcategoryMenu(), setClickedMenu(kategorija.kat_id)]}>
+                                <div className='category__title' onClick={() => [openSubcategoryMenu(), setClickedMenu(kategorija.kat_id)]}>
                                     <span data-en={kategorija.kat_naziv_en} data-sr={kategorija.kat_naziv_sr}>{kategorija.kat_naziv_sr}</span>
                                     <IoChevronDownOutline className="icon-small icon-rotate" />
                                 </div>
@@ -89,7 +89,8 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
                                                     return (
                                                         <li key={idx}
                                                             id={podKat.podkat_id}
-                                                            data-en={skracenoImeEn} data-sr={skracenoImeSr}>
+                                                            data-en={skracenoImeEn} data-sr={skracenoImeSr}
+                                                            onClick={closeMobileMenu}>
 
                                                             <Link to={`/products/${podKat.podkat_id}`}>{skracenoImeSr[1]}</Link>
                                                         </li>
@@ -103,7 +104,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
                         )
                     } else {
                         return (
-                            <article key={idx}  className={`${openSubcategory ? 'subcategoryActive' : ''} mobile__categories`} >
+                            <article key={idx} className={`${openSubcategory ? 'subcategoryActive' : ''} mobile__categories`} >
                                 <div className='category__title' onClick={() => [openSubcategoryMenu(), setClickedMenu(kategorija.kat_id)]}>
                                     <span data-en={kategorija.kat_naziv_en} data-sr={kategorija.kat_naziv_sr}>{kategorija.kat_naziv_sr}</span>
                                     <IoChevronDownOutline className="icon-small" />
