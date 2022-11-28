@@ -7,6 +7,7 @@ import { RiCameraLine, RiDeleteBinLine, RiCheckboxCircleLine } from 'react-icons
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getDashSubCategory } from "../../../redux/features/subcategoriesdash/subCategoriesDahsSlice";
+import { getProducts } from "../../../redux/features/products/productsSlice";
 
 
 
@@ -14,6 +15,8 @@ const AddProduct = () => {
   // Subcategory state
   const subCategoryList = useSelector((state) => state.subCategoryDashList)
   const { subLoading, subData, subMessage } = subCategoryList;
+
+  const [ loading, setLoading] = useState(false);
 
   const [slike, setSlike] = useState([]);
   const [odrzavanje, setOdrzavanje] = useState([]);
@@ -83,6 +86,7 @@ const AddProduct = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    setLoading(true);
 
     const formData = new FormData();
     for (let i = 0; i < slike.length; i++) {
@@ -91,7 +95,6 @@ const AddProduct = () => {
     for (let a = 0; a < odrzavanje.length; a++) {
       formData.append('odrzavanje[]', odrzavanje[a]);
     }
-
 
     const sendData = {
       imeSr: imeSr,
@@ -114,6 +117,7 @@ const AddProduct = () => {
     for (let kljuc in sendData) {
       formData.append(kljuc, sendData[kljuc]);
     }
+
     api({
       method: 'post',
       url: 'productAdd.php',
@@ -121,7 +125,12 @@ const AddProduct = () => {
     })
       .then((response) => {
 
-        if (response.data.uspesno) {
+        // if(loading){
+        //     notifyLoading()
+        // }
+
+       if(response.data.uspesno) {
+          
           notifySuccess(response.data.uspesno);
 
           setSlike([]);
@@ -142,6 +151,8 @@ const AddProduct = () => {
           setBojaEn('');
           setTabela('z');
 
+          setLoading(false);
+
         } else if (response.data.greska) {
           notifyError(response.data.greska);
         } else if (response.data.info) {
@@ -160,6 +171,14 @@ const AddProduct = () => {
   }
   const notifyInfo = (odgovor) => {
     toast.info(<Message info={odgovor} />);
+  }
+
+
+  const notifyLoading = () => {
+    // const id = toast.loading("Please wait...")
+    //do something else
+    // toast.update(id, { render: "All is good", type: "success", isLoading: false });
+    toast.loading("Kreiranje proizvoda...");
   }
 
 
@@ -208,7 +227,7 @@ const AddProduct = () => {
               <label htmlFor="">Veličina</label>
               <select id='selectInputs' name="velicina" value={velicina} onChange={(e) => setVelicina(e.target.value)} >
                 <option value="36">36</option>
-                <option value="38" selected>38</option>
+                <option defaultValue="38">38</option>
                 <option value="40">40</option>
                 <option value="42">42</option>
                 <option value="44">44</option>

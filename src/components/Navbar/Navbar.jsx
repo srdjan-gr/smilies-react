@@ -60,25 +60,26 @@ const Navbar = () => {
                             </div>
 
                             <div className='pages-menu'>
-                                <li className="current"><Link to="/">Home</Link></li>
-                                <li><Link to="/Contact">Contact</Link></li>
-                                <li><Link to="/About">About Us</Link></li>
+                                <li className="current"><Link to="/" data-en='Home' data-sr='Početna'>Početna</Link></li>
+                                <li><Link to="/Contact" data-en='Contact' data-sr='Kontakt'>Kontakt</Link></li>
+                                <li><Link to="/About" data-en='About Us' data-sr='O nama'>O nama</Link></li>
                             </div>
 
                         </div>
                         <div className="navbar__right">
 
                             <span><IoSearchOutline className='icon-small ml-2' onClick={openSearch} /></span>
-                            <span><IoBagOutline className='icon-small ml-2' onClick={openBag} /></span>
+                            <span className='bag__icons-container'>
+                                <IoBagOutline className='icon-small ml-2' onClick={openBag} />
+                                {bagFull()}
+                            </span>
 
-                            {bagFull()}
 
                             <span className="mobile__menu" >
                                 <IoEllipsisVerticalOutline className='icon-small ml-2' onClick={addMobileMenuCLass} />
                             </span>
 
-
-                            <li className="login"><Link to="/Login">Log in / Sign In</Link></li>
+                            <li className="login"><Link to="/Login" data-en='Log in / Sign In' data-sr='Prijava / Registracija'>Prijava / Registracija</Link></li>
                         </div>
                     </div>
                 </div>

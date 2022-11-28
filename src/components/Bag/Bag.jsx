@@ -72,7 +72,7 @@ const Bag = ({ bagModal, setBagModal, bag, setBag }) => {
                                 let slika_cela = splitSlike[0];
 
                                 return (
-                                    <div className="item">
+                                    <div className="item" key={idx}>
                                         <div className="item__image">
                                             <img src={slike.putanjaSlika + slika_cela} alt="" />
                                         </div>

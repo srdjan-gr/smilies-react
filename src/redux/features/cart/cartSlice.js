@@ -17,7 +17,7 @@ const notifySuccess = (odgovor) => {
 }
 
 const initialState = {
-    // Ako postoje proizvodi u LocalStorage a stranica je osvezena na ovaj nacin ce biti ponovo ubaceni u redux stanje
+    // Ako pstoje proizvodi u LocalStorage a stranica je osvezena na ovaj nacin ce biti ponovo ubaceni u redux stanje
     // Bez ovoga, videce se proizvodi u Local Storage posle osvezavanja ali nece postojari u Redux stanja
     cartData: localStorage.getItem('SmiliesBag') ? JSON.parse(localStorage.getItem('SmiliesBag')) : [],
     // cartLoading: false,
@@ -39,9 +39,9 @@ export const cartSlice = createSlice({
 
             if (itemIndex < 0) {
                 state.cartData.push(action.payload);
-                notifySuccess(`Proizvod '${action.payload.proizvod_naziv_sr}'\nje dodat u korpu.`);
+                notifySuccess(`Proizvod '${action.payload.proizvod_naziv_sr}'\n je dodat u korpu.`);
             } else if (itemIndex >= 0) {
-                notifyInfo(`Proizvod '${action.payload.proizvod_naziv_sr}'\nveć postoji u korpi!`);
+                notifyInfo(`Proizvod '${action.payload.proizvod_naziv_sr}'\n već postoji u korpi!`);
             }
 
             localStorage.setItem('SmiliesBag', JSON.stringify(state.cartData));

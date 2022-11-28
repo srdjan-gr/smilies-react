@@ -53,7 +53,6 @@ nav {
     justify-content: flex-end;
     width: 60rem;
     height: 4rem;
-    position: relative;
 }
 
 .navbar__right li {
@@ -66,12 +65,16 @@ nav {
 
 .bag__full {
     position: absolute;
-    top: 1.8rem;
-    right: 11.7rem;
+    top: .8rem;
+    right: -.8rem;
     z-index: 50;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.bag__icons-container{
+    position: relative;
 }
 
 .bag__full label{

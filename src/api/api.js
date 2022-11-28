@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const baseURL = process.env.BACKEND_URL;
+// const baseURL = process.env.BACKEND_URL;
 //let headers: {};
 
 // const api = axios.create({

@@ -36,7 +36,9 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
     };
 
     const openSubcategoryMenu = () => {
+
         setOpenSubcategory(!openSubcategory)
+
     };
 
 
@@ -73,8 +75,6 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
                                     <ul>
                                         {
                                             subData.map((podKat, idx) => {
-
-                                                let podkat = podKat.kategorija_kat_id
 
                                                 if (kategorija.kat_id == podKat.kategorija_kat_id) {
                                                     // Mala slova za slanje u URL

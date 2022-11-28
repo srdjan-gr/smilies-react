@@ -16,14 +16,11 @@ const LoginSignin = ({ setLocation }) => {
         setLocation(curentLocation.pathname);
     }, []);
 
-
     const [loginCard, setLoginCard] = useState(false);
 
     const cardRotation = () => {
         setLoginCard(!loginCard);
     };
-
-
 
     return (
 

@@ -1,19 +1,14 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import Loader from '../Loader/Loader'
-
-// Redux
-import { useSelector, useDispatch } from 'react-redux';
-import { registerUser } from "../../redux/features/registerSlice/registerSlice";
+import api from '../../api/api';
 
 // Styling
 import '../LoginCard/LoginCard.css'
-import { IoPersonAddOutline } from 'react-icons/io5'
+import { IoPersonAddOutline, IoEyeOutline } from 'react-icons/io5'
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import Loader from '../Loader/Loader'
 import Message from '../Message/Message';
-import { useEffect } from 'react';
 
 
 const SigninCard = ({ loginCard, setLoginCard }) => {
@@ -22,14 +17,6 @@ const SigninCard = ({ loginCard, setLoginCard }) => {
         setLoginCard(!loginCard);
     };
 
-    const logUserInfo = useSelector((state) => state.registerUser);
-    const { data, loading } = logUserInfo;
-
-    useEffect(() => {
-        registerUser({});
-    });
-
-
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -37,46 +24,44 @@ const SigninCard = ({ loginCard, setLoginCard }) => {
     const [repeatPassword, setRepeatPassword] = useState('');
     const [terms, setTerms] = useState(false);
 
-    const dispatch = useDispatch();
+    const [showPass, setShowPass] = useState(false);
+    const [showRepeatPass, setShowRepeatPass] = useState(false);
+
 
     const submitSignup = (e) => {
         e.preventDefault();
 
-        dispatch(registerUser({
+        const sendData = {
             first_name: firstName,
             last_name: lastName,
             email: email,
             password: password,
-            repeat_password: repeatPassword,
             terms: terms
-
-        }, [dispatch]));
-
-        // setTimeout(() => {
-        validacija();
-        // }, 3000);
-    }
-
-
-    const validacija = () => {
-
-        //     // Prikaz gresaka iz API - ja
-        if (loading == true) {
-            return <Loader />
-        } else if (data.greska) {
-            notifyError(data.greska)
-        } else if (data.info) {
-            notifyInfo(data.info)
-        } else if (data.success) {
-            notifySuccess(data.uspesno)
-            setLoginCard(!loginCard);
-
-            setFirstName({ first_name: '' });
-            setLastName({ last_name: '' });
-            setPassword({ password: '' });
-            setRepeatPassword({ repeat_password: '' });
-            setTerms({ terms: false });
         }
+
+        api({
+            method: 'post',
+            url: 'signup.php',
+            data: sendData,
+        })
+            .then((response) => {
+
+                if (response.data.uspesno) {
+                    setLoginCard(!loginCard);
+                    notifySuccess(response.data.uspesno);
+                    setFirstName('');
+                    setLastName('');
+                    setEmail('');
+                    setPassword('');
+                    setRepeatPassword('');
+                    setTerms(false);
+
+                } else if (response.data.greska) {
+                    notifyError(response.data.greska);
+                } else if (response.data.info) {
+                    notifyInfo(response.data.info);
+                }
+            })
     }
 
     const notifyError = (odgovor) => {
@@ -90,15 +75,21 @@ const SigninCard = ({ loginCard, setLoginCard }) => {
     }
 
 
+    const handleShowPass = () => {
+        setShowPass(!showPass)
+    }
+
+    const handleShowRepeatPass = () => {
+        setShowRepeatPass(!showRepeatPass)
+    }
+
     return (
 
         <div className={`${loginCard ? 'sigupActive' : ''} login-card signupCard signup`} id="">
 
-
-
             <div className="login-card-header">
-                <span><IoPersonAddOutline className='icon--big' /></span>
-                <h1>Signup</h1>
+                <span><IoPersonAddOutline className='icon-xl' /></span>
+                <h1 data-en='Signup' data-sr='Prijava'>Registracija</h1>
             </div>
 
             <form autoComplete="off" onSubmit={submitSignup}>
@@ -107,31 +98,28 @@ const SigninCard = ({ loginCard, setLoginCard }) => {
                     // loading ? <Loader /> : data.greska ? notifyError(data.greska) : data.info ? notifyError(data.info) :
 
                     <div className="form-imputs">
-
-
                         <div className="inputs">
-                            <input type="txt" placeholder="Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                            <input type="txt" placeholder="Ime" name='firstName' value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                         </div>
                         <div className="inputs">
-                            <input type="txt" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                            <input type="txt" placeholder="Prezime" name='lastName' value={lastName} onChange={(e) => setLastName(e.target.value)} />
                         </div>
                         <div className="inputs">
-                            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="email" placeholder="Email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div className="inputs">
-                            <input type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <input type={showPass ? 'text' : 'password'} placeholder="Lozinka" name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <IoEyeOutline className='visible__pass' onClick={handleShowPass} />
                         </div>
                         <div className="inputs">
-                            <input type="password" placeholder="Repeat password" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} />
+                            <input type={showRepeatPass ? 'text' : 'password'} placeholder="Ponovite lozinku" name='repeatPassword' value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} />
+                            <IoEyeOutline className='visible__pass' onClick={handleShowRepeatPass} />
                         </div>
                         <div className="inputs check">
-                            <input type="checkbox" name="terms" className="remember" value={terms} onChange={(e) => setTerms(true)} />
-                            <label htmlFor="remember">I agree with terms and conditions.</label>
+                            <input type="checkbox" className="remember" name="terms" value={terms} onChange={(e) => setTerms(true)} />
+                            <label htmlFor="remember" data-en='I agree with terms and conditions.' data-sr=''>Slažem se sa uslovima korišćenja.</label>
                         </div>
-
                     </div>
-
-
                 }
 
                 <div className="inputs">
@@ -139,13 +127,13 @@ const SigninCard = ({ loginCard, setLoginCard }) => {
                                     <p>This site is protected by reCAPTCHA, the Google Privacy Policy <br /> and Terms of Service apply.</p>
                                     </div>*/}
                     {/*<Button text='Sign up' onClick={registerHandle}/> */}
-                    <button type='submit' className="btn" >Sign up</button>
+                    <button type='submit' className="btn" data-en='Sign up' data-sr='Registracija'>Registracija</button>
                 </div>
 
             </form>
 
             <div className="switch">
-                <span onClick={cardRotation} >Back to Login</span>
+                <span onClick={cardRotation} data-en='Back to Login' data-sr='Nazad na prijavu'>Nazad na prijavu</span>
             </div>
         </div>
     )

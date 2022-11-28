@@ -77,7 +77,7 @@ const Header = () => {
 
                                                         data-en={kategorija.kat_naziv_en}
                                                         data-sr={kategorija.kat_naziv_sr}
-                                                        id={kategorija.kat_id}> {kategorija.kat_naziv_en}
+                                                        id={kategorija.kat_id}> {kategorija.kat_naziv_sr}
                                                     </span>
                                                 </li>
                                             )
