@@ -169,6 +169,17 @@ input::placeholder {
     color: var(--color-acent);
 }
 
+.pass__reset {
+    text-decoration: underline;
+    color: var(--color-acent);
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 2rem; 
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .login-container {
         height: 60rem;

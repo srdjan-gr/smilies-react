@@ -21,7 +21,9 @@ const Categories = () => {
   const categoryList = useSelector((state) => state.categoryDashList)
   // Redux Get category data
   // Redux Get Update category from state - datat send from CategoryList Component
-  const { loading, data, message, loadingUpdate, dataUpdate, messageUpdate } = categoryList;
+  const { loading, data, message, dataUpdate} = categoryList;
+
+  console.log(dataUpdate);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -120,50 +122,43 @@ const Categories = () => {
     <div className='category__container'>
       <div className="category__container-header">
         {
-          dataUpdate ? <h2>Izmeni Kategoriju</h2> : <h2>Dodaj Kategoriju</h2>
+          dataUpdate.category ? <h2>Izmeni Kategoriju</h2> : <h2>Dodaj Kategoriju</h2>
         }
       </div>
 
       <div className="category__container-inputs p-2">
 
         {
-          dataUpdate ?
+          dataUpdate.category ?
 
-            dataUpdate.map((item, idx) => {
-              return (
-                <form onSubmit={handleUpdate} key={idx}>
+              <form onSubmit={handleUpdate}>
 
-                  <label htmlFor="">Novo Ime Kategorije Srpski</label>
-                  <input type="text" placeholder={item.kat_naziv_sr} name="kat_sr" value={katSrUpdate} onChange={(e) => setKatSrUpdate(e.target.value)} />
+                <label htmlFor="">Novo Ime Kategorije Srpski</label>
+                <input type="text" placeholder={dataUpdate.category.kat_naziv_sr} name="kat_sr" value={katSrUpdate} onChange={(e) => setKatSrUpdate(e.target.value)} />
 
-                  <label htmlFor="">Novo Ime Kategorije Engleski</label>
-                  <input type="text" placeholder={item.kat_naziv_en} name="kat_en" value={katEnUpdate} onChange={(e) => setKatEnUpdate(e.target.value)} />
+                <label htmlFor="">Novo Ime Kategorije Engleski</label>
+                <input type="text" placeholder={dataUpdate.category.kat_naziv_en} name="kat_en" value={katEnUpdate} onChange={(e) => setKatEnUpdate(e.target.value)} />
 
-                  <div className="category__container-inputs-content-buttons">
-                    <button className='btn__dash-regular dash-button-info  mt-2' onClick={() => setKatIdUpdate(item.kat_id)}>Izmeni Kategoriju</button>
-                  </div>
+                <div className="category__container-inputs-content-buttons">
+                  <button className='btn__dash-regular dash-button-info  mt-2' onClick={() => setKatIdUpdate(dataUpdate.ccategoryt.kat_id)}>Izmeni Kategoriju</button>
+                </div>
 
-                </form>
-              )
-            })
+              </form>
 
             :
 
-            <form onSubmit={handleSubmit} >
-              <label htmlFor="">Ime Kategorije Srpski</label>
-              <input type="text" placeholder='Ime kategorije na Srpskom' name="kategorija_sr" value={dataK.kategorija_sr} onChange={handleChange} />
+              <form onSubmit={handleSubmit} >
+                <label htmlFor="">Ime Kategorije Srpski</label>
+                <input type="text" placeholder='Ime kategorije na Srpskom' name="kategorija_sr" value={dataK.kategorija_sr} onChange={handleChange} />
 
-              <label htmlFor="">Ime Kategorije Engleski</label>
-              <input type="text" placeholder='Ime kategorije na Engleskom' name="kategorija_en" value={dataK.kategorija_en} onChange={handleChange} />
+                <label htmlFor="">Ime Kategorije Engleski</label>
+                <input type="text" placeholder='Ime kategorije na Engleskom' name="kategorija_en" value={dataK.kategorija_en} onChange={handleChange} />
 
-              <div className="category__container-inputs-content-buttons">
-                <button className='btn__dash-regular dash-button-success  mt-2 mr-1'>Dodaj Kategoriju</button>
-              </div>
-            </form>
-
+                <div className="category__container-inputs-content-buttons">
+                  <button className='btn__dash-regular dash-button-success  mt-2 mr-1'>Dodaj Kategoriju</button>
+                </div>
+              </form>
         }
-
-
       </div>
     </div>
   )

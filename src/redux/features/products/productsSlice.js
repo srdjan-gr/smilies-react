@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import api from '../../../api/api'
 
 const getProductsApi = 'http://localhost:8080/srdjan/smilies/sapi/api/productGet.php';
 

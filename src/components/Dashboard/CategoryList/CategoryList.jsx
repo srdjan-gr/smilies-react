@@ -7,7 +7,7 @@ import Message from '../../Message/Message';
 
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getDashCategories, getUpdateDashCategories } from "../../../redux/features/categoriesDash/categoriesDashSlice";
+import { getDashCategories, getUpdateDashCategories, editCategory } from "../../../redux/features/categoriesDash/categoriesDashSlice";
 
 
 const CategoryList = () => {
@@ -22,7 +22,6 @@ const CategoryList = () => {
     // Stanje za Update kategorije
     const [idKat, setIdKat] = useState({ id_kat: '', })
 
-
     // Redux
     const categoryList = useSelector((state) => state.categoryDashList)
     const { loading, data, message } = categoryList;
@@ -31,7 +30,6 @@ const CategoryList = () => {
     useEffect(() => {
         dispatch(getDashCategories());
     }, [dispatch]);
-
 
     // Brisanje kategorije
     const deleteCategory = (id, ime_sr, ime_en) => {
@@ -48,8 +46,6 @@ const CategoryList = () => {
                 method: 'post',
                 url: 'categoryDashDelete.php',
                 data: sendData,
-                config: { headers: { 'Content-Type': 'multipart/form-data' } }
-
             })
                 .then((response) => {
 
@@ -69,10 +65,9 @@ const CategoryList = () => {
     }
 
     // Update kategorije
-    const updateCategory = (id) => {
-
-        dispatch(getUpdateDashCategories({
-            id_kat: id,
+    const updateCategory = (category) => {
+        dispatch(editCategory({
+            category
         }, [dispatch]))
     }
 
@@ -130,7 +125,7 @@ const CategoryList = () => {
 
 
                                             <td className='column-small options'>
-                                                <RiEditBoxLine onClick={() => updateCategory(item.kat_id)} className='icon-dash-info icon-small' />
+                                                <RiEditBoxLine onClick={() => updateCategory(item)} className='icon-dash-info icon-small' />
                                                 <RiDeleteBinLine className='icon-dash-danger  icon-small'
                                                     onClick={() => deleteCategory(item.kat_id, item.kat_naziv_sr, item.kat_naziv_en)} />
                                             </td>

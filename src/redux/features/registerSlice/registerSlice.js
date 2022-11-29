@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+import api from '../../../api/api'
+
 const apiRegisterUser = 'http://localhost:8080/srdjan/smilies/sapi/api/signup.php';
 
 export const registerUser = createAsyncThunk("registerUser/setRegisterUser", async (body) => {

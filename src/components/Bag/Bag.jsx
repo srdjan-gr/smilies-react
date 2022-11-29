@@ -61,7 +61,6 @@ const Bag = ({ bagModal, setBagModal, bag, setBag }) => {
                                 <p data-en="Your bag iz empty." data-sr="Vaša korpa je prazna." className='text-bold'>Vaša korpa je prazna.</p>
                             </div>
 
-
                         ) : (
 
                             cart.cartData.map((item, idx) => {

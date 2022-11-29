@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Message from '../../Message/Message';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getDashSubCategory, getUpdateDashSubCategories  } from "../../../redux/features/subcategoriesdash/subCategoriesDahsSlice";
+import { getDashSubCategory, editSubCategory  } from "../../../redux/features/subcategoriesdash/subCategoriesDahsSlice";
 
 const SubCategoryList = () => {
 
@@ -22,9 +22,9 @@ const SubCategoryList = () => {
     // Stanje za Update kategorije
     const [idSubkat, setIdSubkat] = useState({ podkat_id: '', })
     
-    const updateSubcategory = (id) => {
-        dispatch(getUpdateDashSubCategories({
-            podkat_id: id,
+    const updateSubcategory = (subcategory) => {
+        dispatch(editSubCategory({
+            subcategory
         }, [dispatch]))
     }
     
@@ -130,7 +130,7 @@ const SubCategoryList = () => {
 
 
                                             <td className='column-small options'>
-                                                <RiEditBoxLine onClick={() => updateSubcategory(item.podkat_id)} className='icon-dash-info icon-small' />
+                                                <RiEditBoxLine onClick={() => updateSubcategory(item)} className='icon-dash-info icon-small' />
                                                 <RiDeleteBinLine onClick={() => deleteSubcategory(item.podkat_id, item.podkat_naziv_sr, item.podkat_naziv_en)} className='icon-dash-danger icon-small'
                                                 />
                                             </td>

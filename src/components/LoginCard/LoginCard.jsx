@@ -62,7 +62,7 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
             method: 'post',
             url: 'signup.php',
             data: sendData,
-        }) 
+        })
             .then((response) => {
 
                 if (response.data.uspesno) {
@@ -94,6 +94,10 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
         setShowLoginPass(!showLoginPass)
     }
 
+    const resetPass = () => {
+
+    }
+
 
     return (
 
@@ -112,24 +116,27 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
                     </div>
                     <div className="inputs">
                         <input type={showLoginPass ? 'text' : 'password'} name="passwordLogin" id="passwordLogin" placeholder="Lozinka" />
-                        <IoEyeOutline className='visible__pass' onClick={handleShowPass}/>
+                        <IoEyeOutline className='visible__pass' onClick={handleShowPass} />
                     </div>
                     <div className="inputs check">
                         <input type="checkbox" name="rememberme" id="remember" className="remember" />
                         <label htmlFor="remember" data-en='Remember me on these device.' data-sr='Zapamti me na ovom uređaju.'>Zapamti me na ovom uređaju.</label>
                     </div>
+                    <div className="pass__reset">
+                        <span onClick={resetPass} data-en='Forgotten password?' data-sr='Zaboravili ste lozinku?'>Zaboravili ste lozinku?</span>
+                    </div>
                 </div>
 
                 <div className="inputs">
-                <button type='submit' className="btn" onClick={handleClick}>Login</button>
+                    <button type='submit' className="btn" onClick={handleClick}>Login</button>
                 </div>
-            </form>
+            </form >
 
             <div className="switch">
-                <span id="signupLink" onClick={cardRotation} data-en='Go to Signup' data-sr='Idi na registraciju'>Idi na registraciju</span>
+                <span onClick={cardRotation} data-en='Go to Signup' data-sr='Idi na registraciju'>Idi na registraciju</span>
             </div>
-        </div>
- 
+        </div >
+
     )
 }
 
