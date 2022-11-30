@@ -8,7 +8,7 @@ import Message from '../../Message/Message';
 import { useSelector, useDispatch } from 'react-redux';
 import { getProducts } from "../../../redux/features/products/productsSlice"
 
-import slike from '../../../api/images';
+const slike = process.env.REACT_APP_BACKEND_PRODUCT_IMAGES;
 
 const ProductList = () => {
 
@@ -106,6 +106,8 @@ const ProductList = () => {
 
             <tbody>
               {
+                loading ? <p>Loading...</p> : data.greska ? <h3 className='color-danger'>{data.greska}</h3> :
+
                 data.map((product, idx) => {
 
                   let sveSlike = product.slika_ime;
@@ -120,7 +122,7 @@ const ProductList = () => {
                       <td className='column-large'>{product.proizvod_opis_en}</td>
                       <td className='column-large'>{product.proizvod_vreme_dodat}</td>
                       <td className='column-small'>{product.proizvod_cena}</td>
-                      <td className='column-small'><img src={slike.putanjaSlika + splitSlike[0]} alt={product.proizvod_naziv_sr} /></td>
+                      <td className='column-small'><img src={slike + splitSlike[0]} alt={product.proizvod_naziv_sr} /></td>
 
                       <td className='column-small options'>
                         <RiEyeLine className='icon-dash-success icon-small' />
@@ -137,8 +139,6 @@ const ProductList = () => {
         </div>
       </div>
     </div>
-
-
 
   )
 }

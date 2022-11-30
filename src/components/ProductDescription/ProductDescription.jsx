@@ -1,12 +1,11 @@
 import React from 'react';
-
 import SizeChart from '../SizeChart/SizeChart';
 
 // Styling
 import './ProductDescription.css';
 
 
-const ProductDescription = ({ proizvod, slike }) => {
+const ProductDescription = ({ proizvod, odrzavanje }) => {
 
     const { 
         proizvod_opis_sr, 
@@ -55,11 +54,11 @@ const ProductDescription = ({ proizvod, slike }) => {
                         <div className="items-description-cont-1-single">
                             <label htmlFor="wash" data-en='Wash symbols::' data-sr='Način održavanja:'>Način odrzavanja:</label>
                             <div className="wash" id="wash">
-                                <img src={slike.putanjaOdrzavanje + slika1}  alt="" />
-                                <img src={slike.putanjaOdrzavanje + slika2}  alt="" />
-                                <img src={slike.putanjaOdrzavanje + slika3}  alt="" />
-                                <img src={slike.putanjaOdrzavanje + slika4}  alt="" />
-                                <img src={slike.putanjaOdrzavanje + slika5}  alt="" />
+                                <img src={odrzavanje + slika1}  alt="" />
+                                <img src={odrzavanje + slika2}  alt="" />
+                                <img src={odrzavanje + slika3}  alt="" />
+                                <img src={odrzavanje + slika4}  alt="" />
+                                <img src={odrzavanje + slika5}  alt="" />
                             </div>
                         </div>
                         <div className="items-description-cont-1-single">

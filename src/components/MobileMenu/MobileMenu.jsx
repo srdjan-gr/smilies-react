@@ -61,6 +61,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
             </div>
 
             {
+                loading ? <p>Loading...</p> : data.greska ? <h3 className='color-danger'>{data.greska}</h3> :
                 data.map((kategorija, idx) => {
                     if (kategorija.kat_id == clickedMenu) {
 

@@ -26,7 +26,7 @@ const SizeChart = ({ tabela }) => {
 
                             <tbody>
                                 <tr>
-                                    <td>Chest</td>
+                                    <td data-en='Chest' data-sr='Obim grudi'>Obim grudi</td>
                                     <td>84</td>
                                     <td>88</td>
                                     <td>92</td>
@@ -35,7 +35,7 @@ const SizeChart = ({ tabela }) => {
                                     <td>108</td>
                                 </tr>
                                 <tr>
-                                    <td>Waist</td>
+                                    <td data-en='Waist' data-sr='Obim struk'>Obim struka</td>
                                     <td>66</td>
                                     <td>70</td>
                                     <td>74</td>
@@ -44,7 +44,7 @@ const SizeChart = ({ tabela }) => {
                                     <td>90</td>
                                 </tr>
                                 <tr>
-                                    <td>Hip</td>
+                                    <td data-en='Hip' data-sr='Obim boka'>Obim boka</td>
                                     <td>94</td>
                                     <td>98</td>
                                     <td>102</td>
@@ -53,7 +53,7 @@ const SizeChart = ({ tabela }) => {
                                     <td>118</td>
                                 </tr>
                                 <tr>
-                                    <td>Shoulder width</td>
+                                    <td data-en='Shoulder width' data-sr='Širina leđa'>Širina leđa</td>
                                     <td>39</td>
                                     <td>40</td>
                                     <td>41</td>
@@ -62,7 +62,7 @@ const SizeChart = ({ tabela }) => {
                                     <td>44</td>
                                 </tr>
                                 <tr>
-                                    <td>Sleve lenght</td>
+                                    <td data-en='Sleve lenght' data-sr='Dužina rukava'>Dužina rukava</td>
                                     <td>60.5</td>
                                     <td>61</td>
                                     <td>61.5</td>
@@ -71,7 +71,7 @@ const SizeChart = ({ tabela }) => {
                                     <td>63</td>
                                 </tr>
                                 <tr>
-                                    <td>Crotch</td>
+                                    <td data-en='Crotch' data-sr='Dužina koraka'>Dužina koraka</td>
                                     <td>80.5</td>
                                     <td>81</td>
                                     <td>81.5</td>
@@ -108,7 +108,7 @@ const SizeChart = ({ tabela }) => {
 
                             <tbody>
                                 <tr>
-                                    <td>Chest</td>
+                                    <td data-en='Chest' data-sr='Obim grudi'>Obim grudi</td>
                                     <td>96</td>
                                     <td>100</td>
                                     <td>102</td>
@@ -117,7 +117,7 @@ const SizeChart = ({ tabela }) => {
                                     <td>112</td>
                                 </tr>
                                 <tr>
-                                    <td>Waist</td>
+                                    <td data-en='Waist' data-sr='Obim struk'>Obim struka</td>
                                     <td>88</td>
                                     <td>92</td>
                                     <td>96</td>
@@ -126,7 +126,7 @@ const SizeChart = ({ tabela }) => {
                                     <td>108</td>
                                 </tr>
                                 <tr>
-                                    <td>Hip</td>
+                                    <td data-en='Hip' data-sr='Obim boka'>Obim boka</td>
                                     <td>102</td>
                                     <td>106</td>
                                     <td>110</td>
@@ -135,7 +135,7 @@ const SizeChart = ({ tabela }) => {
                                     <td>122</td>
                                 </tr>
                                 <tr>
-                                    <td>Shoulder width</td>
+                                    <td data-en='Shoulder width' data-sr='Širina leđa'>Širina leđa</td>
                                     <td>40</td>
                                     <td>42</td>
                                     <td>43</td>
@@ -144,7 +144,7 @@ const SizeChart = ({ tabela }) => {
                                     <td>46</td>
                                 </tr>
                                 <tr>
-                                    <td>Sleve lenght</td>
+                                    <td data-en='Sleve lenght' data-sr='Dužina rukava'>Dužina rukava</td>
                                     <td>63.5</td>
                                     <td>64</td>
                                     <td>64.5</td>
@@ -153,7 +153,7 @@ const SizeChart = ({ tabela }) => {
                                     <td>66</td>
                                 </tr>
                                 <tr>
-                                    <td>Crotch</td>
+                                    <td data-en='Crotch' data-sr='Dužina koraka'>Dužina koraka</td>
                                     <td>79.5</td>
                                     <td>80</td>
                                     <td>80.5</td>

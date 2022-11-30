@@ -2,12 +2,14 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import api from '../../../api/api'
 
-const getProductsApi = 'http://localhost:8080/srdjan/smilies/sapi/api/productGet.php';
 
 export const getProducts = createAsyncThunk("GET_PRODUCTS/GET_ALL_PRODUCTS", async () => {
 
     try {
-        const { data } = await axios.get(getProductsApi);
+        const { data } = await api({
+            method: 'get',
+            url: 'productGet.php',
+        });
         return data;
     } catch (error) {
         return error.message;

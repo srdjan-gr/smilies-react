@@ -17,58 +17,45 @@ import Message from '../Message/Message';
 const LoginCard = ({ loginCard, setLoginCard }) => {
 
     const [showLoginPass, setShowLoginPass] = useState(false);
+    const navigate = useNavigate();
 
     const cardRotation = () => {
         setLoginCard(!loginCard);
     };
 
-    const navigate = useNavigate();
-
-    const handleClick = (e) => {
-        e.preventDefault();
-        navigate('/Dashboard');
+    const handleShowPass = () => {
+        setShowLoginPass(!showLoginPass)
     }
 
-    // Slanje Sign up podataka 
-    // let redirection = useNavigate(); - ako zelimo posle unetih podataka da radimo redirekciju na neku stranu
-    // 1. kreiranje pocetnog stanja sa praznim objektom
-    const [data, setData] = useState({
-        first_name: '',
-        last_name: '',
-        email: '',
-        password: '',
-        // repeat_password: '',
-        terms: false
-    })
 
-    // 2. Hendlovanje submit eventa - spredujemo sve Data zapise i dodajemo nove Value iz Name atributa
-    const handleChange = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value });
-    }
+    // const handleClick = (e) => {
+    //     e.preventDefault();
+    //     // navigate('/Dashboard');
+    // }
 
-    // 3. Slanje podataka iz forme na klik
-    const submitSignup = (e) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const submitLogin = (e) => {
         e.preventDefault();
 
         const sendData = {
-            first_name: data.first_name,
-            last_name: data.last_name,
-            email: data.email,
-            password: data.password,
-            terms: data.terms
+            email: email,
+            password: password,
+            // remember: data.terms
         }
 
         api({
             method: 'post',
-            url: 'signup.php',
+            url: 'login.php',
             data: sendData,
         })
             .then((response) => {
 
-                if (response.data.uspesno) {
-                    setLoginCard(!loginCard);
+                if (response.data.status === 200) {
                     notifySuccess(response.data.uspesno);
-                    setData({ first_name: '', last_name: '', email: '', password: '' })
+                    setEmail('');
+                    setPassword('');
 
                 } else if (response.data.greska) {
                     notifyError(response.data.greska);
@@ -77,6 +64,8 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
                     notifyInfo(response.data.info);
                 }
             })
+
+        console.log(sendData);
     }
 
     // Message je stilizovana komponenta Unutar Toast-a
@@ -90,9 +79,6 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
         toast.info(<Message info={odgovor} />);
     }
 
-    const handleShowPass = () => {
-        setShowLoginPass(!showLoginPass)
-    }
 
     const resetPass = () => {
 
@@ -108,34 +94,35 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
                 <h1 data-en='Login' data-sr='Prijavljivanje'>Prijavljivanje</h1>
             </div>
 
-            <form autoComplete="off" >
+            <form autoComplete="off" onSubmit={submitLogin}>
 
                 <div className="form-imputs">
                     <div className="inputs">
-                        <input type="email" name="emailLogin" id="emailLogin" placeholder="Email" />
+                        <input type="email" placeholder="Email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="inputs">
-                        <input type={showLoginPass ? 'text' : 'password'} name="passwordLogin" id="passwordLogin" placeholder="Lozinka" />
+                        <input type={showLoginPass ? 'text' : 'password'} name="password" placeholder="Lozinka" value={password} onChange={(e) => setPassword(e.target.value)} />
                         <IoEyeOutline className='visible__pass' onClick={handleShowPass} />
                     </div>
-                    <div className="inputs check">
+                    {/*<div className="inputs check">
                         <input type="checkbox" name="rememberme" id="remember" className="remember" />
                         <label htmlFor="remember" data-en='Remember me on these device.' data-sr='Zapamti me na ovom uređaju.'>Zapamti me na ovom uređaju.</label>
-                    </div>
+                     </div>*/}
                     <div className="pass__reset">
                         <span onClick={resetPass} data-en='Forgotten password?' data-sr='Zaboravili ste lozinku?'>Zaboravili ste lozinku?</span>
                     </div>
                 </div>
 
                 <div className="inputs">
-                    <button type='submit' className="btn" onClick={handleClick}>Login</button>
+                    {/*<button type='submit' className="btn" onClick={handleClick} data-en='Login' data-sr='Prijava'>Prijava</button>*/}
+                    <button className="btn" data-en='Login' data-sr='Prijava'>Prijava</button>
                 </div>
-            </form >
+            </form>
 
             <div className="switch">
                 <span onClick={cardRotation} data-en='Go to Signup' data-sr='Idi na registraciju'>Idi na registraciju</span>
             </div>
-        </div >
+        </div>
 
     )
 }

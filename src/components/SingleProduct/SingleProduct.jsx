@@ -1,24 +1,24 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 import Button from '../Button/Button';
-import ProductGalery from '../ProductGalery/ProductGalery';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Message from '../Message/Message';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, countTotal } from '../../redux/features/cart/cartSlice';
 
-import { IoAddOutline, IoRemoveOutline } from 'react-icons/io5'
-
 // Styling
+import { IoAddOutline, IoRemoveOutline } from 'react-icons/io5'
 import './SingleProduct.css';
+import ProductGalery from '../ProductGalery/ProductGalery';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Message from '../Message/Message';
 
 
 const SingleProduct = ({ proizvod, slike }) => {
 
   const [productGalery, setProductGalery] = useState(false);
   const [proizvodiId, setProizvodId] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const [kolicina, setKolicina] = useState('')
 
@@ -130,6 +130,7 @@ const SingleProduct = ({ proizvod, slike }) => {
 
   return (
 
+    
     <section >
 
       <div className="item-container">
@@ -137,13 +138,13 @@ const SingleProduct = ({ proizvod, slike }) => {
         <div className="item-container-images" id="gallery">
           <div className="item-container-images-big" id="imageBig">
             <span data-en="Show" data-sr="Pogledaj" onClick={() => openGalery(proizvod_id)} >Show</span>
-            <img src={slike.putanjaSlika + slika_cela} alt={proizvod_opis_sr} />
+            <img src={slike + slika_cela} alt={proizvod_opis_sr} />
           </div>
 
           <div className="item-container-images-small" id="imageSmall">
-            <img src={slike.putanjaSlika + slika_detalj} alt={proizvod_opis_sr} />
-            <img src={slike.putanjaSlika + slika_cela1} alt={proizvod_opis_sr} />
-            <img src={slike.putanjaSlika + slika_cela2} alt={proizvod_opis_sr} />
+            <img src={slike + slika_detalj} alt={proizvod_opis_sr} />
+            <img src={slike + slika_cela1} alt={proizvod_opis_sr} />
+            <img src={slike + slika_cela2} alt={proizvod_opis_sr} />
           </div>
         </div>
 
@@ -180,10 +181,10 @@ const SingleProduct = ({ proizvod, slike }) => {
         productGalery={productGalery}
         setProductGalery={setProductGalery}
 
-        slika_cela={slike.putanjaSlika + slika_cela}
-        slika_detalj={slike.putanjaSlika + slika_detalj}
-        slika_cela1={slike.putanjaSlika + slika_cela1}
-        slika_cela2={slike.putanjaSlika + slika_cela2} />
+        slika_cela={slike + slika_cela}
+        slika_detalj={slike + slika_detalj}
+        slika_cela1={slike + slika_cela1}
+        slika_cela2={slike + slika_cela2} />
 
     </section>
   )

@@ -61,7 +61,7 @@ const Header = () => {
                     <div className="menus">
 
                         {
-                            loading ? <p>Loading...</p> : data.greska ? <h3>{notifyError(data.greska)}</h3> :
+                            loading ? <p>Loading...</p> : data.greska ? <h3 className='color-danger'>{data.greska}</h3> :
                                 <ul>
                                     {
                                         data.map((kategorija, idx) => {

@@ -39,9 +39,9 @@ export const cartSlice = createSlice({
 
             if (itemIndex < 0) {
                 state.cartData.push(action.payload);
-                notifySuccess(`Proizvod '${action.payload.proizvod_naziv_sr}'\n je dodat u korpu.`);
+                notifySuccess(`Proizvod '${action.payload.proizvod_naziv_sr}'\nje dodat u korpu.`);
             } else if (itemIndex >= 0) {
-                notifyInfo(`Proizvod '${action.payload.proizvod_naziv_sr}'\n već postoji u korpi!`);
+                notifyInfo(`Proizvod '${action.payload.proizvod_naziv_sr}'\nveć postoji u korpi!`);
             }
 
             localStorage.setItem('SmiliesBag', JSON.stringify(state.cartData));

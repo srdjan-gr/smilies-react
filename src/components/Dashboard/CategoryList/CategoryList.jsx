@@ -86,7 +86,7 @@ const CategoryList = () => {
     return (
         <div className='category__container category-list'>
             <div className="category__container-header">
-                <h2>Lista Podkategorija</h2>
+                <h2>Lista Kategorija</h2>
             </div>
 
             <div className="category__container-inputs">
@@ -113,6 +113,7 @@ const CategoryList = () => {
 
                         <tbody>
                             {
+                                loading ? <p>Loading...</p> : data.greska ? <h3 className='color-danger'>{data.greska}</h3> :
                                 data.map((item, idx) => {
                                     return (
                                         <tr key={idx}>

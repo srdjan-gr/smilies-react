@@ -116,6 +116,7 @@ const SubCategoryList = () => {
 
                         <tbody>
                             {
+                                subLoading ? <p>Loading...</p> : subData.greska ? <h3 className='color-danger'>{subData.greska}</h3> :
                                 subData.map((item, idx) => {
 
                                     return (

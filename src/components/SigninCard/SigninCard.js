@@ -117,7 +117,7 @@ const SigninCard = ({ loginCard, setLoginCard }) => {
                         </div>
                         <div className="inputs check">
                             <input type="checkbox" className="remember" name="terms" value={terms} onChange={(e) => setTerms(true)} />
-                            <label htmlFor="remember" data-en='I agree with terms and conditions.' data-sr=''>Slažem se sa uslovima korišćenja.</label>
+                            <label htmlFor="remember" data-en='I agree with terms and conditions.' data-sr='Slažem se sa uslovima korišćenja.'>Slažem se sa uslovima korišćenja.</label>
                         </div>
                     </div>
                 }

@@ -3,13 +3,12 @@ import './Bag.css'
 import { IoTrashOutline, IoCloseOutline, IoAddOutline, IoRemoveOutline } from 'react-icons/io5'
 import { confirm } from "react-confirm-box";
 
-import slike from '../../api/images';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { countTotal, removeFromCart } from '../../redux/features/cart/cartSlice';
 
 import PopupOptions from '../ConfirmPopup/ConfirmPopup'
 
+const slike = process.env.REACT_APP_BACKEND_PRODUCT_IMAGES;
 
 const Bag = ({ bagModal, setBagModal, bag, setBag }) => {
 
@@ -73,7 +72,7 @@ const Bag = ({ bagModal, setBagModal, bag, setBag }) => {
                                 return (
                                     <div className="item" key={idx}>
                                         <div className="item__image">
-                                            <img src={slike.putanjaSlika + slika_cela} alt="" />
+                                            <img src={slike + slika_cela} alt="" />
                                         </div>
 
                                         <div className="item__content">

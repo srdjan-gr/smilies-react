@@ -5,15 +5,15 @@ import ProductDescription from '../../components/ProductDescription/ProductDescr
 import SimilarProducts from '../../components/SimilarProducts/SimilarProducts';
 import SingleProduct from '../../components/SingleProduct/SingleProduct';
 
-import slike from '../../api/images';
-
 import Navbar from '../../components/Navbar/Navbar';
 import Header from '../../components/Header/Header';
 import Devider from '../../components/Devider/Devider';
 
-
 import { useSelector, useDispatch } from 'react-redux';
 import { getProducts } from "../../redux/features/products/productsSlice"
+
+const slike = process.env.REACT_APP_BACKEND_PRODUCT_IMAGES;
+const odrzavanje = process.env.REACT_APP_BACKEND_MAINTENANCE_IMAGES;
 
 const Product = ({ location, setLocation }) => {
 
@@ -43,7 +43,7 @@ const Product = ({ location, setLocation }) => {
                             return (
                                 <div idx={idx} className='container' key={idx}>
                                     <SingleProduct proizvod={proizvod} slike={slike} />
-                                    <ProductDescription proizvod={proizvod} slike={slike} />
+                                    <ProductDescription proizvod={proizvod} odrzavanje={odrzavanje} />
 
                                     <SimilarProducts proizvod={proizvod} slike={slike} />
                                 </div>

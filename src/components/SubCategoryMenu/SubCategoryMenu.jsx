@@ -47,6 +47,7 @@ const SubCategoryMenu = ({ subCategoryMenu, setSubCategoryMenu, categoryId, setA
                     <div className="submenu__subcategories">
                         <ul>
                             {
+                                subLoading ? <p>Loading...</p> : subData.greska ? <h3 className='color-danger'>{subData.greska}</h3> :
                                 subData.map((podKategorija, idx) => {
 
                                     if (categoryId == podKategorija.kategorija_kat_id) {
