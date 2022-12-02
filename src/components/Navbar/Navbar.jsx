@@ -47,50 +47,149 @@ const Navbar = () => {
         }
     }
 
-    return (
-        <div>
-            <nav>
-                <div className="container">
-                    <div className="navbar">
-                        <div className="navbar__left" id="navbar__left">
+    // Session
+    const smiliesSession = sessionStorage.getItem("SmiliesOnlineLog");
+    const sessionKill = () => {
+        sessionStorage.removeItem("SmiliesOnlineLog");
+    }
 
-                            <div className="lang-menu">
-                                <li className="lang-active">EN</li>
-                                <li>SR</li>
+
+    if (smiliesSession) {
+        return (
+            <div>
+                <nav>
+                    <div className="container">
+                        <div className="navbar">
+                            <div className="navbar__left" id="navbar__left">
+
+                                <div className="lang-menu">
+                                    <li className="lang-active">EN</li>
+                                    <li>SR</li>
+                                </div>
+
+                                <div className='pages-menu'>
+                                    <li className="current"><Link to="/" data-en='Home' data-sr='Početna'>Početna</Link></li>
+                                    <li><Link to="/Contact" data-en='Contact' data-sr='Kontakt'>Kontakt</Link></li>
+                                    <li><Link to="/About" data-en='About Us' data-sr='O nama'>O nama</Link></li>
+                                </div>
+
                             </div>
+                            <div className="navbar__right">
 
-                            <div className='pages-menu'>
-                                <li className="current"><Link to="/" data-en='Home' data-sr='Početna'>Početna</Link></li>
-                                <li><Link to="/Contact" data-en='Contact' data-sr='Kontakt'>Kontakt</Link></li>
-                                <li><Link to="/About" data-en='About Us' data-sr='O nama'>O nama</Link></li>
+                                <span><IoSearchOutline className='icon-small ml-2' onClick={openSearch} /></span>
+                                <span className='bag__icons-container'>
+                                    <IoBagOutline className='icon-small ml-2' onClick={openBag} />
+                                    {bagFull()}
+                                </span>
+
+                                <span className="mobile__menu" >
+                                    <IoEllipsisVerticalOutline className='icon-small ml-2' onClick={addMobileMenuCLass} />
+                                </span>
+
+                                <li className="login"><Link to="/" data-en='Log Out' data-sr='Odjava' onClick={sessionKill}>Odjava</Link></li>
                             </div>
-
-                        </div>
-                        <div className="navbar__right">
-
-                            <span><IoSearchOutline className='icon-small ml-2' onClick={openSearch} /></span>
-                            <span className='bag__icons-container'>
-                                <IoBagOutline className='icon-small ml-2' onClick={openBag} />
-                                {bagFull()}
-                            </span>
-
-
-                            <span className="mobile__menu" >
-                                <IoEllipsisVerticalOutline className='icon-small ml-2' onClick={addMobileMenuCLass} />
-                            </span>
-
-                            <li className="login"><Link to="/Login" data-en='Log in / Sign In' data-sr='Prijava / Registracija'>Prijava / Registracija</Link></li>
                         </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
 
-            <MobileMenu mobileMenu={mobileMenu} setMobileMenu={setMobileMenu} />
-            <Search search={search} setSearch={setSearch} />
+                <MobileMenu mobileMenu={mobileMenu} setMobileMenu={setMobileMenu} />
+                <Search search={search} setSearch={setSearch} />
 
-            <Bag bag={bag} setBag={setBag} bagModal={bagModal} setBagModal={setBagModal} />
-        </div>
-    )
+                <Bag bag={bag} setBag={setBag} bagModal={bagModal} setBagModal={setBagModal} />
+            </div>
+        )
+    } else if (smiliesSession) {
+
+        return (
+            <div>
+                <nav>
+                    <div className="container">
+                        <div className="navbar">
+                            <div className="navbar__left" id="navbar__left">
+
+                                <div className="lang-menu">
+                                    <li className="lang-active">EN</li>
+                                    <li>SR</li>
+                                </div>
+
+                                <div className='pages-menu'>
+                                    <li className="current"><Link to="/" data-en='Home' data-sr='Početna'>Početna</Link></li>
+                                    <li><Link to="/Contact" data-en='Contact' data-sr='Kontakt'>Kontakt</Link></li>
+                                    <li><Link to="/About" data-en='About Us' data-sr='O nama'>O nama</Link></li>
+                                </div>
+
+                            </div>
+                            <div className="navbar__right">
+
+                                <span><IoSearchOutline className='icon-small ml-2' onClick={openSearch} /></span>
+                                <span className='bag__icons-container'>
+                                    <IoBagOutline className='icon-small ml-2' onClick={openBag} />
+                                    {bagFull()}
+                                </span>
+
+                                <span className="mobile__menu" >
+                                    <IoEllipsisVerticalOutline className='icon-small ml-2' onClick={addMobileMenuCLass} />
+                                </span>
+
+                                <li className="login"><Link to="/Login" data-en='Log in / Sign In' data-sr='Prijava / Registracija'>Prijava / Registracija</Link></li>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <MobileMenu mobileMenu={mobileMenu} setMobileMenu={setMobileMenu} />
+                <Search search={search} setSearch={setSearch} />
+
+                <Bag bag={bag} setBag={setBag} bagModal={bagModal} setBagModal={setBagModal} />
+            </div>
+        )
+    } else {
+
+        return (
+            <div>
+                <nav>
+                    <div className="container">
+                        <div className="navbar">
+                            <div className="navbar__left" id="navbar__left">
+
+                                <div className="lang-menu">
+                                    <li className="lang-active">EN</li>
+                                    <li>SR</li>
+                                </div>
+
+                                <div className='pages-menu'>
+                                    <li className="current"><Link to="/" data-en='Home' data-sr='Početna'>Početna</Link></li>
+                                    <li><Link to="/Contact" data-en='Contact' data-sr='Kontakt'>Kontakt</Link></li>
+                                    <li><Link to="/About" data-en='About Us' data-sr='O nama'>O nama</Link></li>
+                                </div>
+
+                            </div>
+                            <div className="navbar__right">
+
+                                <span><IoSearchOutline className='icon-small ml-2' onClick={openSearch} /></span>
+                                <span className='bag__icons-container'>
+                                    <IoBagOutline className='icon-small ml-2' onClick={openBag} />
+                                    {bagFull()}
+                                </span>
+
+                                <span className="mobile__menu" >
+                                    <IoEllipsisVerticalOutline className='icon-small ml-2' onClick={addMobileMenuCLass} />
+                                </span>
+
+                                <li className="login"><Link to="/Login" data-en='Log in / Sign In' data-sr='Prijava / Registracija'>Prijava / Registracija</Link></li>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <MobileMenu mobileMenu={mobileMenu} setMobileMenu={setMobileMenu} />
+                <Search search={search} setSearch={setSearch} />
+
+                <Bag bag={bag} setBag={setBag} bagModal={bagModal} setBagModal={setBagModal} />
+            </div>
+        )
+    }
+
 }
 
 export default Navbar

@@ -5,6 +5,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Button from '../Button/Button'
 import api from '../../api/api';
+import jwt from 'jwt-decode'
 
 
 // Styling
@@ -27,12 +28,6 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
         setShowLoginPass(!showLoginPass)
     }
 
-
-    // const handleClick = (e) => {
-    //     e.preventDefault();
-    //     // navigate('/Dashboard');
-    // }
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -52,10 +47,42 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
         })
             .then((response) => {
 
-                if (response.data.status === 200) {
-                    notifySuccess(response.data.uspesno);
+                if (response.data.uspesno) {
+
                     setEmail('');
                     setPassword('');
+
+                    const odgovor = response.data;
+
+                    if (odgovor) {
+
+                        const smiliesSession = sessionStorage.getItem("SmiliesOnlineLog");
+                        if (smiliesSession) {
+                            notifyInfo("Već ste ulogovani");
+                            navigate('/')
+
+                        } else if (!smiliesSession) {
+
+                            sessionStorage.setItem("SmiliesOnlineLog", odgovor);
+                            const token = jwt(response.data.token);
+
+                            if (token.data.status == 'Admin' || token.data.status == 'Urednik') {
+
+                                notifySuccess(response.data.uspesno);
+                                navigate('/Dashboard')
+                            } else if (token.data.status == 'Korisnik') {
+
+                                navigate('/')
+                                notifySuccess(response.data.uspesno);
+                            } else {
+
+                                notifySuccess("Greška prilikom logovanja");
+                            }
+                        }
+
+                    } else {
+                        notifyError("Login error.");
+                    }
 
                 } else if (response.data.greska) {
                     notifyError(response.data.greska);
@@ -65,7 +92,6 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
                 }
             })
 
-        console.log(sendData);
     }
 
     // Message je stilizovana komponenta Unutar Toast-a

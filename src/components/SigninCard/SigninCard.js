@@ -10,7 +10,6 @@ import { toast } from 'react-toastify';
 import Loader from '../Loader/Loader'
 import Message from '../Message/Message';
 
-
 const SigninCard = ({ loginCard, setLoginCard }) => {
 
     const cardRotation = () => {

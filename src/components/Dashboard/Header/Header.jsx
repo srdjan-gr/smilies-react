@@ -20,7 +20,9 @@ const Header = ({asideMenu, setAsideMenu}) => {
         setDevider(!devider)
     }
 
+    const handleHeaderOptions = () => {
 
+    }
 
   return (
     <header id="header" className="header">
@@ -38,7 +40,7 @@ const Header = ({asideMenu, setAsideMenu}) => {
       </div>
 
       <div className="header__right" >
-        <span><RiMore2Line className="icon-main " /></span>
+        <span><RiMore2Line className="icon-main " onClick={handleHeaderOptions} /></span>
       </div>
 
     </header>

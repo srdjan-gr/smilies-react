@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import jwt from 'jwt-decode'
 
 // Redux
 import { useDispatch } from 'react-redux';
@@ -29,7 +30,7 @@ import Refund from './pages/Refund/Refund';
 import Dashboard from './pages/Dashboard/Dashboard';
 import DashCategories from './pages/Dashboard/DashCategories';
 import DashSubCategories from './pages/Dashboard/DashSubCategories';
-import DashAddProduct from './pages/Dashboard/DashCreateProduct';
+import DashCreateProduct from './pages/Dashboard/DashCreateProduct';
 import DashProductList from './pages/Dashboard/DashProductList';
 
 
@@ -44,25 +45,21 @@ function App() {
     dispatch(countTotal());
   }, [dispatch]);
 
+
+  let error = ''
+
   return (
     <Router>
       <div>
 
-        {/*     <Navbar />
-        <Header />
-        <Devider />
-        <Totop />*/}
-
         <Totop />
         <ToastContainer autoClose={2500} />
-
 
         <Routes>
           <Route path='/' element={<Home location={location} setLocation={setLocation} />} />
           <Route path='/Contact' element={<Contact location={location} setLocation={setLocation} />} />
           <Route path='/About' element={<About location={location} setLocation={setLocation} />} />
           <Route path='/Login' element={<Login location={location} setLocation={setLocation} message={message} setMessage={setMessage} />} />
-
 
           <Route path='/Terms' element={<Terms location={location} setLocation={setLocation} />} />
           <Route path='/Privacy' element={<Privacy location={location} setLocation={setLocation} />} />
@@ -77,24 +74,19 @@ function App() {
             <Route path=':singleProduct' element={<Product />} />
           </Route>
 
-
           {/*   <Route path='/Dashboard' element={<Dashboard location={location} setLocation={setLocation} />} >
             <Route path=':page' element={<Dashboard />} />
-      </Route>*/}
-
+          </Route>*/}
 
           <Route path='/Dashboard' element={<Dashboard location={location} setLocation={setLocation} />} />
           <Route path='/DashCategories' element={<DashCategories location={location} setLocation={setLocation} />} />
           <Route path='/DashSubCategories' element={<DashSubCategories location={location} setLocation={setLocation} />} />
-          <Route path='/AddProduct' element={<DashAddProduct location={location} setLocation={setLocation} />} />
+          <Route path='/DashCreateProduct' element={<DashCreateProduct location={location} setLocation={setLocation} />} />
           <Route path='/productlist' element={<DashProductList location={location} setLocation={setLocation} />} />
-          <Route path='/productlog' element={<DashAddProduct location={location} setLocation={setLocation} />} />
 
 
 
-
-
-          <Route path='*' element={<ErrorPage />} />
+          <Route path='*' element={<ErrorPage error />} />
         </Routes>
 
       </div>

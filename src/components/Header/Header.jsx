@@ -9,7 +9,6 @@ import Message from '../Message/Message';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCategories } from "../../redux/features/categories/categorySlice";
 
-
 // Styling
 import './Header.css'
 import logo from '../../assets/img/logos/Smilies-Black-2022.svg';
@@ -19,6 +18,7 @@ const Header = () => {
 
     const [subCategoryMenu, setSubCategoryMenu] = useState(false);
     const [categoryId, setCategoryId] = useState('');
+    const [scroll, setScroll] = useState(false);
 
     // Redux
     const categoryList = useSelector((state) => state.categoryList)
@@ -50,49 +50,60 @@ const Header = () => {
     //     setAccentColor(accentColor => !accentColor);  
     // }
 
+
+    // const handleScroll = () => {
+
+    //     if (window.scrollY >= 80) {
+    //         setScroll(true)
+    //     } else {
+    //         setScroll(false)
+    //     }
+    // }
+    // window.addEventListener('scroll', handleScroll);
+
     return (
-        <div>
-            <header>
-                <div className="nav__logo">
-                    <div className="logo">
-                        <Link to='/'><img src={logo} alt="" /></Link>
-                    </div>
 
-                    <div className="menus">
-
-                        {
-                            loading ? <p>Loading...</p> : data.greska ? <h3 className='color-danger'>{data.greska}</h3> :
-                                <ul>
-                                    {
-                                        data.map((kategorija, idx) => {
-                                            return (
-                                                <li key={idx} >
-                                                    <span className={`${accentColor ? ' accent' : ''}`}
-                                                        onClick={() =>
-                                                            [
-                                                                loadSubMenu(kategorija.kat_id),
-                                                                setCategoryId(kategorija.kat_id),
-                                                            ]
-                                                        }
-
-                                                        data-en={kategorija.kat_naziv_en}
-                                                        data-sr={kategorija.kat_naziv_sr}
-                                                        id={kategorija.kat_id}> {kategorija.kat_naziv_sr}
-                                                    </span>
-                                                </li>
-                                            )
-                                        })
-                                    }
-                                </ul>
-                        }
-
-                    </div>
+        <header>
+            <div className="nav__logo">
+                <div className={scroll ? 'hideLogo' : 'logo'}>
+                    <Link to='/'><img src={logo} alt="" /></Link>
                 </div>
-            </header>
 
-            {<SubCategoryMenu subCategoryMenu={subCategoryMenu} setSubCategoryMenu={setSubCategoryMenu} categoryId={categoryId} accentColorLink={accentColor} setAccentColor={setAccentColor} />}
+                <div className="menus">
 
-        </div>
+                    {
+                        loading ? <p>Loading...</p> : data.greska ? <h3 className='color-danger'>{data.greska}</h3> :
+                            <ul>
+                                {
+                                    data.map((kategorija, idx) => {
+                                        return (
+                                            <li key={idx} >
+                                                <span className={`${accentColor ? ' accent' : ''}`}
+                                                    onClick={() =>
+                                                        [
+                                                            loadSubMenu(kategorija.kat_id),
+                                                            setCategoryId(kategorija.kat_id),
+                                                        ]
+                                                    }
+
+                                                    data-en={kategorija.kat_naziv_en}
+                                                    data-sr={kategorija.kat_naziv_sr}
+                                                    id={kategorija.kat_id}> {kategorija.kat_naziv_sr}
+                                                </span>
+                                            </li>
+                                        )
+                                    })
+                                }
+                            </ul>
+                    }
+
+                </div>
+                {<SubCategoryMenu subCategoryMenu={subCategoryMenu} setSubCategoryMenu={setSubCategoryMenu} categoryId={categoryId} accentColorLink={accentColor} setAccentColor={setAccentColor} />}
+            </div>
+
+        </header>
+
+
     )
 }
 

@@ -33,6 +33,8 @@ const ProductCard = () => {
     dispatch(countTotal());
   }
 
+  
+
   return (
 
     <div className="container">
