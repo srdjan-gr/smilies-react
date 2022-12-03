@@ -658,8 +658,21 @@
 .header__right {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  width: 20rem;
+  justify-content: space-between;
+}
+.header__right .dash__user {
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  line-height: 1.2;
+  margin-right: 2rem;
+}
+.header__right .dash__user span:nth-child(2) {
+  color: #daa520;
+  font-style: italic;
+  font-size: 1.3rem;
 }
 .header .close-menu {
   display: none;

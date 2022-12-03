@@ -18,17 +18,19 @@
     display: flex;
     align-items: center;
     align-items: center;
+    outline: none;
+    border: none;
 }
 
 .hideLogo {
     opacity: .9;
 }
 
-
-
 .logo img {
     height: 6rem;
     cursor: pointer;
+    outline: none;
+    border: none;
 }
 
 .menus {

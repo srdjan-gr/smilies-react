@@ -3,9 +3,9 @@ import AddSubCategory from '../../components/Dashboard/AddSubCategory/AddSubCate
 import Header from '../../components/Dashboard/Header/Header'
 import Navbar from '../../components/Dashboard/Navbar/Navbar'
 import ErrorPage from '../ErrorPage/ErrorPage'
+import jwt from 'jwt-decode'
 
 import SubCategoryList from '../../components/Dashboard/SubCategoryList/SubCategoryList'
-
 
 const DashSubCategories = () => {
 
@@ -25,24 +25,33 @@ const DashSubCategories = () => {
         sessionStorage.removeItem("SmiliesOnlineLog");
     }
 
+    const token = jwt(smiliesSession);
+
     if (smiliesSession) {
+        if (token.data.status == 'Admin' || token.data.status == 'Urednik') {
 
-        return (
-            <div className='dashboard-container'>
-                <Navbar asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
-                <div className="dashboard__main">
-                    <Header asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
+            return (
+                <div className='dashboard-container'>
+                    <Navbar asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
+                    <div className="dashboard__main">
+                        <Header asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
 
-                    <div className="main__section category__layout-grid">
-                        {/*Ovde idu komponente svake stranice. iznad divovi ostaju isti na svakoj stranici*/}
-                        <AddSubCategory />
-                        <SubCategoryList />
+                        <div className="main__section category__layout-grid">
+                            {/*Ovde idu komponente svake stranice. iznad divovi ostaju isti na svakoj stranici*/}
+                            <AddSubCategory />
+                            <SubCategoryList />
 
-
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div className='dashboard-container'>
+                    <ErrorPage notAdmin />
+                </div>
+            )
+        }
     } else {
         return (
             <div className='dashboard-container'>

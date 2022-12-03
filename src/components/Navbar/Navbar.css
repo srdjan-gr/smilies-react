@@ -59,6 +59,15 @@ nav {
     margin-left: 2rem;
 }
 
+.navbar__right .navbar__right-user {
+    display: flex;
+}
+
+.navbar__right .navbar__right-user-name{
+    text-transform: capitalize;
+    color: var(--color-acent);
+}
+
 .mobile__menu {
     display: none;
 }

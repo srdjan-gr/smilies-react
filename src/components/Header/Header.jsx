@@ -70,7 +70,6 @@ const Header = () => {
                 </div>
 
                 <div className="menus">
-
                     {
                         loading ? <p>Loading...</p> : data.greska ? <h3 className='color-danger'>{data.greska}</h3> :
                             <ul>
@@ -96,14 +95,12 @@ const Header = () => {
                                 }
                             </ul>
                     }
-
                 </div>
-                {<SubCategoryMenu subCategoryMenu={subCategoryMenu} setSubCategoryMenu={setSubCategoryMenu} categoryId={categoryId} accentColorLink={accentColor} setAccentColor={setAccentColor} />}
             </div>
 
+            {<SubCategoryMenu subCategoryMenu={subCategoryMenu} setSubCategoryMenu={setSubCategoryMenu} categoryId={categoryId} accentColorLink={accentColor} setAccentColor={setAccentColor} />}
+
         </header>
-
-
     )
 }
 

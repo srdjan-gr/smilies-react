@@ -23,23 +23,33 @@ const Dashboard = () => {
         sessionStorage.removeItem("SmiliesOnlineLog");
     }
 
+    const token = jwt(smiliesSession);
 
 
     if (smiliesSession) {
-        return (
-            <div className='dashboard-container'>
-                <Navbar asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
-                <div className="dashboard__main">
-                    <Header asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
 
-                    <div className="main__section">
-                        {/*Ovde idu komponente svake stranice. iznad divovi ostaju isti na svakoj stranici*/}
+        if (token.data.status == 'Admin' || token.data.status == 'Urednik') {
+            return (
+                <div className='dashboard-container'>
+                    <Navbar asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
+                    <div className="dashboard__main">
+                        <Header asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
+
+                        <div className="main__section">
+                            {/*Ovde idu komponente svake stranice. iznad divovi ostaju isti na svakoj stranici*/}
 
 
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div className='dashboard-container'>
+                    <ErrorPage notAdmin />
+                </div>
+            )
+        }
     } else {
         return (
             <div className='dashboard-container'>
@@ -47,6 +57,7 @@ const Dashboard = () => {
             </div>
         )
     }
+
 }
 
 export default Dashboard

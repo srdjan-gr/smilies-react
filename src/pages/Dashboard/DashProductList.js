@@ -3,6 +3,7 @@ import Header from '../../components/Dashboard/Header/Header'
 import Navbar from '../../components/Dashboard/Navbar/Navbar'
 import ProductList from '../../components/Dashboard/ProductList/ProductList'
 import ErrorPage from '../ErrorPage/ErrorPage'
+import jwt from 'jwt-decode'
 
 const DashProductList = () => {
     const [asideMenu, setAsideMenu] = useState(false);
@@ -20,22 +21,32 @@ const DashProductList = () => {
     const sessionKill = () => {
         sessionStorage.removeItem("SmiliesOnlineLog");
     }
+    const token = jwt(smiliesSession);
 
     if (smiliesSession) {
-        return (
-            <div className='dashboard-container'>
-                <Navbar asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
-                <div className="dashboard__main">
-                    <Header asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
+        if (token.data.status == 'Admin' || token.data.status == 'Urednik') {
 
-                    <div className="main__section ">
-                        {/*Ovde idu komponente svake stranice. iznad divovi ostaju isti na svakoj stranici*/}
-                        <ProductList />
+            return (
+                <div className='dashboard-container'>
+                    <Navbar asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
+                    <div className="dashboard__main">
+                        <Header asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
+
+                        <div className="main__section ">
+                            {/*Ovde idu komponente svake stranice. iznad divovi ostaju isti na svakoj stranici*/}
+                            <ProductList />
+                        </div>
                     </div>
+                    <img src="../../" alt="" />
                 </div>
-                <img src="../../" alt="" />
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div className='dashboard-container'>
+                    <ErrorPage notAdmin />
+                </div>
+            )
+        }
     } else {
         return (
             <div className='dashboard-container'>

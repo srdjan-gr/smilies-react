@@ -10,7 +10,6 @@
 
 @media (max-width: 768px){
     .devider {
-        width: 100%;
-        min-height: 14rem;
+        min-height: 12rem !important;
     }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
+import jwt from 'jwt-decode'
 
 import MobileMenu from '../MobileMenu/MobileMenu';
 import Search from '../Search/Search';
@@ -53,6 +54,24 @@ const Navbar = () => {
         sessionStorage.removeItem("SmiliesOnlineLog");
     }
 
+    const userName = () => {
+        const token = jwt(smiliesSession);
+
+        if (smiliesSession && token.data.status == 'Korisnik') {
+            return (
+                <span className="navbar__right-user-name ml-1" >
+                    {`( ${token.data.name} )`}
+                </span>
+            )
+        } else if (smiliesSession && token.data.status == 'Admin' || token.data.status == 'Urednik') {
+            return (
+                <div className='navbar__right-user'>
+                    <li><Link to="/Dashboard" data-en='Dash' data-sr='Dash'>Dash</Link></li>
+                    <span className="navbar__right-user-name ml-1" > {`( ${token.data.name} )`}</span>
+                </div>
+            )
+        }
+    }
 
     if (smiliesSession) {
         return (
@@ -87,6 +106,8 @@ const Navbar = () => {
                                 </span>
 
                                 <li className="login"><Link to="/" data-en='Log Out' data-sr='Odjava' onClick={sessionKill}>Odjava</Link></li>
+
+                                {userName()}
                             </div>
                         </div>
                     </div>
@@ -94,52 +115,6 @@ const Navbar = () => {
 
                 <MobileMenu mobileMenu={mobileMenu} setMobileMenu={setMobileMenu} />
                 <Search search={search} setSearch={setSearch} />
-
-                <Bag bag={bag} setBag={setBag} bagModal={bagModal} setBagModal={setBagModal} />
-            </div>
-        )
-    } else if (smiliesSession) {
-
-        return (
-            <div>
-                <nav>
-                    <div className="container">
-                        <div className="navbar">
-                            <div className="navbar__left" id="navbar__left">
-
-                                <div className="lang-menu">
-                                    <li className="lang-active">EN</li>
-                                    <li>SR</li>
-                                </div>
-
-                                <div className='pages-menu'>
-                                    <li className="current"><Link to="/" data-en='Home' data-sr='Početna'>Početna</Link></li>
-                                    <li><Link to="/Contact" data-en='Contact' data-sr='Kontakt'>Kontakt</Link></li>
-                                    <li><Link to="/About" data-en='About Us' data-sr='O nama'>O nama</Link></li>
-                                </div>
-
-                            </div>
-                            <div className="navbar__right">
-
-                                <span><IoSearchOutline className='icon-small ml-2' onClick={openSearch} /></span>
-                                <span className='bag__icons-container'>
-                                    <IoBagOutline className='icon-small ml-2' onClick={openBag} />
-                                    {bagFull()}
-                                </span>
-
-                                <span className="mobile__menu" >
-                                    <IoEllipsisVerticalOutline className='icon-small ml-2' onClick={addMobileMenuCLass} />
-                                </span>
-
-                                <li className="login"><Link to="/Login" data-en='Log in / Sign In' data-sr='Prijava / Registracija'>Prijava / Registracija</Link></li>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-
-                <MobileMenu mobileMenu={mobileMenu} setMobileMenu={setMobileMenu} />
-                <Search search={search} setSearch={setSearch} />
-
                 <Bag bag={bag} setBag={setBag} bagModal={bagModal} setBagModal={setBagModal} />
             </div>
         )
@@ -184,7 +159,6 @@ const Navbar = () => {
 
                 <MobileMenu mobileMenu={mobileMenu} setMobileMenu={setMobileMenu} />
                 <Search search={search} setSearch={setSearch} />
-
                 <Bag bag={bag} setBag={setBag} bagModal={bagModal} setBagModal={setBagModal} />
             </div>
         )
