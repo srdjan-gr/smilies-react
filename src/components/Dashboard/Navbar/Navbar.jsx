@@ -113,7 +113,7 @@ const Navbar = ({ asideMenu, setAsideMenu }) => {
 
 
             <div className="theme__switch" >
-                <RiSunLine className="icon-dash-custom" />
+                <RiSunLine className="icon-main" />
                 <div className="switcher" >
                     <span className="switcher__slider slider-move "></span>
                 </div>

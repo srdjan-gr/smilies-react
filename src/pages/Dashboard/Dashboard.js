@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Header from '../../components/Dashboard/Header/Header'
 import Navbar from '../../components/Dashboard/Navbar/Navbar'
 import ErrorPage from '../ErrorPage/ErrorPage';
+import jwt from 'jwt-decode'
 
 const Dashboard = () => {
 
@@ -21,6 +22,8 @@ const Dashboard = () => {
     const sessionKill = () => {
         sessionStorage.removeItem("SmiliesOnlineLog");
     }
+
+
 
     if (smiliesSession) {
         return (

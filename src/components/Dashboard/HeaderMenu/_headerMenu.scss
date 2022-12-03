@@ -1,0 +1,47 @@
+.header__menu {
+    position: absolute;
+    top: 6rem;
+    right: 4rem;
+    z-index: 3;
+    min-width: 14rem;
+    padding: .5rem 0;
+    background-color: $dash-main;
+    border-radius: $dash-radius;
+    border: $dash-border;
+    box-shadow: $dash-box-shadow;
+    color: $dash-txt;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: $dash-transition-03;
+    transform-origin: top;
+    transform: rotateX(-90deg);
+
+    &-options {
+        text-transform: capitalize;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: .5rem 1.5rem;
+
+        &:hover {
+            background-color: $dash-hover;
+            cursor: pointer;
+        }
+
+        span {
+            padding-left: 1rem;
+
+            &:hover {
+                color: $dash-txt;
+            }
+        }
+    }
+}
+
+.headerMenuActive {
+    transform: rotateX(0deg);
+    transition: $dash-transition-03;
+}

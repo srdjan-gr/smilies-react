@@ -63,7 +63,7 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
 
                         } else if (!smiliesSession) {
 
-                            sessionStorage.setItem("SmiliesOnlineLog", odgovor);
+                            sessionStorage.setItem("SmiliesOnlineLog", odgovor.token);
                             const token = jwt(response.data.token);
 
                             if (token.data.status == 'Admin' || token.data.status == 'Urednik') {

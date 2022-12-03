@@ -33,6 +33,7 @@ const DashProductList = () => {
                         <ProductList />
                     </div>
                 </div>
+                <img src="../../" alt="" />
             </div>
         )
     } else {
