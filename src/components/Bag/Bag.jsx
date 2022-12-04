@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Bag.css'
 import { IoTrashOutline, IoCloseOutline, IoAddOutline, IoRemoveOutline } from 'react-icons/io5'
 import { confirm } from "react-confirm-box";
+import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { countTotal, removeFromCart } from '../../redux/features/cart/cartSlice';
@@ -98,22 +99,24 @@ const Bag = ({ bagModal, setBagModal, bag, setBag }) => {
                     }
                 </article>
 
+                {/*Shoping bag Footer*/}
                 {
                     cart.cartTotalQuantity === 0 ? (
                         ''
                     ) : (
-                        <div className='shoping__bag-footer'>
-                            <p className='text-bold' data-en="Pieces:" data-sr="Kom:">Kol: {cart.cartTotalQuantity}</p>
-                            <p className='text-bold' data-en="Total:" data-sr="Ukupno:"> &#61; {cart.cartTotalPrice} ,00 rsd</p>
+                        <div>
+                            <div className='shoping__bag-footer'>
+                                <p className='text-bold' data-en="Pieces:" data-sr="Kom:">Kol: {cart.cartTotalQuantity}</p>
+                                <p className='text-bold' data-en="Total:" data-sr="Ukupno:"> &#61; {cart.cartTotalPrice} ,00 rsd</p>
+                            </div>
+
+                            <Link to="/payment" className='link-style-icon'>
+                                <button type='button' className="btn" data-en="Go to purchase" data-sr="Idi na plaćanje" >Idi na plaćanje</button>
+                            </Link>
                         </div>
                     )
                 }
-
-
-                <button className="btn" data-en="Go to purchase" data-sr="Idi na plaćanje">Idi na plaćanje</button>
-
             </article>
-
         </section>
     )
 }

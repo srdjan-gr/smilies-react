@@ -48,6 +48,7 @@ body {
   color: #242424;
   background-color: #ffffff;
   line-height: 1.6;
+  letter-spacing: .05rem;
   -webkit-font-smoothing: subpixel-antialiased; 
   outline: 0;
 }

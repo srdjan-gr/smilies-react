@@ -32,6 +32,7 @@ import DashCategories from './pages/Dashboard/DashCategories';
 import DashSubCategories from './pages/Dashboard/DashSubCategories';
 import DashCreateProduct from './pages/Dashboard/DashCreateProduct';
 import DashProductList from './pages/Dashboard/DashProductList';
+import Payment from './pages/Payment/Payment';
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
           <Route path='/Contact' element={<Contact location={location} setLocation={setLocation} />} />
           <Route path='/About' element={<About location={location} setLocation={setLocation} />} />
           <Route path='/Login' element={<Login location={location} setLocation={setLocation} message={message} setMessage={setMessage} />} />
+          <Route path='/Payment' element={<Payment location={location} setLocation={setLocation} />} />
 
           <Route path='/Terms' element={<Terms location={location} setLocation={setLocation} />} />
           <Route path='/Privacy' element={<Privacy location={location} setLocation={setLocation} />} />

@@ -16,6 +16,10 @@
     transition: 0.2s linear background-color; 
 }
 
+.btn-with-100{
+    min-width: 100%;
+}
+
 .btn:hover {
     cursor: pointer;
     background-color: #ffffff;
