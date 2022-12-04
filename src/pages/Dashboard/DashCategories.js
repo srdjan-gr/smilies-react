@@ -40,7 +40,6 @@ const Categories = () => {
                             <CategoryAdd />
                             <CategoryList />
 
-
                         </div>
                     </div>
                 </div>
@@ -48,17 +47,13 @@ const Categories = () => {
 
         } else {
             return (
-                <div className='dashboard-container'>
-                    <ErrorPage notAdmin />
-                </div>
+                <ErrorPage notAdmin />
             )
         }
 
     } else {
         return (
-            <div className='dashboard-container'>
-                <ErrorPage nologin />
-            </div>
+            <ErrorPage nologin />
         )
     }
 }

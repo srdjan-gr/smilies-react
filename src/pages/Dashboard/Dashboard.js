@@ -43,16 +43,12 @@ const Dashboard = () => {
             )
         } else {
             return (
-                <div className='dashboard-container'>
-                    <ErrorPage notAdmin />
-                </div>
+                <ErrorPage notAdmin />
             )
         }
     } else {
         return (
-            <div className='dashboard-container'>
-                <ErrorPage nologin />
-            </div>
+            <ErrorPage nologin />
         )
     }
 

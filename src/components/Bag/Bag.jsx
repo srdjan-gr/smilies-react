@@ -27,7 +27,7 @@ const Bag = ({ bagModal, setBagModal, bag, setBag }) => {
 
     const handleRemoveFromCart = async (item) => {
 
-        const result = await confirm("Da li ste sigurni da želite da obrišete proizvod iz korpe?", PopupOptions);
+        const result = await confirm("Želite da obrišete ovaj proizvod iz korpe?", PopupOptions);
         if (result) {
             dispatch(removeFromCart(item));
             dispatch(countTotal());
