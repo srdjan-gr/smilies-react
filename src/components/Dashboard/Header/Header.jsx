@@ -44,7 +44,7 @@ const Header = ({ asideMenu, setAsideMenu }) => {
 
 
   return (
-    <div>
+    <article>
       <header className="header">
 
         <div className="header__left">
@@ -66,7 +66,7 @@ const Header = ({ asideMenu, setAsideMenu }) => {
 
       </header>
       <HeaderMenu headerMenu={headerMenu} setHeaderMenu={setHeaderMenu} />
-    </div>
+    </article>
   )
 }
 

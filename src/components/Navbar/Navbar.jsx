@@ -55,8 +55,8 @@ const Navbar = () => {
     }
 
     const userName = () => {
+        
         const token = jwt(smiliesSession);
-
         if (smiliesSession && token.data.status == 'Korisnik') {
             return (
                 <span className="navbar__right-user-name ml-1" >

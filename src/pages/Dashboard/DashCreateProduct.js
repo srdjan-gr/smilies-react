@@ -22,9 +22,10 @@ const CreateProduct = () => {
     const sessionKill = () => {
         sessionStorage.removeItem("SmiliesOnlineLog");
     }
-    const token = jwt(smiliesSession);
 
     if (smiliesSession) {
+        const token = jwt(smiliesSession);
+
         if (token.data.status == 'Admin' || token.data.status == 'Urednik') {
 
             return (

@@ -12,11 +12,12 @@ const Navbar = ({ asideMenu, setAsideMenu }) => {
     return (
         <aside className={`${asideMenu ? 'closeAside' : ''} aside__menu`}>
 
-            <div className="aside__menu-top" >
-                <div className="aside__menu-top-left">
-
+            <Link to="/" >
+                <div className="aside__menu-top" >
+                    <div className="aside__menu-top-left">
+                    </div>
                 </div>
-            </div>
+            </Link>
 
             <div className="aside__menu-bottom" id="asideBottom">
 
@@ -69,7 +70,7 @@ const Navbar = ({ asideMenu, setAsideMenu }) => {
                             <ul>
                                 <div className='group-header'>
                                     <Link to="/addproduct" className='link-style-icon'><RiAddLine className="icon-main" /></Link>
-                                    <span className='link-style'><Link to="/addproduct" className='link-style-group'>Dodaj proizvod</Link></span>
+                                    <span className='link-style'><Link to="/dashcreateproduct" className='link-style-group'>Dodaj proizvod</Link></span>
                                 </div>
                                 <div className='group-header'>
                                     <Link to="/productlist" className='link-style-icon'><RiFileList2Line className="icon-main" /></Link>
@@ -91,11 +92,18 @@ const Navbar = ({ asideMenu, setAsideMenu }) => {
                             <p ><RiArrowDownSLine className="icon-main icon-dash-submenu" />Korisnici</p>
                         </div>
                         <div className="group-content">
-                            <ul>
-                                <li ><RiUserAddLine className="icon-small mr-1" /> <span>Dodaj korisnika</span></li>
-                                <li ><RiUserSettingsLine className="icon-small mr-1" /> <span>Lista korisnika</span></li>
-                                <li ><RiLoginCircleLine className="icon-small mr-1" /> <span>Log кorisnici</span></li>
-                            </ul>
+                            <div className='group-header'>
+                                <Link to="/addproduct" className='link-style-icon'><RiUserAddLine className="icon-main" /></Link>
+                                <span className='link-style'><Link to="/dashcreateuser" className='link-style-group'>Dodaj korisnika</Link></span>
+                            </div>
+                            <div className='group-header'>
+                                <Link to="/productlist" className='link-style-icon'><RiUserSettingsLine className="icon-main" /></Link>
+                                <span className='link-style'><Link to="/usertlist" className='link-style-group'>Lista korisnika</Link></span>
+                            </div>
+                            <div className='group-header'>
+                                <Link to="/dashaddproduct" className='link-style-icon'><RiLoginCircleLine className="icon-main" /></Link>
+                                <span className='link-style'><Link to="/userlog" className='link-style-group'>Log кorisnici</Link></span>
+                            </div>
                         </div>
                     </div>
                 </div>

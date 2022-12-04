@@ -13,12 +13,10 @@ const ErrorPage = ({ error, nologin, notAdmin }) => {
         return (
             <div className="container">
                 <div className="error">
-                    {/*<h2 >Error!!! These page does not exists.</h2>*/}
-
 
                     <img src={logo} alt="Smilies Logo" />
                     <h1>404</h1>
-                    <h2>Stranica ne postoji.</h2>
+                    <h2>Stranica ne postoji.</h2> 
 
                     <Link className='error-link' to='/'>Nazad na početnu stranicu</Link>
                 </div>
@@ -28,11 +26,10 @@ const ErrorPage = ({ error, nologin, notAdmin }) => {
         return (
             <div className="container">
                 <div className="error">
-                    {/*<h2 >Error!!! These page does not exists.</h2>*/}
-
 
                     <img src={logo} alt="Smilies Logo" />
                     <h2>Morate biti ulogovani da biste pristupili ovoj stranici!</h2>
+
                     <Link className='error-link' to='/Login'>Nazad na Login stranicu</Link>
                 </div>
             </div>
@@ -41,11 +38,10 @@ const ErrorPage = ({ error, nologin, notAdmin }) => {
         return (
             <div className="container">
                 <div className="error">
-                    {/*<h2 >Error!!! These page does not exists.</h2>*/}
-
 
                     <img src={logo} alt="Smilies Logo" />
                     <h2>Pristup ovoj stranici imaju samo Admin ili Urednik!</h2>
+                    
                     <Link className='error-link' to='/'>Nazad na početnu stranicu</Link>
                 </div>
             </div>

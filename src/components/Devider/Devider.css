@@ -1,7 +1,8 @@
 .devider {
     width: 100%;
-    min-height: 15rem;
-    background-color: #0bf;
+    height: 15rem;
+    /* background-color: rgb(113, 163, 228) !important; */
+    background-color: #fff !important;
 }
 
 /* .nav__logo.hideLogo .devider {
@@ -10,6 +11,6 @@
 
 @media (max-width: 768px){
     .devider {
-        min-height: 12rem !important;
+        height: 12rem !important;
     }
 }

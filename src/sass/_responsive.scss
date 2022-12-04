@@ -20,12 +20,21 @@
 }
 
 @media screen and (max-width:920px) {
-    .aside__menu {
-        min-width: 6rem !important;
-    }
+    // .aside__menu {
+    //     min-width: 6rem !important;
+    // }
 
     .aside__menu {
         max-width: 6rem !important;
+
+        &-top {
+
+            background: url(../assets/img/logos/Smilies-S-White-2022.svg) !important;
+            background-position: left !important;
+            background-size: 2.5rem !important;
+            background-repeat: no-repeat !important;
+
+        }
     }
 
     .mobile-span-text {
@@ -75,8 +84,16 @@
 
 @media screen and (max-width:768px) {
 
-    .hamburger {
-        display: block !important;
+    .header {
+
+        &__right {
+
+            width: 100%;
+        }
+
+        .hamburger {
+            display: block !important;
+        }
     }
 
     .aside__menu {

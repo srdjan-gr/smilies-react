@@ -53,10 +53,10 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }) => {
 
             <div className="mobile-pages">
                 <ul>
-                    <li><Link onClick={closeMobileMenu} to="/">Home</Link></li>
-                    <li><Link onClick={closeMobileMenu} to="/Contact">Contact</Link></li>
-                    <li><Link onClick={closeMobileMenu} to="/About">About Us</Link></li>
-                    <li><Link onClick={closeMobileMenu} to="/Login">Log in / Sign In</Link></li>
+                    <li><Link onClick={closeMobileMenu} data-en='Home' data-sr='Početna' to="/">Početna</Link></li>
+                    <li><Link onClick={closeMobileMenu} data-en='Contact' data-sr='Kontakt' to="/Contact">Kontakt</Link></li>
+                    <li><Link onClick={closeMobileMenu} data-en='About Us' data-sr='O nama' to="/About">O nama</Link></li>
+                    <li><Link onClick={closeMobileMenu} data-en='Log in / Sign In' data-sr='Prijava / Registracija' to="/Login">Prijava / Registracija</Link></li>
                 </ul>
             </div>
 
