@@ -65,10 +65,6 @@ const ErrorPage = ({ error, nologin, notAdmin, empyBag }) => {
     } else if (empyBag) {
         return (
             <div>
-                <Navbar />
-                <Header />
-                <Devider />
-
                 <div className="container">
                     <div className="error">
 

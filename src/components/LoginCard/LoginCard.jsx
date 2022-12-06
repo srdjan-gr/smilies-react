@@ -18,6 +18,7 @@ import Message from '../Message/Message';
 const LoginCard = ({ loginCard, setLoginCard }) => {
 
     const [showLoginPass, setShowLoginPass] = useState(false);
+    const [login, setLogin] = useState('');
     const navigate = useNavigate();
 
     const cardRotation = () => {
@@ -53,7 +54,6 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
                     setPassword('');
 
                     const odgovor = response.data;
-
                     if (odgovor) {
 
                         const smiliesSession = sessionStorage.getItem("SmiliesOnlineLog");
@@ -63,7 +63,13 @@ const LoginCard = ({ loginCard, setLoginCard }) => {
 
                         } else if (!smiliesSession) {
 
-                            sessionStorage.setItem("SmiliesOnlineLog", odgovor.token);
+                            sessionStorage.setItem("SmiliesOnlineLog", JSON.stringify({
+                                login:true,
+                                token:response.data.token
+                            }));
+
+                            setLogin({login:true});
+
                             const token = jwt(response.data.token);
 
                             if (token.data.status == 'Admin' || token.data.status == 'Urednik') {

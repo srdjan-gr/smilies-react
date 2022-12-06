@@ -397,6 +397,13 @@
   .payment {
     grid-template-columns: 1fr !important;
   }
+  .payment .order__price {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .payment .order__price h3:nth-child(1) {
+    margin-bottom: 1rem;
+  }
 }
 @media screen and (max-width: 460px) {
   .table .column-small {
@@ -485,7 +492,14 @@
 .payment__container .payment__section {
   display: flex;
   flex-direction: column;
-  position: relative;
+}
+.payment__container .payment__section .payment__street {
+  display: flex;
+  gap: 1rem;
+}
+.payment__container .payment__section .payment__street-single {
+  display: flex;
+  flex-direction: column;
 }
 .payment__container .payment__section .user__data {
   display: flex;
@@ -501,11 +515,11 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: solid 1px rgba(216, 216, 216, 0.9725490196);
-  margin: 0 2rem 2rem;
+  margin: 0 1rem 2rem;
 }
 .payment__container .payment__section .order__single-product .order__image {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 .payment__container .payment__section .order__single-product .order__image img {
   width: 8rem;
@@ -521,7 +535,8 @@
   display: flex;
   align-items: center;
 }
-.payment__container .payment input[type=text] {
+.payment__container .payment input[type=text],
+.payment__container .payment input[type=email] {
   height: 3rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -529,7 +544,7 @@
   border: solid 1px rgba(216, 216, 216, 0.9725490196);
   width: 100%;
   padding: 0.5rem;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   height: 3.5rem;
   font-weight: 400;
 }
@@ -548,6 +563,7 @@
 .payment__container .payment .payment-border {
   border: solid 1px rgba(216, 216, 216, 0.9725490196);
   border-radius: 4px;
+  box-shadow: 7px 7px 5px -5px rgba(0, 0, 0, 0.2);
 }
 
 .aside__menu {

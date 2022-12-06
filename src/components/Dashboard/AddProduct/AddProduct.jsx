@@ -117,7 +117,7 @@ const AddProduct = () => {
     for (let kljuc in sendData) {
       formData.append(kljuc, sendData[kljuc]);
     }
-
+console.log(sendData)
     api({
       method: 'post',
       url: 'productAdd.php',
