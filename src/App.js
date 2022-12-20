@@ -33,6 +33,7 @@ import DashSubCategories from './pages/Dashboard/DashSubCategories';
 import DashCreateProduct from './pages/Dashboard/DashCreateProduct';
 import DashProductList from './pages/Dashboard/DashProductList';
 import Payment from './pages/Payment/Payment';
+import Orders from './pages/Dashboard/Orders';
 
 
 function App() {
@@ -85,6 +86,7 @@ function App() {
           <Route path='/DashSubCategories' element={<DashSubCategories location={location} setLocation={setLocation} />} />
           <Route path='/DashCreateProduct' element={<DashCreateProduct location={location} setLocation={setLocation} />} />
           <Route path='/productlist' element={<DashProductList location={location} setLocation={setLocation} />} />
+          <Route path='/orders' element={<Orders location={location} setLocation={setLocation} />} />
 
 
 

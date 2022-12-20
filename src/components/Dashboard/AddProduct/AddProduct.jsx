@@ -16,7 +16,7 @@ const AddProduct = () => {
   const subCategoryList = useSelector((state) => state.subCategoryDashList)
   const { subLoading, subData, subMessage } = subCategoryList;
 
-  const [ loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [slike, setSlike] = useState([]);
   const [odrzavanje, setOdrzavanje] = useState([]);
@@ -86,9 +86,10 @@ const AddProduct = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setLoading(true);
+    setLoading(false);
 
     const formData = new FormData();
+
     for (let i = 0; i < slike.length; i++) {
       formData.append('slike[]', slike[i]);
     }
@@ -117,20 +118,23 @@ const AddProduct = () => {
     for (let kljuc in sendData) {
       formData.append(kljuc, sendData[kljuc]);
     }
-console.log(sendData)
+
+    // console.log(sendData)
+
+    const resolveWithSomeData = new Promise(resolve => setTimeout(() => resolve("world"), 3000));
+
+
     api({
       method: 'post',
       url: 'productAdd.php',
       data: formData,
+
     })
       .then((response) => {
+        // console.log(formData)
 
-        // if(loading){
-        //     notifyLoading()
-        // }
+        if (response.data.uspesno) {
 
-       if(response.data.uspesno) {
-          
           notifySuccess(response.data.uspesno);
 
           setSlike([]);

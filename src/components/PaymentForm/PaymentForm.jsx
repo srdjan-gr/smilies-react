@@ -22,6 +22,8 @@ const PaymentForm = () => {
 
     const cart = useSelector((state) => state.cartList);
     const dispatch = useDispatch();
+    // Session
+    const smiliesSession = sessionStorage.getItem("SmiliesOnlineLog");
     // const token = jwt(smiliesSession);
 
     const [ime, setIme] = useState('');
@@ -36,6 +38,7 @@ const PaymentForm = () => {
     const [brojTelefona, setBrojTelefona] = useState('');
     const [preuzimanje, setPreuzimanje] = useState('dostava');
     const [placanje, setPlacanje] = useState('pouzece');
+    
     const [proizvodi, setProizvodi] = useState([]);
 
 
@@ -54,40 +57,73 @@ const PaymentForm = () => {
 
         e.preventDefault();
 
-        const sendData = {
-            ime: ime,
-            prezime: prezime,
-            email: email,
-            ulica: ulica,
-            brojUlaza: brojUlaza,
-            brojStana: brojStana,
-            drzava: drzava,
-            grad: grad,
-            postanskiBroj: postanskiBroj,
-            brojTelefona: brojTelefona,
-            preuzimanje: preuzimanje,
-            placanje: placanje,
-            proizvodi: proizvodi,
-        }
+        if (smiliesSession) {
 
-        api({
-            method: 'post',
-            url: 'order.php',
-            data: sendData,
-        })
-            .then((response) => {
-                if (response.data.uspesno) {
+            const sendData = {
+                // email: token.data.email,
+                preuzimanje: preuzimanje,
+                placanje: placanje,
+                proizvodi: proizvodi,
+                // session: true,
+            }
 
-                    notifySuccess(response.data.uspesno);
+            console.log(sendData);
 
-
-                } else if (response.data.greska) {
-                    notifyError(response.data.greska);
-                } else if (response.data.info) {
-                    notifyInfo(response.data.info);
-                }
+            api({
+                method: 'post',
+                url: 'order.php',
+                data: sendData,
             })
+                .then((response) => {
+                    if (response.data.uspesno) {
 
+                        notifySuccess(response.data.uspesno);
+
+
+                    } else if (response.data.greska) {
+                        notifyError(response.data.greska);
+                    } else if (response.data.info) {
+                        notifyInfo(response.data.info);
+                    }
+                })
+        } else {
+
+            const sendData = {
+                ime: ime,
+                prezime: prezime,
+                email: email,
+                ulica: ulica,
+                brojUlaza: brojUlaza,
+                brojStana: brojStana,
+                drzava: drzava,
+                grad: grad,
+                postanskiBroj: postanskiBroj,
+                brojTelefona: brojTelefona,
+                preuzimanje: preuzimanje,
+                placanje: placanje,
+                proizvodi: proizvodi
+                // session: false
+            }
+            console.log(sendData);
+
+            api({
+                method: 'post',
+                url: 'order.php',
+                data: sendData,
+            })
+                .then((response) => {
+                    if (response.data.uspesno) {
+
+                        notifySuccess(response.data.uspesno);
+
+
+                    } else if (response.data.greska) {
+                        notifyError(response.data.greska);
+                    } else if (response.data.info) {
+                        notifyInfo(response.data.info);
+                    }
+                })
+        }
 
     }
 
@@ -118,8 +154,7 @@ const PaymentForm = () => {
         toast.info(<Message info={odgovor} />);
     }
 
-    // Session
-    const smiliesSession = sessionStorage.getItem("SmiliesOnlineLog");
+
 
     if (cart.cartTotalQuantity != 0) {
         return (

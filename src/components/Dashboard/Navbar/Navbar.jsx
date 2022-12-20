@@ -26,7 +26,7 @@ const Navbar = ({ asideMenu, setAsideMenu }) => {
                     <div className="group">
                         <div className='group-header'>
                             <RiShoppingCartLine className="icon-main icon-dash-green ml-18 " />
-                            <p >Porudzbine</p>
+                            <span className='link-style'><Link to="/orders" className='link-style'>Porudzbine</Link></span>
                         </div>
                     </div>
                 </div>
