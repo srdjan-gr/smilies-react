@@ -1,0 +1,22 @@
+.order__status {
+
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+}
+
+.order__status-danger {
+    background-color: $dash-danger-muted;
+}
+
+.order__status-info {
+    background-color: $dash-info-muted;
+}
+
+.order__status-success {
+    background-color: $dash-success-muted;
+}
+
+.order__status-default {
+    background-color: rgba(128, 128, 128, 0.5);
+}

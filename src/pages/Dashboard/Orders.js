@@ -6,8 +6,11 @@ import ErrorPage from '../ErrorPage/ErrorPage'
 import jwt from 'jwt-decode'
 
 const Orders = () => {
+    document.title = 'Order';
+
     const [asideMenu, setAsideMenu] = useState(false);
     const [devider, setDevider] = useState(false);
+
 
     useEffect(() => {
         const asideMenuStorage = localStorage.getItem('sidebar');

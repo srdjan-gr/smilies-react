@@ -5,6 +5,7 @@ import ErrorPage from '../ErrorPage/ErrorPage';
 import jwt from 'jwt-decode'
 
 const Dashboard = () => {
+    document.title = 'Dashboard';
 
     const [asideMenu, setAsideMenu] = useState(false);
     const [devider, setDevider] = useState(false);

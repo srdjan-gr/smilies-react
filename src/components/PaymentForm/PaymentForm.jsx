@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-import jwt from 'jwt-decode'
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import jwt from 'jwt-decode';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { countTotal, removeFromCart } from '../../redux/features/cart/cartSlice';
@@ -24,7 +24,8 @@ const PaymentForm = () => {
     const dispatch = useDispatch();
     // Session
     const smiliesSession = sessionStorage.getItem("SmiliesOnlineLog");
-    // const token = jwt(smiliesSession);
+    const navigate = useNavigate();
+
 
     const [ime, setIme] = useState('');
     const [prezime, setPrezime] = useState('');
@@ -52,34 +53,40 @@ const PaymentForm = () => {
             return;
         }
     }
-
+    
     const handlePaymentSubmit = (e) => {
-
+        
         e.preventDefault();
-
+        
         if (smiliesSession) {
+            const token = jwt(smiliesSession);
 
             const sendData = {
-                // email: token.data.email,
+                ime: token.data.name,
+                prezime: token.data.last_name,
+                email: token.data.email,
+                ulica: ulica,
+                brojUlaza: brojUlaza,
+                brojStana: brojStana,
+                drzava: drzava,
+                grad: grad,
+                postanskiBroj: postanskiBroj,
+                brojTelefona: brojTelefona,
                 preuzimanje: preuzimanje,
                 placanje: placanje,
                 proizvodi: proizvodi,
                 // session: true,
             }
 
-            console.log(sendData);
-
             api({
                 method: 'post',
-                url: 'order.php',
+                url: 'orderN.php',
                 data: sendData,
             })
                 .then((response) => {
                     if (response.data.uspesno) {
-
                         notifySuccess(response.data.uspesno);
-
-
+                        navigate('/')
                     } else if (response.data.greska) {
                         notifyError(response.data.greska);
                     } else if (response.data.info) {
@@ -104,27 +111,24 @@ const PaymentForm = () => {
                 proizvodi: proizvodi
                 // session: false
             }
-            console.log(sendData);
 
             api({
                 method: 'post',
-                url: 'order.php',
+                url: 'orderN.php',
                 data: sendData,
             })
                 .then((response) => {
                     if (response.data.uspesno) {
-
                         notifySuccess(response.data.uspesno);
-
-
+                        navigate('/')
                     } else if (response.data.greska) {
                         notifyError(response.data.greska);
                     } else if (response.data.info) {
                         notifyInfo(response.data.info);
                     }
                 })
+                //  Brisanje sdvih polja , redirekcija na neku stranu ako je uspesna porudzbina
         }
-
     }
 
 
@@ -133,8 +137,8 @@ const PaymentForm = () => {
         let n = proizvodi.filter((item) => {
             return item !== idd
         })
-        setProizvodi([])
 
+        setProizvodi([])
         setProizvodi(n)
     }
 
@@ -167,7 +171,44 @@ const PaymentForm = () => {
                     <div className='payment'>
 
                         {
-                            smiliesSession ? ('') : (
+                            smiliesSession ? (
+                                
+                                <section className='payment__section'>
+                                    <div className='payment-border mb-2 p-2'>
+                                        <h2>Ostali podaci za Prijavljenog korisnika</h2>
+                                        <div className='user__data'>
+
+                                            <div className='payment__street'>
+                                                <div className='payment__street-single'>
+                                                    <label htmlFor="" data-en='Street' data-sr='Ulica'>Ulica</label>
+                                                    <input type="text" name='ulica' value={ulica} onChange={(e) => setUlica(e.target.value)} />
+                                                </div>
+                                                <div className='payment__street-single'>
+                                                    <label htmlFor="" data-en='Street' data-sr='Broj ulaza'>Broj ulaza</label>
+                                                    <input type="text" name='brojUlaza' value={brojUlaza} onChange={(e) => setBrojUlaza(e.target.value)} />
+                                                </div>
+                                                <div className='payment__street-single'>
+                                                    <label htmlFor="" data-en='Street' data-sr='Broj stana'>Broj stana</label>
+                                                    <input type="text" name='brojStana' value={brojStana} onChange={(e) => setBrojStana(e.target.value)} />
+                                                </div>
+                                            </div>
+
+                                            <label htmlFor="" data-en='State' data-sr='Država'>Država</label>
+                                            <input type="text" name='drzava' value={drzava} onChange={(e) => setDrzava(e.target.value)} />
+
+                                            <label htmlFor="" data-en='City' data-sr='Grad'>Grad</label>
+                                            <input type="text" name='grad' value={grad} onChange={(e) => setGrad(e.target.value)} />
+
+                                            <label htmlFor="" data-en='Zip Code' data-sr='Poštanski broj'>Poštanski broj</label>
+                                            <input type="text" name='postanskiBroj' value={postanskiBroj} onChange={(e) => setPostanskiBroj(e.target.value)} />
+
+                                            <label htmlFor="" data-en='Phone number' data-sr='Broj telefona'>Broj telefona</label>
+                                            <input type="text" name='brojTelefona' value={brojTelefona} onChange={(e) => setBrojTelefona(e.target.value)} />
+                                        </div>
+                                    </div>
+                                </section>
+
+                            ) : (
 
                                 <section className='payment__section'>
                                     <div className='payment-border mb-2 p-2'>
@@ -229,6 +270,8 @@ const PaymentForm = () => {
                             <div className='payment-border mb-2 p-2'>
                                 <h2>Način plaćanja</h2>
                                 <div className='user__data' id='placanje' onChange={(e) => setPlacanje(e.target.value)} >
+
+                                
 
                                     <div className='radion__container mb-1'>
                                         <input type="radio" name='placanje' value='pouzece' defaultChecked={placanje === "pouzece"} />
