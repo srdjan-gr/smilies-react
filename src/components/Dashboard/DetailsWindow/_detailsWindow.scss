@@ -1,0 +1,29 @@
+.details__window {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    width: 70%;
+    height: 100%;
+    background-color: $dash-second;
+    border-left: $dash-border;
+    padding: 2rem;
+    // transform: translateX(100%);
+    transition: $dash-transition-03;
+
+
+    &-inner {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(240, 248, 255, 0.041);
+    }
+
+    & .icon-position {
+        position: absolute;
+        right: 2rem;
+    }
+}
+
+.detailsActive {
+    transform: translateX(0%);
+}

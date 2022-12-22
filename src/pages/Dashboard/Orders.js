@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import OrdersComponent from '../../components/Dashboard/Orders/Orders'
+import DetailsWindow from '../../components/Dashboard/DetailsWindow/DetailsWindow'
 import Header from '../../components/Dashboard/Header/Header'
 import Navbar from '../../components/Dashboard/Navbar/Navbar'
 import ErrorPage from '../ErrorPage/ErrorPage'
@@ -10,6 +11,7 @@ const Orders = () => {
 
     const [asideMenu, setAsideMenu] = useState(false);
     const [devider, setDevider] = useState(false);
+    const [detailsWindow, setDetailsWindow] = useState(false);
 
 
     useEffect(() => {
@@ -37,7 +39,8 @@ const Orders = () => {
                         <Header asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
 
                         <div className="main__section category__layout-grid">
-                            <OrdersComponent />
+                            <OrdersComponent detailsWindow={detailsWindow} setDetailsWindow={setDetailsWindow} />
+                            <DetailsWindow detailsWindow={detailsWindow} setDetailsWindow={setDetailsWindow} />
                         </div>
                     </div>
                 </div>

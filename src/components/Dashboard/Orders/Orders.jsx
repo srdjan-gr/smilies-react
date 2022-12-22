@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getDashOrders } from "../../../redux/features/orders/ordersSlice"
 const slike = process.env.REACT_APP_BACKEND_PRODUCT_IMAGES;
 
-const Orders = () => {
+const Orders = ({ detailsWindow, setDetailsWindow }) => {
 
     const ordersList = useSelector((state) => state.ordersList)
     const { ordersLoading, ordersData, ordersMessage } = ordersList;
@@ -18,6 +18,11 @@ const Orders = () => {
     useEffect(() => {
         dispatch(getDashOrders());
     }, [dispatch]);
+
+
+    const openDetailsWindow = (id) => {
+        setDetailsWindow(!detailsWindow);
+    }
 
 
     // Inicijalno stanje za brisanje ordera
@@ -73,7 +78,7 @@ const Orders = () => {
                 return (
                     <span className='order__status order__status-danger'></span>
                 )
-              break;
+                break;
             case 'poslato':
                 return (
                     <span className='order__status order__status-info'></span>
@@ -83,12 +88,12 @@ const Orders = () => {
                 return (
                     <span className='order__status order__status-success'></span>
                 )
-              break;
+                break;
             default:
                 return (
                     <span className='order__status order__status-default'></span>
                 )
-          }
+        }
     }
 
     return (
@@ -137,7 +142,7 @@ const Orders = () => {
                                             <tr key={idx}>
                                                 <td className='column-small'>{order.por_id}</td>
                                                 <td className='column-small'>
-                                                    { orderStatus(order.por_status) }
+                                                    {orderStatus(order.por_status)}
                                                 </td>
                                                 <td className='column-medium'>{order.por_ime}</td>
                                                 <td className='column-medium'>{order.por_prezime}</td>
@@ -151,10 +156,10 @@ const Orders = () => {
                                                 <td className='column-small'>{order.por_postanski_broj}</td>*/}
                                                 <td className='column-medium'>{order.por_placanje}</td>
                                                 <td className=' options'>
-                                                    <RiEyeLine className='icon-dash-success icon-small' />
+                                                    <RiEyeLine className='icon-dash-success icon-small' onClick={() => openDetailsWindow(order.por_id)} />
                                                     <RiEditBoxLine className='icon-dash-info icon-small' />
-                                                    <RiDeleteBinLine className='icon-dash-danger  icon-small' 
-                                                    onClick={() => deleteOrder(order.por_id)} />
+                                                    <RiDeleteBinLine className='icon-dash-danger  icon-small'
+                                                        onClick={() => deleteOrder(order.por_id)} />
                                                 </td>
                                             </tr>
                                         )
