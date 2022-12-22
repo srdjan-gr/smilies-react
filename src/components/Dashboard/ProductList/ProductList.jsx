@@ -21,42 +21,42 @@ const ProductList = () => {
     dispatch(getProducts());
   }, [dispatch]);
 
-  // Inicijalno stanje za brisanje kategorije
+  // Inicijalno stanje za brisanje proizvoda
   const [productDelete, setproductDelete] = useState({
     id_pr: '',
     ime_pr_sr: '',
     ime_pr_en: '',
   });
+
   const deleteProduct = (id, ime_sr, ime_en) => {
       if (window.confirm(`Da li ste sigurni da želite da obrišete proizvod '${ime_sr}'?`)) {
 
-          const sendData = {
-              id_pr: id,
-              ime_pr_sr: ime_sr,
-              ime_pr_en: ime_en,
-          }
+        const sendData = {
+            id_pr: id,
+            ime_pr_sr: ime_sr,
+            ime_pr_en: ime_en,
+        }
 
-          api({
-              method: 'post',
-              url: 'productDelete.php',
-              data: sendData,
-              config: { headers: { 'Content-Type': 'multipart/form-data' } }
+        api({
+            method: 'post',
+            url: 'productDelete.php',
+            data: sendData,
+            config: { headers: { 'Content-Type': 'multipart/form-data' } }
+        })
+            .then((response) => {
 
-          })
-              .then((response) => {
+                if (response.data.uspesno) {
+                    notifySuccess(response.data.uspesno);
+                    setproductDelete({ id_kat: '', })
+                    dispatch(getProducts());
 
-                  if (response.data.uspesno) {
-                      notifySuccess(response.data.uspesno);
-                      setproductDelete({ id_kat: '', })
-                      dispatch(getProducts());
+                } else if (response.data.greska) {
+                    notifyError(response.data.greska);
 
-                  } else if (response.data.greska) {
-                      notifyError(response.data.greska);
-
-                  } else if (response.data.info) {
-                      notifyInfo(response.data.info);
-                  }
-              })
+                } else if (response.data.info) {
+                    notifyInfo(response.data.info);
+                }
+            })
       }
   }
 

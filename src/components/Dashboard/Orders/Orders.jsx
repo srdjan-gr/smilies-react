@@ -14,11 +14,58 @@ const Orders = () => {
     const ordersList = useSelector((state) => state.ordersList)
     const { ordersLoading, ordersData, ordersMessage } = ordersList;
 
-
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getDashOrders());
     }, [dispatch]);
+
+
+    // Inicijalno stanje za brisanje ordera
+    const [ordertDelete, setOrderDelete] = useState({
+        id_pr: '',
+    });
+
+    const deleteOrder = (id) => {
+        if (window.confirm('Da li ste sigurni da želite da obrišete porudžbinu?')) {
+
+            const sendData = {
+                id_por: id,
+            }
+
+            api({
+                method: 'post',
+                url: 'orderDelete.php',
+                data: sendData,
+                config: { headers: { 'Content-Type': 'multipart/form-data' } }
+            })
+                .then((response) => {
+
+                    if (response.data.uspesno) {
+                        notifySuccess(response.data.uspesno);
+                        setOrderDelete({ id_kat: '', })
+                        dispatch(getDashOrders());
+
+                    } else if (response.data.greska) {
+                        notifyError(response.data.greska);
+
+                    } else if (response.data.info) {
+                        notifyInfo(response.data.info);
+                    }
+                })
+        }
+    }
+
+    // Message je stilizovana komponenta Unutar Toast-a
+    const notifyError = (odgovor) => {
+        toast.error(<Message error={odgovor} />)
+    }
+    const notifySuccess = (odgovor) => {
+        toast.success(<Message success={odgovor} />);
+    }
+    const notifyInfo = (odgovor) => {
+        toast.info(<Message info={odgovor} />);
+    }
+
 
     const orderStatus = (status) => {
         switch (status) {
@@ -63,8 +110,8 @@ const Orders = () => {
                     <table >
                         <thead>
                             <tr>
-                                <th className='column-x-small'>OId</th>
-                                <th className='column-x-small'>Status</th>
+                                <th className='column-small'>OId</th>
+                                <th className='column-small'>Status</th>
                                 <th className='column-medium'>Ime</th>
                                 <th className='column-medium'>Prezime</th>
                                 <th className='column-medium'>Email</th>
@@ -75,7 +122,7 @@ const Orders = () => {
                                 <th className='column-small'>Država</th>
                                 <th className='column-small'>Grad</th>
                                 <th className='column-small'>Poš.br</th> */}
-                                <th className='column-small'>Plaćanje</th>
+                                <th className='column-medium'>Plaćanje</th>
                                 <th className='options'>Opcije</th>
                             </tr>
                         </thead>
@@ -88,8 +135,8 @@ const Orders = () => {
 
                                         return (
                                             <tr key={idx}>
-                                                <td className='column-x-small'>{order.por_id}</td>
-                                                <td className='column-x-small'>
+                                                <td className='column-small'>{order.por_id}</td>
+                                                <td className='column-small'>
                                                     { orderStatus(order.por_status) }
                                                 </td>
                                                 <td className='column-medium'>{order.por_ime}</td>
@@ -102,11 +149,12 @@ const Orders = () => {
                                                 <td className='column-small'>{order.por_drzava}</td>
                                                 <td className='column-small'>{order.por_grad}</td>
                                                 <td className='column-small'>{order.por_postanski_broj}</td>*/}
-                                                <td className='column-small'>{order.por_placanje}</td>
+                                                <td className='column-medium'>{order.por_placanje}</td>
                                                 <td className=' options'>
                                                     <RiEyeLine className='icon-dash-success icon-small' />
                                                     <RiEditBoxLine className='icon-dash-info icon-small' />
-                                                    <RiDeleteBinLine className='icon-dash-danger  icon-small' />
+                                                    <RiDeleteBinLine className='icon-dash-danger  icon-small' 
+                                                    onClick={() => deleteOrder(order.por_id)} />
                                                 </td>
                                             </tr>
                                         )

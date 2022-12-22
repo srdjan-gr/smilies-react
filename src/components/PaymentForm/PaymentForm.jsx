@@ -75,12 +75,11 @@ const PaymentForm = () => {
                 preuzimanje: preuzimanje,
                 placanje: placanje,
                 proizvodi: proizvodi,
-                // session: true,
             }
 
             api({
                 method: 'post',
-                url: 'orderN.php',
+                url: 'orderAdd.php',
                 data: sendData,
             })
                 .then((response) => {
@@ -109,12 +108,11 @@ const PaymentForm = () => {
                 preuzimanje: preuzimanje,
                 placanje: placanje,
                 proizvodi: proizvodi
-                // session: false
             }
 
             api({
                 method: 'post',
-                url: 'orderN.php',
+                url: 'orderAdd.php',
                 data: sendData,
             })
                 .then((response) => {
