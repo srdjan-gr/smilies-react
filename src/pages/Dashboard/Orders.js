@@ -12,7 +12,8 @@ const Orders = () => {
     const [asideMenu, setAsideMenu] = useState(false);
     const [devider, setDevider] = useState(false);
     const [detailsWindow, setDetailsWindow] = useState(false);
-
+    const [orderDetailsId, setOrderDetailsId] = useState('');
+    const [orderOption, setOrderOption] = useState('');
 
     useEffect(() => {
         const asideMenuStorage = localStorage.getItem('sidebar');
@@ -39,8 +40,8 @@ const Orders = () => {
                         <Header asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
 
                         <div className="main__section category__layout-grid">
-                            <OrdersComponent detailsWindow={detailsWindow} setDetailsWindow={setDetailsWindow} />
-                            <DetailsWindow detailsWindow={detailsWindow} setDetailsWindow={setDetailsWindow} />
+                            <OrdersComponent detailsWindow={detailsWindow} setDetailsWindow={setDetailsWindow} orderDetailsId={orderDetailsId} setOrderDetailsId={setOrderDetailsId} orderOption={orderOption} setOrderOption={setOrderOption} />
+                            <DetailsWindow detailsWindow={detailsWindow} setDetailsWindow={setDetailsWindow} orderDetailsId={orderDetailsId} orderOption={orderOption} setOrderOption={setOrderOption} />
                         </div>
                     </div>
                 </div>

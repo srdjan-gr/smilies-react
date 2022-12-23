@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getDashOrders } from "../../../redux/features/orders/ordersSlice"
 const slike = process.env.REACT_APP_BACKEND_PRODUCT_IMAGES;
 
-const Orders = ({ detailsWindow, setDetailsWindow }) => {
+const Orders = ({ detailsWindow, setDetailsWindow, setOrderDetailsId, orderOption, setOrderOption }) => {
 
     const ordersList = useSelector((state) => state.ordersList)
     const { ordersLoading, ordersData, ordersMessage } = ordersList;
@@ -20,14 +20,15 @@ const Orders = ({ detailsWindow, setDetailsWindow }) => {
     }, [dispatch]);
 
 
-    const openDetailsWindow = (id) => {
+    const openDetailsWindow = (id, option) => {
         setDetailsWindow(!detailsWindow);
+        setOrderDetailsId(id)
     }
 
 
     // Inicijalno stanje za brisanje ordera
     const [ordertDelete, setOrderDelete] = useState({
-        id_pr: '',
+        id_por: '',
     });
 
     const deleteOrder = (id) => {
@@ -47,7 +48,7 @@ const Orders = ({ detailsWindow, setDetailsWindow }) => {
 
                     if (response.data.uspesno) {
                         notifySuccess(response.data.uspesno);
-                        setOrderDelete({ id_kat: '', })
+                        setOrderDelete({ id_por: '', })
                         dispatch(getDashOrders());
 
                     } else if (response.data.greska) {
@@ -156,8 +157,8 @@ const Orders = ({ detailsWindow, setDetailsWindow }) => {
                                                 <td className='column-small'>{order.por_postanski_broj}</td>*/}
                                                 <td className='column-medium'>{order.por_placanje}</td>
                                                 <td className=' options'>
-                                                    <RiEyeLine className='icon-dash-success icon-small' onClick={() => openDetailsWindow(order.por_id)} />
-                                                    <RiEditBoxLine className='icon-dash-info icon-small' />
+                                                    <RiEyeLine className='icon-dash-success icon-small' onClick={() => [openDetailsWindow(order.por_id), setOrderOption('view')]} />
+                                                    <RiEditBoxLine className='icon-dash-info icon-small' onClick={() => [openDetailsWindow(order.por_id), setOrderOption('edit')]} />
                                                     <RiDeleteBinLine className='icon-dash-danger  icon-small'
                                                         onClick={() => deleteOrder(order.por_id)} />
                                                 </td>

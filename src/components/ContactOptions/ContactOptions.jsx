@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 // Styling
 import { IoCallOutline, IoMailOutline } from 'react-icons/io5'

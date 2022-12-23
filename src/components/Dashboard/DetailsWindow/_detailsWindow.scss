@@ -3,24 +3,30 @@
     right: 0;
     top: 0;
     z-index: 100;
-    width: 70%;
+    width: 100vw;
     height: 100%;
-    background-color: $dash-second;
-    border-left: $dash-border;
-    padding: 2rem;
-    // transform: translateX(100%);
+    transform: translateX(100%);
     transition: $dash-transition-03;
+    display: flex;
 
 
-    &-inner {
-        width: 100%;
+    &-details {
+        width: 70%;
         height: 100%;
-        background-color: rgba(240, 248, 255, 0.041);
+        background-color: $dash-main;
+        border-left: $dash-border;
+    }
+
+    &-background {
+        width: 30%;
+        height: 100%;
+        background-color: $dash-modal;
     }
 
     & .icon-position {
         position: absolute;
         right: 2rem;
+        top: 2rem;
     }
 }
 
