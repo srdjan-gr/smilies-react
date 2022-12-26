@@ -46,6 +46,7 @@ const Bag = ({ bagModal, setBagModal, bag, setBag }) => {
     return (
         <section>
             <div className={`${bagModal ? ' bagModalActive' : ''}  bagModal`} onClick={closeBag}>    </div>
+            
             <article className={`${bag ? 'bagActive' : ''}  bag`}>
 
                 <div className="shopingBag__header">

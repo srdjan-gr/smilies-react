@@ -48,9 +48,13 @@
             }
         }
 
-        .details__products {
+        .details__products,
+        .details__price {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            min-height: 13rem;
+            gap: 1rem;
+            // flex-direction: column;
 
             &-img {
                 display: flex;
@@ -89,13 +93,18 @@
                 border-radius: $dash-radius;
                 background-color: $dash-second;
                 width: 33rem;
-                margin-bottom: 1rem;
+                // margin-bottom: 1rem;
 
                 h3 {
                     font-size: 1.6rem;
                     text-decoration: none;
                 }
             }
+
+        }
+
+        .details__price {
+            min-height: 2rem;
         }
 
         .details__options {

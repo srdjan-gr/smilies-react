@@ -76,7 +76,7 @@ const PaymentForm = () => {
                 placanje: placanje,
                 proizvodi: proizvodi,
             }
-
+   
             api({
                 method: 'post',
                 url: 'orderAdd.php',
@@ -85,7 +85,7 @@ const PaymentForm = () => {
                 .then((response) => {
                     if (response.data.uspesno) {
                         notifySuccess(response.data.uspesno);
-                        navigate('/')
+                        // navigate('/')
                     } else if (response.data.greska) {
                         notifyError(response.data.greska);
                     } else if (response.data.info) {
@@ -118,7 +118,7 @@ const PaymentForm = () => {
                 .then((response) => {
                     if (response.data.uspesno) {
                         notifySuccess(response.data.uspesno);
-                        navigate('/')
+                        // navigate('/')
                     } else if (response.data.greska) {
                         notifyError(response.data.greska);
                     } else if (response.data.info) {

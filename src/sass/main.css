@@ -1161,16 +1161,21 @@
   font-size: 1.6rem;
   text-decoration: none;
 }
-.order__dash-details .details__container .details__products {
+.order__dash-details .details__container .details__products,
+.order__dash-details .details__container .details__price {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 13rem;
+  gap: 1rem;
 }
-.order__dash-details .details__container .details__products-img {
+.order__dash-details .details__container .details__products-img,
+.order__dash-details .details__container .details__price-img {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
-.order__dash-details .details__container .details__products-img-content {
+.order__dash-details .details__container .details__products-img-content,
+.order__dash-details .details__container .details__price-img-content {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -1180,17 +1185,20 @@
   border-radius: 4px;
   background-color: #242430;
 }
-.order__dash-details .details__container .details__products-img-content h3 {
+.order__dash-details .details__container .details__products-img-content h3,
+.order__dash-details .details__container .details__price-img-content h3 {
   font-size: 1.4rem;
   text-decoration: none;
 }
-.order__dash-details .details__container .details__products-img-content img {
+.order__dash-details .details__container .details__products-img-content img,
+.order__dash-details .details__container .details__price-img-content img {
   -o-object-fit: cover;
      object-fit: cover;
   height: 13rem;
   width: 100%;
 }
-.order__dash-details .details__container .details__products-info {
+.order__dash-details .details__container .details__products-info,
+.order__dash-details .details__container .details__price-info {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1199,11 +1207,14 @@
   border-radius: 4px;
   background-color: #242430;
   width: 33rem;
-  margin-bottom: 1rem;
 }
-.order__dash-details .details__container .details__products-info h3 {
+.order__dash-details .details__container .details__products-info h3,
+.order__dash-details .details__container .details__price-info h3 {
   font-size: 1.6rem;
   text-decoration: none;
+}
+.order__dash-details .details__container .details__price {
+  min-height: 2rem;
 }
 .order__dash-details .details__container .details__options {
   display: flex;

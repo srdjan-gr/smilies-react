@@ -100,10 +100,10 @@ const OrderDetails = ({ orderDetailsId, orderOption, detailsWindow, setDetailsWi
         }
     }
 
-    const orderImages = (splitSlike, splitIme) => {
+    const orderImages = (splitSlike) => {
 
         let arr = [];
-        let maxVal = splitSlike.length / 4
+        let maxVal = splitSlike.length / 4;
         let delta = Math.floor(splitSlike.length / maxVal);
 
         for (let i = 0; i < splitSlike.length; i = i + delta) {
@@ -117,8 +117,29 @@ const OrderDetails = ({ orderDetailsId, orderOption, detailsWindow, setDetailsWi
                 </div>
             )
         })
-
     }
+
+    const orderPrice = (price) => {
+
+        let arr = [];
+        let maxVal = price.length / 4;
+        let delta = Math.floor(price.length / maxVal);
+
+        for (let i = 0; i < price.length; i = i + delta) {
+            arr.push(price[i]);
+        }
+
+        const sum = arr.reduce((a, b) => {
+            a = Number(a)
+            b = Number(b)
+            return a + b;
+        });
+
+        return (
+            <h3>{sum} ,00 din</h3>
+        )
+    }
+
 
     return (
         <article>
@@ -127,14 +148,12 @@ const OrderDetails = ({ orderDetailsId, orderOption, detailsWindow, setDetailsWi
 
                     ordersData.map((order, idx) => {
 
-                        const sveSlike = order.slika_ime;
-                        const splitSlike = sveSlike.split(',');
+                        const splitSlike = order.slika_ime.split(',');
+                        const splitIme = order.proizvod_ime.split(',');
+                        const splitPor = order.por_proizvodi.split(',');
+                        const price = order.proizvod_cena.split(',');
+                        // const splitPrice = price.split(',');
 
-                        const sveIme = order.proizvod_ime;
-                        const splitIme = sveIme.split(',');
-
-                        const svePor = order.por_proizvodi;
-                        const splitPor = svePor.split(',');
 
 
                         if (orderDetailsId === order.por_id) {
@@ -203,6 +222,18 @@ const OrderDetails = ({ orderDetailsId, orderOption, detailsWindow, setDetailsWi
                                                         <input type="text" placeholder={order.korisnici_korisnik_id} name="subkat_en" disabled />
                                                     </div>
                                                 </form>
+                                            </div>
+
+                                            <div className='mt-1 mb-1'>
+                                                <span className='mb-1'>
+                                                    <label className='accent' htmlFor="">Vrednost porudžbine:</label>
+                                                </span>
+
+                                                <div className='details__price'>
+                                                    <div className='details__products-info p-0'>
+                                                        {orderPrice(price)}
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div className='mt-1 mb-1'>
