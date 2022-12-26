@@ -107,6 +107,14 @@
     margin-right: 2rem;
 }
 
+.mr-3 {
+    margin-right: 3rem;
+}
+
+.mr-4 {
+    margin-right: 3rem;
+}
+
 .mb-2 {
     margin-bottom: 2rem;
 }
@@ -145,4 +153,20 @@
 
 .p-2 {
     padding: 2rem;
+}
+
+.order__product-count {
+    width: 2rem;
+    height: 2rem;
+    background-color: $dash-danger;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+    h3 {
+        font-size: 1.6rem;
+        text-decoration: none;
+    }
 }

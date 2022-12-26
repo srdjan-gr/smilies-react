@@ -7,7 +7,7 @@ import Message from '../../Message/Message';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getDashOrders } from "../../../redux/features/orders/ordersSlice"
-import { render } from '@testing-library/react';
+// import { render } from '@testing-library/react';
 
 const slike = process.env.REACT_APP_BACKEND_PRODUCT_IMAGES;
 

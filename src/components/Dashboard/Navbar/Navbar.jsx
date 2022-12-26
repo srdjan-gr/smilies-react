@@ -3,11 +3,18 @@ import { useEffect } from 'react';
 import { RiArrowDownSLine, RiFileList2Line, RiUserLine, RiSunLine, RiMoonLine, RiAddLine, RiDeleteBinLine, RiEditBoxLine, RiTShirt2Line, RiUserAddLine, RiUserUnfollowLine, RiUserSettingsLine, RiLineChartLine, RiLoginCircleLine, FcLowPriority, RiShoppingCartLine, RiFolderSettingsLine, RiApps2Line, RiAppsLine, RiDashboardLine } from 'react-icons/ri'
 import { Link } from 'react-router-dom';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { getDashOrders } from "../../../redux/features/orders/ordersSlice"
+
 const Navbar = ({ asideMenu, setAsideMenu }) => {
 
     const [devider, setDevider] = useState(false);
     const [groupProducts, setGroupProducts] = useState(false);
     const [groupUsers, setGroupUsers] = useState(false);
+
+    const ordersList = useSelector((state) => state.ordersList)
+    const { ordersLoading, ordersData, ordersMessage } = ordersList;
+
 
     return (
         <aside className={`${asideMenu ? 'closeAside' : ''} aside__menu`}>
@@ -27,6 +34,7 @@ const Navbar = ({ asideMenu, setAsideMenu }) => {
                         <div className='group-header'>
                             <Link to="/orders" className='link-style-icon'><RiShoppingCartLine className="icon-main icon-dash-green ml-18 " /></Link> 
                             <span className='link-style'><Link to="/orders" className='link-style'>Porudzbine</Link></span>
+                            <span className='order__product-count '><h3>{ordersData.length}</h3></span>
                         </div>
                     </div>
                 </div>
