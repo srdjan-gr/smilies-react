@@ -9,6 +9,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getDashOrders } from "../../../redux/features/orders/ordersSlice"
 import { render } from '@testing-library/react';
 
+const slike = process.env.REACT_APP_BACKEND_PRODUCT_IMAGES;
+
 const OrderDetails = ({ orderDetailsId, orderOption, detailsWindow, setDetailsWindow }) => {
 
     const ordersList = useSelector((state) => state.ordersList)
@@ -98,103 +100,158 @@ const OrderDetails = ({ orderDetailsId, orderOption, detailsWindow, setDetailsWi
         }
     }
 
+    const orderImages = (splitSlike, splitIme) => {
+
+        let arr = [];
+        let maxVal = splitSlike.length / 4
+        let delta = Math.floor(splitSlike.length / maxVal);
+
+        for (let i = 0; i < splitSlike.length; i = i + delta) {
+            arr.push(splitSlike[i]);
+        }
+
+        return arr.map((item, idx) => {
+            return (
+                <div key={idx} className='details__products-img-content'>
+                    <img src={slike + item} alt="" />
+                </div>
+            )
+        })
+
+    }
+
     return (
         <article>
             {
-                ordersData.map((order, idx) => {
-                    if (orderDetailsId === order.por_id) {
+                ordersLoading ? <p>Loading...</p> : ordersData.greska ? <h3 className='color-danger mt-1 tc-danger-muted'>{ordersData.greska}</h3> :
 
-                        if (orderOption == 'view') {
-                            return (
-                                <div key={idx} className="category__container-inputs order__details">
-                                    <h3>Detalji porudžbine</h3>
+                    ordersData.map((order, idx) => {
 
-                                    <div className='details__container'>
+                        const sveSlike = order.slika_ime;
+                        const splitSlike = sveSlike.split(',');
 
-                                        <div className='details__form'>
-                                            <form >
-                                                <div className='form__inputs mr-2'>
-                                                    <label htmlFor="">Ime</label>
-                                                    <input type="text" placeholder={order.por_ime} name="subkat_sr" disabled />
+                        const sveIme = order.proizvod_ime;
+                        const splitIme = sveIme.split(',');
 
-                                                    <label htmlFor="">Prezime</label>
-                                                    <input type="text" placeholder={order.por_prezime} name="subkat_en" disabled />
+                        const svePor = order.por_proizvodi;
+                        const splitPor = svePor.split(',');
 
-                                                    <label htmlFor="">Email</label>
-                                                    <input type="text" placeholder={order.por_email} name="subkat_en" disabled />
 
-                                                    <label htmlFor="">Broj telefona</label>
-                                                    <input type="text" placeholder={order.por_broj_tel} name="subkat_en" disabled />
+                        if (orderDetailsId === order.por_id) {
+
+                            if (orderOption == 'view') {
+                                return (
+                                    <div key={idx} className="category__container-inputs order__dash-details">
+                                        <h3>Detalji porudžbine</h3>
+
+                                        <div className='details__container'>
+
+                                            <div className='details__form'>
+                                                <form >
+                                                    <div className='form__inputs mr-2'>
+                                                        <label htmlFor="">Ime</label>
+                                                        <input type="text" placeholder={order.por_ime} name="subkat_sr" disabled />
+
+                                                        <label htmlFor="">Prezime</label>
+                                                        <input type="text" placeholder={order.por_prezime} name="subkat_en" disabled />
+
+                                                        <label htmlFor="">Email</label>
+                                                        <input type="text" placeholder={order.por_email} name="subkat_en" disabled />
+
+                                                        <label htmlFor="">Broj telefona</label>
+                                                        <input type="text" placeholder={order.por_broj_tel} name="subkat_en" disabled />
+                                                    </div>
+
+                                                    <div className='form__inputs mr-2'>
+                                                        <label htmlFor="">Ulica</label>
+                                                        <input type="text" placeholder={order.por_ulica} name="subkat_en" disabled />
+
+                                                        <div className='form__inputs-different'>
+                                                            <div className='form__inputs mr-2'>
+                                                                <label htmlFor="">Broj ulaza</label>
+                                                                <input type="text" placeholder={order.por_broj_ulaz} name="subkat_en" disabled />
+                                                            </div>
+                                                            <div className='form__inputs'>
+                                                                <label htmlFor="">Broj stana</label>
+                                                                <input type="text" placeholder={order.por_broj_stan} name="subkat_en" disabled />
+                                                            </div>
+                                                        </div>
+
+                                                        <label htmlFor="">Država</label>
+                                                        <input type="text" placeholder={order.por_drzava} name="subkat_en" disabled />
+
+                                                        <label htmlFor="">Grad</label>
+                                                        <input type="text" placeholder={order.por_grad} name="subkat_en" disabled />
+
+                                                        <label htmlFor="">Poštanski broj</label>
+                                                        <input type="text" placeholder={order.por_postanski_broj} name="subkat_en" disabled />
+                                                    </div>
+
+                                                    <div className='form__inputs'>
+                                                        <label htmlFor="">Način preuzimanja</label>
+                                                        <input type="text" placeholder={order.por_preuzimanje} name="subkat_en" disabled />
+
+                                                        <label htmlFor="">Način placanja</label>
+                                                        <input type="text" placeholder={order.por_placanje} name="subkat_en" disabled />
+
+                                                        <label htmlFor="">Vreme kreiranja porudzbine</label>
+                                                        <input type="text" placeholder={order.por_vreme_kreiranja} name="subkat_en" disabled />
+
+                                                        {orderStatus(order.por_status)}
+
+                                                        <label htmlFor="">Registrovani korisnik</label>
+                                                        <input type="text" placeholder={order.korisnici_korisnik_id} name="subkat_en" disabled />
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div className='mt-1 mb-1'>
+                                                <span className='mb-1'>
+                                                    <label className='accent' htmlFor="">Poručeni proizvodi:</label>
+                                                    <span className='order__product-count ml-1'><h3>{splitPor.length}</h3></span>
+                                                </span>
+
+                                                <div className='details__products'>
+                                                    <div className='details__products-info'>
+                                                        {
+                                                            splitIme.map((el, idx) => {
+                                                                return (
+                                                                    <h3 key={idx}>{`${idx + 1}:  ${el}`}</h3>
+                                                                )
+                                                            })
+                                                        }
+                                                    </div>
+                                                    <div className='details__products-img'>
+                                                        {orderImages(splitSlike)}
+                                                    </div>
                                                 </div>
+                                            </div>
 
-                                                <div className='form__inputs mr-2'>
-                                                    <label htmlFor="">Ulica</label>
-                                                    <input type="text" placeholder={order.por_ulica} name="subkat_en" disabled />
-
-                                                    <label htmlFor="">Broj ulaza</label>
-                                                    <input type="text" placeholder={order.por_broj_ulaz} name="subkat_en" disabled />
-
-                                                    <label htmlFor="">Broj stana</label>
-                                                    <input type="text" placeholder={order.por_broj_stan} name="subkat_en" disabled />
-
-                                                    <label htmlFor="">Država</label>
-                                                    <input type="text" placeholder={order.por_drzava} name="subkat_en" disabled />
-
-                                                    <label htmlFor="">Grad</label>
-                                                    <input type="text" placeholder={order.por_grad} name="subkat_en" disabled />
-
-                                                    <label htmlFor="">Poštanski broj</label>
-                                                    <input type="text" placeholder={order.por_postanski_broj} name="subkat_en" disabled />
+                                            <div className='details__options'>
+                                                <div className='details__options-inner mb-2'>
+                                                    <RiEditBoxLine className='icon-dash-info icon-small mr-1' />
+                                                    <RiDeleteBinLine className='icon-dash-danger  icon-small'
+                                                        onClick={() => deleteOrder(order.por_id)} />
                                                 </div>
-
-                                                <div className='form__inputs'>
-                                                    <label htmlFor="">Način preuzimanja</label>
-                                                    <input type="text" placeholder={order.por_preuzimanje} name="subkat_en" disabled />
-
-                                                    <label htmlFor="">Način placanja</label>
-                                                    <input type="text" placeholder={order.por_placanje} name="subkat_en" disabled />
-
-                                                    <label htmlFor="">Vreme kreiranja porudzbine</label>
-                                                    <input type="text" placeholder={order.por_vreme_kreiranja} name="subkat_en" disabled />
-
-                                                    {orderStatus(order.por_status)}
-
-                                                    <label htmlFor="">Registrovani korisnik</label>
-                                                    <input type="text" placeholder={order.korisnici_korisnik_id} name="subkat_en" disabled />
-                                                </div>
-                                            </form>
-                                        </div>
-
-                                        <div>
-                                            <h3>Poručeni proizvodi</h3>
-                                            <div className='details__products'>
-
                                             </div>
                                         </div>
-
-                                        <div className='details__options'>
-                                            <RiEditBoxLine className='icon-dash-info icon-xl mr-1' />
-                                            <RiDeleteBinLine className='icon-dash-danger  icon-xl'
-                                                onClick={() => deleteOrder(order.por_id)} />
-                                        </div>
                                     </div>
-                                </div >
-                            )
-                        } else if (orderOption == 'edit') {
-                            return (
-                                <div key={idx}>
-                                    <h3>{order.por_ime}</h3>
-                                    <h3>{orderOption}</h3>
+                                )
+                            } else if (orderOption == 'edit') {
+                                return (
+                                    <div key={idx}>
+                                        <h3>{order.por_ime}</h3>
+                                        <h3>{orderOption}</h3>
 
 
 
-                                </div>
-                            )
+                                    </div>
+                                )
+                            }
                         }
-                    }
-                })
+                    })
             }
-        </article >
+        </article>
     )
 }
 

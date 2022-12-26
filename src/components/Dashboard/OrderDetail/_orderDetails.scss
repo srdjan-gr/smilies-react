@@ -1,6 +1,7 @@
-.order__details {
+.order__dash-details {
     padding: 2rem;
     height: 100vh;
+    overflow-y: scroll;
 
     h3 {
         text-decoration: underline;
@@ -12,8 +13,7 @@
         justify-content: space-between;
         width: 100%;
         height: 100%;
-        margin-top: 2rem;
-
+        margin-top: 1rem;
 
         form {
             display: flex;
@@ -23,21 +23,99 @@
             .form__inputs {
                 display: flex;
                 flex-direction: column;
-                width: 33%;
+                flex: 1;
+
+                &-different {
+                    display: flex;
+                    width: 100%;
+                }
+            }
+        }
+
+        .order__product-count {
+            width: 2.2rem;
+            height: 2.2rem;
+            background-color: $dash-accent;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+
+            h3 {
+                font-size: 1.6rem;
+                text-decoration: none;
             }
         }
 
         .details__products {
-            background-color: $dash-second;
-            width: 100%;
-            height: 10rem;
-            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+
+            &-img {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+
+                &-content {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    margin-right: 1rem;
+                    padding: 1rem;
+                    border: $dash-border;
+                    border-radius: $dash-radius;
+                    background-color: $dash-second;
+
+                    h3 {
+                        font-size: 1.4rem;
+                        text-decoration: none;
+                    }
+
+                    img {
+                        object-fit: cover;
+                        height: 13rem;
+                        width: 100%;
+                    }
+                }
+            }
+
+            &-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 1rem;
+                border: $dash-border;
+                border-radius: $dash-radius;
+                background-color: $dash-second;
+                width: 33rem;
+                margin-bottom: 1rem;
+
+                h3 {
+                    font-size: 1.6rem;
+                    text-decoration: none;
+                }
+            }
         }
 
         .details__options {
+
             display: flex;
             justify-content: flex-end;
+            align-items: center;
             width: 100%;
+
+            &-inner {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-width: 8rem;
+                height: 3rem;
+                background-color: $dash-second;
+                border: $dash-border;
+                border-radius: $dash-radius;
+                // margin: 1rem;
+            }
         }
     }
 }
