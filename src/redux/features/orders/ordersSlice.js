@@ -18,6 +18,8 @@ const initialState = {
     ordersData: [],
     ordersLoading: false,
     ordersMessage: '',
+
+    dataUpdate: [],
 }
 
 export const ordersDashSlice = createSlice({
@@ -40,4 +42,5 @@ export const ordersDashSlice = createSlice({
     },
 });
 
+export const { editOrder, viewOrder } = ordersDashSlice.actions
 export default ordersDashSlice.reducer;

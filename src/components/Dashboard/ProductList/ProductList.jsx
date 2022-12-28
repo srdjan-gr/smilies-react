@@ -95,9 +95,9 @@ const ProductList = () => {
                 <th className='column-x-small'>Id</th>
                 <th className='column-large'>Naziv Sr</th>
                 <th className='column-large'>Naziv En</th>
-                <th className='column-large'>Opis Sr</th>
-                <th className='column-large'>Opis En</th>
+                <th className='column-medium'>Kreirao</th>
                 <th className='column-large'>Kreirano</th>
+                <th className='column-large'>Izmenjeno</th>
                 <th className='column-small'>Cena</th>
                 <th className='column-small'>Slika</th>
                 <th className='column-small options'>Opcije</th>
@@ -118,9 +118,9 @@ const ProductList = () => {
                       <td className='column-x-small'>{product.proizvod_id}</td>
                       <td className='column-large'>{product.proizvod_naziv_sr}</td>
                       <td className='column-large'>{product.proizvod_naziv_en}</td>
-                      <td className='column-large'>{product.proizvod_opis_sr}</td>
-                      <td className='column-large'>{product.proizvod_opis_en}</td>
+                      <td className='column-medium'>{product.korisnik_ime}</td>
                       <td className='column-large'>{product.proizvod_vreme_dodat}</td>
+                      <td className='column-large'>{product.proizvod_vreme_izmene}</td>
                       <td className='column-small'>{product.proizvod_cena}</td>
                       <td className='column-small'><img src={slike + splitSlike[0]} alt={product.proizvod_naziv_sr} /></td>
 

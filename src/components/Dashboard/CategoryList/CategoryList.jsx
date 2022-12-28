@@ -44,7 +44,7 @@ const CategoryList = () => {
 
             api({
                 method: 'post',
-                url: 'categoryDashDelete.php',
+                url: 'category.php?fun=delete',
                 data: sendData,
             })
                 .then((response) => {
@@ -113,7 +113,8 @@ const CategoryList = () => {
 
                         <tbody>
                             {
-                                loading ? <p>Loading...</p> : data.greska ? <h3 className='color-danger'>{data.greska}</h3> :
+                                loading ? <tr><td><p>Loading...</p></td></tr> : data.greska ? <tr><td><h3  className='color-danger'>{data.greska}</h3></td></tr> :
+                     
                                 data.map((item, idx) => {
                                     return (
                                         <tr key={idx}>
@@ -121,12 +122,11 @@ const CategoryList = () => {
                                             <td className='column-medium'>{item.kat_naziv_sr}</td>
                                             <td className='column-medium'>{item.kat_naziv_en}</td>
                                             <td className='column-large'>{item.kat_dkreiranja}</td>
-                                            <td className='column-large'>{item.korisnik_ime} {item.korisnik_prezime}</td>
-                                            {/*<td className='option '><RiEditBoxLine className='icon-dash-info icon-dash-info-hover icon-small ml-15' onClick={() => setIdKat(item.kat_id)} /></td>*/}
-
+                                            <td className='column-large'>{item.korisnik_ime}</td>
 
                                             <td className='column-small options'>
                                                 <RiEditBoxLine onClick={() => updateCategory(item)} className='icon-dash-info icon-small' />
+                                                
                                                 <RiDeleteBinLine className='icon-dash-danger  icon-small'
                                                     onClick={() => deleteCategory(item.kat_id, item.kat_naziv_sr, item.kat_naziv_en)} />
                                             </td>

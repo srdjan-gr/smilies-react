@@ -485,7 +485,7 @@
   text-align: center;
 }
 .table .column-large {
-  width: 18rem;
+  width: 20rem;
   padding: 0 1rem;
   text-align: center;
 }
@@ -1180,6 +1180,9 @@
 .order__dash-details .details__container form .form__inputs-different {
   display: flex;
   width: 100%;
+}
+.order__dash-details .details__container .order__product-count {
+  background-color: #daa520;
 }
 .order__dash-details .details__container .order__product-count h3 {
   text-decoration: none;

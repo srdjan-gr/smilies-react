@@ -6,17 +6,23 @@ import CategoryList from '../../components/Dashboard/CategoryList/CategoryList'
 import ErrorPage from '../ErrorPage/ErrorPage'
 import jwt from 'jwt-decode'
 
+import { useDispatch } from 'react-redux';
+import { getDashOrders } from "../../redux/features/orders/ordersSlice"
+
 const Categories = () => {
 
     const [asideMenu, setAsideMenu] = useState(false);
     const [devider, setDevider] = useState(false);
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const asideMenuStorage = localStorage.getItem('sidebar');
         if (asideMenuStorage === 'closed') {
             setAsideMenu(true);
         }
-    }, [asideMenu]);
+        dispatch(getDashOrders());
+    }, [asideMenu, dispatch]);
 
     // Session
     const smiliesSession = sessionStorage.getItem("SmiliesOnlineLog");

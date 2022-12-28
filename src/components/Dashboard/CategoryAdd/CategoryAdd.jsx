@@ -9,8 +9,9 @@ import Message from '../../Message/Message';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDashCategories, getUpdateDashCategories } from "../../../redux/features/categoriesDash/categoriesDashSlice";
 
-
 const Categories = () => {
+
+  const [card, setCard] = useState(false);
 
   // Initial state for creating category
     const [dataK, setDataK] = useState({
@@ -18,20 +19,17 @@ const Categories = () => {
       kategorija_en: '',
     });
 
-  const categoryList = useSelector((state) => state.categoryDashList)
-  // Redux Get category data
-  // Redux Get Update category from state - datat send from CategoryList Component
-  const { loading, data, message, dataUpdate} = categoryList;
 
-  console.log(dataUpdate);
+    // Redux Get category data
+    // Redux Get Update category from state - datat send from CategoryList Component
+  const categoryList = useSelector((state) => state.categoryDashList)
+  const { loading, data, message, dataUpdate} = categoryList;
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDashCategories());
   }, [dispatch]);
 
-
-  const [card, setCard] = useState(false);
 
 
   const handleChange = (e) => {
@@ -48,7 +46,7 @@ const Categories = () => {
 
     api({ 
         method: 'post',
-        url: "categoryAdd.php",
+        url: "category.php?fun=add",
         data: sendData,
       })
     
@@ -58,7 +56,6 @@ const Categories = () => {
         notifySuccess(response.data.uspesno);
         setDataK({ kategorija_sr: '', kategorija_en: '' })
         dispatch(getDashCategories());
-
       } else if (response.data.greska) {
         notifyError(response.data.greska);
 
@@ -85,7 +82,7 @@ const Categories = () => {
 
     api({
       method: 'post',
-      url: 'categoryDashUpdate.php',
+      url: 'category.php?fun=update',
       data: sendData,
     })
       .then((response) => {
@@ -140,7 +137,7 @@ const Categories = () => {
                 <input type="text" placeholder={dataUpdate.category.kat_naziv_en} name="kat_en" value={katEnUpdate} onChange={(e) => setKatEnUpdate(e.target.value)} />
 
                 <div className="category__container-inputs-content-buttons">
-                  <button className='btn__dash-regular dash-button-info  mt-2' onClick={() => setKatIdUpdate(dataUpdate.ccategoryt.kat_id)}>Izmeni Kategoriju</button>
+                  <button className='btn__dash-regular dash-button-info  mt-2' onClick={() => setKatIdUpdate(dataUpdate.category.kat_id)}>Izmeni Kategoriju</button>
                 </div>
 
               </form>
@@ -149,10 +146,10 @@ const Categories = () => {
 
               <form onSubmit={handleSubmit} >
                 <label htmlFor="">Ime Kategorije Srpski</label>
-                <input type="text" placeholder='Ime kategorije na Srpskom' name="kategorija_sr" value={dataK.kategorija_sr} onChange={handleChange} />
+                <input type="text" placeholder='Kategorija Sr' name="kategorija_sr" value={dataK.kategorija_sr} onChange={handleChange} />
 
                 <label htmlFor="">Ime Kategorije Engleski</label>
-                <input type="text" placeholder='Ime kategorije na Engleskom' name="kategorija_en" value={dataK.kategorija_en} onChange={handleChange} />
+                <input type="text" placeholder='Kategorija En' name="kategorija_en" value={dataK.kategorija_en} onChange={handleChange} />
 
                 <div className="category__container-inputs-content-buttons">
                   <button className='btn__dash-regular dash-button-success  mt-2 mr-1'>Dodaj Kategoriju</button>

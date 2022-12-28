@@ -4,20 +4,25 @@ import Header from '../../components/Dashboard/Header/Header'
 import Navbar from '../../components/Dashboard/Navbar/Navbar'
 import ErrorPage from '../ErrorPage/ErrorPage'
 import jwt from 'jwt-decode'
-
 import SubCategoryList from '../../components/Dashboard/SubCategoryList/SubCategoryList'
+
+import { useDispatch } from 'react-redux';
+import { getDashOrders } from "../../redux/features/orders/ordersSlice"
 
 const DashSubCategories = () => {
 
     const [asideMenu, setAsideMenu] = useState(false);
     const [devider, setDevider] = useState(false);
 
+    const dispatch = useDispatch();
+
     useEffect(() => {
         const asideMenuStorage = localStorage.getItem('sidebar');
         if (asideMenuStorage === 'closed') {
             setAsideMenu(true);
         }
-    }, [asideMenu]);
+        dispatch(getDashOrders());
+    }, [asideMenu, dispatch]);
 
     // Session
     const smiliesSession = sessionStorage.getItem("SmiliesOnlineLog");

@@ -20,7 +20,7 @@ const Orders = ({ detailsWindow, setDetailsWindow, setOrderDetailsId, orderOptio
     }, [dispatch]);
 
 
-    const openDetailsWindow = (id, option) => {
+    const openDetailsWindow = (id) => {
         setDetailsWindow(!detailsWindow);
         setOrderDetailsId(id)
     }
@@ -120,15 +120,10 @@ const Orders = ({ detailsWindow, setDetailsWindow, setOrderDetailsId, orderOptio
                                 <th className='column-small'>Status</th>
                                 <th className='column-medium'>Ime</th>
                                 <th className='column-medium'>Prezime</th>
-                                <th className='column-medium'>Email</th>
-                                <th className='column-medium'>Tel</th>
-                                {   /* <th className='column-medium'>Ulica</th>
-                                <th className='column-small'>Ulaz</th>
-                                <th className='column-small'>Broj</th>
-                                <th className='column-small'>Država</th>
-                                <th className='column-small'>Grad</th>
-                                <th className='column-small'>Poš.br</th> */}
-                                <th className='column-medium'>Plaćanje</th>
+                                <th className='column-large'>Email</th>
+                                <th className='column-large'>Tel</th>
+                                <th className='column-small'>Plaćanje</th>
+                                <th className='column-small'>Dostava</th>
                                 <th className='options'>Opcije</th>
                             </tr>
                         </thead>
@@ -147,18 +142,17 @@ const Orders = ({ detailsWindow, setDetailsWindow, setOrderDetailsId, orderOptio
                                                 </td>
                                                 <td className='column-medium'>{order.por_ime}</td>
                                                 <td className='column-medium'>{order.por_prezime}</td>
-                                                <td className='column-medium'>{order.por_email}</td>
-                                                <td className='column-medium'>{order.por_broj_tel}</td>
-                                                {/*<td className='column-medium'>{order.por_ulica}</td>
-                                                <td className='column-small'>{order.por_broj_ulaz}</td>
-                                                <td className='column-small'>{order.por_broj_stan}</td>
-                                                <td className='column-small'>{order.por_drzava}</td>
-                                                <td className='column-small'>{order.por_grad}</td>
-                                                <td className='column-small'>{order.por_postanski_broj}</td>*/}
-                                                <td className='column-medium'>{order.por_placanje}</td>
+                                                <td className='column-large'>{order.por_email}</td>
+                                                <td className='column-large'>{order.por_broj_tel}</td>
+                                                <td className='column-small'>{order.por_placanje}</td>
+                                                <td className='column-small'>{order.por_preuzimanje}</td>
                                                 <td className=' options'>
-                                                    <RiEyeLine className='icon-dash-success icon-small' onClick={() => [openDetailsWindow(order.por_id), setOrderOption('view')]} />
-                                                    <RiEditBoxLine className='icon-dash-info icon-small' onClick={() => [openDetailsWindow(order.por_id), setOrderOption('edit')]} />
+                                                    <RiEyeLine className='icon-dash-success icon-small' 
+                                                    onClick={() => [openDetailsWindow(order.por_id), setOrderOption('view')]} />
+
+                                                    <RiEditBoxLine className='icon-dash-info icon-small' 
+                                                    onClick={() => [openDetailsWindow(order.por_id), setOrderOption('edit')]} />
+                                                    
                                                     <RiDeleteBinLine className='icon-dash-danger  icon-small'
                                                         onClick={() => deleteOrder(order.por_id)} />
                                                 </td>

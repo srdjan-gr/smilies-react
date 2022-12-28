@@ -7,7 +7,7 @@ export const getSubCategories = createAsyncThunk("SUBCATEGORIES/GET_SUBCATEGORIE
     try {
         const { data } = await api({
             method: 'get',
-            url: 'subcategory.php',
+            url: 'subcategory.php?fun=read&lokacija=front',
         });
         return data;
     } catch (error) {

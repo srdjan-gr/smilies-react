@@ -38,22 +38,27 @@ const AddSubCategory = () => {
             category: category,
         }
 
-        api.post('subCategoryDashAdd.php', sendCreateData).then((response) => {
-
-            if (response.data.uspesno) {
-                notifySuccess(response.data.uspesno);
-                setSubcategorySr('');
-                setSubcategoryEn('');
-                setCategory('');
-                dispatch(getDashSubCategory());
-
-            } else if (response.data.greska) {
-                notifyError(response.data.greska);
-
-            } else if (response.data.info) {
-                notifyInfo(response.data.info);
-            }
+        api({
+            method: 'post',
+            url: 'subcategory.php?fun=add',
+            data: sendCreateData,
         })
+            .then((response) => {
+
+                if (response.data.uspesno) {
+                    notifySuccess(response.data.uspesno);
+                    setSubcategorySr('');
+                    setSubcategoryEn('');
+                    setCategory('');
+                    dispatch(getDashSubCategory());
+
+                } else if (response.data.greska) {
+                    notifyError(response.data.greska);
+
+                } else if (response.data.info) {
+                    notifyInfo(response.data.info);
+                }
+            })
     }
 
     // Update subcategories
@@ -68,25 +73,30 @@ const AddSubCategory = () => {
             subkat_id: subkatIdUpdate,
             subkat_sr: subkatSrUpdate,
             subkat_en: subkatEnUpdate,
-            category_update: categoryUpdate,
+            category: categoryUpdate,
         }
 
-        api.post('subcategoryDashUpdate.php', sendUpdateData).then((response) => {
-
-            if (response.data.uspesno) {
-                notifySuccess(response.data.uspesno);
-                setsubkatSrUpdate('');
-                setsubkatEnUpdate('');
-                setCategoryUpdate('');
-                dispatch(getDashSubCategory());
-
-            } else if (response.data.greska) {
-                notifyError(response.data.greska);
-
-            } else if (response.data.info) {
-                notifyInfo(response.data.info);
-            }
+        api({
+            method: 'post',
+            url: 'subcategory.php?fun=update',
+            data: sendUpdateData,
         })
+            .then((response) => {
+
+                if (response.data.uspesno) {
+                    notifySuccess(response.data.uspesno);
+                    setsubkatSrUpdate('');
+                    setsubkatEnUpdate('');
+                    setCategoryUpdate('');
+                    dispatch(getDashSubCategory());
+
+                } else if (response.data.greska) {
+                    notifyError(response.data.greska);
+
+                } else if (response.data.info) {
+                    notifyInfo(response.data.info);
+                }
+            })
     }
 
     // Message je stilizovana komponenta Unutar Toast-a
@@ -126,7 +136,7 @@ const AddSubCategory = () => {
                                     {
                                         data.map((item, idx) => {
                                             return (
-                                                <option key={idx} value={dataUpdate.subcategory.kat_id}>{item.kat_naziv_sr}</option>
+                                                <option key={idx} value={item.kat_id}>{item.kat_naziv_sr}</option>
                                             )
                                         })
                                     }
@@ -142,10 +152,10 @@ const AddSubCategory = () => {
 
                         <form onSubmit={handleSubmit} >
                             <label htmlFor="">Ime Podkategorije Srpski</label>
-                            <input type="text" placeholder='Ime Podkategorije na Srpskom' name="subcat_sr" value={subcategorySr} onChange={(e) => setSubcategorySr(e.target.value)} />
+                            <input type="text" placeholder='Potkategorija Sr' name="subcat_sr" value={subcategorySr} onChange={(e) => setSubcategorySr(e.target.value)} />
 
                             <label htmlFor="">Ime Podkategorije Engleski</label>
-                            <input type="text" placeholder='Ime Podkategorije na Engleskom' name="subcat_en" value={subcategoryEn} onChange={(e) => setSubcategoryEn(e.target.value)} />
+                            <input type="text" placeholder='Potkategorija En' name="subcat_en" value={subcategoryEn} onChange={(e) => setSubcategoryEn(e.target.value)} />
 
                             <div className="select-input">
                                 <label htmlFor="selectInputs">Kategorija kojoj pripada</label>

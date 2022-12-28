@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import OrdersComponent from '../../components/Dashboard/Orders/Orders'
+import OrdersList from '../../components/Dashboard/OrdersList/OrdersList'
 import DetailsWindow from '../../components/Dashboard/DetailsWindow/DetailsWindow'
 import Header from '../../components/Dashboard/Header/Header'
 import Navbar from '../../components/Dashboard/Navbar/Navbar'
@@ -40,8 +40,21 @@ const Orders = () => {
                         <Header asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
 
                         <div className="main__section category__layout-grid">
-                            <OrdersComponent detailsWindow={detailsWindow} setDetailsWindow={setDetailsWindow} orderDetailsId={orderDetailsId} setOrderDetailsId={setOrderDetailsId} orderOption={orderOption} setOrderOption={setOrderOption} />
-                            <DetailsWindow detailsWindow={detailsWindow} setDetailsWindow={setDetailsWindow} orderDetailsId={orderDetailsId} orderOption={orderOption} setOrderOption={setOrderOption} />
+                            <OrdersList detailsWindow={detailsWindow}
+
+                                setDetailsWindow={setDetailsWindow}
+                                orderDetailsId={orderDetailsId}
+                                setOrderDetailsId={setOrderDetailsId}
+                                orderOption={orderOption}
+                                setOrderOption={setOrderOption} />
+
+                            <DetailsWindow
+
+                                detailsWindow={detailsWindow}
+                                setDetailsWindow={setDetailsWindow}
+                                orderDetailsId={orderDetailsId}
+                                orderOption={orderOption}
+                                setOrderOption={setOrderOption} />
                         </div>
                     </div>
                 </div>

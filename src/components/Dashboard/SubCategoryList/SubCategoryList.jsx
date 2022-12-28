@@ -47,7 +47,7 @@ const SubCategoryList = () => {
 
             api({
                 method: 'post',
-                url: 'subCategoryDashDelete.php',
+                url: 'subcategory.php?fun=delete',
                 data: sendData,
                 config: { headers: { 'Content-Type': 'multipart/form-data' } }
 
@@ -109,14 +109,15 @@ const SubCategoryList = () => {
                                 <th className='column-medium'>Naziv En</th>
                                 <th className='column-medium'>Kategorija</th>
                                 <th className='column-large'>Kreirana</th>
-                                <th className='column-medium'>Kreirao</th>
+                                <th className='column-small'>Kreirao</th>
                                 <th className='column-small options'>Opcije</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             {
-                                subLoading ? <p>Loading...</p> : subData.greska ? <h3 className='color-danger'>{subData.greska}</h3> :
+                                subLoading ? <tr><td><p>Loading...</p></td></tr> : subData.greska ? <tr><td><h3  className='color-danger'>{subData.greska}</h3></td></tr> :
+
                                 subData.map((item, idx) => {
 
                                     return (
@@ -126,7 +127,7 @@ const SubCategoryList = () => {
                                             <td className='column-medium'>{item.podkat_naziv_en}</td>
                                             <td className='column-medium info-cell'>{item.kat_naziv_sr}</td>
                                             <td className='column-large'>{item.podkat_dkreiranja}</td>
-                                            <td className='column-medium'>{item.korisnik_ime} {item.korisnik_prezime}</td>
+                                            <td className='column-small'>{item.korisnik_ime}</td>
                                             {/*<td className='option '><RiEditBoxLine className='icon-dash-info icon-dash-info-hover icon-small ml-15' onClick={() => setIdKat(item.kat_id)} /></td>*/}
 
 

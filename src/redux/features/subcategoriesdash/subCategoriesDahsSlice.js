@@ -6,7 +6,7 @@ export const getDashSubCategory = createAsyncThunk("DASH_SUBCATEGORIES/GET_ALL_S
     try {
         const { data } = await api({
             method: 'get',
-            url: 'subCategoryDash.php',
+            url: 'subcategory.php?fun=read&lokacija=dash',
         });
         return data;
     } catch (error) {

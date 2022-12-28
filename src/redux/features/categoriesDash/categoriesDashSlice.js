@@ -7,7 +7,7 @@ export const getDashCategories = createAsyncThunk("DASH_CATEGORIES/GET_ALL_CATEG
     try {
         const { data } = await api({
             method: 'get',
-            url: 'categoryDash.php',
+            url: 'category.php?fun=read&lokacija=dash',
         });
         return data;
     } catch (error) {
