@@ -39,7 +39,7 @@ const ProductList = () => {
 
         api({
             method: 'post',
-            url: 'productDelete.php',
+            url: 'product.php?fun=delete',
             data: sendData,
             config: { headers: { 'Content-Type': 'multipart/form-data' } }
         })

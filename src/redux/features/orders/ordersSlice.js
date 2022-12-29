@@ -6,7 +6,7 @@ export const getDashOrders = createAsyncThunk("DASH_ORDERS/GET_ALL_ORDERS", asyn
     try {
         const { data } = await api({
             method: 'get',
-            url: 'ordersGet.php',
+            url: 'order.php?fun=read',
         });
         return data;
     } catch (error) {

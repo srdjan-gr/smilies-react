@@ -126,7 +126,7 @@ const AddProduct = () => {
 
     api({
       method: 'post',
-      url: 'productAdd.php',
+      url: 'product.php?fun=add',
       data: formData,
 
     })

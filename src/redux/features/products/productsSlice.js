@@ -8,7 +8,7 @@ export const getProducts = createAsyncThunk("GET_PRODUCTS/GET_ALL_PRODUCTS", asy
     try {
         const { data } = await api({
             method: 'get',
-            url: 'productGet.php',
+            url: 'product.php?fun=read',
         });
         return data;
     } catch (error) {

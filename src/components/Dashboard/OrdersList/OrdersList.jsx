@@ -40,7 +40,7 @@ const Orders = ({ detailsWindow, setDetailsWindow, setOrderDetailsId, orderOptio
 
             api({
                 method: 'post',
-                url: 'orderDelete.php',
+                url: 'order.php?fun=delete',
                 data: sendData,
                 config: { headers: { 'Content-Type': 'multipart/form-data' } }
             })

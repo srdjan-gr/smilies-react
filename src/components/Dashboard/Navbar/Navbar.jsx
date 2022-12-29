@@ -86,7 +86,7 @@ const Navbar = ({ asideMenu, setAsideMenu }) => {
                                 </div>
                                 <div className='group-header'>
                                     <Link to="/dashaddproduct" className='link-style-icon'><RiLoginCircleLine className="icon-main" /></Link>
-                                    <span className='link-style'><Link to="/productlog" className='link-style-group'>Log proizvodi</Link></span>
+                                    <span className='link-style'><Link to="/dashProductsLog" className='link-style-group'>Log proizvodi</Link></span>
                                 </div>
                             </ul>
                         </div>

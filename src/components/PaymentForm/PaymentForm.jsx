@@ -79,7 +79,7 @@ const PaymentForm = () => {
    
             api({
                 method: 'post',
-                url: 'orderAdd.php',
+                url: 'order.php?fun=add',
                 data: sendData,
             })
                 .then((response) => {
