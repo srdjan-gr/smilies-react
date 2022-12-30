@@ -178,8 +178,15 @@
 }
 
 .toggleHeader {
-    min-height: 17rem;
+    min-height: 13rem;
     background-color: $dash-second;
+    border: 1px solid $dash-accent-muted;
+}
+
+.toggleHeader-xl {
+    min-height: 24rem;
+    background-color: $dash-second;
+    border: 1px solid $dash-accent-muted;
 }
 
 .group.toggleHeader .group-content span {

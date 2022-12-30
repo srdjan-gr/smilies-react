@@ -4,13 +4,13 @@ import Navbar from '../../components/Dashboard/Navbar/Navbar'
 import ErrorPage from '../ErrorPage/ErrorPage';
 import jwt from 'jwt-decode'
 
-import ProductLogList from '../../components/Dashboard/LogLists/ProductLogList'
+import UsersLoginLogList from '../../components/Dashboard/LogLists/UserLoginLogList'
 
 import { useDispatch } from 'react-redux';
 import { getDashOrders } from "../../redux/features/orders/ordersSlice"
 
-const DashProductLog = () => {
-    document.title = 'Log products';
+const DashUsersLog = () => {
+    document.title = 'Log LogedUsers';
 
     const [asideMenu, setAsideMenu] = useState(false);
     const [devider, setDevider] = useState(false);
@@ -42,7 +42,7 @@ const DashProductLog = () => {
                         <Header asideMenu={asideMenu} setAsideMenu={setAsideMenu} />
 
                         <div className="main__section">
-                            <ProductLogList />
+                            <UsersLoginLogList />
 
 
                         </div>
@@ -62,4 +62,4 @@ const DashProductLog = () => {
 
 }
 
-export default DashProductLog
+export default DashUsersLog

@@ -32,7 +32,13 @@ import DashCategories from './pages/Dashboard/DashCategories';
 import DashSubCategories from './pages/Dashboard/DashSubCategories';
 import DashCreateProduct from './pages/Dashboard/DashCreateProduct';
 import DashProductList from './pages/Dashboard/DashProductList';
-import ProductsLog from './pages/Dashboard/dashProductLog';
+
+import DashLogedUsersLog from './pages/Dashboard/DashLogedUsersLog';
+import DashRegisteredUsersLog from './pages/Dashboard/DashRegisteredUsersLog.js';
+import DashCategoryLog from './pages/Dashboard/DashCategoryLog';
+import DashSubCategoryLog from './pages/Dashboard/DashSubCategoryLog';
+import DashProductsLog from './pages/Dashboard/DashProductLog';
+
 import Payment from './pages/Payment/Payment';
 import Orders from './pages/Dashboard/Orders';
 
@@ -87,7 +93,11 @@ function App() {
           <Route path='/DashSubCategories' element={<DashSubCategories location={location} setLocation={setLocation} />} />
           <Route path='/DashCreateProduct' element={<DashCreateProduct location={location} setLocation={setLocation} />} />
           <Route path='/productlist' element={<DashProductList location={location} setLocation={setLocation} />} />
-          <Route path='/dashproductsLog' element={<ProductsLog location={location} setLocation={setLocation} />} />
+          <Route path='/dashproductsLog' element={<DashProductsLog location={location} setLocation={setLocation} />} />
+          <Route path='/DashLogedUsersLog' element={<DashLogedUsersLog location={location} setLocation={setLocation} />} />
+          <Route path='/DashRegisteredUsersLog' element={<DashRegisteredUsersLog location={location} setLocation={setLocation} />} />
+          <Route path='/dashcategoryLog' element={<DashCategoryLog location={location} setLocation={setLocation} />} />
+          <Route path='/dashsubcategoryLog' element={<DashSubCategoryLog location={location} setLocation={setLocation} />} />
 
           <Route path='/orders' element={<Orders location={location} setLocation={setLocation} />} />
 

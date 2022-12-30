@@ -741,8 +741,15 @@
 }
 
 .toggleHeader {
-  min-height: 17rem;
+  min-height: 13rem;
   background-color: #242430;
+  border: 1px solid rgba(217, 165, 33, 0.3);
+}
+
+.toggleHeader-xl {
+  min-height: 24rem;
+  background-color: #242430;
+  border: 1px solid rgba(217, 165, 33, 0.3);
 }
 
 .group.toggleHeader .group-content span {
@@ -1263,13 +1270,27 @@
   width: 100%;
   height: 100%;
 }
-.logList_container-date {
+.logList_container-options {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  gap: 2rem;
+}
+.logList_container-options .custom-margin {
+  margin-bottom: 0.3rem;
+}
+.logList_container-options .logButton {
+  background-color: transparent;
+  border: none;
+}
+.logList_container-options .option--container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5rem;
   width: 30rem;
 }
-.logList_container-date select {
+.logList_container-options .option--container select,
+.logList_container-options .option--container input {
   width: 100%;
   height: 3.6rem;
   padding: 0 1rem;
@@ -1278,11 +1299,12 @@
 }
 .logList_container article {
   width: 100%;
-  height: calc(100% - 1rem - 1rem - 6rem - 6rem - 1rem);
+  height: calc(100% - 1rem - 1rem - 4rem - 2rem);
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.267);
   border-radius: 4px;
   overflow-y: scroll;
+  white-space: break-spaces;
 }
 
 .mobile-menu {
